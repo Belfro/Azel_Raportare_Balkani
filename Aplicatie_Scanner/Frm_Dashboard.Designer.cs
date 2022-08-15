@@ -106,7 +106,7 @@
             this.newCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.newCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.newCalendar1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.newCalendar1.Location = new System.Drawing.Point(476, 272);
+            this.newCalendar1.Location = new System.Drawing.Point(476, 18);
             this.newCalendar1.Name = "newCalendar1";
             this.newCalendar1.TabIndex = 37;
             this.newCalendar1.TitleBackColor = System.Drawing.Color.White;

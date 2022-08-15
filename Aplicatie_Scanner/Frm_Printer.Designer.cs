@@ -60,6 +60,7 @@
             this.lblLungime = new System.Windows.Forms.Label();
             this.cbLungime = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -137,7 +138,7 @@
             this.PrinterCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.PrinterCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.PrinterCalendar.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PrinterCalendar.Location = new System.Drawing.Point(494, 33);
+            this.PrinterCalendar.Location = new System.Drawing.Point(491, 46);
             this.PrinterCalendar.Name = "PrinterCalendar";
             this.PrinterCalendar.TabIndex = 42;
             this.PrinterCalendar.TitleBackColor = System.Drawing.Color.White;
@@ -388,12 +389,25 @@
             this.label5.TabIndex = 63;
             this.label5.Text = "Net: ";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Cursor = System.Windows.Forms.Cursors.No;
+            this.label6.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(336, 248);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 17);
+            this.label6.TabIndex = 64;
+            this.label6.Text = "Net: ";
+            // 
             // Frm_Printer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(740, 516);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblLungime);
             this.Controls.Add(this.cbLungime);
@@ -462,5 +476,6 @@
         private Label lblLungime;
         private ComboBox cbLungime;
         private Label label5;
+        private Label label6;
     }
 }
