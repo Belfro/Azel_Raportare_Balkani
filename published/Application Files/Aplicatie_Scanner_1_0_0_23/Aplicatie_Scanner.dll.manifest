@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Aplicatie_Scanner.exe" version="1.0.0.23" publicKeyToken="bcd3235b4e113daf" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Launcher" version="7.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Launcher.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Launcher.exe" size="16856">
+      <assemblyIdentity name="Launcher" version="7.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>yoxo9Wl9Y+KVgN3AgX7mIPd5W41/fyh7xnLVn+fxYZA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Aplicatie_Scanner.dll.config" size="413">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9gckRm1x8XET3/k8mSYmrKZ9NG+3V+igKJ7yLRLE75M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Aplicatie_Scanner.exe" size="7305504">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>yATBE5aoz0FJQOvo9Zh1P46KfVN7UANtCS6NyJOX7ZM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="sni.dll" size="136488">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FEbWsm2kmlqfNmly+J9OI2+RaVXzHdw467liF8HKzpw=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=MACHFTD\andrei.stan" issuerKeyHash="7a2763e610129bdd3a66f2cd8f880a0d475d4fbe" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>PEmhOGidDrOX0WDwACKZUJQ8cqbF8K8SpqY31tnRqTQ=</DigestValue></Reference></SignedInfo><SignatureValue>fKueMQGzKvXGEkOjFD6f7hDF+pd8qyB6Ir/w0l1Lfh23rbgYnEbq5H40TO11s8A9ZSowDhkZAMhCCgLuxY1P0hVNhE/pBUinMWzm6D47mi1B1brzVVsGuFeNkKmBkrjIXwY/EKMTcFGUNblPcjNYgfdzM2yCQZD33Ag34NF9n+Q=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>tKUEu7qdMPEQ/sJa2p2VDeOHUR929EylY1UR4VGMiaGyFwDU8pMC/b/3yaoOkwhsY240WmnA/yE4esacgYNLk13q3Lvzs0KCMAo0ZUGDA+DOhh4XfpRazv0YUyiKbV4bhrS69R1Rqi0phrGrKsj6KH6YYyTKZL01ZvttedVpd90=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="34a9d1d9d637a6a612aff0c5a6723c9450992200f060d197b30e9d6838a1493c" Description="" Url=""><as:assemblyIdentity name="Aplicatie_Scanner.exe" version="1.0.0.23" publicKeyToken="bcd3235b4e113daf" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MACHFTD\andrei.stan</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ukuUrjRGmHxF/SM1g0O8pfOqdwTI5HxynnIbVhKl23U=</DigestValue></Reference></SignedInfo><SignatureValue>qeFEgRqy4eVs1QwYMjK52lj/cjxa5KH+OU5NBdyLy3dAv1A5mpxhY+0CV1qu9Vfm3uCq5mMG2++2lll3pKAqi08jaopwFI26Ml6oGA/UFQ7kVKVW9u/gyNl1CHQfHT7yClYiaVJv71QPSmzkvkAfySCT0gCWWYkXHx9HPv319rg=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tKUEu7qdMPEQ/sJa2p2VDeOHUR929EylY1UR4VGMiaGyFwDU8pMC/b/3yaoOkwhsY240WmnA/yE4esacgYNLk13q3Lvzs0KCMAo0ZUGDA+DOhh4XfpRazv0YUyiKbV4bhrS69R1Rqi0phrGrKsj6KH6YYyTKZL01ZvttedVpd90=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB5TCCAU6gAwIBAgIQdC//u3zapa1JsMlluMSr8TANBgkqhkiG9w0BAQsFADAxMS8wLQYDVQQDHiYATQBBAEMASABGAFQARABcAGEAbgBkAHIAZQBpAC4AcwB0AGEAbjAeFw0yMjA4MTUxMjUwMjhaFw0yMzA4MTUxODUwMjhaMDExLzAtBgNVBAMeJgBNAEEAQwBIAEYAVABEAFwAYQBuAGQAcgBlAGkALgBzAHQAYQBuMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0pQS7up0w8RD+wlranZUN44dRH3b0TKVjVRHhUYyJobIXANTykwL9v/fJqg6TCGxjbjRaacD/ITh6xpyBg0uTXercu/OzQoIwCjRlQYMD4M6GHhd+lFrO/RhTKIptXhuGtLr1HVGqLSmGsasqyPoofphjJMpkvTVm+2151Wl33QIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAHGLtneY0xFf1T4woTikTSuIN61PNvVKl5fvPktDSvaI9rRe2n40UPQKs6VsLV6w8KPyOSQCORpSMQ9mZvQV2Gh/BywDu/U3JaZF3Ybn11HnB91+Q6shrV01rhEoTdasP2bea+Omm7YISh/rPaJKrHSFM+ptLLtqIyxnshzPd8nH</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
