@@ -1,0 +1,4 @@
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Publish\V1\Aplicatie_Scanner.pdb
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Publish\V1\Aplicatie_Scanner.dll.config
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Publish\V1\sni.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Publish\V1\Aplicatie_Scanner.exe
