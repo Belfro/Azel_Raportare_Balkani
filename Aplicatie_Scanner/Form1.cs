@@ -11,9 +11,10 @@ using System.Runtime.InteropServices;
 
 namespace Aplicatie_Scanner
 {
+   
     public partial class Aplicatie_Scanare : Form
     {
-
+        
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -25,7 +26,8 @@ namespace Aplicatie_Scanner
     int nWidthEllipse,
     int nHeightEllipse
     );
-
+        public Region Old_Region;
+        public Size Panel_Old_Size;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -38,19 +40,19 @@ namespace Aplicatie_Scanner
         public Aplicatie_Scanare()
         {
             InitializeComponent();
+            Old_Region = Region;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            Panel_Nav.Height = Btn_Dashboard.Height;
-            Panel_Nav.Top = Btn_Dashboard.Top;
-            Panel_Nav.Left = Btn_Dashboard.Left;
-            Btn_Dashboard.BackColor = Color.FromArgb(46, 51, 73);
+            Panel_Nav.Height = Btn_Printer.Height;
+            Panel_Nav.Top = Btn_Printer.Top;
+            //Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
 
 
-            lbltitle.Text = "Dashboard";
+            lbltitle.Text = "Printer";
             this.Panel_Form_Loader.Controls.Clear();
-            Frm_Dashboard Frm_Dashboard_Vrb = new Frm_Dashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            Frm_Dashboard_Vrb.FormBorderStyle = FormBorderStyle.None;
-            this.Panel_Form_Loader.Controls.Add(Frm_Dashboard_Vrb);
-            Frm_Dashboard_Vrb.Show();
+            Frm_Printer Frm_Printer_Vrb = new Frm_Printer() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_Printer_Vrb.FormBorderStyle = FormBorderStyle.None;
+            this.Panel_Form_Loader.Controls.Add(Frm_Printer_Vrb);
+            Frm_Printer_Vrb.Show();
 
             timer_timp.Start();
 
@@ -66,7 +68,7 @@ namespace Aplicatie_Scanner
         {
             Panel_Nav.Height = Btn_Settings.Height;
             Panel_Nav.Top = Btn_Settings.Top;
-            Btn_Settings.BackColor = Color.FromArgb(46, 51, 73);
+            //Btn_Settings.BackColor = Color.FromArgb(46, 51, 73);
 
 
             lbltitle.Text = "Settings";
@@ -87,7 +89,7 @@ namespace Aplicatie_Scanner
             Panel_Nav.Height = Btn_Dashboard.Height;
             Panel_Nav.Top = Btn_Dashboard.Top;
             Panel_Nav.Left = Btn_Dashboard.Left;
-            Btn_Dashboard.BackColor = Color.FromArgb(46, 51, 73);
+           // Btn_Dashboard.BackColor = Color.FromArgb(46, 51, 73);
 
             lbltitle.Text = "Dashboard";
             this.Panel_Form_Loader.Controls.Clear();
@@ -103,7 +105,7 @@ namespace Aplicatie_Scanner
         {
             Panel_Nav.Height = Btn_Scanner.Height;
             Panel_Nav.Top = Btn_Scanner.Top;
-            Btn_Scanner.BackColor = Color.FromArgb(46, 51, 73);
+           // Btn_Scanner.BackColor = Color.FromArgb(46, 51, 73);
 
             lbltitle.Text = "Scanner";
             this.Panel_Form_Loader.Controls.Clear();
@@ -117,7 +119,7 @@ namespace Aplicatie_Scanner
         {
             Panel_Nav.Height = Btn_Printer.Height;
             Panel_Nav.Top = Btn_Printer.Top;
-            Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
+          //  Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
 
 
             lbltitle.Text = "Printer";
@@ -180,6 +182,24 @@ namespace Aplicatie_Scanner
         private void Aplicatie_Scanare_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Btn_Maximize_Click(object sender, EventArgs e)
+        {
+            
+            if (this.WindowState == FormWindowState.Normal)
+            { this.WindowState = FormWindowState.Maximized;
+                Region = Old_Region;
+                Panel_Old_Size = Panel_Form_Loader.Size;
+                Panel_Form_Loader.Size = new Size(this.Size.Width-186, this.Size.Height - 150);
+               
+            }
+            else
+                { this.WindowState = FormWindowState.Normal;
+                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25)) ;
+                Btn_Close_App.Location.Offset(-500, 0);
+                Panel_Form_Loader.Size = Panel_Old_Size;
+            }
         }
     }
 }

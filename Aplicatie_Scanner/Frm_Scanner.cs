@@ -39,7 +39,7 @@ namespace Aplicatie_Scanner
         }
         private void Trigger_Click(object sender, EventArgs e)
         {
-
+            Webcam = new VideoCaptureDevice(Filtru[cboDevice.SelectedIndex].MonikerString);
             Webcam.NewFrame += Webcam_Newframe;
             Webcam.Start();
             timer1.Start();

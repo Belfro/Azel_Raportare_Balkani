@@ -12,16 +12,16 @@ namespace Aplicatie_Scanner
 {
     public class DataAccess
     {
-       public List<DateDB> GetDateToataZiua(DateTime DataSetata1, DateTime DataSetata2, DateTime timpselectat)
+       public List<DateDB> GetDateToataZiua(DateTime DataSetata1, DateTime DataSetata2)
         {
 
             try
             { 
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SampleDB")))
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
                 {
 
 
-                    var output = connection.Query<DateDB>($"select * from Date WHERE Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}' ORDER BY Data_Timp").ToList();
+                    var output = connection.Query<DateDB>($"select * from Produse WHERE Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}' ORDER BY Data_Timp").ToList();
                     // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
 
 
@@ -40,36 +40,95 @@ namespace Aplicatie_Scanner
 
 
         }
-   /*     public List<DateDB> GetDateOra(DateTime DataSetata1, DateTime DataSetata2, DateTime timpselectat)
+
+        public async Task<List<DateFurnizori>> GetDateFurnizori()
         {
 
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SampleDB")))
+            try
+            {
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                {
+
+
+                    var output = connection.Query<DateFurnizori>($"SELECT Denumire FROM Furnizori ORDER BY Data_Timp").ToList();
+                    // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
+
+
+
+
+                    return output;
+                }
+
+            }
+            catch (Exception ex)
             {
 
-                var output = connection.Query<DateDB>($"select * from Linia_2 WHERE ((Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}') AND (DATEPART(HOUR,Data_Timp) = DATEPART(HOUR,'{timpselectat.Hour.ToString("D2")}:00'))) ORDER BY Data_Timp").ToList();
-                // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
-
-
-
-
-                return output;
+                
+                return null;
             }
+
+
         }
-        public List<DateDB> GetDateIntervalOrar(DateTime DataSetata1, DateTime DataSetata2, DateTime timpselectat1, DateTime timpselectat2)
+
+        public async Task<List<DateCalitate>> GetDateCalitate()
         {
 
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SampleDB")))
+            try
+            {
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                {
+
+
+                    var output = connection.Query<DateCalitate>($"SELECT Calitate FROM Calitate").ToList();
+                    // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
+
+
+
+                   
+                    return output;
+                }
+
+            }
+            catch (Exception ex)
             {
 
-                var output = connection.Query<DateDB>($"select * from Linia_2 WHERE ((Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}') AND (DATEPART(HOUR,Data_Timp) BETWEEN DATEPART(HOUR,'{timpselectat1.Hour.ToString("D2")}:00') AND DATEPART(HOUR,'{timpselectat2.Hour.ToString("D2")}:00'))) ORDER BY Data_Timp").ToList();
-                // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
 
-
-
-
-                return output;
+                 // MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
+                return null;
             }
-        }*/
+
+
+        }
+        /*     public List<DateDB> GetDateOra(DateTime DataSetata1, DateTime DataSetata2, DateTime timpselectat)
+             {
+
+                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                 {
+
+                     var output = connection.Query<DateDB>($"select * from Linia_2 WHERE ((Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}') AND (DATEPART(HOUR,Data_Timp) = DATEPART(HOUR,'{timpselectat.Hour.ToString("D2")}:00'))) ORDER BY Data_Timp").ToList();
+                     // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
+
+
+
+
+                     return output;
+                 }
+             }
+             public List<DateDB> GetDateIntervalOrar(DateTime DataSetata1, DateTime DataSetata2, DateTime timpselectat1, DateTime timpselectat2)
+             {
+
+                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                 {
+
+                     var output = connection.Query<DateDB>($"select * from Linia_2 WHERE ((Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}') AND (DATEPART(HOUR,Data_Timp) BETWEEN DATEPART(HOUR,'{timpselectat1.Hour.ToString("D2")}:00') AND DATEPART(HOUR,'{timpselectat2.Hour.ToString("D2")}:00'))) ORDER BY Data_Timp").ToList();
+                     // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
+
+
+
+
+                     return output;
+                 }
+             }*/
         internal List<DateDB> GetDate(object text)
         {
             throw new NotImplementedException();
@@ -77,7 +136,7 @@ namespace Aplicatie_Scanner
 
     /*    public double? SumData1(DateTime DataSetata1, DateTime DataSetata2)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SampleDB")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
             {
 
                 var output_sum = connection.Query($"select SUM(Cantitate_Descarcata_Snec_1) As Suma from Linia_2 WHERE Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}' ORDER BY Data_Timp ").SingleOrDefault();
@@ -92,7 +151,7 @@ namespace Aplicatie_Scanner
 
         /*  public void InsertDate(float Data1, float Data2, float Data3, DateTime DataTimp)
           {
-              using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SampleDB")))
+              using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
               {
                   //Person newPerson = new Person { FirstName = firstName, LastName = lastName, EmailAddress = emailAddress, PhoneNumber = phoneNumber };
                   List<DateDB> Date_Ins = new List<DateDB>();

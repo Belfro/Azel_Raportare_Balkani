@@ -42,13 +42,15 @@ namespace Aplicatie_Scanner
             this.Btn_Scanner = new System.Windows.Forms.Button();
             this.Btn_Dashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_time = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Panel_Form_Loader = new System.Windows.Forms.Panel();
             this.Btn_Close_App = new System.Windows.Forms.Button();
             this.Btn_Minimize = new System.Windows.Forms.Button();
-            this.Panel_Form_Loader = new System.Windows.Forms.Panel();
             this.lbltitle = new System.Windows.Forms.Label();
             this.timer_timp = new System.Windows.Forms.Timer(this.components);
+            this.Btn_Maximize = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -150,6 +152,7 @@ namespace Aplicatie_Scanner
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.lbl_time);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -157,6 +160,13 @@ namespace Aplicatie_Scanner
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(186, 144);
             this.panel2.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(185, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(765, 78);
+            this.panel3.TabIndex = 16;
             // 
             // lbl_time
             // 
@@ -183,8 +193,16 @@ namespace Aplicatie_Scanner
             this.label1.Text = "AZEL Database \r\nManagement Studio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Panel_Form_Loader
+            // 
+            this.Panel_Form_Loader.Location = new System.Drawing.Point(185, 61);
+            this.Panel_Form_Loader.Name = "Panel_Form_Loader";
+            this.Panel_Form_Loader.Size = new System.Drawing.Size(740, 516);
+            this.Panel_Form_Loader.TabIndex = 15;
+            // 
             // Btn_Close_App
             // 
+            this.Btn_Close_App.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Close_App.FlatAppearance.BorderSize = 0;
             this.Btn_Close_App.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Close_App.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -200,11 +218,12 @@ namespace Aplicatie_Scanner
             // 
             // Btn_Minimize
             // 
+            this.Btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Minimize.FlatAppearance.BorderSize = 0;
             this.Btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.Btn_Minimize.Location = new System.Drawing.Point(859, 23);
+            this.Btn_Minimize.Location = new System.Drawing.Point(831, 20);
             this.Btn_Minimize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Minimize.Name = "Btn_Minimize";
             this.Btn_Minimize.Size = new System.Drawing.Size(29, 29);
@@ -212,14 +231,6 @@ namespace Aplicatie_Scanner
             this.Btn_Minimize.Text = "_";
             this.Btn_Minimize.UseVisualStyleBackColor = true;
             this.Btn_Minimize.Click += new System.EventHandler(this.Btn_Minimize_Click);
-            // 
-            // Panel_Form_Loader
-            // 
-            this.Panel_Form_Loader.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Panel_Form_Loader.Location = new System.Drawing.Point(186, 100);
-            this.Panel_Form_Loader.Name = "Panel_Form_Loader";
-            this.Panel_Form_Loader.Size = new System.Drawing.Size(765, 477);
-            this.Panel_Form_Loader.TabIndex = 15;
             // 
             // lbltitle
             // 
@@ -237,12 +248,29 @@ namespace Aplicatie_Scanner
             // 
             this.timer_timp.Tick += new System.EventHandler(this.timer_timp_Tick);
             // 
+            // Btn_Maximize
+            // 
+            this.Btn_Maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Maximize.FlatAppearance.BorderSize = 0;
+            this.Btn_Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Maximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Btn_Maximize.ForeColor = System.Drawing.Color.White;
+            this.Btn_Maximize.Location = new System.Drawing.Point(863, 23);
+            this.Btn_Maximize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Btn_Maximize.Name = "Btn_Maximize";
+            this.Btn_Maximize.Size = new System.Drawing.Size(29, 29);
+            this.Btn_Maximize.TabIndex = 20;
+            this.Btn_Maximize.Text = "🗖";
+            this.Btn_Maximize.UseVisualStyleBackColor = true;
+            this.Btn_Maximize.Click += new System.EventHandler(this.Btn_Maximize_Click);
+            // 
             // Aplicatie_Scanare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.Btn_Maximize);
             this.Controls.Add(this.lbltitle);
             this.Controls.Add(this.Panel_Form_Loader);
             this.Controls.Add(this.Btn_Minimize);
@@ -276,5 +304,7 @@ namespace Aplicatie_Scanner
         private Panel Panel_Form_Loader;
         private Label lbltitle;
         private System.Windows.Forms.Timer timer_timp;
+        private Button Btn_Maximize;
+        private Panel panel3;
     }
 }
