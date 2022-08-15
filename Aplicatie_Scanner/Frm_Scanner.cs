@@ -29,7 +29,7 @@ namespace Aplicatie_Scanner
             Filtru = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filterInfo in Filtru)
                 cboDevice.Items.Add(filterInfo.Name);
-            cboDevice.SelectedIndex = 0;
+            cboDevice.SelectedIndex = 1;
             Webcam = new VideoCaptureDevice(Filtru[cboDevice.SelectedIndex].MonikerString);
 
         }
@@ -100,6 +100,11 @@ namespace Aplicatie_Scanner
             if (Webcam.IsRunning)
                 Webcam.SignalToStop();
             pictureBox1.Image = null;
+        }
+
+        private void cboDevice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

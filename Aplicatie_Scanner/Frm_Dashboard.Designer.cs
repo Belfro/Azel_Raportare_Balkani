@@ -119,7 +119,7 @@
             this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Search.ForeColor = System.Drawing.Color.White;
-            this.Search.Location = new System.Drawing.Point(476, 208);
+            this.Search.Location = new System.Drawing.Point(476, 220);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(234, 50);
             this.Search.TabIndex = 38;

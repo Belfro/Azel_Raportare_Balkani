@@ -60,6 +60,7 @@
             this.cboDevice.Name = "cboDevice";
             this.cboDevice.Size = new System.Drawing.Size(505, 23);
             this.cboDevice.TabIndex = 36;
+            this.cboDevice.SelectedIndexChanged += new System.EventHandler(this.cboDevice_SelectedIndexChanged);
             // 
             // button1
             // 
