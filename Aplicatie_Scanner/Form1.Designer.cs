@@ -188,7 +188,7 @@ namespace Aplicatie_Scanner
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.label1.Location = new System.Drawing.Point(21, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 32);
+            this.label1.Size = new System.Drawing.Size(144, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "AZEL Database \r\nManagement Studio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -197,7 +197,7 @@ namespace Aplicatie_Scanner
             // 
             this.Panel_Form_Loader.Location = new System.Drawing.Point(185, 61);
             this.Panel_Form_Loader.Name = "Panel_Form_Loader";
-            this.Panel_Form_Loader.Size = new System.Drawing.Size(740, 516);
+            this.Panel_Form_Loader.Size = new System.Drawing.Size(733, 516);
             this.Panel_Form_Loader.TabIndex = 15;
             // 
             // Btn_Close_App
@@ -207,7 +207,7 @@ namespace Aplicatie_Scanner
             this.Btn_Close_App.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Close_App.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Close_App.ForeColor = System.Drawing.Color.White;
-            this.Btn_Close_App.Location = new System.Drawing.Point(896, 23);
+            this.Btn_Close_App.Location = new System.Drawing.Point(922, 23);
             this.Btn_Close_App.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Close_App.Name = "Btn_Close_App";
             this.Btn_Close_App.Size = new System.Drawing.Size(29, 29);
@@ -223,7 +223,7 @@ namespace Aplicatie_Scanner
             this.Btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.Btn_Minimize.Location = new System.Drawing.Point(831, 20);
+            this.Btn_Minimize.Location = new System.Drawing.Point(857, 20);
             this.Btn_Minimize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Minimize.Name = "Btn_Minimize";
             this.Btn_Minimize.Size = new System.Drawing.Size(29, 29);
@@ -255,7 +255,7 @@ namespace Aplicatie_Scanner
             this.Btn_Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Maximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Maximize.ForeColor = System.Drawing.Color.White;
-            this.Btn_Maximize.Location = new System.Drawing.Point(863, 23);
+            this.Btn_Maximize.Location = new System.Drawing.Point(889, 23);
             this.Btn_Maximize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Maximize.Name = "Btn_Maximize";
             this.Btn_Maximize.Size = new System.Drawing.Size(29, 29);
@@ -269,7 +269,7 @@ namespace Aplicatie_Scanner
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(951, 577);
+            this.ClientSize = new System.Drawing.Size(977, 577);
             this.Controls.Add(this.Btn_Maximize);
             this.Controls.Add(this.lbltitle);
             this.Controls.Add(this.Panel_Form_Loader);
