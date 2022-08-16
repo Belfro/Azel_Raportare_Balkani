@@ -72,7 +72,7 @@
             this.button_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_print.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button_print.ForeColor = System.Drawing.Color.Black;
-            this.button_print.Location = new System.Drawing.Point(586, 298);
+            this.button_print.Location = new System.Drawing.Point(577, 304);
             this.button_print.Name = "button_print";
             this.button_print.Size = new System.Drawing.Size(142, 89);
             this.button_print.TabIndex = 35;
@@ -94,7 +94,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(627, 425);
+            this.pictureBox2.Location = new System.Drawing.Point(677, 425);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(101, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,7 +120,7 @@
             this.cbFurnizor.FormattingEnabled = true;
             this.cbFurnizor.Location = new System.Drawing.Point(318, 72);
             this.cbFurnizor.Name = "cbFurnizor";
-            this.cbFurnizor.Size = new System.Drawing.Size(170, 23);
+            this.cbFurnizor.Size = new System.Drawing.Size(172, 23);
             this.cbFurnizor.TabIndex = 40;
             this.cbFurnizor.SelectionChangeCommitted += new System.EventHandler(this.cbFurnizor_SelectionChangeCommitted);
             // 
@@ -144,7 +144,7 @@
             this.PrinterCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.PrinterCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.PrinterCalendar.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PrinterCalendar.Location = new System.Drawing.Point(491, 46);
+            this.PrinterCalendar.Location = new System.Drawing.Point(495, 46);
             this.PrinterCalendar.Name = "PrinterCalendar";
             this.PrinterCalendar.TabIndex = 42;
             this.PrinterCalendar.TitleBackColor = System.Drawing.Color.White;
@@ -169,7 +169,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNrAviz.Location = new System.Drawing.Point(318, 118);
             this.tbNrAviz.Name = "tbNrAviz";
-            this.tbNrAviz.Size = new System.Drawing.Size(170, 23);
+            this.tbNrAviz.Size = new System.Drawing.Size(172, 23);
             this.tbNrAviz.TabIndex = 45;
             // 
             // tbDiametruBrut
@@ -178,7 +178,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDiametruBrut.Location = new System.Drawing.Point(317, 381);
             this.tbDiametruBrut.Name = "tbDiametruBrut";
-            this.tbDiametruBrut.Size = new System.Drawing.Size(170, 23);
+            this.tbDiametruBrut.Size = new System.Drawing.Size(172, 23);
             this.tbDiametruBrut.TabIndex = 47;
             // 
             // lblDiametru
@@ -216,7 +216,7 @@
             this.cbCalitate.FormattingEnabled = true;
             this.cbCalitate.Location = new System.Drawing.Point(317, 424);
             this.cbCalitate.Name = "cbCalitate";
-            this.cbCalitate.Size = new System.Drawing.Size(170, 23);
+            this.cbCalitate.Size = new System.Drawing.Size(172, 23);
             this.cbCalitate.TabIndex = 49;
             this.cbCalitate.SelectionChangeCommitted += new System.EventHandler(this.cbCalitate_SelectionChangeCommitted);
             // 
@@ -333,7 +333,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNrBucati.Location = new System.Drawing.Point(318, 163);
             this.tbNrBucati.Name = "tbNrBucati";
-            this.tbNrBucati.Size = new System.Drawing.Size(170, 23);
+            this.tbNrBucati.Size = new System.Drawing.Size(172, 23);
             this.tbNrBucati.TabIndex = 56;
             // 
             // lblNrBucati
@@ -356,7 +356,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNrReceptie.Location = new System.Drawing.Point(318, 206);
             this.tbNrReceptie.Name = "tbNrReceptie";
-            this.tbNrReceptie.Size = new System.Drawing.Size(170, 23);
+            this.tbNrReceptie.Size = new System.Drawing.Size(172, 23);
             this.tbNrReceptie.TabIndex = 58;
             // 
             // lblNrReceptie
@@ -408,7 +408,7 @@
             this.cbLungime.FormattingEnabled = true;
             this.cbLungime.Location = new System.Drawing.Point(317, 339);
             this.cbLungime.Name = "cbLungime";
-            this.cbLungime.Size = new System.Drawing.Size(170, 23);
+            this.cbLungime.Size = new System.Drawing.Size(172, 23);
             this.cbLungime.TabIndex = 60;
             // 
             // label5
@@ -418,7 +418,7 @@
             this.label5.Cursor = System.Windows.Forms.Cursors.No;
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(491, 383);
+            this.label5.Location = new System.Drawing.Point(495, 382);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 17);
             this.label5.TabIndex = 63;
@@ -429,7 +429,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(740, 516);
+            this.ClientSize = new System.Drawing.Size(790, 516);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblLungime);
             this.Controls.Add(this.cbLungime);

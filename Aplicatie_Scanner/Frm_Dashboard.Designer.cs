@@ -46,7 +46,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(627, 425);
+            this.pictureBox2.Location = new System.Drawing.Point(677, 425);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(101, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -70,7 +70,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(9, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(467, 472);
+            this.dataGridView1.Size = new System.Drawing.Size(490, 472);
             this.dataGridView1.TabIndex = 35;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -106,7 +106,7 @@
             this.newCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.newCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.newCalendar1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.newCalendar1.Location = new System.Drawing.Point(476, 12);
+            this.newCalendar1.Location = new System.Drawing.Point(499, 12);
             this.newCalendar1.Name = "newCalendar1";
             this.newCalendar1.TabIndex = 37;
             this.newCalendar1.TitleBackColor = System.Drawing.Color.White;
@@ -119,7 +119,7 @@
             this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Search.ForeColor = System.Drawing.Color.White;
-            this.Search.Location = new System.Drawing.Point(476, 220);
+            this.Search.Location = new System.Drawing.Point(499, 207);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(234, 50);
             this.Search.TabIndex = 38;
@@ -132,7 +132,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(740, 516);
+            this.ClientSize = new System.Drawing.Size(790, 516);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.newCalendar1);
             this.Controls.Add(this.dataGridView1);
