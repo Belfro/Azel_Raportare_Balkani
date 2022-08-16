@@ -67,6 +67,7 @@
             // 
             // button_print
             // 
+            this.button_print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_print.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.button_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_print.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -91,8 +92,9 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(648, 390);
+            this.pictureBox2.Location = new System.Drawing.Point(627, 425);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(101, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -113,6 +115,8 @@
             // 
             // cbFurnizor
             // 
+            this.cbFurnizor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbFurnizor.FormattingEnabled = true;
             this.cbFurnizor.Location = new System.Drawing.Point(318, 72);
             this.cbFurnizor.Name = "cbFurnizor";
@@ -122,6 +126,8 @@
             // 
             // lblFurnizor
             // 
+            this.lblFurnizor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFurnizor.AutoSize = true;
             this.lblFurnizor.Cursor = System.Windows.Forms.Cursors.No;
             this.lblFurnizor.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -134,6 +140,7 @@
             // 
             // PrinterCalendar
             // 
+            this.PrinterCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PrinterCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.PrinterCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.PrinterCalendar.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -144,6 +151,8 @@
             // 
             // lblNrAviz
             // 
+            this.lblNrAviz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNrAviz.AutoSize = true;
             this.lblNrAviz.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrAviz.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -156,6 +165,8 @@
             // 
             // tbNrAviz
             // 
+            this.tbNrAviz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNrAviz.Location = new System.Drawing.Point(318, 118);
             this.tbNrAviz.Name = "tbNrAviz";
             this.tbNrAviz.Size = new System.Drawing.Size(170, 23);
@@ -163,6 +174,8 @@
             // 
             // tbDiametruBrut
             // 
+            this.tbDiametruBrut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDiametruBrut.Location = new System.Drawing.Point(317, 381);
             this.tbDiametruBrut.Name = "tbDiametruBrut";
             this.tbDiametruBrut.Size = new System.Drawing.Size(170, 23);
@@ -170,6 +183,8 @@
             // 
             // lblDiametru
             // 
+            this.lblDiametru.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDiametru.AutoSize = true;
             this.lblDiametru.Cursor = System.Windows.Forms.Cursors.No;
             this.lblDiametru.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -182,6 +197,8 @@
             // 
             // lblCalitate
             // 
+            this.lblCalitate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCalitate.AutoSize = true;
             this.lblCalitate.Cursor = System.Windows.Forms.Cursors.No;
             this.lblCalitate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -194,6 +211,8 @@
             // 
             // cbCalitate
             // 
+            this.cbCalitate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCalitate.FormattingEnabled = true;
             this.cbCalitate.Location = new System.Drawing.Point(317, 424);
             this.cbCalitate.Name = "cbCalitate";
@@ -296,6 +315,8 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.No;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -308,6 +329,8 @@
             // 
             // tbNrBucati
             // 
+            this.tbNrBucati.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNrBucati.Location = new System.Drawing.Point(318, 163);
             this.tbNrBucati.Name = "tbNrBucati";
             this.tbNrBucati.Size = new System.Drawing.Size(170, 23);
@@ -315,6 +338,8 @@
             // 
             // lblNrBucati
             // 
+            this.lblNrBucati.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNrBucati.AutoSize = true;
             this.lblNrBucati.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrBucati.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -327,6 +352,8 @@
             // 
             // tbNrReceptie
             // 
+            this.tbNrReceptie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNrReceptie.Location = new System.Drawing.Point(318, 206);
             this.tbNrReceptie.Name = "tbNrReceptie";
             this.tbNrReceptie.Size = new System.Drawing.Size(170, 23);
@@ -334,6 +361,8 @@
             // 
             // lblNrReceptie
             // 
+            this.lblNrReceptie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNrReceptie.AutoSize = true;
             this.lblNrReceptie.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrReceptie.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -346,6 +375,8 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Cursor = System.Windows.Forms.Cursors.No;
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -358,6 +389,8 @@
             // 
             // lblLungime
             // 
+            this.lblLungime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLungime.AutoSize = true;
             this.lblLungime.Cursor = System.Windows.Forms.Cursors.No;
             this.lblLungime.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -370,6 +403,8 @@
             // 
             // cbLungime
             // 
+            this.cbLungime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbLungime.FormattingEnabled = true;
             this.cbLungime.Location = new System.Drawing.Point(317, 339);
             this.cbLungime.Name = "cbLungime";
@@ -378,6 +413,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Cursor = System.Windows.Forms.Cursors.No;
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);

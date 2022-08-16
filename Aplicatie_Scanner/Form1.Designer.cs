@@ -188,7 +188,7 @@ namespace Aplicatie_Scanner
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.label1.Location = new System.Drawing.Point(21, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 32);
+            this.label1.Size = new System.Drawing.Size(147, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "AZEL Database \r\nManagement Studio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -105,7 +105,7 @@ namespace Aplicatie_Scanner
         {
             Panel_Nav.Height = Btn_Scanner.Height;
             Panel_Nav.Top = Btn_Scanner.Top;
-           // Btn_Scanner.BackColor = Color.FromArgb(46, 51, 73);
+           
 
             lbltitle.Text = "Scanner";
             this.Panel_Form_Loader.Controls.Clear();
@@ -113,13 +113,14 @@ namespace Aplicatie_Scanner
             Frm_Scanner_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.Panel_Form_Loader.Controls.Add(Frm_Scanner_Vrb);
             Frm_Scanner_Vrb.Show();
+            Btn_Scanner.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void Btn_Printer_Click(object sender, EventArgs e)
         {
             Panel_Nav.Height = Btn_Printer.Height;
             Panel_Nav.Top = Btn_Printer.Top;
-          //  Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
+            
 
 
             lbltitle.Text = "Printer";
@@ -128,6 +129,7 @@ namespace Aplicatie_Scanner
             Frm_Printer_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.Panel_Form_Loader.Controls.Add(Frm_Printer_Vrb);
             Frm_Printer_Vrb.Show();
+            Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void Btn_Dashboard_Leave(object sender, EventArgs e)

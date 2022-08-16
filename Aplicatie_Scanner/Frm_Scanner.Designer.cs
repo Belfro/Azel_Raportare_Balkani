@@ -45,7 +45,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(620, 390);
+            this.pictureBox2.Location = new System.Drawing.Point(627, 425);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(101, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -58,7 +58,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboDevice.Location = new System.Drawing.Point(28, 70);
             this.cboDevice.Name = "cboDevice";
-            this.cboDevice.Size = new System.Drawing.Size(505, 23);
+            this.cboDevice.Size = new System.Drawing.Size(512, 23);
             this.cboDevice.TabIndex = 36;
             this.cboDevice.SelectedIndexChanged += new System.EventHandler(this.cboDevice_SelectedIndexChanged);
             // 
@@ -70,7 +70,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.button1.Location = new System.Drawing.Point(539, 103);
+            this.button1.Location = new System.Drawing.Point(546, 103);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 51);
             this.button1.TabIndex = 37;
@@ -87,7 +87,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(28, 103);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(505, 281);
+            this.pictureBox1.Size = new System.Drawing.Size(512, 320);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -98,9 +98,9 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(28, 390);
+            this.textBox1.Location = new System.Drawing.Point(28, 429);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(505, 24);
+            this.textBox1.Size = new System.Drawing.Size(512, 24);
             this.textBox1.TabIndex = 39;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -117,7 +117,7 @@
             this.Btn_Disconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Disconnect.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Disconnect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Btn_Disconnect.Location = new System.Drawing.Point(539, 160);
+            this.Btn_Disconnect.Location = new System.Drawing.Point(546, 160);
             this.Btn_Disconnect.Name = "Btn_Disconnect";
             this.Btn_Disconnect.Size = new System.Drawing.Size(125, 51);
             this.Btn_Disconnect.TabIndex = 40;
@@ -130,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(733, 477);
+            this.ClientSize = new System.Drawing.Size(740, 516);
             this.Controls.Add(this.Btn_Disconnect);
             this.Controls.Add(this.cboDevice);
             this.Controls.Add(this.button1);

@@ -32,7 +32,6 @@ C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\sni.dll
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Aplicatie_Scanner.csproj.AssemblyReference.cache
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Aplicatie_Scanner.Aplicatie_Scanare.resources
-C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Dashboard.Form_Copy.resources
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Aplicatie_Scanner.Frm_Dashboard.resources
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Aplicatie_Scanner.Frm_Printer.resources
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Aplicatie_Scanner.Frm_Scanner.resources
