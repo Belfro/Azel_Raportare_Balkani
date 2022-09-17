@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>b1zoci3k.nyc.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="b1zoci3k.nyc.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AForge.Video.DirectShow" Version="2.2.5" />

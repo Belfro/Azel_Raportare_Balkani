@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Aplicatie_Scanner.exe" version="1.0.0.13" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Aplicatie_Scanner.exe" version="1.0.0.14" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="b1zoci3k.nyc.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Launcher" version="7.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -89,13 +90,13 @@
       <dsig:DigestValue>aU+yO7z/2ddcooNVQrDzsVZqnG/ZrSZWLKCt22Xm5xw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Aplicatie_Scanner.dll" size="268800">
+  <file name="Aplicatie_Scanner.dll" size="539648">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>P2j84yR3G7Un5JgLklAXHoa1prKZt9hFx+PRG14m56g=</dsig:DigestValue>
+      <dsig:DigestValue>Qc3W/o7Ff0hU8DgiL1+v24hNq4vBUq5U+cA1GC9fAFM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Aplicatie_Scanner.dll.config" size="413">
@@ -107,13 +108,13 @@
       <dsig:DigestValue>9gckRm1x8XET3/k8mSYmrKZ9NG+3V+igKJ7yLRLE75M=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Aplicatie_Scanner.exe" size="114688">
+  <file name="Aplicatie_Scanner.exe" size="385536">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>yf0OA8P4Sws3ujJBtAiHBq89gf912vTKWXmdviN2Y0k=</dsig:DigestValue>
+      <dsig:DigestValue>isKGlVlNvcQzFtFv5q+GviEtjBHpnDueiBPH51aWEfg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Aplicatie_Scanner.runtimeconfig.json" size="372">
@@ -123,6 +124,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>HsoPDHAHCqg7tgnkt0mybctECXhDJgMnJjlHIiJKCYo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="b1zoci3k.nyc.ico" size="270398">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rODhls3+HxaOxz6LrxlltfPl4R5iX3jBl7zAHpumRnE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="BarcodeStandard.dll" size="98304">
