@@ -50,3 +50,11 @@ C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\refint\Aplicatie_Scanner.dll
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Aplicatie_Scanner.pdb
 C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\ref\Aplicatie_Scanner.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\BarcodeStandard.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\BinaryKits.Zpl.Label.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\BinaryKits.Zpl.Viewer.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\QRCoder.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\SixLabors.ImageSharp.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\SkiaSharp.dll
+C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Aplicatie_Scanner\Aplicatie_Scanner\bin\Release\net6.0-windows\win-x86\libSkiaSharp.dll

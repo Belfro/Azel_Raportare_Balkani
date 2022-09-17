@@ -1,5 +1,8 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using Dapper;
+using System.Data;
+using System.Text;
 using ZXing;
 using ZXing.Windows.Compatibility;
 
@@ -7,6 +10,8 @@ namespace Aplicatie_Scanner
 {
     public partial class Frm_Dashboard : Form
     {
+        List<DateFurnizori> furnizoriList = new List<DateFurnizori>();
+        List<DateCalitate> CalitateList = new List<DateCalitate>();
         public Frm_Dashboard()
         {
             InitializeComponent();
@@ -19,7 +24,7 @@ namespace Aplicatie_Scanner
 
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
-
+            cbZonaSelectie.SelectedIndex = 0;
         }
 
 
@@ -41,13 +46,40 @@ namespace Aplicatie_Scanner
 
         private void Search_Click(object sender, EventArgs e)
         {
+            bool Prima_Conditie_Selectata = false;
+            string Conditii_Get_Date = "";
+            if (checkBoxCalitate.Checked || checkBoxFurnizor.Checked)
+            { Conditii_Get_Date = "WHERE"; }
+
+            if (checkBoxFurnizor.Checked)
+            {
+                if (!Prima_Conditie_Selectata)
+                {
+                    Conditii_Get_Date = Conditii_Get_Date + $" Furnizor = '{cbFurnizor.SelectedItem.ToString()}'";
+                    Prima_Conditie_Selectata=true;
+                }
+                
+            }
+
+            if (checkBoxCalitate.Checked)
+            {
+                if (!Prima_Conditie_Selectata)
+                {
+                    Conditii_Get_Date = Conditii_Get_Date + $" Calitate = '{cbCalitate.SelectedItem.ToString()}'";
+                    Prima_Conditie_Selectata = true;
+                }
+                else
+                Conditii_Get_Date = Conditii_Get_Date + $" AND Calitate = '{cbCalitate.SelectedItem.ToString()}'";
+            }
+            
             try
             {
-
+               
                 DataAccess db = new DataAccess();
-                date = db.GetDateToataZiua(newCalendar1.SelectionStart, newCalendar1.SelectionEnd);
+                date = db.GetDateToataZiua(newCalendar1.SelectionStart, newCalendar1.SelectionEnd,Conditii_Get_Date,cbZonaSelectie.SelectedItem.ToString().Replace(" ","_"));
 
                 UpdateBinding();
+                if (date.Count < 1) MessageBox.Show("Nu a fost gasit niciun produs !");
             }
             catch
             {
@@ -62,27 +94,22 @@ namespace Aplicatie_Scanner
             try
             {
                 dataGridView1.AutoGenerateColumns = false;
-
-
-
-                
-                dataGridView1.DataSource = date;
-
-
+            dataGridView1.DataSource = date;
 
                 dataGridView1.Columns["Data"].DataPropertyName = "DoarData";
                 dataGridView1.Columns["Timp"].DataPropertyName = "DoarTimp";
-                dataGridView1.Columns["Barcode"].DataPropertyName = "Furnizor";
-                dataGridView1.Columns["Cantitate"].DataPropertyName = "Calitate";
-
-
-
-
-
+                dataGridView1.Columns["Locatie_Actuala"].DataPropertyName = "Locatie_Actuala";
+                dataGridView1.Columns["Furnizor"].DataPropertyName = "Furnizor";
+                dataGridView1.Columns["Numar_Aviz"].DataPropertyName = "Numar_Aviz";
+                dataGridView1.Columns["Numar_Bucati"].DataPropertyName = "Numar_Bucati";
+                dataGridView1.Columns["Numar_Receptie"].DataPropertyName = "Numar_Receptie";
+                dataGridView1.Columns["Lungime"].DataPropertyName = "Lungime";
+                dataGridView1.Columns["Diametru"].DataPropertyName = "Diametru";
+                dataGridView1.Columns["Calitate"].DataPropertyName = "Calitate";
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message); 
             }
         }
 
@@ -90,5 +117,59 @@ namespace Aplicatie_Scanner
         {
 
         }
+
+        private void checkBoxFurnizor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxFurnizor.Checked)
+            {
+                cbFurnizor.Visible = true;
+                try
+                {
+                    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                    {
+                        furnizoriList = connection.Query<DateFurnizori>($"select * from Furnizori").ToList();
+                    }
+                    cbFurnizor.Items.Clear();
+                    foreach (DateFurnizori Date in furnizoriList)
+                    {
+                        cbFurnizor.Items.Add(Date.Denumire);
+                    }
+                    cbFurnizor.SelectedIndex = 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);     
+                }
+            }
+            if (!checkBoxFurnizor.Checked)
+                cbFurnizor.Visible = false;
+        }
+
+        private void checkBoxCalitate_CheckedChanged(object sender, EventArgs e)
+        {
+            cbCalitate.Visible = true;
+            try
+            {
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                {
+                    CalitateList = connection.Query<DateCalitate>($"select * from Calitate").ToList();
+                }
+                cbCalitate.Items.Clear();
+                foreach (DateCalitate Date in CalitateList)
+                {
+                    cbCalitate.Items.Add(Date.Calitate);
+                }
+                cbCalitate.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            } 
+            if (!checkBoxCalitate.Checked)
+                cbCalitate.Visible = false;
+        }
+           
+            
+        
     }
 }

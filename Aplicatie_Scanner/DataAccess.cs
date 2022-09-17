@@ -12,7 +12,7 @@ namespace Aplicatie_Scanner
 {
     public class DataAccess
     {
-       public List<DateDB> GetDateToataZiua(DateTime DataSetata1, DateTime DataSetata2)
+       public List<DateDB> GetDateToataZiua(DateTime DataSetata1, DateTime DataSetata2, String Conditii_Where, String Zona_Selectie)
         {
 
             try
@@ -21,15 +21,9 @@ namespace Aplicatie_Scanner
                 {
 
 
-                    var output = connection.Query<DateDB>($"select * from Produse WHERE Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}' ORDER BY Data_Timp").ToList();
-                    // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
-
-
-
-
-                    return output;
+                    var output = connection.Query<DateDB>($"select * from {Zona_Selectie} {Conditii_Where} ORDER BY Data_Timp").ToList();
+                     return output;
                 }
-
             }
             catch (Exception ex)
             {
@@ -37,8 +31,6 @@ namespace Aplicatie_Scanner
                 MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
                 return null;
             }
-
-
         }
 
         public async Task<List<DateFurnizori>> GetDateFurnizori()
@@ -49,13 +41,8 @@ namespace Aplicatie_Scanner
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
                 {
 
-
                     var output = connection.Query<DateFurnizori>($"SELECT Denumire FROM Furnizori ORDER BY Data_Timp").ToList();
                     // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
-
-
-
-
                     return output;
                 }
 
@@ -63,31 +50,21 @@ namespace Aplicatie_Scanner
             catch (Exception ex)
             {
 
-                
                 return null;
             }
-
 
         }
 
         public async Task<List<DateCalitate>> GetDateCalitate()
         {
-
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
                 {
-
-
                     var output = connection.Query<DateCalitate>($"SELECT Calitate FROM Calitate").ToList();
                     // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
-
-
-
-                   
                     return output;
                 }
-
             }
             catch (Exception ex)
             {

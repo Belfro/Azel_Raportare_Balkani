@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <PackageReference Include="AForge.Video.DirectShow" Version="2.2.5" />
+    <PackageReference Include="BinaryKits.Zpl.Viewer" Version="1.1.3">
+      <ExcludeAssets>IZplAnalyzer.cs </ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />

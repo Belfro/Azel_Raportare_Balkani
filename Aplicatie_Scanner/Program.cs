@@ -1,3 +1,5 @@
+
+
 namespace Aplicatie_Scanner
 {
     internal static class Program
@@ -8,12 +10,20 @@ namespace Aplicatie_Scanner
         [STAThread]
         static void Main()
         {
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            
-            ApplicationConfiguration.Initialize();
-           // Application.EnableVisualStyles();
-            Application.Run(new Aplicatie_Scanare());
+
+
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
+           try{ System.Windows.Forms.Application.Run(new Aplicatie_Scanare());
+                }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

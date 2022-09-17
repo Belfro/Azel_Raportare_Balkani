@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using Dapper;
 using ZXing;
 using ZXing.Windows.Compatibility;
 
@@ -21,7 +22,8 @@ namespace Aplicatie_Scanner
             InitializeComponent();
 
         }
-
+        List<DateFurnizori> furnizoriList = new List<DateFurnizori>();
+        List<DateCalitate> calitateList = new List<DateCalitate>();
         FilterInfoCollection Filtru;
         VideoCaptureDevice Webcam;
    private void Frm_Scanner_Load(object sender, EventArgs e)
@@ -77,7 +79,47 @@ namespace Aplicatie_Scanner
                 Result result = reader.Decode((Bitmap)pictureBox1.Image);
                 if (result != null)
                 {
-                    textBox1.Text = result.ToString();
+                   
+                    try
+                    {
+                        using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                        {
+
+
+                            var output = connection.Query<DateDB>($"select * from Etichete_Generate WHERE GUID = '{result.ToString()}' ").ToList();
+                            tbFurnizor.Text = output.FirstOrDefault().Furnizor.ToString();
+                            tbNrAviz.Text = output.FirstOrDefault().Numar_Aviz.ToString();
+                            tbNrBucati.Text = output.FirstOrDefault().Numar_Bucati.ToString();
+                            tbNrReceptie.Text = output.FirstOrDefault().Numar_Receptie.ToString();
+                            tbLungime.Text = output.FirstOrDefault().Lungime.ToString();
+                            tbDiametruBrut.Text = output.FirstOrDefault().Diametru.ToString();
+                            tbLungime.Text = output.FirstOrDefault().Lungime.ToString();
+                            
+                            ////Calcul Automat Diametru NET////
+                            if (output.FirstOrDefault().Diametru >= 42)
+                            {
+                                lblDiametruNet.Text = "Net: " + (output.FirstOrDefault().Diametru - 3).ToString();
+                            } 
+                            else if (output.FirstOrDefault().Diametru > 18 && output.FirstOrDefault().Diametru < 41)
+                            {
+                                lblDiametruNet.Text = "Net: " + (output.FirstOrDefault().Diametru - 2).ToString();
+                            }
+                            else
+                            {
+                                lblDiametruNet.Text = "Net: " + (output.FirstOrDefault().Diametru).ToString();
+                            }
+                            tbCalitate.Text = output.FirstOrDefault().Calitate.ToString();
+
+                            connection.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Error:" + ex.Message);
+                       
+                    }
+                    tbGUIDScanat.Text = result.ToString();
                     timer1.Stop();
                     pictureBox1.Image = null;
                     if (Webcam.IsRunning)

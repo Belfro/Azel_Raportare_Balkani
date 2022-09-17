@@ -11,8 +11,16 @@ namespace Aplicatie_Scanner
     {
         public DateTime Data_Timp { get; set; }
         public string Furnizor { get; set; }
+
+        public int Numar_Aviz { get; set; }
+        public int Numar_Bucati { get; set; }
+
+        public int Numar_Receptie { get; set; }
+        public double Lungime { get; set; }
+        public double Diametru { get; set; }
         public string Calitate { get; set; }
         public string GUID { get; set; }
+        public string Locatie_Actuala { get; set; }
         public string Doardata
         {
             get
@@ -61,5 +69,10 @@ namespace Aplicatie_Scanner
         public float Index { get; set; }
 
         public string Calitate { get; set; }
+    }
+
+    public class DateLungime
+    {
+        public double Lungime{ get; set; }
     }
 }

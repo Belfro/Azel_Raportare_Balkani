@@ -44,7 +44,7 @@ namespace Aplicatie_Scanner
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             Panel_Nav.Height = Btn_Printer.Height;
             Panel_Nav.Top = Btn_Printer.Top;
-            //Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
+            
 
 
             lbltitle.Text = "Printer";
@@ -53,7 +53,7 @@ namespace Aplicatie_Scanner
             Frm_Printer_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.Panel_Form_Loader.Controls.Add(Frm_Printer_Vrb);
             Frm_Printer_Vrb.Show();
-
+            Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
             timer_timp.Start();
 
         }
@@ -68,15 +68,16 @@ namespace Aplicatie_Scanner
         {
             Panel_Nav.Height = Btn_Settings.Height;
             Panel_Nav.Top = Btn_Settings.Top;
-            //Btn_Settings.BackColor = Color.FromArgb(46, 51, 73);
 
 
+            Reset_Btn_BackColor();
             lbltitle.Text = "Settings";
             this.Panel_Form_Loader.Controls.Clear();
             Frm_Settings Frm_Settings_Vrb = new Frm_Settings() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             Frm_Settings_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.Panel_Form_Loader.Controls.Add(Frm_Settings_Vrb);
             Frm_Settings_Vrb.Show();
+            Btn_Settings.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -89,15 +90,15 @@ namespace Aplicatie_Scanner
             Panel_Nav.Height = Btn_Dashboard.Height;
             Panel_Nav.Top = Btn_Dashboard.Top;
             Panel_Nav.Left = Btn_Dashboard.Left;
-           // Btn_Dashboard.BackColor = Color.FromArgb(46, 51, 73);
-
+            
+            Reset_Btn_BackColor();
             lbltitle.Text = "Dashboard";
             this.Panel_Form_Loader.Controls.Clear();
             Frm_Dashboard Frm_Dashboard_Vrb = new Frm_Dashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             Frm_Dashboard_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.Panel_Form_Loader.Controls.Add(Frm_Dashboard_Vrb);
             Frm_Dashboard_Vrb.Show();
-
+            Btn_Dashboard.BackColor = Color.FromArgb(46, 51, 73);
 
         }
 
@@ -105,8 +106,8 @@ namespace Aplicatie_Scanner
         {
             Panel_Nav.Height = Btn_Scanner.Height;
             Panel_Nav.Top = Btn_Scanner.Top;
-           
 
+            Reset_Btn_BackColor();
             lbltitle.Text = "Scanner";
             this.Panel_Form_Loader.Controls.Clear();
             Frm_Scanner Frm_Scanner_Vrb = new Frm_Scanner() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -120,9 +121,9 @@ namespace Aplicatie_Scanner
         {
             Panel_Nav.Height = Btn_Printer.Height;
             Panel_Nav.Top = Btn_Printer.Top;
-            
 
 
+            Reset_Btn_BackColor();
             lbltitle.Text = "Printer";
             this.Panel_Form_Loader.Controls.Clear();
             Frm_Printer Frm_Printer_Vrb = new Frm_Printer() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
@@ -131,7 +132,13 @@ namespace Aplicatie_Scanner
             Frm_Printer_Vrb.Show();
             Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
         }
-
+        private void Reset_Btn_BackColor()
+        {
+            Btn_Dashboard.BackColor = Color.FromArgb(24, 30, 54);
+            Btn_Scanner.BackColor = Color.FromArgb(24, 30, 54);
+            Btn_Printer.BackColor = Color.FromArgb(24, 30, 54);
+            Btn_Settings.BackColor = Color.FromArgb(24, 30, 54);
+        }
         private void Btn_Dashboard_Leave(object sender, EventArgs e)
         {
             Btn_Dashboard.BackColor = Color.FromArgb(24, 30, 54);
@@ -154,7 +161,8 @@ namespace Aplicatie_Scanner
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
+            
         }
 
         private void Btn_Minimize_Click(object sender, EventArgs e)

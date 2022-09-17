@@ -60,6 +60,7 @@
             this.lblLungime = new System.Windows.Forms.Label();
             this.cbLungime = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnPreview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -72,7 +73,7 @@
             this.button_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_print.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button_print.ForeColor = System.Drawing.Color.Black;
-            this.button_print.Location = new System.Drawing.Point(577, 304);
+            this.button_print.Location = new System.Drawing.Point(587, 267);
             this.button_print.Name = "button_print";
             this.button_print.Size = new System.Drawing.Size(142, 89);
             this.button_print.TabIndex = 35;
@@ -83,10 +84,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 190);
+            this.pictureBox1.Location = new System.Drawing.Point(2, -2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(303, 199);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.Size = new System.Drawing.Size(301, 389);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
             // 
@@ -122,6 +123,7 @@
             this.cbFurnizor.Name = "cbFurnizor";
             this.cbFurnizor.Size = new System.Drawing.Size(172, 23);
             this.cbFurnizor.TabIndex = 40;
+            this.cbFurnizor.SelectedIndexChanged += new System.EventHandler(this.cbFurnizor_SelectedIndexChanged);
             this.cbFurnizor.SelectionChangeCommitted += new System.EventHandler(this.cbFurnizor_SelectionChangeCommitted);
             // 
             // lblFurnizor
@@ -241,12 +243,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblLabelNrAviz);
             this.panel1.Controls.Add(this.lblLabelNrBuc);
             this.panel1.Controls.Add(this.lblLabelCalitate);
             this.panel1.Controls.Add(this.lblLabelFurnizor);
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(12, 58);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(303, 389);
@@ -424,12 +426,28 @@
             this.label5.TabIndex = 63;
             this.label5.Text = "Net: ";
             // 
+            // btnPreview
+            // 
+            this.btnPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
+            this.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreview.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPreview.ForeColor = System.Drawing.Color.Transparent;
+            this.btnPreview.Location = new System.Drawing.Point(587, 360);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(142, 39);
+            this.btnPreview.TabIndex = 64;
+            this.btnPreview.Text = "Preview";
+            this.btnPreview.UseVisualStyleBackColor = false;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
             // Frm_Printer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(790, 516);
+            this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblLungime);
             this.Controls.Add(this.cbLungime);
@@ -498,5 +516,6 @@
         private Label lblLungime;
         private ComboBox cbLungime;
         private Label label5;
+        private Button btnPreview;
     }
 }
