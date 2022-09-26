@@ -73,7 +73,7 @@ namespace Aplicatie_Scanner
                     var cmd = connection.CreateCommand();
 
                     //SqlCommand cmd = new SqlCommand(" UPDATE Linia_1  SET Nume_Reteta = 'Modificat'; ");
-                    cmd.CommandText = $"Insert INTO Produse VALUES ({Comentariu}";
+                    cmd.CommandText = $"Insert INTO Etichete_Generate VALUES ({Comentariu}";
                     cmd.CommandTimeout = 15;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
@@ -103,12 +103,24 @@ namespace Aplicatie_Scanner
                 $"convert(datetime,'{Data} {Timp}',5)"
                 + ",'"
                 + cbFurnizor.Text
-                + "','" 
+                + "','"
+                + tbNrAviz.Text
+                + "','"
+                + tbNrBucati.Text
+                + "','"
+                + tbNrReceptie.Text
+                + "','"
+                + cbLungime.Text
+                + "','"
+                + tbDiametruBrut.Text
+                + "','"
                 + cbCalitate.Text
+                + "','"
+                + "Etichete_Generate"
                 + "','"
                 + ID
                 + "');";
-            tbNrBucati.Text = ID;
+            
 
             Generare_Cod_Bare();
             AdaugaIntrari(CodDeIntrodus);
@@ -118,9 +130,9 @@ namespace Aplicatie_Scanner
             // Printer IP Address and communication port
             string ipAddress = "192.168.100.104";
             int port = 9100;
-
+            string Data_Curenta = $"{PrinterCalendar.SelectionStart.Day.ToString("D2")}/{PrinterCalendar.SelectionStart.Month.ToString("D2")}/{PrinterCalendar.SelectionStart.Date.ToString("yy")}";
             // ZPL Command(s)
-             ZPLString =
+            ZPLString =
 $@"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
 ^XA
 ^MMT
@@ -138,18 +150,17 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 ^FT94,215^A0N,28,28^FH\^FDLungime : ^FS
 ^FT230,215^A0N,28,28^FH\^FD1234 mm^FS
 ^FT89,257^A0N,28,28^FH\^FDDiametru : ^FS
-^CI28
-^FT230,257^A0N,28,28^FH\^FD{tbDiametruBrut.Text} ø^FS
+^FT230,257^A0N,28,28^FH\^FD{tbDiametruBrut.Text} ⌀^FS
 ^FT108,300^A0N,28,28^FH\^FDCalitate : ^FS
 ^FT230,300^A0N,28,28^FH\^FD{cbCalitate.Text}^FS
 ^FT144,342^A0N,28,28^FH\^FDData : ^FS
-^FT230,344^A0N,28,28^FH\^FD{DateTime.Now.Day}/{DateTime.Now.Month}/{DateTime.Now.Year}^FS
+^FT230,344^A0N,28,28^FH\^FD{Data_Curenta}^FS
 ^FT99,386^A0N,28,28^FH\^FDFurnizor : ^FS
 ^FT230,388^A0N,28,28^FH\^FD{cbFurnizor.Text}^FS
 ^FT48,430^A0N,28,28^FH\^FDNr. Receptie : ^FS
 ^FT230,432^A0N,28,28^FH\^FD{tbNrReceptie.Text}^FS
 ^FO47,460^GB738,0,5^FS
-^PQ1,0,1,Y^XZ";
+^PQ{tbNrBucati.Text},0,1,Y^XZ";
             #region
             /*      //                        @"^XA
 
