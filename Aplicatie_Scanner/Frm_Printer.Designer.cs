@@ -105,6 +105,8 @@
             // 
             this.cbFurnizor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFurnizor.BackColor = System.Drawing.Color.White;
+            this.cbFurnizor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFurnizor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbFurnizor.FormattingEnabled = true;
             this.cbFurnizor.Location = new System.Drawing.Point(318, 72);
@@ -205,6 +207,8 @@
             // 
             this.cbCalitate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCalitate.BackColor = System.Drawing.Color.White;
+            this.cbCalitate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCalitate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbCalitate.FormattingEnabled = true;
             this.cbCalitate.Location = new System.Drawing.Point(317, 429);
@@ -325,6 +329,8 @@
             // 
             this.cbLungime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbLungime.BackColor = System.Drawing.Color.White;
+            this.cbLungime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLungime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbLungime.FormattingEnabled = true;
             this.cbLungime.Location = new System.Drawing.Point(317, 339);
