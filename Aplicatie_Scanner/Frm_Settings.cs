@@ -46,10 +46,16 @@ namespace Aplicatie_Scanner
             {
                 try
                 {
+                    string Data = $"{DateTime.Now.Day.ToString("D2")}-{DateTime.Now.Month.ToString("D2")}-{DateTime.Now.Date.ToString("yy")}";
+
+                    string Timp = $"{DateTime.Now.Hour.ToString("D2")}:{DateTime.Now.Minute.ToString("D2")}:{DateTime.Now.Second.ToString("D2")}";
+
+                    string Datatimp =
+                        $"convert(datetime,'{Data} {Timp}',5)";
                     connection.Open();
                     var cmd = connection.CreateCommand();
 
-                    cmd.CommandText = $"Insert INTO Furnizori VALUES ({TextIntrodus}";
+                    cmd.CommandText = $"Insert INTO Furnizori (Denumire) VALUES ('{TextIntrodus}')";
                     cmd.CommandTimeout = 15;
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
@@ -147,7 +153,7 @@ namespace Aplicatie_Scanner
                             connection.Open();
                             var cmd = connection.CreateCommand();
 
-                            cmd.CommandText = $"Delete From Furnizori WHERE Denumire = {dataGridView1.CurrentCell.Value.ToString()}";
+                            cmd.CommandText = $"Delete From Furnizori WHERE Denumire = '{dataGridView1.CurrentCell.Value.ToString()}'";
                             cmd.CommandTimeout = 15;
                             cmd.CommandType = CommandType.Text;
                             cmd.ExecuteNonQuery();
