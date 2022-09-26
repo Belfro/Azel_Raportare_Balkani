@@ -377,7 +377,7 @@
             // 
             // tbLocatieCurenta
             // 
-            this.tbLocatieCurenta.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbLocatieCurenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbLocatieCurenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbLocatieCurenta.Location = new System.Drawing.Point(551, 236);
             this.tbLocatieCurenta.Name = "tbLocatieCurenta";
@@ -386,7 +386,7 @@
             // 
             // lblLocatieCurenta
             // 
-            this.lblLocatieCurenta.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLocatieCurenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLocatieCurenta.AutoSize = true;
             this.lblLocatieCurenta.Cursor = System.Windows.Forms.Cursors.No;
             this.lblLocatieCurenta.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -396,7 +396,6 @@
             this.lblLocatieCurenta.Size = new System.Drawing.Size(108, 17);
             this.lblLocatieCurenta.TabIndex = 88;
             this.lblLocatieCurenta.Text = "Locatie Curenta:";
-            this.lblLocatieCurenta.Visible = false;
             this.lblLocatieCurenta.Click += new System.EventHandler(this.label1_Click);
             // 
             // Frm_Scanner

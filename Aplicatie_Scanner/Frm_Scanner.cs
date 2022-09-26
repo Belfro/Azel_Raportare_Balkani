@@ -23,9 +23,9 @@ namespace Aplicatie_Scanner
         public Frm_Scanner()
         {
             InitializeComponent();
-            cbLocatieNoua.Visible = true;
-            lblLocatieNoua.Visible = true;
-            btnModifica.Visible = true;
+            cbLocatieNoua.Visible = false;
+            lblLocatieNoua.Visible = false;
+            btnModifica.Visible = false;
             cbLocatieNoua.Items.Clear();
             cbLocatieNoua.Items.Add("Etichete_Generate");
             cbLocatieNoua.Items.Add("Linie_Productie_1");
