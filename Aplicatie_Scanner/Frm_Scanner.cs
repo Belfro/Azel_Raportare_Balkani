@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using Dapper;
+using Zebra.Sdk.Comm;
 using ZXing;
 using ZXing.Windows.Compatibility;
 
@@ -17,10 +18,18 @@ namespace Aplicatie_Scanner
 {
     public partial class Frm_Scanner : Form
     {
+        string ID = "";
+        string Locatie_Curenta = "";
         public Frm_Scanner()
         {
             InitializeComponent();
-
+            cbLocatieNoua.Visible = true;
+            lblLocatieNoua.Visible = true;
+            btnModifica.Visible = true;
+            cbLocatieNoua.Items.Clear();
+            cbLocatieNoua.Items.Add("Etichete_Generate");
+            cbLocatieNoua.Items.Add("Linie_Productie_1");
+            cbLocatieNoua.SelectedIndex = 0;
         }
         List<DateFurnizori> furnizoriList = new List<DateFurnizori>();
         List<DateCalitate> calitateList = new List<DateCalitate>();
@@ -86,7 +95,9 @@ namespace Aplicatie_Scanner
                         {
 
 
-                            var output = connection.Query<DateDB>($"select * from Etichete_Generate WHERE GUID = '{result.ToString()}' ").ToList();
+                            var output = connection.Query<DateDB>($"select * from Etichete_Generate WHERE GUID = '{result.ToString()}'" +
+                                $"UNION select * from Linie_Productie_1 WHERE GUID = '{result.ToString()}' ").ToList();
+
                             tbFurnizor.Text = output.FirstOrDefault().Furnizor.ToString();
                             tbNrAviz.Text = output.FirstOrDefault().Numar_Aviz.ToString();
                             tbNrBucati.Text = output.FirstOrDefault().Numar_Bucati.ToString();
@@ -94,7 +105,12 @@ namespace Aplicatie_Scanner
                             tbLungime.Text = output.FirstOrDefault().Lungime.ToString();
                             tbDiametruBrut.Text = output.FirstOrDefault().Diametru.ToString();
                             tbLungime.Text = output.FirstOrDefault().Lungime.ToString();
-                            
+                            cbLocatieNoua.SelectedIndex = cbLocatieNoua.FindStringExact(output.FirstOrDefault().Locatie_Actuala.ToString());
+                            ID = output.FirstOrDefault().GUID.ToString();
+                            tbLocatieCurenta.Text = output.FirstOrDefault().Locatie_Actuala.ToString();
+                            cbLocatieNoua.Visible = true;
+                            lblLocatieNoua.Visible = true;
+                            btnModifica.Visible = true;
                             ////Calcul Automat Diametru NET////
                             if (output.FirstOrDefault().Diametru >= 42)
                             {
@@ -150,6 +166,43 @@ namespace Aplicatie_Scanner
         }
 
         private void cboDevice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModifica_Click(object sender, EventArgs e)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+            {
+                try
+                {
+                    connection.Open();
+                    var cmd = connection.CreateCommand();
+
+                   
+                    cmd.CommandText = $" BEGIN TRANSACTION;" +
+                        $"\r\nINSERT INTO {cbLocatieNoua.Text} (Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala)" +
+                        $"\r\nSELECT Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala" +
+                        $"\r\nFROM {tbLocatieCurenta.Text}\r\nWHERE GUID = '{ID}';" +
+                        $"\r\nDELETE FROM {tbLocatieCurenta.Text}" +
+                        $"\r\nWHERE GUID = '{ID}';\r\nCOMMIT;";
+                    cmd.CommandTimeout = 15;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
+                }
+
+
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

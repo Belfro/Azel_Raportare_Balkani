@@ -54,6 +54,11 @@
             this.tbLungime = new System.Windows.Forms.TextBox();
             this.tbFurnizor = new System.Windows.Forms.TextBox();
             this.tbCalitate = new System.Windows.Forms.TextBox();
+            this.btnModifica = new System.Windows.Forms.Button();
+            this.lblLocatieNoua = new System.Windows.Forms.Label();
+            this.cbLocatieNoua = new System.Windows.Forms.ComboBox();
+            this.tbLocatieCurenta = new System.Windows.Forms.TextBox();
+            this.lblLocatieCurenta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -177,9 +182,10 @@
             // tbNrReceptie
             // 
             this.tbNrReceptie.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbNrReceptie.Location = new System.Drawing.Point(362, 212);
+            this.tbNrReceptie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNrReceptie.Location = new System.Drawing.Point(362, 224);
             this.tbNrReceptie.Name = "tbNrReceptie";
-            this.tbNrReceptie.Size = new System.Drawing.Size(172, 23);
+            this.tbNrReceptie.Size = new System.Drawing.Size(172, 29);
             this.tbNrReceptie.TabIndex = 76;
             // 
             // lblNrReceptie
@@ -189,7 +195,7 @@
             this.lblNrReceptie.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrReceptie.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNrReceptie.ForeColor = System.Drawing.Color.White;
-            this.lblNrReceptie.Location = new System.Drawing.Point(362, 195);
+            this.lblNrReceptie.Location = new System.Drawing.Point(362, 207);
             this.lblNrReceptie.Name = "lblNrReceptie";
             this.lblNrReceptie.Size = new System.Drawing.Size(106, 17);
             this.lblNrReceptie.TabIndex = 75;
@@ -198,9 +204,10 @@
             // tbNrBucati
             // 
             this.tbNrBucati.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbNrBucati.Location = new System.Drawing.Point(362, 169);
+            this.tbNrBucati.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNrBucati.Location = new System.Drawing.Point(362, 177);
             this.tbNrBucati.Name = "tbNrBucati";
-            this.tbNrBucati.Size = new System.Drawing.Size(172, 23);
+            this.tbNrBucati.Size = new System.Drawing.Size(172, 29);
             this.tbNrBucati.TabIndex = 74;
             // 
             // lblNrBucati
@@ -210,7 +217,7 @@
             this.lblNrBucati.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrBucati.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNrBucati.ForeColor = System.Drawing.Color.White;
-            this.lblNrBucati.Location = new System.Drawing.Point(362, 152);
+            this.lblNrBucati.Location = new System.Drawing.Point(362, 160);
             this.lblNrBucati.Name = "lblNrBucati";
             this.lblNrBucati.Size = new System.Drawing.Size(92, 17);
             this.lblNrBucati.TabIndex = 73;
@@ -236,7 +243,7 @@
             this.lblCalitate.Cursor = System.Windows.Forms.Cursors.No;
             this.lblCalitate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCalitate.ForeColor = System.Drawing.Color.White;
-            this.lblCalitate.Location = new System.Drawing.Point(363, 413);
+            this.lblCalitate.Location = new System.Drawing.Point(363, 421);
             this.lblCalitate.Name = "lblCalitate";
             this.lblCalitate.Size = new System.Drawing.Size(55, 17);
             this.lblCalitate.TabIndex = 71;
@@ -249,7 +256,7 @@
             this.lblDiametru.Cursor = System.Windows.Forms.Cursors.No;
             this.lblDiametru.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDiametru.ForeColor = System.Drawing.Color.White;
-            this.lblDiametru.Location = new System.Drawing.Point(362, 371);
+            this.lblDiametru.Location = new System.Drawing.Point(362, 375);
             this.lblDiametru.Name = "lblDiametru";
             this.lblDiametru.Size = new System.Drawing.Size(96, 17);
             this.lblDiametru.TabIndex = 69;
@@ -258,17 +265,19 @@
             // tbDiametruBrut
             // 
             this.tbDiametruBrut.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbDiametruBrut.Location = new System.Drawing.Point(361, 387);
+            this.tbDiametruBrut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbDiametruBrut.Location = new System.Drawing.Point(361, 391);
             this.tbDiametruBrut.Name = "tbDiametruBrut";
-            this.tbDiametruBrut.Size = new System.Drawing.Size(172, 23);
+            this.tbDiametruBrut.Size = new System.Drawing.Size(172, 29);
             this.tbDiametruBrut.TabIndex = 68;
             // 
             // tbNrAviz
             // 
             this.tbNrAviz.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbNrAviz.Location = new System.Drawing.Point(362, 124);
+            this.tbNrAviz.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNrAviz.Location = new System.Drawing.Point(362, 128);
             this.tbNrAviz.Name = "tbNrAviz";
-            this.tbNrAviz.Size = new System.Drawing.Size(172, 23);
+            this.tbNrAviz.Size = new System.Drawing.Size(172, 29);
             this.tbNrAviz.TabIndex = 67;
             // 
             // lblNrAviz
@@ -278,7 +287,7 @@
             this.lblNrAviz.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrAviz.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNrAviz.ForeColor = System.Drawing.Color.White;
-            this.lblNrAviz.Location = new System.Drawing.Point(362, 107);
+            this.lblNrAviz.Location = new System.Drawing.Point(362, 111);
             this.lblNrAviz.Name = "lblNrAviz";
             this.lblNrAviz.Size = new System.Drawing.Size(80, 17);
             this.lblNrAviz.TabIndex = 66;
@@ -300,26 +309,95 @@
             // tbLungime
             // 
             this.tbLungime.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbLungime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbLungime.Location = new System.Drawing.Point(361, 345);
             this.tbLungime.Name = "tbLungime";
-            this.tbLungime.Size = new System.Drawing.Size(172, 23);
+            this.tbLungime.Size = new System.Drawing.Size(172, 29);
             this.tbLungime.TabIndex = 81;
             // 
             // tbFurnizor
             // 
             this.tbFurnizor.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbFurnizor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbFurnizor.Location = new System.Drawing.Point(361, 81);
             this.tbFurnizor.Name = "tbFurnizor";
-            this.tbFurnizor.Size = new System.Drawing.Size(172, 23);
+            this.tbFurnizor.Size = new System.Drawing.Size(172, 29);
             this.tbFurnizor.TabIndex = 82;
             // 
             // tbCalitate
             // 
             this.tbCalitate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tbCalitate.Location = new System.Drawing.Point(361, 430);
+            this.tbCalitate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbCalitate.Location = new System.Drawing.Point(361, 438);
             this.tbCalitate.Name = "tbCalitate";
-            this.tbCalitate.Size = new System.Drawing.Size(172, 23);
+            this.tbCalitate.Size = new System.Drawing.Size(172, 29);
             this.tbCalitate.TabIndex = 83;
+            // 
+            // btnModifica
+            // 
+            this.btnModifica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModifica.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
+            this.btnModifica.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnModifica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModifica.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnModifica.ForeColor = System.Drawing.Color.White;
+            this.btnModifica.Location = new System.Drawing.Point(552, 325);
+            this.btnModifica.Name = "btnModifica";
+            this.btnModifica.Size = new System.Drawing.Size(125, 58);
+            this.btnModifica.TabIndex = 84;
+            this.btnModifica.Text = "Modifica";
+            this.btnModifica.UseVisualStyleBackColor = false;
+            this.btnModifica.Visible = false;
+            this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
+            // 
+            // lblLocatieNoua
+            // 
+            this.lblLocatieNoua.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLocatieNoua.AutoSize = true;
+            this.lblLocatieNoua.Cursor = System.Windows.Forms.Cursors.No;
+            this.lblLocatieNoua.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLocatieNoua.ForeColor = System.Drawing.Color.White;
+            this.lblLocatieNoua.Location = new System.Drawing.Point(552, 268);
+            this.lblLocatieNoua.Name = "lblLocatieNoua";
+            this.lblLocatieNoua.Size = new System.Drawing.Size(93, 17);
+            this.lblLocatieNoua.TabIndex = 85;
+            this.lblLocatieNoua.Text = "Locatie Noua:";
+            this.lblLocatieNoua.Visible = false;
+            // 
+            // cbLocatieNoua
+            // 
+            this.cbLocatieNoua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbLocatieNoua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbLocatieNoua.FormattingEnabled = true;
+            this.cbLocatieNoua.Location = new System.Drawing.Point(552, 290);
+            this.cbLocatieNoua.Name = "cbLocatieNoua";
+            this.cbLocatieNoua.Size = new System.Drawing.Size(125, 29);
+            this.cbLocatieNoua.TabIndex = 86;
+            this.cbLocatieNoua.Visible = false;
+            // 
+            // tbLocatieCurenta
+            // 
+            this.tbLocatieCurenta.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbLocatieCurenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbLocatieCurenta.Location = new System.Drawing.Point(551, 236);
+            this.tbLocatieCurenta.Name = "tbLocatieCurenta";
+            this.tbLocatieCurenta.Size = new System.Drawing.Size(126, 29);
+            this.tbLocatieCurenta.TabIndex = 87;
+            // 
+            // lblLocatieCurenta
+            // 
+            this.lblLocatieCurenta.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLocatieCurenta.AutoSize = true;
+            this.lblLocatieCurenta.Cursor = System.Windows.Forms.Cursors.No;
+            this.lblLocatieCurenta.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLocatieCurenta.ForeColor = System.Drawing.Color.White;
+            this.lblLocatieCurenta.Location = new System.Drawing.Point(551, 216);
+            this.lblLocatieCurenta.Name = "lblLocatieCurenta";
+            this.lblLocatieCurenta.Size = new System.Drawing.Size(108, 17);
+            this.lblLocatieCurenta.TabIndex = 88;
+            this.lblLocatieCurenta.Text = "Locatie Curenta:";
+            this.lblLocatieCurenta.Visible = false;
+            this.lblLocatieCurenta.Click += new System.EventHandler(this.label1_Click);
             // 
             // Frm_Scanner
             // 
@@ -327,6 +405,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(740, 516);
+            this.Controls.Add(this.lblLocatieCurenta);
+            this.Controls.Add(this.tbLocatieCurenta);
+            this.Controls.Add(this.cbLocatieNoua);
+            this.Controls.Add(this.lblLocatieNoua);
+            this.Controls.Add(this.btnModifica);
             this.Controls.Add(this.tbCalitate);
             this.Controls.Add(this.tbFurnizor);
             this.Controls.Add(this.tbLungime);
@@ -389,5 +472,10 @@
         private TextBox tbLungime;
         private TextBox tbFurnizor;
         private TextBox tbCalitate;
+        private Button btnModifica;
+        private Label lblLocatieNoua;
+        private ComboBox cbLocatieNoua;
+        private TextBox tbLocatieCurenta;
+        private Label lblLocatieCurenta;
     }
 }
