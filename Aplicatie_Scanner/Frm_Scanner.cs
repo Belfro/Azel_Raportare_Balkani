@@ -194,7 +194,7 @@ namespace Aplicatie_Scanner
                         cmd.CommandTimeout = 15;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
-
+                        MessageBox.Show($"A fost mutata in {cbLocatieNoua.Text}.");
                         connection.Close();
                     }
 

@@ -369,7 +369,7 @@
             // 
             // lblLocatieNoua
             // 
-            this.lblLocatieNoua.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLocatieNoua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLocatieNoua.AutoSize = true;
             this.lblLocatieNoua.Cursor = System.Windows.Forms.Cursors.No;
             this.lblLocatieNoua.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
