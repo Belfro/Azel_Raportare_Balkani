@@ -137,8 +137,8 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 ^FO47,177^GB738,0,5^FS
 ^FT94,215^A0N,28,28^FH\^FDLungime : ^FS
 ^FT230,215^A0N,28,28^FH\^FD1234 mm^FS
-^CI28
 ^FT89,257^A0N,28,28^FH\^FDDiametru : ^FS
+^CI28
 ^FT230,257^A0N,28,28^FH\^FD{tbDiametruBrut.Text} ø^FS
 ^FT108,300^A0N,28,28^FH\^FDCalitate : ^FS
 ^FT230,300^A0N,28,28^FH\^FD{cbCalitate.Text}^FS
@@ -399,7 +399,8 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
         
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            
+            string Data_Curenta = $"{PrinterCalendar.SelectionStart.Day.ToString("D2")}/{PrinterCalendar.SelectionStart.Month.ToString("D2")}/{PrinterCalendar.SelectionStart.Date.ToString("yy")}";
+
             ZPLString =
 $@"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
 ^XA
@@ -422,7 +423,7 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 ^FT108,300^A0N,28,28^FH\^FDCalitate : ^FS
 ^FT230,300^A0N,28,28^FH\^FD{cbCalitate.Text}^FS
 ^FT144,342^A0N,28,28^FH\^FDData : ^FS
-^FT230,344^A0N,28,28^FH\^FD{DateTime.Now.Day}/{DateTime.Now.Month}/{DateTime.Now.Year}^FS
+^FT230,344^A0N,28,28^FH\^FD{Data_Curenta}^FS
 ^FT99,386^A0N,28,28^FH\^FDFurnizor : ^FS
 ^FT230,388^A0N,28,28^FH\^FD{cbFurnizor.Text}^FS
 ^FT48,430^A0N,28,28^FH\^FDNr. Receptie : ^FS

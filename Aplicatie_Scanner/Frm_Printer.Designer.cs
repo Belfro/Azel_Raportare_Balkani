@@ -105,10 +105,11 @@
             // 
             this.cbFurnizor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFurnizor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbFurnizor.FormattingEnabled = true;
             this.cbFurnizor.Location = new System.Drawing.Point(318, 72);
             this.cbFurnizor.Name = "cbFurnizor";
-            this.cbFurnizor.Size = new System.Drawing.Size(172, 23);
+            this.cbFurnizor.Size = new System.Drawing.Size(172, 29);
             this.cbFurnizor.TabIndex = 40;
             this.cbFurnizor.SelectedIndexChanged += new System.EventHandler(this.cbFurnizor_SelectedIndexChanged);
             this.cbFurnizor.SelectionChangeCommitted += new System.EventHandler(this.cbFurnizor_SelectionChangeCommitted);
@@ -133,7 +134,7 @@
             this.PrinterCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.PrinterCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.PrinterCalendar.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PrinterCalendar.Location = new System.Drawing.Point(495, 46);
+            this.PrinterCalendar.Location = new System.Drawing.Point(495, 51);
             this.PrinterCalendar.Name = "PrinterCalendar";
             this.PrinterCalendar.TabIndex = 42;
             this.PrinterCalendar.TitleBackColor = System.Drawing.Color.White;
@@ -146,7 +147,7 @@
             this.lblNrAviz.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrAviz.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNrAviz.ForeColor = System.Drawing.Color.White;
-            this.lblNrAviz.Location = new System.Drawing.Point(318, 101);
+            this.lblNrAviz.Location = new System.Drawing.Point(318, 104);
             this.lblNrAviz.Name = "lblNrAviz";
             this.lblNrAviz.Size = new System.Drawing.Size(80, 17);
             this.lblNrAviz.TabIndex = 44;
@@ -156,18 +157,20 @@
             // 
             this.tbNrAviz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNrAviz.Location = new System.Drawing.Point(318, 118);
+            this.tbNrAviz.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNrAviz.Location = new System.Drawing.Point(318, 121);
             this.tbNrAviz.Name = "tbNrAviz";
-            this.tbNrAviz.Size = new System.Drawing.Size(172, 23);
+            this.tbNrAviz.Size = new System.Drawing.Size(172, 29);
             this.tbNrAviz.TabIndex = 45;
             // 
             // tbDiametruBrut
             // 
             this.tbDiametruBrut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDiametruBrut.Location = new System.Drawing.Point(317, 381);
+            this.tbDiametruBrut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbDiametruBrut.Location = new System.Drawing.Point(317, 384);
             this.tbDiametruBrut.Name = "tbDiametruBrut";
-            this.tbDiametruBrut.Size = new System.Drawing.Size(172, 23);
+            this.tbDiametruBrut.Size = new System.Drawing.Size(172, 29);
             this.tbDiametruBrut.TabIndex = 47;
             // 
             // lblDiametru
@@ -178,7 +181,7 @@
             this.lblDiametru.Cursor = System.Windows.Forms.Cursors.No;
             this.lblDiametru.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDiametru.ForeColor = System.Drawing.Color.White;
-            this.lblDiametru.Location = new System.Drawing.Point(318, 365);
+            this.lblDiametru.Location = new System.Drawing.Point(318, 368);
             this.lblDiametru.Name = "lblDiametru";
             this.lblDiametru.Size = new System.Drawing.Size(96, 17);
             this.lblDiametru.TabIndex = 48;
@@ -192,7 +195,7 @@
             this.lblCalitate.Cursor = System.Windows.Forms.Cursors.No;
             this.lblCalitate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCalitate.ForeColor = System.Drawing.Color.White;
-            this.lblCalitate.Location = new System.Drawing.Point(319, 407);
+            this.lblCalitate.Location = new System.Drawing.Point(319, 412);
             this.lblCalitate.Name = "lblCalitate";
             this.lblCalitate.Size = new System.Drawing.Size(55, 17);
             this.lblCalitate.TabIndex = 50;
@@ -202,10 +205,11 @@
             // 
             this.cbCalitate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCalitate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbCalitate.FormattingEnabled = true;
-            this.cbCalitate.Location = new System.Drawing.Point(317, 424);
+            this.cbCalitate.Location = new System.Drawing.Point(317, 429);
             this.cbCalitate.Name = "cbCalitate";
-            this.cbCalitate.Size = new System.Drawing.Size(172, 23);
+            this.cbCalitate.Size = new System.Drawing.Size(172, 29);
             this.cbCalitate.TabIndex = 49;
             this.cbCalitate.SelectionChangeCommitted += new System.EventHandler(this.cbCalitate_SelectionChangeCommitted);
             // 
@@ -245,9 +249,10 @@
             // 
             this.tbNrBucati.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNrBucati.Location = new System.Drawing.Point(318, 163);
+            this.tbNrBucati.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNrBucati.Location = new System.Drawing.Point(318, 170);
             this.tbNrBucati.Name = "tbNrBucati";
-            this.tbNrBucati.Size = new System.Drawing.Size(172, 23);
+            this.tbNrBucati.Size = new System.Drawing.Size(172, 29);
             this.tbNrBucati.TabIndex = 56;
             // 
             // lblNrBucati
@@ -258,7 +263,7 @@
             this.lblNrBucati.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrBucati.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNrBucati.ForeColor = System.Drawing.Color.White;
-            this.lblNrBucati.Location = new System.Drawing.Point(318, 146);
+            this.lblNrBucati.Location = new System.Drawing.Point(318, 153);
             this.lblNrBucati.Name = "lblNrBucati";
             this.lblNrBucati.Size = new System.Drawing.Size(92, 17);
             this.lblNrBucati.TabIndex = 55;
@@ -268,9 +273,10 @@
             // 
             this.tbNrReceptie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbNrReceptie.Location = new System.Drawing.Point(318, 206);
+            this.tbNrReceptie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNrReceptie.Location = new System.Drawing.Point(318, 218);
             this.tbNrReceptie.Name = "tbNrReceptie";
-            this.tbNrReceptie.Size = new System.Drawing.Size(172, 23);
+            this.tbNrReceptie.Size = new System.Drawing.Size(172, 29);
             this.tbNrReceptie.TabIndex = 58;
             // 
             // lblNrReceptie
@@ -281,7 +287,7 @@
             this.lblNrReceptie.Cursor = System.Windows.Forms.Cursors.No;
             this.lblNrReceptie.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNrReceptie.ForeColor = System.Drawing.Color.White;
-            this.lblNrReceptie.Location = new System.Drawing.Point(318, 189);
+            this.lblNrReceptie.Location = new System.Drawing.Point(318, 201);
             this.lblNrReceptie.Name = "lblNrReceptie";
             this.lblNrReceptie.Size = new System.Drawing.Size(106, 17);
             this.lblNrReceptie.TabIndex = 57;
@@ -319,10 +325,11 @@
             // 
             this.cbLungime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbLungime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbLungime.FormattingEnabled = true;
             this.cbLungime.Location = new System.Drawing.Point(317, 339);
             this.cbLungime.Name = "cbLungime";
-            this.cbLungime.Size = new System.Drawing.Size(172, 23);
+            this.cbLungime.Size = new System.Drawing.Size(172, 29);
             this.cbLungime.TabIndex = 60;
             // 
             // label5
@@ -332,7 +339,7 @@
             this.label5.Cursor = System.Windows.Forms.Cursors.No;
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(495, 382);
+            this.label5.Location = new System.Drawing.Point(495, 385);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 17);
             this.label5.TabIndex = 63;
