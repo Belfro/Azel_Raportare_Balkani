@@ -24,31 +24,38 @@ namespace Aplicatie_Scanner
     {
         List<DateFurnizori> furnizoriList = new List<DateFurnizori>();
         List<DateCalitate> calitateList = new List<DateCalitate>();
+        List<DateLungime> LungimeList = new List<DateLungime>();
         string ID;
         string ZPLString;
         public Frm_Printer()
         {
             InitializeComponent();
+            pbRomply.Visible = false;
+            pbAzel.Visible = false;
+            tbNrAviz.Text = "000000";
+            tbNrBucati.Text = "1";
+            tbNrReceptie.Text = DateTime.Now.ToString("yyMMdd");
+            tbDiametruBrut.Text = "40";
         }
         public void Generare_Cod_Bare()
         {
            
-            BarcodeWriter writer = new BarcodeWriter()
-            {
-                Format = BarcodeFormat.QR_CODE,
-                Options = new ZXing.Common.EncodingOptions
-                {
-                    Height = 300,
-                    Width = 300,
-                    PureBarcode = false,
-                    Margin = 10,
-                },
-            };
+            //BarcodeWriter writer = new BarcodeWriter()
+            //{
+            //    Format = BarcodeFormat.QR_CODE,
+            //    Options = new ZXing.Common.EncodingOptions
+            //    {
+            //        Height = 300,
+            //        Width = 300,
+            //        PureBarcode = false,
+            //        Margin = 10,
+            //    },
+            //};
            
-                var bitmap = writer.Write(ID);
-            //lblLabelCodBare.Text = "Cod Bare: " + ID;
-            lblLabelNrAviz.Text = ID.Length.ToString();
-            pictureBox1.Image = bitmap;
+               // var bitmap = writer.Write(ID);
+          
+
+         
             
 
 
@@ -233,11 +240,13 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
             DataAccess db = new DataAccess();
             Task<List<DateCalitate>> task_calitate = db.GetDateCalitate();
             Task<List<DateFurnizori>> task_furnizori = db.GetDateFurnizori();
+            Task<List<DateLungime>> task_lungime = db.GetDateLungime();
 
             furnizoriList = await task_furnizori;
             calitateList = await task_calitate;
+            LungimeList = await task_lungime;
 
-            await Task.WhenAll(task_furnizori,task_calitate);
+            await Task.WhenAll(task_furnizori,task_calitate,task_lungime);
         }
         private async void Frm_Printer_Load(object sender, EventArgs e)
         {
@@ -272,7 +281,16 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
                     cbCalitate.SelectedIndex = 0;
                 }
 
+                if (LungimeList != null && cbLungime.Items.Count < LungimeList.Count)
+                {
+                    foreach (DateLungime Date in LungimeList)
+                    {
+                        cbLungime.Items.Add(Math.Round(Date.Lungime,2));
+                        lblPrinterDbError.Visible = false;
 
+                    }
+                    cbLungime.SelectedIndex = 0;
+                }
             }
             catch (Exception ex)
             {
@@ -347,13 +365,13 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 
         private void cbFurnizor_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            lblLabelFurnizor.Text = "Furnizor : " + cbFurnizor.SelectedItem;
+           
 
         }
 
         private void cbCalitate_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            lblLabelCalitate.Text = "Calitate : " + cbCalitate.SelectedItem;
+          
 
         }
 
@@ -425,12 +443,18 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 
                 }
                 pictureBox1.Image = (Bitmap)((new ImageConverter()).ConvertFrom(imageData));
-                MessageBox.Show("Poza?");
+                pbRomply.Visible = true;
+                pbAzel.Visible = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);        
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

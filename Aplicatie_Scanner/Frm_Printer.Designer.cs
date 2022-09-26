@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Printer));
             this.button_print = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbFurnizor = new System.Windows.Forms.ComboBox();
@@ -45,12 +44,6 @@
             this.cbCalitate = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblPrinterDbError = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblLabelNrAviz = new System.Windows.Forms.Label();
-            this.lblLabelNrBuc = new System.Windows.Forms.Label();
-            this.lblLabelCalitate = new System.Windows.Forms.Label();
-            this.lblLabelFurnizor = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbNrBucati = new System.Windows.Forms.TextBox();
             this.lblNrBucati = new System.Windows.Forms.Label();
@@ -61,9 +54,13 @@
             this.cbLungime = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnPreview = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbRomply = new System.Windows.Forms.PictureBox();
+            this.pbAzel = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRomply)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAzel)).BeginInit();
             this.SuspendLayout();
             // 
             // button_print
@@ -80,16 +77,6 @@
             this.button_print.Text = "Print";
             this.button_print.UseVisualStyleBackColor = false;
             this.button_print.Click += new System.EventHandler(this.button_print_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(2, -2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(301, 389);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 34;
-            this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -110,9 +97,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 30);
+            this.label2.Size = new System.Drawing.Size(174, 30);
             this.label2.TabIndex = 39;
-            this.label2.Text = "Current Label";
+            this.label2.Text = "Eticheta Curenta";
             // 
             // cbFurnizor
             // 
@@ -240,81 +227,6 @@
             this.lblPrinterDbError.Text = "Error !";
             this.lblPrinterDbError.Visible = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lblLabelNrAviz);
-            this.panel1.Controls.Add(this.lblLabelNrBuc);
-            this.panel1.Controls.Add(this.lblLabelCalitate);
-            this.panel1.Controls.Add(this.lblLabelFurnizor);
-            this.panel1.Location = new System.Drawing.Point(12, 58);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(303, 389);
-            this.panel1.TabIndex = 53;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.No;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 167);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
-            this.label1.TabIndex = 58;
-            this.label1.Text = "Diametru :";
-            // 
-            // lblLabelNrAviz
-            // 
-            this.lblLabelNrAviz.AutoSize = true;
-            this.lblLabelNrAviz.Cursor = System.Windows.Forms.Cursors.No;
-            this.lblLabelNrAviz.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLabelNrAviz.ForeColor = System.Drawing.Color.Black;
-            this.lblLabelNrAviz.Location = new System.Drawing.Point(131, 167);
-            this.lblLabelNrAviz.Name = "lblLabelNrAviz";
-            this.lblLabelNrAviz.Size = new System.Drawing.Size(88, 17);
-            this.lblLabelNrAviz.TabIndex = 57;
-            this.lblLabelNrAviz.Text = "Numar Aviz :";
-            this.lblLabelNrAviz.Click += new System.EventHandler(this.lblLabelNrAviz_Click);
-            // 
-            // lblLabelNrBuc
-            // 
-            this.lblLabelNrBuc.AutoSize = true;
-            this.lblLabelNrBuc.Cursor = System.Windows.Forms.Cursors.No;
-            this.lblLabelNrBuc.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLabelNrBuc.ForeColor = System.Drawing.Color.Black;
-            this.lblLabelNrBuc.Location = new System.Drawing.Point(3, 145);
-            this.lblLabelNrBuc.Name = "lblLabelNrBuc";
-            this.lblLabelNrBuc.Size = new System.Drawing.Size(73, 17);
-            this.lblLabelNrBuc.TabIndex = 56;
-            this.lblLabelNrBuc.Text = "Nr Bucati :";
-            // 
-            // lblLabelCalitate
-            // 
-            this.lblLabelCalitate.AutoSize = true;
-            this.lblLabelCalitate.Cursor = System.Windows.Forms.Cursors.No;
-            this.lblLabelCalitate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLabelCalitate.ForeColor = System.Drawing.Color.Black;
-            this.lblLabelCalitate.Location = new System.Drawing.Point(3, 121);
-            this.lblLabelCalitate.Name = "lblLabelCalitate";
-            this.lblLabelCalitate.Size = new System.Drawing.Size(63, 17);
-            this.lblLabelCalitate.TabIndex = 55;
-            this.lblLabelCalitate.Text = "Calitate :";
-            // 
-            // lblLabelFurnizor
-            // 
-            this.lblLabelFurnizor.AutoSize = true;
-            this.lblLabelFurnizor.Cursor = System.Windows.Forms.Cursors.No;
-            this.lblLabelFurnizor.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLabelFurnizor.ForeColor = System.Drawing.Color.Black;
-            this.lblLabelFurnizor.Location = new System.Drawing.Point(3, 104);
-            this.lblLabelFurnizor.Name = "lblLabelFurnizor";
-            this.lblLabelFurnizor.Size = new System.Drawing.Size(67, 17);
-            this.lblLabelFurnizor.TabIndex = 54;
-            this.lblLabelFurnizor.Text = "Furnizor :";
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -437,9 +349,44 @@
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(142, 39);
             this.btnPreview.TabIndex = 64;
-            this.btnPreview.Text = "Preview";
+            this.btnPreview.Text = "Previzualizare";
             this.btnPreview.UseVisualStyleBackColor = false;
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 72);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(301, 432);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 34;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pbRomply
+            // 
+            this.pbRomply.Image = ((System.Drawing.Image)(resources.GetObject("pbRomply.Image")));
+            this.pbRomply.Location = new System.Drawing.Point(25, 77);
+            this.pbRomply.Name = "pbRomply";
+            this.pbRomply.Size = new System.Drawing.Size(272, 50);
+            this.pbRomply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRomply.TabIndex = 65;
+            this.pbRomply.TabStop = false;
+            this.pbRomply.Visible = false;
+            // 
+            // pbAzel
+            // 
+            this.pbAzel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbAzel.BackColor = System.Drawing.Color.White;
+            this.pbAzel.Image = ((System.Drawing.Image)(resources.GetObject("pbAzel.Image")));
+            this.pbAzel.Location = new System.Drawing.Point(262, 465);
+            this.pbAzel.Name = "pbAzel";
+            this.pbAzel.Size = new System.Drawing.Size(44, 34);
+            this.pbAzel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAzel.TabIndex = 66;
+            this.pbAzel.TabStop = false;
+            this.pbAzel.Visible = false;
             // 
             // Frm_Printer
             // 
@@ -447,6 +394,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(790, 516);
+            this.Controls.Add(this.pbAzel);
+            this.Controls.Add(this.pbRomply);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblLungime);
@@ -457,7 +407,6 @@
             this.Controls.Add(this.tbNrBucati);
             this.Controls.Add(this.lblNrBucati);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblPrinterDbError);
             this.Controls.Add(this.lblCalitate);
             this.Controls.Add(this.cbCalitate);
@@ -475,10 +424,10 @@
             this.Name = "Frm_Printer";
             this.Text = "Frm_Printer";
             this.Load += new System.EventHandler(this.Frm_Printer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRomply)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAzel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,7 +436,6 @@
         #endregion
 
         private Button button_print;
-        private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label2;
         private ComboBox cbFurnizor;
@@ -501,12 +449,6 @@
         private ComboBox cbCalitate;
         private System.Windows.Forms.Timer timer1;
         private Label lblPrinterDbError;
-        private Panel panel1;
-        private Label lblLabelNrAviz;
-        private Label lblLabelNrBuc;
-        private Label lblLabelCalitate;
-        private Label lblLabelFurnizor;
-        private Label label1;
         private Label label3;
         private TextBox tbNrBucati;
         private Label lblNrBucati;
@@ -517,5 +459,8 @@
         private ComboBox cbLungime;
         private Label label5;
         private Button btnPreview;
+        private PictureBox pictureBox1;
+        private PictureBox pbRomply;
+        private PictureBox pbAzel;
     }
 }

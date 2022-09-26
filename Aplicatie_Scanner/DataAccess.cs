@@ -76,6 +76,27 @@ namespace Aplicatie_Scanner
 
 
         }
+        public async Task<List<DateLungime>> GetDateLungime()
+        {
+            try
+            {
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                {
+                    var output = connection.Query<DateLungime>($"SELECT Lungime FROM Lungimi").ToList();
+                    // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
+                    return output;
+                }
+            }
+            catch (Exception ex)
+            {
+
+
+                // MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
+                return null;
+            }
+
+
+        }
         /*     public List<DateDB> GetDateOra(DateTime DataSetata1, DateTime DataSetata2, DateTime timpselectat)
              {
 
