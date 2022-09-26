@@ -57,7 +57,7 @@ namespace Aplicatie_Scanner
 
 
             
-            lblAppVersion.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            lblAppVersion.Text = Assembly.GetEntryAssembly().GetName().Version.ToString();
         }
 
 

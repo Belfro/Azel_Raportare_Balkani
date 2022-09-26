@@ -21,11 +21,24 @@ namespace Aplicatie_Scanner
         public Frm_Settings()
         {
             InitializeComponent();
+            timer1.Start();
         }
 
         private void Frm_Settings_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        public async Task LoadDatePrinter()
+        {
+
+            DataAccess db = new DataAccess();
+            Task<List<DateFurnizori>> task_furnizori = db.GetDateFurnizori();
+
+            furnizoriList = await task_furnizori;
+
+
+            await Task.WhenAll(task_furnizori);
         }
         private void AdaugaIntrari(String TextIntrodus)
         {
@@ -42,7 +55,7 @@ namespace Aplicatie_Scanner
                     cmd.ExecuteNonQuery();
                     
                     connection.Close();
-                    UpdateBinding();
+                   
                 }
 
                 catch (Exception ex)
@@ -53,44 +66,7 @@ namespace Aplicatie_Scanner
 
             }
         }
-        private void UpdateBinding()
-        {
-
-            try
-            {
-                using (IDbConnection connection = new SqlConnection(Helper.CnnVal("ConnStr")))
-                {
-                    var output = connection.Query<DateFurnizori>($"SELECT Denumire FROM Furnizori ORDER BY Data_Timp").ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            try
-            {
-                dataGridView1.AutoGenerateColumns = false;
-
-
-
-
-                dataGridView1.DataSource = furnizoriList;
-
-
-
-                dataGridView1.Columns["Nume_Furnizor"].DataPropertyName = "Denumire";
-                
-
-
-
-
-            }
-            catch
-            {
-
-            }
-        }
+      
        
         private void Btn_Add_Furnizor_Click(object sender, EventArgs e)
         {
@@ -106,10 +82,104 @@ namespace Aplicatie_Scanner
             }
             
         }
+        private async void timer1_Tick(object sender, EventArgs e)
+        {
 
+
+            
+            try
+            {
+
+                await Task.Run(async () => LoadDatePrinter());
+
+
+
+
+
+                if (furnizoriList != null)
+                {
+                    if (dataGridView1.RowCount<furnizoriList.Count)
+                    {
+                        dataGridView1.AutoGenerateColumns = false;
+                        dataGridView1.DataSource = furnizoriList;
+                        dataGridView1.Columns["Nume_Furnizor"].DataPropertyName = "Denumire";
+                    }
+
+                }
+               
+                {
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+
+            }
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+        private void btnDeleteFurnizor_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                string Valoare_Selectata = dataGridView1.CurrentCell.Value.ToString();
+
+
+            if (Valoare_Selectata != null)
+            {
+                DialogResult dialogResult = MessageBox.Show($"Sunteti sigur ca doriti sa stergeti furnizorul {dataGridView1.CurrentCell.Value}", "Stergere Furnizor", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    using (IDbConnection connection = new SqlConnection(Helper.CnnVal("ConnStr")))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            var cmd = connection.CreateCommand();
+
+                            cmd.CommandText = $"Delete From Furnizori WHERE Denumire = {dataGridView1.CurrentCell}";
+                            cmd.CommandTimeout = 15;
+                            cmd.CommandType = CommandType.Text;
+                            cmd.ExecuteNonQuery();
+
+                            connection.Close();
+
+                        }
+
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error:" + ex.Message);
+                        }
+
+
+                    }
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+
+            }
+            }
+            catch
+            {
+                MessageBox.Show("Nu ati selectat niciun furnizor!");       
+            }
+
+
+
+        }
+
     }
 }

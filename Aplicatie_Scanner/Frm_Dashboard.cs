@@ -168,8 +168,10 @@ namespace Aplicatie_Scanner
             if (!checkBoxCalitate.Checked)
                 cbCalitate.Visible = false;
         }
-           
-            
-        
+
+        private void cbZonaSelectie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
