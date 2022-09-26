@@ -43,14 +43,15 @@ namespace Aplicatie_Scanner
             this.Btn_Dashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Panel_Form_Loader = new System.Windows.Forms.Panel();
             this.lbl_time = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Panel_Form_Loader = new System.Windows.Forms.Panel();
             this.Btn_Close_App = new System.Windows.Forms.Button();
             this.Btn_Minimize = new System.Windows.Forms.Button();
             this.lbltitle = new System.Windows.Forms.Label();
             this.timer_timp = new System.Windows.Forms.Timer(this.components);
             this.Btn_Maximize = new System.Windows.Forms.Button();
+            this.lblAppVersion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -168,13 +169,6 @@ namespace Aplicatie_Scanner
             this.panel3.Size = new System.Drawing.Size(765, 78);
             this.panel3.TabIndex = 16;
             // 
-            // Panel_Form_Loader
-            // 
-            this.Panel_Form_Loader.Location = new System.Drawing.Point(185, 61);
-            this.Panel_Form_Loader.Name = "Panel_Form_Loader";
-            this.Panel_Form_Loader.Size = new System.Drawing.Size(786, 513);
-            this.Panel_Form_Loader.TabIndex = 15;
-            // 
             // lbl_time
             // 
             this.lbl_time.AutoSize = true;
@@ -195,10 +189,17 @@ namespace Aplicatie_Scanner
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.label1.Location = new System.Drawing.Point(21, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 32);
+            this.label1.Size = new System.Drawing.Size(147, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "AZEL Database \r\nManagement Studio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Panel_Form_Loader
+            // 
+            this.Panel_Form_Loader.Location = new System.Drawing.Point(185, 61);
+            this.Panel_Form_Loader.Name = "Panel_Form_Loader";
+            this.Panel_Form_Loader.Size = new System.Drawing.Size(786, 513);
+            this.Panel_Form_Loader.TabIndex = 15;
             // 
             // Btn_Close_App
             // 
@@ -264,12 +265,23 @@ namespace Aplicatie_Scanner
             this.Btn_Maximize.UseVisualStyleBackColor = true;
             this.Btn_Maximize.Click += new System.EventHandler(this.Btn_Maximize_Click);
             // 
+            // lblAppVersion
+            // 
+            this.lblAppVersion.AutoSize = true;
+            this.lblAppVersion.ForeColor = System.Drawing.Color.White;
+            this.lblAppVersion.Location = new System.Drawing.Point(185, 0);
+            this.lblAppVersion.Name = "lblAppVersion";
+            this.lblAppVersion.Size = new System.Drawing.Size(102, 15);
+            this.lblAppVersion.TabIndex = 11;
+            this.lblAppVersion.Text = "Versiunea Curenta";
+            // 
             // Aplicatie_Scanare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(977, 577);
+            this.Controls.Add(this.lblAppVersion);
             this.Controls.Add(this.Panel_Form_Loader);
             this.Controls.Add(this.Btn_Maximize);
             this.Controls.Add(this.lbltitle);
@@ -306,5 +318,6 @@ namespace Aplicatie_Scanner
         private System.Windows.Forms.Timer timer_timp;
         private Button Btn_Maximize;
         private Panel panel3;
+        private Label lblAppVersion;
     }
 }

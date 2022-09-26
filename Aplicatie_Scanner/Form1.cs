@@ -6,9 +6,8 @@ using ZXing;
 using ZXing.Windows.Compatibility;
 using Zebra.Sdk;
 using System.Runtime.InteropServices;
-
-
-
+using System.Reflection;
+using System.Diagnostics;
 namespace Aplicatie_Scanner
 {
    
@@ -56,6 +55,9 @@ namespace Aplicatie_Scanner
             Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
             timer_timp.Start();
 
+
+            
+            lblAppVersion.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
 
