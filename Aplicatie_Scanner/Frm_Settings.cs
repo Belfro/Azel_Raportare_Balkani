@@ -147,14 +147,14 @@ namespace Aplicatie_Scanner
                             connection.Open();
                             var cmd = connection.CreateCommand();
 
-                            cmd.CommandText = $"Delete From Furnizori WHERE Denumire = {dataGridView1.CurrentCell}";
+                            cmd.CommandText = $"Delete From Furnizori WHERE Denumire = {dataGridView1.CurrentCell.Value.ToString()}";
                             cmd.CommandTimeout = 15;
                             cmd.CommandType = CommandType.Text;
                             cmd.ExecuteNonQuery();
 
                             connection.Close();
-
-                        }
+                                MessageBox.Show("Stergere Confirmata.");
+                            }
 
                         catch (Exception ex)
                         {
