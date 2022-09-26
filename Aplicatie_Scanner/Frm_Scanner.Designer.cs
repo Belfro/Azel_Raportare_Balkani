@@ -76,9 +76,11 @@
             // 
             // cboDevice
             // 
-            this.cboDevice.Location = new System.Drawing.Point(28, 78);
+            this.cboDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDevice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cboDevice.Location = new System.Drawing.Point(28, 54);
             this.cboDevice.Name = "cboDevice";
-            this.cboDevice.Size = new System.Drawing.Size(327, 23);
+            this.cboDevice.Size = new System.Drawing.Size(327, 29);
             this.cboDevice.TabIndex = 36;
             this.cboDevice.SelectedIndexChanged += new System.EventHandler(this.cboDevice_SelectedIndexChanged);
             // 
@@ -92,7 +94,7 @@
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.button1.Location = new System.Drawing.Point(552, 77);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 58);
+            this.button1.Size = new System.Drawing.Size(146, 58);
             this.button1.TabIndex = 37;
             this.button1.Text = "Pornire\r\nCamera";
             this.button1.UseVisualStyleBackColor = false;
@@ -102,9 +104,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 105);
+            this.pictureBox1.Location = new System.Drawing.Point(28, 85);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(327, 320);
+            this.pictureBox1.Size = new System.Drawing.Size(327, 340);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -115,6 +117,7 @@
             this.tbGUIDScanat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbGUIDScanat.Location = new System.Drawing.Point(28, 429);
             this.tbGUIDScanat.Name = "tbGUIDScanat";
+            this.tbGUIDScanat.ReadOnly = true;
             this.tbGUIDScanat.Size = new System.Drawing.Size(327, 26);
             this.tbGUIDScanat.TabIndex = 39;
             this.tbGUIDScanat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -134,7 +137,7 @@
             this.Btn_Disconnect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Btn_Disconnect.Location = new System.Drawing.Point(552, 141);
             this.Btn_Disconnect.Name = "Btn_Disconnect";
-            this.Btn_Disconnect.Size = new System.Drawing.Size(125, 58);
+            this.Btn_Disconnect.Size = new System.Drawing.Size(146, 58);
             this.Btn_Disconnect.TabIndex = 40;
             this.Btn_Disconnect.Text = "Deconectare";
             this.Btn_Disconnect.UseVisualStyleBackColor = false;
@@ -147,7 +150,7 @@
             this.lblDiametruNet.Cursor = System.Windows.Forms.Cursors.No;
             this.lblDiametruNet.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDiametruNet.ForeColor = System.Drawing.Color.White;
-            this.lblDiametruNet.Location = new System.Drawing.Point(539, 388);
+            this.lblDiametruNet.Location = new System.Drawing.Point(539, 396);
             this.lblDiametruNet.Name = "lblDiametruNet";
             this.lblDiametruNet.Size = new System.Drawing.Size(38, 17);
             this.lblDiametruNet.TabIndex = 80;
@@ -185,8 +188,10 @@
             this.tbNrReceptie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbNrReceptie.Location = new System.Drawing.Point(362, 224);
             this.tbNrReceptie.Name = "tbNrReceptie";
+            this.tbNrReceptie.ReadOnly = true;
             this.tbNrReceptie.Size = new System.Drawing.Size(172, 29);
             this.tbNrReceptie.TabIndex = 76;
+            this.tbNrReceptie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNrReceptie
             // 
@@ -207,8 +212,10 @@
             this.tbNrBucati.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbNrBucati.Location = new System.Drawing.Point(362, 177);
             this.tbNrBucati.Name = "tbNrBucati";
+            this.tbNrBucati.ReadOnly = true;
             this.tbNrBucati.Size = new System.Drawing.Size(172, 29);
             this.tbNrBucati.TabIndex = 74;
+            this.tbNrBucati.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNrBucati
             // 
@@ -268,8 +275,10 @@
             this.tbDiametruBrut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbDiametruBrut.Location = new System.Drawing.Point(361, 391);
             this.tbDiametruBrut.Name = "tbDiametruBrut";
+            this.tbDiametruBrut.ReadOnly = true;
             this.tbDiametruBrut.Size = new System.Drawing.Size(172, 29);
             this.tbDiametruBrut.TabIndex = 68;
+            this.tbDiametruBrut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbNrAviz
             // 
@@ -277,8 +286,10 @@
             this.tbNrAviz.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbNrAviz.Location = new System.Drawing.Point(362, 128);
             this.tbNrAviz.Name = "tbNrAviz";
+            this.tbNrAviz.ReadOnly = true;
             this.tbNrAviz.Size = new System.Drawing.Size(172, 29);
             this.tbNrAviz.TabIndex = 67;
+            this.tbNrAviz.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNrAviz
             // 
@@ -312,8 +323,10 @@
             this.tbLungime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbLungime.Location = new System.Drawing.Point(361, 345);
             this.tbLungime.Name = "tbLungime";
+            this.tbLungime.ReadOnly = true;
             this.tbLungime.Size = new System.Drawing.Size(172, 29);
             this.tbLungime.TabIndex = 81;
+            this.tbLungime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbFurnizor
             // 
@@ -321,8 +334,10 @@
             this.tbFurnizor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbFurnizor.Location = new System.Drawing.Point(361, 81);
             this.tbFurnizor.Name = "tbFurnizor";
+            this.tbFurnizor.ReadOnly = true;
             this.tbFurnizor.Size = new System.Drawing.Size(172, 29);
             this.tbFurnizor.TabIndex = 82;
+            this.tbFurnizor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbCalitate
             // 
@@ -330,8 +345,10 @@
             this.tbCalitate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbCalitate.Location = new System.Drawing.Point(361, 438);
             this.tbCalitate.Name = "tbCalitate";
+            this.tbCalitate.ReadOnly = true;
             this.tbCalitate.Size = new System.Drawing.Size(172, 29);
             this.tbCalitate.TabIndex = 83;
+            this.tbCalitate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnModifica
             // 
@@ -343,7 +360,7 @@
             this.btnModifica.ForeColor = System.Drawing.Color.White;
             this.btnModifica.Location = new System.Drawing.Point(552, 325);
             this.btnModifica.Name = "btnModifica";
-            this.btnModifica.Size = new System.Drawing.Size(125, 58);
+            this.btnModifica.Size = new System.Drawing.Size(146, 58);
             this.btnModifica.TabIndex = 84;
             this.btnModifica.Text = "Modifica";
             this.btnModifica.UseVisualStyleBackColor = false;
@@ -367,11 +384,12 @@
             // cbLocatieNoua
             // 
             this.cbLocatieNoua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbLocatieNoua.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLocatieNoua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbLocatieNoua.FormattingEnabled = true;
             this.cbLocatieNoua.Location = new System.Drawing.Point(552, 290);
             this.cbLocatieNoua.Name = "cbLocatieNoua";
-            this.cbLocatieNoua.Size = new System.Drawing.Size(125, 29);
+            this.cbLocatieNoua.Size = new System.Drawing.Size(146, 29);
             this.cbLocatieNoua.TabIndex = 86;
             this.cbLocatieNoua.Visible = false;
             // 
@@ -381,8 +399,10 @@
             this.tbLocatieCurenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbLocatieCurenta.Location = new System.Drawing.Point(551, 236);
             this.tbLocatieCurenta.Name = "tbLocatieCurenta";
-            this.tbLocatieCurenta.Size = new System.Drawing.Size(126, 29);
+            this.tbLocatieCurenta.ReadOnly = true;
+            this.tbLocatieCurenta.Size = new System.Drawing.Size(147, 29);
             this.tbLocatieCurenta.TabIndex = 87;
+            this.tbLocatieCurenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblLocatieCurenta
             // 
