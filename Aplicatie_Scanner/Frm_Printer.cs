@@ -116,9 +116,9 @@ namespace Aplicatie_Scanner
                 + "','"
                 + cbCalitate.Text
                 + "','"
-                + "Etichete_Generate"
-                + "','"
                 + ID
+                + "','"
+                + "Etichete_Generate"
                 + "');";
             
 
@@ -148,7 +148,7 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 ^FH\^FD{ID}^FS
 ^FO47,177^GB738,0,5^FS
 ^FT94,215^A0N,28,28^FH\^FDLungime : ^FS
-^FT230,215^A0N,28,28^FH\^FD1234 mm^FS
+^FT230,215^A0N,28,28^FH\^FD{cbLungime.Text} mm^FS
 ^FT89,257^A0N,28,28^FH\^FDDiametru : ^FS
 ^FT230,257^A0N,28,28^FH\^FD{tbDiametruBrut.Text} ^FS
 ^FT108,300^A0N,28,28^FH\^FDCalitate : ^FS

@@ -105,17 +105,17 @@
             this.pictureBox1.Location = new System.Drawing.Point(28, 105);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(327, 320);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // tbGUIDScanat
             // 
-            this.tbGUIDScanat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbGUIDScanat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbGUIDScanat.Location = new System.Drawing.Point(28, 429);
             this.tbGUIDScanat.Name = "tbGUIDScanat";
-            this.tbGUIDScanat.Size = new System.Drawing.Size(327, 24);
+            this.tbGUIDScanat.Size = new System.Drawing.Size(327, 26);
             this.tbGUIDScanat.TabIndex = 39;
             this.tbGUIDScanat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
