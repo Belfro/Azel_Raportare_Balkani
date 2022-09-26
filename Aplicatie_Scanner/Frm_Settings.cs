@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -134,14 +135,18 @@ namespace Aplicatie_Scanner
 
         private void btnDeleteFurnizor_Click(object sender, EventArgs e)
         {
-
+            string? Valoare_Selectata = null;
             try
             {
+                if (furnizoriList.Count > 0)
+                {
+                   Valoare_Selectata = dataGridView1.CurrentCell.Value.ToString();
+                }
+                else MessageBox.Show("Nu ati selectat niciun furnizor!");
 
-                string Valoare_Selectata = dataGridView1.CurrentCell.Value.ToString();
 
 
-            if (Valoare_Selectata != null)
+                if (Valoare_Selectata != null)
             {
                 DialogResult dialogResult = MessageBox.Show($"Sunteti sigur ca doriti sa stergeti furnizorul {dataGridView1.CurrentCell.Value}", "Stergere Furnizor", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -180,7 +185,7 @@ namespace Aplicatie_Scanner
             }
             catch
             {
-                MessageBox.Show("Nu ati selectat niciun furnizor!");       
+               
             }
 
 
