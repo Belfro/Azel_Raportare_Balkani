@@ -37,6 +37,8 @@ namespace Aplicatie_Scanner
             tbNrReceptie.Text = DateTime.Now.ToString("yyMMdd");
             tbDiametruBrut.Text = "40";
             ID = Guid.NewGuid().ToString().Replace("-", "").ToUpper();
+           
+            
         }
         public void Generare_Cod_Bare()
         {
@@ -282,6 +284,7 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
                         lblPrinterDbError.Visible = false;
                     }
                     cbFurnizor.SelectedIndex = 0;
+                    
                 }
                 if (calitateList != null && cbCalitate.Items.Count < calitateList.Count)
                 {
@@ -302,6 +305,7 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
                         lblPrinterDbError.Visible = false;
 
                     }
+                    Preview_Label();
                     cbLungime.SelectedIndex = 0;
                 }
             }
@@ -410,6 +414,10 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
         
         private void btnPreview_Click(object sender, EventArgs e)
         {
+            Preview_Label();
+        }
+        private void Preview_Label()
+        {
             string Data_Curenta = $"{PrinterCalendar.SelectionStart.Day.ToString("D2")}/{PrinterCalendar.SelectionStart.Month.ToString("D2")}/{PrinterCalendar.SelectionStart.Date.ToString("yy")}";
 
             ZPLString =
@@ -462,10 +470,9 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);        
+                MessageBox.Show(ex.Message);
             }
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
