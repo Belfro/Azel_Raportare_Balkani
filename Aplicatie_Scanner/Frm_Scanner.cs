@@ -190,7 +190,7 @@ namespace Aplicatie_Scanner
                             $"\r\nFROM {tbLocatieCurenta.Text}\r\nWHERE GUID = '{ID}';" +
                             $"\r\nDELETE FROM {tbLocatieCurenta.Text}" +
                             $"\r\nWHERE GUID = '{ID}';\r\nCOMMIT;" +
-                            $"\r\n UPDATE {cbLocatieNoua.Text} SET Locatie_Actuala = '{tbLocatieCurenta.Text}' ";
+                            $"\r\n UPDATE {cbLocatieNoua.Text} SET Locatie_Actuala = '{cbLocatieNoua.Text}' ";
                         cmd.CommandTimeout = 15;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
