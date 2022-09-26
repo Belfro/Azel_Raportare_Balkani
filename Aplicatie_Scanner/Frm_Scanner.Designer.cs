@@ -78,7 +78,7 @@
             // 
             this.cboDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDevice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cboDevice.Location = new System.Drawing.Point(28, 54);
+            this.cboDevice.Location = new System.Drawing.Point(28, 37);
             this.cboDevice.Name = "cboDevice";
             this.cboDevice.Size = new System.Drawing.Size(327, 29);
             this.cboDevice.TabIndex = 36;
@@ -94,7 +94,7 @@
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.button1.Location = new System.Drawing.Point(552, 77);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 58);
+            this.button1.Size = new System.Drawing.Size(176, 58);
             this.button1.TabIndex = 37;
             this.button1.Text = "Pornire\r\nCamera";
             this.button1.UseVisualStyleBackColor = false;
@@ -104,9 +104,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(28, 71);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(327, 340);
+            this.pictureBox1.Size = new System.Drawing.Size(327, 367);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -115,7 +115,7 @@
             // tbGUIDScanat
             // 
             this.tbGUIDScanat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbGUIDScanat.Location = new System.Drawing.Point(28, 429);
+            this.tbGUIDScanat.Location = new System.Drawing.Point(28, 442);
             this.tbGUIDScanat.Name = "tbGUIDScanat";
             this.tbGUIDScanat.ReadOnly = true;
             this.tbGUIDScanat.Size = new System.Drawing.Size(327, 26);
@@ -137,7 +137,7 @@
             this.Btn_Disconnect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Btn_Disconnect.Location = new System.Drawing.Point(552, 141);
             this.Btn_Disconnect.Name = "Btn_Disconnect";
-            this.Btn_Disconnect.Size = new System.Drawing.Size(146, 58);
+            this.Btn_Disconnect.Size = new System.Drawing.Size(176, 58);
             this.Btn_Disconnect.TabIndex = 40;
             this.Btn_Disconnect.Text = "Deconectare";
             this.Btn_Disconnect.UseVisualStyleBackColor = false;
@@ -360,7 +360,7 @@
             this.btnModifica.ForeColor = System.Drawing.Color.White;
             this.btnModifica.Location = new System.Drawing.Point(552, 325);
             this.btnModifica.Name = "btnModifica";
-            this.btnModifica.Size = new System.Drawing.Size(146, 58);
+            this.btnModifica.Size = new System.Drawing.Size(176, 58);
             this.btnModifica.TabIndex = 84;
             this.btnModifica.Text = "Modifica";
             this.btnModifica.UseVisualStyleBackColor = false;
@@ -389,7 +389,7 @@
             this.cbLocatieNoua.FormattingEnabled = true;
             this.cbLocatieNoua.Location = new System.Drawing.Point(552, 290);
             this.cbLocatieNoua.Name = "cbLocatieNoua";
-            this.cbLocatieNoua.Size = new System.Drawing.Size(146, 29);
+            this.cbLocatieNoua.Size = new System.Drawing.Size(176, 29);
             this.cbLocatieNoua.TabIndex = 86;
             this.cbLocatieNoua.Visible = false;
             // 
@@ -400,7 +400,7 @@
             this.tbLocatieCurenta.Location = new System.Drawing.Point(551, 236);
             this.tbLocatieCurenta.Name = "tbLocatieCurenta";
             this.tbLocatieCurenta.ReadOnly = true;
-            this.tbLocatieCurenta.Size = new System.Drawing.Size(147, 29);
+            this.tbLocatieCurenta.Size = new System.Drawing.Size(177, 29);
             this.tbLocatieCurenta.TabIndex = 87;
             this.tbLocatieCurenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

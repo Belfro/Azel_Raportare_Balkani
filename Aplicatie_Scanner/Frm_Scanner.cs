@@ -106,7 +106,7 @@ namespace Aplicatie_Scanner
                                 tbNrReceptie.Text = output.FirstOrDefault().Numar_Receptie.ToString();
                                 tbLungime.Text = output.FirstOrDefault().Lungime.ToString();
                                 tbDiametruBrut.Text = output.FirstOrDefault().Diametru.ToString();
-                                tbLungime.Text = output.FirstOrDefault().Lungime.ToString();
+                                tbLungime.Text = Math.Round( output.FirstOrDefault().Lungime,2).ToString();
                                 cbLocatieNoua.SelectedIndex = cbLocatieNoua.FindStringExact(output.FirstOrDefault().Locatie_Actuala.ToString());
                                 ID = output.FirstOrDefault().GUID.ToString();
                                 tbLocatieCurenta.Text = output.FirstOrDefault().Locatie_Actuala.ToString();
