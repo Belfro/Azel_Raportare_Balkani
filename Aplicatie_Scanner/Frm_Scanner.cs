@@ -189,7 +189,8 @@ namespace Aplicatie_Scanner
                             $"\r\nSELECT Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala" +
                             $"\r\nFROM {tbLocatieCurenta.Text}\r\nWHERE GUID = '{ID}';" +
                             $"\r\nDELETE FROM {tbLocatieCurenta.Text}" +
-                            $"\r\nWHERE GUID = '{ID}';\r\nCOMMIT;";
+                            $"\r\nWHERE GUID = '{ID}';\r\nCOMMIT;" +
+                            $"\r\n UPDATE {cbLocatieNoua.Text} SET Locatie_Actuala = '{tbLocatieCurenta.Text}' ";
                         cmd.CommandTimeout = 15;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
