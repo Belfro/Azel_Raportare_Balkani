@@ -98,7 +98,7 @@ namespace Aplicatie_Scanner
 
                 if (furnizoriList != null)
                 {
-                    if (dataGridView1.RowCount<furnizoriList.Count)
+                    if (dataGridView1.RowCount != furnizoriList.Count)
                     {
                         dataGridView1.AutoGenerateColumns = false;
                         dataGridView1.DataSource = furnizoriList;
