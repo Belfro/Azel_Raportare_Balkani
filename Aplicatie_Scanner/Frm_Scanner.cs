@@ -169,7 +169,8 @@ namespace Aplicatie_Scanner
 
         private void cboDevice_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (Webcam.IsRunning)
+                Webcam.SignalToStop();
         }
 
         private void btnModifica_Click(object sender, EventArgs e)
