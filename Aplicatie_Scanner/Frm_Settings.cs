@@ -22,12 +22,45 @@ namespace Aplicatie_Scanner
         public Frm_Settings()
         {
             InitializeComponent();
+        
             timer1.Start();
         }
 
-        private void Frm_Settings_Load(object sender, EventArgs e)
+        private async void Frm_Settings_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+
+                await Task.Run(async () => LoadDatePrinter());
+
+
+
+
+
+                if (furnizoriList != null)
+                {
+                    if (dataGridView1.RowCount != furnizoriList.Count)
+                    {
+                        dataGridView1.AutoGenerateColumns = false;
+                        dataGridView1.DataSource = furnizoriList;
+                        dataGridView1.Columns["Nume_Furnizor"].DataPropertyName = "Denumire";
+                    }
+
+                }
+
+                {
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+
+            }
         }
 
         public async Task LoadDatePrinter()
