@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -58,6 +59,7 @@ namespace Aplicatie_Scanner
         }
         private void Trigger_Click(object sender, EventArgs e)
         {
+            
             Webcam = new VideoCaptureDevice(Filtru[cboDevice.SelectedIndex].MonikerString);
             Webcam.NewFrame += Webcam_Newframe;
             Webcam.Start();
@@ -91,7 +93,8 @@ namespace Aplicatie_Scanner
                 Result result = reader.Decode((Bitmap)pictureBox1.Image);
                 if (result != null)
                 {
-                   
+                    playSound();
+
                     try
                     {
                         using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
@@ -147,6 +150,7 @@ namespace Aplicatie_Scanner
                        
                     }
                     tbGUIDScanat.Text = result.ToString();
+                   
                     timer1.Stop();
                     pictureBox1.Image = null;
                     if (Webcam.IsRunning)
@@ -154,9 +158,13 @@ namespace Aplicatie_Scanner
                 }
             }
         }
-
+        public void playSound()
+        {
+            SystemSounds.Beep.Play();
+        }
         private void Btn_Disconnect_Click(object sender, EventArgs e)
         {
+           
             if (Webcam.IsRunning)
                 Webcam.SignalToStop();
             pictureBox1.Image = null;
