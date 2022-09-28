@@ -249,6 +249,7 @@
             this.cbZonaSelectie.FormattingEnabled = true;
             this.cbZonaSelectie.Items.AddRange(new object[] {
             "Etichete Generate",
+            "Depozit",
             "Linie Productie 1",
             "Linie Productie 2",
             "Linie Productie 3"});

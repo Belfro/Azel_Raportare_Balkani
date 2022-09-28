@@ -28,7 +28,10 @@ namespace Aplicatie_Scanner
             btnModifica.Visible = false;
             cbLocatieNoua.Items.Clear();
             cbLocatieNoua.Items.Add("Etichete_Generate");
+            cbLocatieNoua.Items.Add("Depozit");
             cbLocatieNoua.Items.Add("Linie_Productie_1");
+            cbLocatieNoua.Items.Add("Linie_Productie_2");
+            cbLocatieNoua.Items.Add("Linie_Productie_3");
             cbLocatieNoua.SelectedIndex = 0;
         }
         List<DateFurnizori> furnizoriList = new List<DateFurnizori>();
@@ -96,7 +99,13 @@ namespace Aplicatie_Scanner
 
 
                             var output = connection.Query<DateDB>(@$"select * from Etichete_Generate WHERE GUID = '{result.ToString()}'
-                               UNION select * from Linie_Productie_1 WHERE GUID = '{result.ToString()}' ").ToList();
+                               UNION select * from Depozit WHERE GUID = '{result.ToString()}'
+                               UNION select * from Linie_Productie_1 WHERE GUID = '{result.ToString()}'     
+                               UNION select * from Linie_Productie_2 WHERE GUID = '{result.ToString()}'
+                               UNION select * from Linie_Productie_3 WHERE GUID = '{result.ToString()}'
+                               ").ToList();
+                                
+
 
                             if (output.FirstOrDefault().Furnizor.ToString() != null)
                             {
