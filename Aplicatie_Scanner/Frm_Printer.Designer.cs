@@ -337,6 +337,7 @@
             this.cbLungime.Name = "cbLungime";
             this.cbLungime.Size = new System.Drawing.Size(172, 29);
             this.cbLungime.TabIndex = 60;
+            this.cbLungime.SelectedIndexChanged += new System.EventHandler(this.cbLungime_SelectedIndexChanged);
             // 
             // label5
             // 

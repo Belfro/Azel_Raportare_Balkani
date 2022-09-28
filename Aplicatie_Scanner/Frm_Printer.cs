@@ -477,5 +477,10 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
         {
 
         }
+
+        private void cbLungime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

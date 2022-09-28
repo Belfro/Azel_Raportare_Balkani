@@ -82,7 +82,7 @@ namespace Aplicatie_Scanner
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
                 {
-                    var output = connection.Query<DateLungime>($"SELECT Lungime FROM Lungimi").ToList();
+                    var output = connection.Query<DateLungime>($"SELECT Lungime FROM Lungimi Order by Lungime").ToList();
                     // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
                     return output;
                 }
