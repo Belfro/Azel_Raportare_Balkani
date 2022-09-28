@@ -59,8 +59,10 @@
             this.cbLocatieNoua = new System.Windows.Forms.ComboBox();
             this.tbLocatieCurenta = new System.Windows.Forms.TextBox();
             this.lblLocatieCurenta = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -104,9 +106,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 71);
+            this.pictureBox1.Location = new System.Drawing.Point(-51, -57);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(327, 367);
+            this.pictureBox1.Size = new System.Drawing.Size(502, 492);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -418,12 +420,21 @@
             this.lblLocatieCurenta.Text = "Locatie Curenta:";
             this.lblLocatieCurenta.Click += new System.EventHandler(this.label1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(26, 69);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(329, 367);
+            this.panel1.TabIndex = 89;
+            // 
             // Frm_Scanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(740, 516);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblLocatieCurenta);
             this.Controls.Add(this.tbLocatieCurenta);
             this.Controls.Add(this.cbLocatieNoua);
@@ -449,7 +460,6 @@
             this.Controls.Add(this.Btn_Disconnect);
             this.Controls.Add(this.cboDevice);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbGUIDScanat);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -460,6 +470,7 @@
             this.Leave += new System.EventHandler(this.Frm_Scanner_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -496,5 +507,6 @@
         private ComboBox cbLocatieNoua;
         private TextBox tbLocatieCurenta;
         private Label lblLocatieCurenta;
+        private Panel panel1;
     }
 }
