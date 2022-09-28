@@ -50,7 +50,6 @@ namespace Aplicatie_Scanner
             this.Btn_Minimize = new System.Windows.Forms.Button();
             this.lbltitle = new System.Windows.Forms.Label();
             this.timer_timp = new System.Windows.Forms.Timer(this.components);
-            this.Btn_Maximize = new System.Windows.Forms.Button();
             this.lblAppVersion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -189,7 +188,7 @@ namespace Aplicatie_Scanner
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.label1.Location = new System.Drawing.Point(21, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 32);
+            this.label1.Size = new System.Drawing.Size(144, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "AZEL Database \r\nManagement Studio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,7 +223,7 @@ namespace Aplicatie_Scanner
             this.Btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.Btn_Minimize.Location = new System.Drawing.Point(857, 20);
+            this.Btn_Minimize.Location = new System.Drawing.Point(895, 20);
             this.Btn_Minimize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Minimize.Name = "Btn_Minimize";
             this.Btn_Minimize.Size = new System.Drawing.Size(29, 29);
@@ -249,22 +248,6 @@ namespace Aplicatie_Scanner
             // 
             this.timer_timp.Tick += new System.EventHandler(this.timer_timp_Tick);
             // 
-            // Btn_Maximize
-            // 
-            this.Btn_Maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Maximize.FlatAppearance.BorderSize = 0;
-            this.Btn_Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Maximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Maximize.ForeColor = System.Drawing.Color.White;
-            this.Btn_Maximize.Location = new System.Drawing.Point(889, 23);
-            this.Btn_Maximize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Btn_Maximize.Name = "Btn_Maximize";
-            this.Btn_Maximize.Size = new System.Drawing.Size(29, 29);
-            this.Btn_Maximize.TabIndex = 20;
-            this.Btn_Maximize.Text = "🗖";
-            this.Btn_Maximize.UseVisualStyleBackColor = true;
-            this.Btn_Maximize.Click += new System.EventHandler(this.Btn_Maximize_Click);
-            // 
             // lblAppVersion
             // 
             this.lblAppVersion.AutoSize = true;
@@ -283,7 +266,6 @@ namespace Aplicatie_Scanner
             this.ClientSize = new System.Drawing.Size(977, 577);
             this.Controls.Add(this.lblAppVersion);
             this.Controls.Add(this.Panel_Form_Loader);
-            this.Controls.Add(this.Btn_Maximize);
             this.Controls.Add(this.lbltitle);
             this.Controls.Add(this.Btn_Minimize);
             this.Controls.Add(this.Btn_Close_App);
@@ -316,7 +298,6 @@ namespace Aplicatie_Scanner
         private Panel Panel_Form_Loader;
         private Label lbltitle;
         private System.Windows.Forms.Timer timer_timp;
-        private Button Btn_Maximize;
         private Panel panel3;
         private Label lblAppVersion;
     }
