@@ -114,7 +114,6 @@ namespace Aplicatie_Scanner
                             {
                                 tbFurnizor.Text = output.FirstOrDefault().Furnizor.ToString();
                                 tbNrAviz.Text = output.FirstOrDefault().Numar_Aviz.ToString();
-                                tbNrBucati.Text = output.FirstOrDefault().Numar_Bucati.ToString();
                                 tbNrReceptie.Text = output.FirstOrDefault().Numar_Receptie.ToString();
                                 tbDiametruBrut.Text = output.FirstOrDefault().Diametru.ToString();
                                 tbLungime.Text = Math.Round( output.FirstOrDefault().Lungime,2).ToString();
@@ -183,7 +182,6 @@ namespace Aplicatie_Scanner
                             {
                                 tbFurnizor.Text = output.FirstOrDefault().Furnizor.ToString();
                                 tbNrAviz.Text = output.FirstOrDefault().Numar_Aviz.ToString();
-                                tbNrBucati.Text = output.FirstOrDefault().Numar_Bucati.ToString();
                                 tbNrReceptie.Text = output.FirstOrDefault().Numar_Receptie.ToString();
                                 tbDiametruBrut.Text = output.FirstOrDefault().Diametru.ToString();
                                 tbLungime.Text = Math.Round(output.FirstOrDefault().Lungime, 2).ToString();

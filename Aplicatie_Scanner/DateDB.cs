@@ -12,15 +12,14 @@ namespace Aplicatie_Scanner
         public DateTime Data_Timp { get; set; }
         public string Furnizor { get; set; }
 
-        public int Numar_Aviz { get; set; }
-        public int Numar_Bucati { get; set; }
-
-        public int Numar_Receptie { get; set; }
+        public string Numar_Aviz { get; set; }
+        public string Numar_Receptie { get; set; }
         public double Lungime { get; set; }
         public double Diametru { get; set; }
         public string Calitate { get; set; }
         public string GUID { get; set; }
         public string Locatie_Actuala { get; set; }
+        public string Comentariu { get; set; }
         public string Doardata
         {
             get
@@ -42,7 +41,7 @@ namespace Aplicatie_Scanner
             get
             {
                 // Stringul afisat 
-                return $"{Doardata},{DoarTimp},{Furnizor},{Numar_Aviz},{Numar_Bucati},{Numar_Receptie},{Lungime},{Diametru},{Calitate},{GUID},{Locatie_Actuala}";
+                return $"{Doardata},{DoarTimp},{Furnizor},{Numar_Aviz},{Numar_Receptie},{Lungime},{Diametru},{Calitate},{GUID},{Locatie_Actuala},{Comentariu}";
             }
         }
     }
