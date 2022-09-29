@@ -37,6 +37,14 @@ namespace Aplicatie_Scanner
                 return $"{Data_Timp.Hour.ToString("D2")}:{Data_Timp.Minute.ToString("D2")}:{Data_Timp.Second.ToString("D2")}";
             }
         }
+        public string FullString
+        {
+            get
+            {
+                // Stringul afisat 
+                return $"{Doardata},{DoarTimp},{Furnizor},{Numar_Aviz},{Numar_Bucati},{Numar_Receptie},{Lungime},{Diametru},{Calitate},{GUID},{Locatie_Actuala}";
+            }
+        }
     }
     public class DateFurnizori
     { 

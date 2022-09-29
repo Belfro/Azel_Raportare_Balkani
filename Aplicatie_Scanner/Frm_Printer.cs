@@ -27,18 +27,20 @@ namespace Aplicatie_Scanner
         List<DateLungime> LungimeList = new List<DateLungime>();
         string ID;
         string ZPLString;
+        public static bool Receptie_Pornita = false;
+        public static int Numar_Receptie_Curenta = 1;
         public Frm_Printer()
         {
             InitializeComponent();
             pbRomply.Visible = false;
             pbAzel.Visible = false;
             tbNrAviz.Text = "000000";
-            tbNrBucati.Text = "1";
             tbNrReceptie.Text = DateTime.Now.ToString("yyMMdd");
             tbDiametruBrut.Text = "40";
             ID = Guid.NewGuid().ToString().Replace("-", "").ToUpper();
-           
-            
+            StergeEticheteVechi();
+
+
         }
         public void Generare_Cod_Bare()
         {
@@ -91,38 +93,68 @@ namespace Aplicatie_Scanner
 
             }
         }
-            private void button_print_Click(object sender, EventArgs e)
+        private void StergeEticheteVechi()
         {
-           
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+            {
+                try
+                {
+                    connection.Open();
+                    var cmd = connection.CreateCommand();
+                    cmd.CommandText = $"DELETE FROM Etichete_Generate WHERE Data_Timp < DATEADD(day, -7, GETDATE())";
+                    cmd.CommandTimeout = 15;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
 
-          
-            ID = Guid.NewGuid().ToString().Replace("-","").ToUpper();
-            string Data = $"{PrinterCalendar.SelectionStart.Day.ToString("D2")}-{PrinterCalendar.SelectionStart.Month.ToString("D2")}-{PrinterCalendar.SelectionStart.Date.ToString("yy")}";
+                    connection.Close();
+                }
 
-            string Timp =  $"{DateTime.Now.Hour.ToString("D2")}:{DateTime.Now.Minute.ToString("D2")}:{DateTime.Now.Second.ToString("D2")}";
-            
-            string CodDeIntrodus = 
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
+                }
+
+
+            }
+        }
+        private void button_print_Click(object sender, EventArgs e)
+        {
+            if(Receptie_Pornita)
+            Imprimare();
+
+
+        }
+
+    private void Imprimare()
+        {
+
+            ID = Guid.NewGuid().ToString().Replace("-", "").ToUpper();
+            string Data = $"{DateTime.Now.Day.ToString("D2")}-{DateTime.Now.Month.ToString("D2")}-{DateTime.Now.Date.ToString("yy")}";
+
+            string Timp = $"{DateTime.Now.Hour.ToString("D2")}:{DateTime.Now.Minute.ToString("D2")}:{DateTime.Now.Second.ToString("D2")}";
+
+            string CodDeIntrodus =
                 $"convert(datetime,'{Data} {Timp}',5)"
                 + ",'"
                 + cbFurnizor.Text
                 + "','"
                 + tbNrAviz.Text
                 + "','"
-                + tbNrBucati.Text
-                + "','"
                 + tbNrReceptie.Text
                 + "','"
-                + cbLungime.Text
+                + lbLungime.Text
                 + "','"
                 + tbDiametruBrut.Text
                 + "','"
-                + cbCalitate.Text
+                + lbCalitate.Text
                 + "','"
                 + ID
                 + "','"
                 + "Etichete_Generate"
+                 + "','"
+                + rtbComentariu.Text
                 + "');";
-            
+
 
             Generare_Cod_Bare();
             AdaugaIntrari(CodDeIntrodus);
@@ -132,7 +164,7 @@ namespace Aplicatie_Scanner
             // Printer IP Address and communication port
             string ipAddress = "192.168.170.165";
             int port = 9100;
-            string Data_Curenta = $"{PrinterCalendar.SelectionStart.Day.ToString("D2")}/{PrinterCalendar.SelectionStart.Month.ToString("D2")}/{PrinterCalendar.SelectionStart.Date.ToString("yy")}";
+            string Data_Curenta = $"{DateTime.Now.Day.ToString("D2")}/{DateTime.Now.Month.ToString("D2")}/{DateTime.Now.Date.ToString("yy")}";
             // ZPL Command(s)
             ZPLString =
 $@"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
@@ -150,11 +182,11 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 ^FH\^FD{ID}^FS
 ^FO47,177^GB738,0,5^FS
 ^FT94,215^A0N,28,28^FH\^FDLungime : ^FS
-^FT230,215^A0N,28,28^FH\^FD{cbLungime.Text} mm^FS
+^FT230,215^A0N,28,28^FH\^FD{lbLungime.Text} mm^FS
 ^FT89,257^A0N,28,28^FH\^FDDiametru : ^FS
 ^FT230,257^A0N,28,28^FH\^FD{tbDiametruBrut.Text} ^FS
 ^FT108,300^A0N,28,28^FH\^FDCalitate : ^FS
-^FT230,300^A0N,28,28^FH\^FD{cbCalitate.Text}^FS
+^FT230,300^A0N,28,28^FH\^FD{lbCalitate.Text}^FS
 ^FT144,342^A0N,28,28^FH\^FDData : ^FS
 ^FT230,344^A0N,28,28^FH\^FD{Data_Curenta}^FS
 ^FT99,386^A0N,28,28^FH\^FDFurnizor : ^FS
@@ -162,85 +194,34 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 ^FT48,430^A0N,28,28^FH\^FDNr. Receptie : ^FS
 ^FT230,432^A0N,28,28^FH\^FD{tbNrReceptie.Text}^FS
 ^FO47,460^GB738,0,5^FS
-^PQ{tbNrBucati.Text},0,1,Y^XZ";
-            #region
-            /*      //                        @"^XA
+^PQ1,0,1,Y^XZ";
 
-                  //^FX Top section with logo, name and address.
-                  //^CF0,60
-                  //^FO50,50^GB100,100,100^FS
-                  //^FO75,75^FR^GB100,100,100^FS
-                  //^FO93,93^GB40,40,40^FS
-                  //^FO220,50^FDCALIN ANDREI^FS
-                  //^CF0,30
-                  //^FO220,115^FD AZEL^FS
-                  //^FO220,155^FDMagurele^FS
-                  //^FO220,195^FDIlfov^FS
-                  //^FO50,250^GB700,3,3^FS
+            /*     try
+                 {
+                     // Open connection
+                     System.Net.Sockets.TcpClient client = new System.Net.Sockets.TcpClient();
+                     client.Connect(ipAddress, port);
 
-                  //^FX Second section with recipient address and permit information.
-                  //^CFA,30
-                  //^FO50,300^FDSimion Ersen^FS
-                  //^FO50,340^FDMagurele^FS
-                  //^FO50,380^FDIlfov^FS
-                  //^FO50,420^FDRomania^FS
-                  //^CFA,15
-                  //^FO600,300^GB150,150,3^FS
-                  //^FO620,340^FDSemnatura^FS
-                  //^FO638,390^FDVa Rog^FS
-                  //^FO50,500^GB700,3,3^FS
+                     // Write ZPL String to connection
+                     System.IO.StreamWriter writer =
+                 new System.IO.StreamWriter(client.GetStream());
+                     writer.Write(ZPLString);
+                     writer.Flush();
 
-                  //^FX Third section with bar code.
-                  //^BY5,2,270
-                  //^FO300,300^BQN,2,10^FDAZEL.RO^FS
+                     // Close Connection
+                     writer.Close();
+                     client.Close();
+                     MessageBox.Show("Done Sending Data.");
 
-                  //^FX Fourth section (the two boxes on the bottom).
-                  //^FO50,900^GB700,250,3^FS
-                  //^FO400,900^GB3,250,3^FS
-                  //^CF0,40
-                  //^FO100,960^FDPutem^FS
-                  //^FO100,1010^FDPrinta^FS
-                  //^FO100,1060^FDCe Vrem^FS
-                  //^CF0,130
-                  //^FO440,1000^FDAZEL^FS
-
-                  //^XZ";
-
-                  //PrintDialog pd = new PrintDialog();
-                  //pd.PrinterSettings = new PrinterSettings();
-                  //if (DialogResult.OK == pd.ShowDialog(this))
-                  //{
-                  //    RawPrinterHelper.SendStringToPrinter(pd.PrinterSettings.PrinterName, ZPLString);
-                  //}*/
-            #endregion
-            try
-            {
-                // Open connection
-                System.Net.Sockets.TcpClient client = new System.Net.Sockets.TcpClient();
-                client.Connect(ipAddress, port);
-
-                // Write ZPL String to connection
-                System.IO.StreamWriter writer =
-            new System.IO.StreamWriter(client.GetStream());
-                writer.Write(ZPLString);
-                writer.Flush();
-
-                // Close Connection
-                writer.Close();
-                client.Close();
-                MessageBox.Show("Done Sending Data.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show(ex.Message);
+                 }*/
+            lbCalitate.SelectedIndex = 0;
+            tbDiametruBrut.SelectAll();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -286,27 +267,31 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
                     cbFurnizor.SelectedIndex = 0;
                     
                 }
-                if (calitateList != null && cbCalitate.Items.Count < calitateList.Count)
+                if (calitateList != null && lbCalitate.Items.Count < calitateList.Count)
                 {
                     foreach (DateCalitate Date in calitateList)
                     {
-                        cbCalitate.Items.Add(Date.Calitate);
+                        
+                        lbCalitate.Items.Add(Date.Calitate);
                         lblPrinterDbError.Visible = false;
                       
                     }
-                    cbCalitate.SelectedIndex = 0;
+                   
+                    lbCalitate.SelectedIndex = 0;
                 }
 
-                if (LungimeList != null && cbLungime.Items.Count < LungimeList.Count)
+                if (LungimeList != null && lbLungime.Items.Count < LungimeList.Count)
                 {
                     foreach (DateLungime Date in LungimeList)
                     {
-                        cbLungime.Items.Add(Math.Round(Date.Lungime,2));
+                        lbLungime.Items.Add(Math.Round(Date.Lungime,2));
+                       
                         lblPrinterDbError.Visible = false;
 
                     }
                     Preview_Label();
-                    cbLungime.SelectedIndex = 0;
+                    lbLungime.SelectedIndex = 0;
+                   
                 }
             }
             catch (Exception ex)
@@ -356,14 +341,15 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
                 }
                 if (calitateList != null )
 
-                        if (cbCalitate.Items.Count < calitateList.Count)
+                        if (lbCalitate.Items.Count < calitateList.Count)
                         {
-                        cbCalitate.Items.Clear();
+                        lbCalitate.Items.Clear();
                     foreach (DateCalitate Date in calitateList)
                     {
-                        cbCalitate.Items.Add(Date.Calitate);
+                        lbCalitate.Items.Add(Date.Calitate);
+                       
 
-                    }
+                        }
                     lblPrinterDbError.Visible = false;
                 }
                 {
@@ -414,11 +400,12 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
         
         private void btnPreview_Click(object sender, EventArgs e)
         {
+            this.ActiveControl = tbDiametruBrut;
             Preview_Label();
         }
         private void Preview_Label()
         {
-            string Data_Curenta = $"{PrinterCalendar.SelectionStart.Day.ToString("D2")}/{PrinterCalendar.SelectionStart.Month.ToString("D2")}/{PrinterCalendar.SelectionStart.Date.ToString("yy")}";
+            string Data_Curenta = $"{DateTime.Now.Day.ToString("D2")}/{DateTime.Now.Month.ToString("D2")}/{DateTime.Now.Date.ToString("yy")}";
 
             ZPLString =
 $@"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
@@ -436,11 +423,11 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 ^FH\^FD{ID}^FS
 ^FO47,177^GB738,0,5^FS
 ^FT94,215^A0N,28,28^FH\^FDLungime : ^FS
-^FT230,215^A0N,28,28^FH\^FD{cbLungime.Text} mm^FS
+^FT230,215^A0N,28,28^FH\^FD{lbLungime.Text} mm^FS
 ^FT89,257^A0N,28,28^FH\^FDDiametru : ^FS
 ^FT230,257^A0N,28,28^FH\^FD{tbDiametruBrut.Text} ^FS
 ^FT108,300^A0N,28,28^FH\^FDCalitate : ^FS
-^FT230,300^A0N,28,28^FH\^FD{cbCalitate.Text}^FS
+^FT230,300^A0N,28,28^FH\^FD{lbCalitate.Text}^FS
 ^FT144,342^A0N,28,28^FH\^FDData : ^FS
 ^FT230,344^A0N,28,28^FH\^FD{Data_Curenta}^FS
 ^FT99,386^A0N,28,28^FH\^FDFurnizor : ^FS
@@ -478,7 +465,56 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
 
         }
 
-        private void cbLungime_SelectedIndexChanged(object sender, EventArgs e)
+      
+
+        private void tbDiametruBrut_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if (((e.KeyCode == Keys.Enter) || (e.KeyCode == Keys.Return)))
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                if (Receptie_Pornita)
+                Imprimare();
+
+               
+            }
+           
+        }
+
+        private void btnStartReceptie_Click(object sender, EventArgs e)
+        {
+            if (!Receptie_Pornita)
+            {
+                cbFurnizor.Enabled = false;
+                tbNrAviz.Enabled = false;
+                tbNrReceptie.Enabled = false;
+                Receptie_Pornita = true;
+                btn_print.Visible = true;
+                btnPreview.Visible = false;
+            }
+
+        }
+
+        private void btnStopReceptie_Click(object sender, EventArgs e)
+        {
+            if (Receptie_Pornita)
+            {
+                Numar_Receptie_Curenta++;
+            cbFurnizor.Enabled = true;
+            tbNrAviz.Enabled = true;
+            tbNrReceptie.Enabled = true;
+            Receptie_Pornita = false;
+           
+            btn_print.Visible = false;
+            btnPreview.Visible = true;
+               
+            }
+        }
+
+      
+
+        private void cbCalitate_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -1,8 +1,12 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
 using Dapper;
+using SixLabors.ImageSharp.ColorSpaces;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Text;
+using Xamarin.Forms.PlatformConfiguration;
 using ZXing;
 using ZXing.Windows.Compatibility;
 
@@ -80,6 +84,8 @@ namespace Aplicatie_Scanner
 
                 UpdateBinding();
                 if (date.Count < 1) MessageBox.Show("Nu a fost gasit niciun produs !");
+                else btnPrintCSV.Visible = true;
+                    
             }
             catch
             {
@@ -171,7 +177,17 @@ namespace Aplicatie_Scanner
 
         private void cbZonaSelectie_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
 
+        private void btnPrintCSV_Click(object sender, EventArgs e)
+        {
+            using (StreamWriter file = File.CreateText(@$"C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Raportari CSV\Raport_Aplicatie_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm")}.csv"))
+            {
+                foreach (var arr in date)
+                {
+                    file.WriteLine(string.Join(",", arr.FullString));
+                }
+            }
         }
     }
 }

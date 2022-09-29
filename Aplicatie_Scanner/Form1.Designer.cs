@@ -67,7 +67,7 @@ namespace Aplicatie_Scanner
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 577);
+            this.panel1.Size = new System.Drawing.Size(186, 647);
             this.panel1.TabIndex = 7;
             // 
             // Panel_Nav
@@ -86,7 +86,7 @@ namespace Aplicatie_Scanner
             this.Btn_Settings.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.Btn_Settings.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Settings.Image")));
-            this.Btn_Settings.Location = new System.Drawing.Point(0, 535);
+            this.Btn_Settings.Location = new System.Drawing.Point(0, 605);
             this.Btn_Settings.Name = "Btn_Settings";
             this.Btn_Settings.Size = new System.Drawing.Size(186, 42);
             this.Btn_Settings.TabIndex = 9;
@@ -171,11 +171,11 @@ namespace Aplicatie_Scanner
             // lbl_time
             // 
             this.lbl_time.AutoSize = true;
-            this.lbl_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_time.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl_time.Location = new System.Drawing.Point(3, 9);
             this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Size = new System.Drawing.Size(84, 20);
+            this.lbl_time.Size = new System.Drawing.Size(78, 18);
             this.lbl_time.TabIndex = 1;
             this.lbl_time.Text = "Time Left";
             this.lbl_time.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -197,7 +197,7 @@ namespace Aplicatie_Scanner
             // 
             this.Panel_Form_Loader.Location = new System.Drawing.Point(185, 61);
             this.Panel_Form_Loader.Name = "Panel_Form_Loader";
-            this.Panel_Form_Loader.Size = new System.Drawing.Size(786, 513);
+            this.Panel_Form_Loader.Size = new System.Drawing.Size(867, 574);
             this.Panel_Form_Loader.TabIndex = 15;
             // 
             // Btn_Close_App
@@ -207,7 +207,7 @@ namespace Aplicatie_Scanner
             this.Btn_Close_App.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Close_App.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Close_App.ForeColor = System.Drawing.Color.White;
-            this.Btn_Close_App.Location = new System.Drawing.Point(922, 23);
+            this.Btn_Close_App.Location = new System.Drawing.Point(1009, 23);
             this.Btn_Close_App.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Close_App.Name = "Btn_Close_App";
             this.Btn_Close_App.Size = new System.Drawing.Size(29, 29);
@@ -223,7 +223,7 @@ namespace Aplicatie_Scanner
             this.Btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.Btn_Minimize.Location = new System.Drawing.Point(895, 20);
+            this.Btn_Minimize.Location = new System.Drawing.Point(982, 20);
             this.Btn_Minimize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Minimize.Name = "Btn_Minimize";
             this.Btn_Minimize.Size = new System.Drawing.Size(29, 29);
@@ -263,7 +263,7 @@ namespace Aplicatie_Scanner
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(977, 577);
+            this.ClientSize = new System.Drawing.Size(1064, 647);
             this.Controls.Add(this.lblAppVersion);
             this.Controls.Add(this.Panel_Form_Loader);
             this.Controls.Add(this.lbltitle);

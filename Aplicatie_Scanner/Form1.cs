@@ -43,8 +43,8 @@ namespace Aplicatie_Scanner
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             Panel_Nav.Height = Btn_Printer.Height;
             Panel_Nav.Top = Btn_Printer.Top;
-            
 
+          
 
             lbltitle.Text = "Printer";
             this.Panel_Form_Loader.Controls.Clear();
@@ -68,18 +68,23 @@ namespace Aplicatie_Scanner
 
         private void Btn_Settings_Click(object sender, EventArgs e)
         {
-            Panel_Nav.Height = Btn_Settings.Height;
-            Panel_Nav.Top = Btn_Settings.Top;
+            if (Frm_Printer.Receptie_Pornita == false)
+            {
+                Panel_Nav.Height = Btn_Settings.Height;
+                Panel_Nav.Top = Btn_Settings.Top;
 
 
-            Reset_Btn_BackColor();
-            lbltitle.Text = "Settings";
-            this.Panel_Form_Loader.Controls.Clear();
-            Frm_Settings Frm_Settings_Vrb = new Frm_Settings() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            Frm_Settings_Vrb.FormBorderStyle = FormBorderStyle.None;
-            this.Panel_Form_Loader.Controls.Add(Frm_Settings_Vrb);
-            Frm_Settings_Vrb.Show();
-            Btn_Settings.BackColor = Color.FromArgb(46, 51, 73);
+                Reset_Btn_BackColor();
+                lbltitle.Text = "Settings";
+                this.Panel_Form_Loader.Controls.Clear();
+                Frm_Settings Frm_Settings_Vrb = new Frm_Settings() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                Frm_Settings_Vrb.FormBorderStyle = FormBorderStyle.None;
+                this.Panel_Form_Loader.Controls.Add(Frm_Settings_Vrb);
+                Frm_Settings_Vrb.Show();
+                Btn_Settings.BackColor = Color.FromArgb(46, 51, 73);
+            }
+            else
+            { MessageBox.Show("Trebuie inchisa receptia!"); }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -89,7 +94,9 @@ namespace Aplicatie_Scanner
 
         private void Btn_Dashboard_Click(object sender, EventArgs e)
         {
-            Panel_Nav.Height = Btn_Dashboard.Height;
+            if (Frm_Printer.Receptie_Pornita == false)
+            {
+                Panel_Nav.Height = Btn_Dashboard.Height;
             Panel_Nav.Top = Btn_Dashboard.Top;
             Panel_Nav.Left = Btn_Dashboard.Left;
             
@@ -101,12 +108,16 @@ namespace Aplicatie_Scanner
             this.Panel_Form_Loader.Controls.Add(Frm_Dashboard_Vrb);
             Frm_Dashboard_Vrb.Show();
             Btn_Dashboard.BackColor = Color.FromArgb(46, 51, 73);
-
         }
+            else
+            { MessageBox.Show("Trebuie inchisa receptia!"); }
+}
 
         private void Btn_Scanner_Click(object sender, EventArgs e)
         {
-            Panel_Nav.Height = Btn_Scanner.Height;
+            if (Frm_Printer.Receptie_Pornita == false)
+            {
+                Panel_Nav.Height = Btn_Scanner.Height;
             Panel_Nav.Top = Btn_Scanner.Top;
 
             Reset_Btn_BackColor();
@@ -117,14 +128,19 @@ namespace Aplicatie_Scanner
             this.Panel_Form_Loader.Controls.Add(Frm_Scanner_Vrb);
             Frm_Scanner_Vrb.Show();
             Btn_Scanner.BackColor = Color.FromArgb(46, 51, 73);
+            }
+            else
+            { MessageBox.Show("Trebuie inchisa receptia!"); }
         }
 
         private void Btn_Printer_Click(object sender, EventArgs e)
         {
-            Panel_Nav.Height = Btn_Printer.Height;
+            if (Frm_Printer.Receptie_Pornita == false)
+            {
+                Panel_Nav.Height = Btn_Printer.Height;
             Panel_Nav.Top = Btn_Printer.Top;
 
-
+            
             Reset_Btn_BackColor();
             lbltitle.Text = "Printer";
             this.Panel_Form_Loader.Controls.Clear();
@@ -134,6 +150,9 @@ namespace Aplicatie_Scanner
             Frm_Printer_Vrb.Show();
             Btn_Printer.BackColor = Color.FromArgb(46, 51, 73);
         }
+            else
+            { MessageBox.Show("Trebuie inchisa receptia!"); }
+}
         private void Reset_Btn_BackColor()
         {
             Btn_Dashboard.BackColor = Color.FromArgb(24, 30, 54);

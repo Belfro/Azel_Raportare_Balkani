@@ -53,6 +53,7 @@
             this.cbZonaSelectie = new System.Windows.Forms.ComboBox();
             this.cbCalitate = new System.Windows.Forms.ComboBox();
             this.checkBoxCalitate = new System.Windows.Forms.CheckBox();
+            this.btnPrintCSV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(677, 425);
+            this.pictureBox2.Location = new System.Drawing.Point(754, 483);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(101, 90);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -108,7 +109,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(745, 278);
+            this.dataGridView1.Size = new System.Drawing.Size(835, 336);
             this.dataGridView1.TabIndex = 35;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -177,7 +178,7 @@
             this.newCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.newCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.newCalendar1.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.newCalendar1.Location = new System.Drawing.Point(9, 290);
+            this.newCalendar1.Location = new System.Drawing.Point(9, 359);
             this.newCalendar1.Margin = new System.Windows.Forms.Padding(0);
             this.newCalendar1.MaxSelectionCount = 365;
             this.newCalendar1.Name = "newCalendar1";
@@ -192,7 +193,7 @@
             this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Search.ForeColor = System.Drawing.Color.White;
-            this.Search.Location = new System.Drawing.Point(9, 453);
+            this.Search.Location = new System.Drawing.Point(9, 522);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(213, 50);
             this.Search.TabIndex = 38;
@@ -205,7 +206,7 @@
             this.checkBoxFurnizor.AutoSize = true;
             this.checkBoxFurnizor.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.checkBoxFurnizor.ForeColor = System.Drawing.Color.White;
-            this.checkBoxFurnizor.Location = new System.Drawing.Point(248, 359);
+            this.checkBoxFurnizor.Location = new System.Drawing.Point(243, 419);
             this.checkBoxFurnizor.Name = "checkBoxFurnizor";
             this.checkBoxFurnizor.Size = new System.Drawing.Size(81, 24);
             this.checkBoxFurnizor.TabIndex = 39;
@@ -218,7 +219,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(242, 336);
+            this.label1.Location = new System.Drawing.Point(237, 396);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 20);
             this.label1.TabIndex = 40;
@@ -227,7 +228,7 @@
             // cbFurnizor
             // 
             this.cbFurnizor.FormattingEnabled = true;
-            this.cbFurnizor.Location = new System.Drawing.Point(335, 360);
+            this.cbFurnizor.Location = new System.Drawing.Point(330, 420);
             this.cbFurnizor.Name = "cbFurnizor";
             this.cbFurnizor.Size = new System.Drawing.Size(139, 23);
             this.cbFurnizor.TabIndex = 41;
@@ -238,7 +239,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(242, 304);
+            this.label2.Location = new System.Drawing.Point(237, 364);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 42;
@@ -253,7 +254,7 @@
             "Linie Productie 1",
             "Linie Productie 2",
             "Linie Productie 3"});
-            this.cbZonaSelectie.Location = new System.Drawing.Point(311, 303);
+            this.cbZonaSelectie.Location = new System.Drawing.Point(306, 363);
             this.cbZonaSelectie.Name = "cbZonaSelectie";
             this.cbZonaSelectie.Size = new System.Drawing.Size(163, 23);
             this.cbZonaSelectie.TabIndex = 43;
@@ -262,7 +263,7 @@
             // cbCalitate
             // 
             this.cbCalitate.FormattingEnabled = true;
-            this.cbCalitate.Location = new System.Drawing.Point(335, 390);
+            this.cbCalitate.Location = new System.Drawing.Point(330, 450);
             this.cbCalitate.Name = "cbCalitate";
             this.cbCalitate.Size = new System.Drawing.Size(139, 23);
             this.cbCalitate.TabIndex = 45;
@@ -273,7 +274,7 @@
             this.checkBoxCalitate.AutoSize = true;
             this.checkBoxCalitate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.checkBoxCalitate.ForeColor = System.Drawing.Color.White;
-            this.checkBoxCalitate.Location = new System.Drawing.Point(248, 389);
+            this.checkBoxCalitate.Location = new System.Drawing.Point(243, 449);
             this.checkBoxCalitate.Name = "checkBoxCalitate";
             this.checkBoxCalitate.Size = new System.Drawing.Size(79, 24);
             this.checkBoxCalitate.TabIndex = 44;
@@ -281,12 +282,30 @@
             this.checkBoxCalitate.UseVisualStyleBackColor = true;
             this.checkBoxCalitate.CheckedChanged += new System.EventHandler(this.checkBoxCalitate_CheckedChanged);
             // 
+            // btnPrintCSV
+            // 
+            this.btnPrintCSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintCSV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
+            this.btnPrintCSV.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPrintCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintCSV.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPrintCSV.ForeColor = System.Drawing.Color.White;
+            this.btnPrintCSV.Location = new System.Drawing.Point(307, 512);
+            this.btnPrintCSV.Name = "btnPrintCSV";
+            this.btnPrintCSV.Size = new System.Drawing.Size(132, 50);
+            this.btnPrintCSV.TabIndex = 46;
+            this.btnPrintCSV.Text = "Print\r\nCSV";
+            this.btnPrintCSV.UseVisualStyleBackColor = false;
+            this.btnPrintCSV.Visible = false;
+            this.btnPrintCSV.Click += new System.EventHandler(this.btnPrintCSV_Click);
+            // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(790, 516);
+            this.ClientSize = new System.Drawing.Size(867, 574);
+            this.Controls.Add(this.btnPrintCSV);
             this.Controls.Add(this.cbCalitate);
             this.Controls.Add(this.checkBoxCalitate);
             this.Controls.Add(this.cbZonaSelectie);
@@ -333,6 +352,7 @@
         private ComboBox cbZonaSelectie;
         private ComboBox cbCalitate;
         private CheckBox checkBoxCalitate;
+        private Button btnPrintCSV;
     }
             
 }
