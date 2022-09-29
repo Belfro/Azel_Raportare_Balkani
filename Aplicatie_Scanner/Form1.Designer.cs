@@ -203,33 +203,35 @@ namespace Aplicatie_Scanner
             // Btn_Close_App
             // 
             this.Btn_Close_App.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Close_App.BackColor = System.Drawing.Color.Red;
             this.Btn_Close_App.FlatAppearance.BorderSize = 0;
             this.Btn_Close_App.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Close_App.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Close_App.ForeColor = System.Drawing.Color.White;
-            this.Btn_Close_App.Location = new System.Drawing.Point(1009, 23);
+            this.Btn_Close_App.Location = new System.Drawing.Point(980, 12);
             this.Btn_Close_App.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Close_App.Name = "Btn_Close_App";
-            this.Btn_Close_App.Size = new System.Drawing.Size(29, 29);
+            this.Btn_Close_App.Size = new System.Drawing.Size(57, 40);
             this.Btn_Close_App.TabIndex = 13;
             this.Btn_Close_App.Text = "X";
-            this.Btn_Close_App.UseVisualStyleBackColor = true;
+            this.Btn_Close_App.UseVisualStyleBackColor = false;
             this.Btn_Close_App.Click += new System.EventHandler(this.button3_Click);
             // 
             // Btn_Minimize
             // 
             this.Btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(51)))), ((int)(((byte)(86)))));
             this.Btn_Minimize.FlatAppearance.BorderSize = 0;
             this.Btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.Btn_Minimize.Location = new System.Drawing.Point(982, 20);
+            this.Btn_Minimize.Location = new System.Drawing.Point(928, 12);
             this.Btn_Minimize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Btn_Minimize.Name = "Btn_Minimize";
-            this.Btn_Minimize.Size = new System.Drawing.Size(29, 29);
+            this.Btn_Minimize.Size = new System.Drawing.Size(40, 40);
             this.Btn_Minimize.TabIndex = 14;
             this.Btn_Minimize.Text = "_";
-            this.Btn_Minimize.UseVisualStyleBackColor = true;
+            this.Btn_Minimize.UseVisualStyleBackColor = false;
             this.Btn_Minimize.Click += new System.EventHandler(this.Btn_Minimize_Click);
             // 
             // lbltitle
