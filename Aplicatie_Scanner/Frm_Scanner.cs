@@ -211,7 +211,8 @@ namespace Aplicatie_Scanner
                             try
                             {
                                 if (tbLocatieCurenta.Text != cbLocatieNoua.Text)
-                                { 
+                                {
+                                    connection.Open();
                                     var cmd = connection.CreateCommand();
 
 
