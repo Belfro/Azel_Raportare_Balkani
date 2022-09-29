@@ -177,7 +177,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
 ^FO69,460^GB690,0,5^FS
 ^PQ1,0,1,Y^XZ";
 
-            /*     try
+                try
                  {
                      // Open connection
                      System.Net.Sockets.TcpClient client = new System.Net.Sockets.TcpClient();
@@ -185,7 +185,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
 
                      // Write ZPL String to connection
                      System.IO.StreamWriter writer =
-                 new System.IO.StreamWriter(client.GetStream());
+                     new System.IO.StreamWriter(client.GetStream());
                      writer.Write(ZPLString);
                      writer.Flush();
 
@@ -198,7 +198,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
                  catch (Exception ex)
                  {
                      MessageBox.Show(ex.Message);
-                 }*/
+                 }
             lbCalitate.SelectedIndex = 0;
             tbDiametruBrut.SelectAll();
             try
