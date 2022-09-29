@@ -326,6 +326,7 @@
             this.lbLungime.Name = "lbLungime";
             this.lbLungime.Size = new System.Drawing.Size(143, 190);
             this.lbLungime.TabIndex = 67;
+            this.lbLungime.SelectedIndexChanged += new System.EventHandler(this.lbLungime_SelectedIndexChanged);
             // 
             // btnStartReceptie
             // 
@@ -366,6 +367,7 @@
             this.lbCalitate.Name = "lbCalitate";
             this.lbCalitate.Size = new System.Drawing.Size(143, 190);
             this.lbCalitate.TabIndex = 72;
+            this.lbCalitate.SelectedIndexChanged += new System.EventHandler(this.lbCalitate_SelectedIndexChanged);
             // 
             // tbNrReceptie
             // 

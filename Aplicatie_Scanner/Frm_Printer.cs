@@ -486,6 +486,7 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
         {
             if (!Receptie_Pornita)
             {
+
                 cbFurnizor.Enabled = false;
                 tbNrAviz.Enabled = false;
                 tbNrReceptie.Enabled = false;
@@ -500,6 +501,7 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
         {
             if (Receptie_Pornita)
             {
+
                 Numar_Receptie_Curenta++;
             cbFurnizor.Enabled = true;
             tbNrAviz.Enabled = true;
@@ -517,6 +519,18 @@ eJztWctu20YUnSE4EcFFoQASnAWFaCmoQL9hAtjIVgFkaGPB/QQWUKCNWxJZBf4KLgV9BRfungt7FwH9
         private void cbCalitate_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void lbLungime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ActiveControl = tbDiametruBrut;
+            tbDiametruBrut.SelectAll();
+        }
+
+        private void lbCalitate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ActiveControl = tbDiametruBrut;
+            tbDiametruBrut.SelectAll();
         }
     }
 }
