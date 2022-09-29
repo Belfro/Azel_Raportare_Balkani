@@ -217,8 +217,8 @@ namespace Aplicatie_Scanner
 
 
                                 cmd.CommandText = $" BEGIN TRANSACTION;" +
-                                    $"\r\nINSERT INTO {cbLocatieNoua.Text} (Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala)" +
-                                    $"\r\nSELECT Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala" +
+                                    $"\r\nINSERT INTO {cbLocatieNoua.Text} (Data_Timp,Furnizor,Numar_Aviz,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala,Comentariu)" +
+                                    $"\r\nSELECT Data_Timp,Furnizor,Numar_Aviz,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala,Comentariu" +
                                     $"\r\nFROM {tbLocatieCurenta.Text}\r\nWHERE GUID = '{ID}';" +
                                     $"\r\nDELETE FROM {tbLocatieCurenta.Text}" +
                                     $"\r\nWHERE GUID = '{ID}';\r\nCOMMIT;" +
@@ -293,12 +293,12 @@ namespace Aplicatie_Scanner
 
 
                         cmd.CommandText = $" BEGIN TRANSACTION;" +
-                            $"\r\nINSERT INTO {cbLocatieNoua.Text} (Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala)" +
-                            $"\r\nSELECT Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala" +
-                            $"\r\nFROM {tbLocatieCurenta.Text}\r\nWHERE GUID = '{ID}';" +
-                            $"\r\nDELETE FROM {tbLocatieCurenta.Text}" +
-                            $"\r\nWHERE GUID = '{ID}';\r\nCOMMIT;" +
-                            $"\r\n UPDATE {cbLocatieNoua.Text} SET Locatie_Actuala = '{cbLocatieNoua.Text}' ";
+                                    $"\r\nINSERT INTO {cbLocatieNoua.Text} (Data_Timp,Furnizor,Numar_Aviz,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala,Comentariu)" +
+                                    $"\r\nSELECT Data_Timp,Furnizor,Numar_Aviz,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala,Comentariu" +
+                                    $"\r\nFROM {tbLocatieCurenta.Text}\r\nWHERE GUID = '{ID}';" +
+                                    $"\r\nDELETE FROM {tbLocatieCurenta.Text}" +
+                                    $"\r\nWHERE GUID = '{ID}';\r\nCOMMIT;" +
+                                    $"\r\n UPDATE {cbLocatieNoua.Text} SET Locatie_Actuala = '{cbLocatieNoua.Text}' ";
                         cmd.CommandTimeout = 15;
                         cmd.CommandType = CommandType.Text;
                         cmd.ExecuteNonQuery();
@@ -331,6 +331,7 @@ namespace Aplicatie_Scanner
             {
                 lblLocatieNoua.Visible = false;
                 cbLocatieNoua.Visible = false;
+                btnModifica.Visible = false;    
             }
         }
     }
