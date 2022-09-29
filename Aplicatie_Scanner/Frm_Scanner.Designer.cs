@@ -60,6 +60,7 @@
             this.tbLocatieCurenta = new System.Windows.Forms.TextBox();
             this.lblLocatieCurenta = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkboxScanare = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -106,9 +107,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(100)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(-51, -57);
+            this.pictureBox1.Location = new System.Drawing.Point(-57, -42);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(502, 492);
+            this.pictureBox1.Size = new System.Drawing.Size(502, 505);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
@@ -428,12 +429,25 @@
             this.panel1.Size = new System.Drawing.Size(329, 431);
             this.panel1.TabIndex = 89;
             // 
+            // checkboxScanare
+            // 
+            this.checkboxScanare.AutoSize = true;
+            this.checkboxScanare.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkboxScanare.Location = new System.Drawing.Point(666, 406);
+            this.checkboxScanare.Name = "checkboxScanare";
+            this.checkboxScanare.Size = new System.Drawing.Size(136, 42);
+            this.checkboxScanare.TabIndex = 90;
+            this.checkboxScanare.Text = "Activare Mutare\r\nContinua";
+            this.checkboxScanare.UseVisualStyleBackColor = true;
+            this.checkboxScanare.CheckedChanged += new System.EventHandler(this.checkboxScanare_CheckedChanged);
+            // 
             // Frm_Scanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(867, 574);
+            this.Controls.Add(this.checkboxScanare);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblLocatieCurenta);
             this.Controls.Add(this.tbLocatieCurenta);
@@ -508,5 +522,6 @@
         private TextBox tbLocatieCurenta;
         private Label lblLocatieCurenta;
         private Panel panel1;
+        private CheckBox checkboxScanare;
     }
 }

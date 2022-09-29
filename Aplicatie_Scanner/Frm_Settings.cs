@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,8 @@ namespace Aplicatie_Scanner
 
       
         List<DateFurnizori> furnizoriList = new List<DateFurnizori>();
+        List<DateCalitate> calitateList = new List<DateCalitate>();
+        List<DateLungime> lungimeList = new List<DateLungime>();
         public Frm_Settings()
         {
             InitializeComponent();
@@ -39,20 +42,34 @@ namespace Aplicatie_Scanner
 
                 if (furnizoriList != null)
                 {
-                    if (dataGridView1.RowCount != furnizoriList.Count)
+                    if (dataGridViewFurnizori.RowCount != furnizoriList.Count)
                     {
-                        dataGridView1.AutoGenerateColumns = false;
-                        dataGridView1.DataSource = furnizoriList;
-                        dataGridView1.Columns["Nume_Furnizor"].DataPropertyName = "Denumire";
+                        dataGridViewFurnizori.AutoGenerateColumns = false;
+                        dataGridViewFurnizori.DataSource = furnizoriList;
+                        dataGridViewFurnizori.Columns["Nume_Furnizor"].DataPropertyName = "Denumire";
                     }
 
                 }
-
+                if (calitateList != null)
                 {
+                    if (dataGridViewCalitate.RowCount != calitateList.Count)
+                    {
+                        dataGridViewCalitate.AutoGenerateColumns = false;
+                        dataGridViewCalitate.DataSource = calitateList;
+                        dataGridViewCalitate.Columns["Calitate"].DataPropertyName = "Calitate";
+                    }
 
                 }
+                if (lungimeList != null)
+                {
+                    if (dataGridViewLungime.RowCount != lungimeList.Count)
+                    {
+                        dataGridViewLungime.AutoGenerateColumns = false;
+                        dataGridViewLungime.DataSource = lungimeList;
+                        dataGridViewLungime.Columns["lungime"].DataPropertyName = "lungime";
+                    }
 
-
+                }
             }
             catch (Exception ex)
             {
@@ -68,13 +85,17 @@ namespace Aplicatie_Scanner
 
             DataAccess db = new DataAccess();
             Task<List<DateFurnizori>> task_furnizori = db.GetDateFurnizori();
+            Task<List<DateCalitate>> task_calitate = db.GetDateCalitate();
+            Task<List<DateLungime>> task_lungime = db.GetDateLungime();
 
             furnizoriList = await task_furnizori;
+            calitateList = await task_calitate;
+            lungimeList = await task_lungime;
 
 
-            await Task.WhenAll(task_furnizori);
+            await Task.WhenAll(task_furnizori,task_calitate,task_lungime);
         }
-        private void AdaugaIntrari(String TextIntrodus)
+        private void AdaugaIntrariFurnizori(String TextIntrodus)
         {
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("ConnStr")))
             {
@@ -106,13 +127,66 @@ namespace Aplicatie_Scanner
 
             }
         }
-      
-       
+        private void AdaugaIntrariCalitate(String TextIntrodus)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("ConnStr")))
+            {
+                try
+                {
+                    
+                    connection.Open();
+                    var cmd = connection.CreateCommand();
+
+                    cmd.CommandText = $"Insert INTO Calitate (Calitate) VALUES ('{TextIntrodus}')";
+                    cmd.CommandTimeout = 15;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+
+                    connection.Close();
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
+                }
+
+
+            }
+        }
+        private void AdaugaIntrariLungime(String TextIntrodus)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("ConnStr")))
+            {
+                try
+                {
+
+                    connection.Open();
+                    var cmd = connection.CreateCommand();
+
+                    cmd.CommandText = $"Insert INTO Lungimi (Lungime) VALUES ('{TextIntrodus}')";
+                    cmd.CommandTimeout = 15;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+
+                    connection.Close();
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
+                }
+
+
+            }
+        }
+
         private void Btn_Add_Furnizor_Click(object sender, EventArgs e)
         {
             if (tbFurnizori.Text != "")
             {
-                AdaugaIntrari(tbFurnizori.Text);
+                AdaugaIntrariFurnizori(tbFurnizori.Text);
                
             }
 
@@ -138,16 +212,35 @@ namespace Aplicatie_Scanner
 
                 if (furnizoriList != null)
                 {
-                    if (dataGridView1.RowCount != furnizoriList.Count)
+                    if (dataGridViewFurnizori.RowCount != furnizoriList.Count)
                     {
-                        dataGridView1.AutoGenerateColumns = false;
-                        dataGridView1.DataSource = furnizoriList;
-                        dataGridView1.Columns["Nume_Furnizor"].DataPropertyName = "Denumire";
+                        dataGridViewFurnizori.AutoGenerateColumns = false;
+                        dataGridViewFurnizori.DataSource = furnizoriList;
+                        dataGridViewFurnizori.Columns["Nume_Furnizor"].DataPropertyName = "Denumire";
                     }
 
                 }
-               
+
+
+                if (calitateList != null)
                 {
+                    if (dataGridViewCalitate.RowCount != calitateList.Count)
+                    {
+                        dataGridViewCalitate.AutoGenerateColumns = false;
+                        dataGridViewCalitate.DataSource = calitateList;
+                        dataGridViewCalitate.Columns["Calitate"].DataPropertyName = "Calitate";
+                    }
+
+                }
+                if (lungimeList != null)
+                {
+                   
+                    if (dataGridViewLungime.RowCount != lungimeList.Count)
+                    {
+                        dataGridViewLungime.AutoGenerateColumns = false;
+                        dataGridViewLungime.DataSource = lungimeList;
+                        dataGridViewLungime.Columns["Lungime"].DataPropertyName = "Lungime";
+                    }
 
                 }
 
@@ -173,7 +266,7 @@ namespace Aplicatie_Scanner
             {
                 if (furnizoriList.Count > 0)
                 {
-                   Valoare_Selectata = dataGridView1.CurrentCell.Value.ToString();
+                   Valoare_Selectata = dataGridViewFurnizori.CurrentCell.Value.ToString();
                 }
                 else MessageBox.Show("Nu ati selectat niciun furnizor!");
 
@@ -181,7 +274,7 @@ namespace Aplicatie_Scanner
 
                 if (Valoare_Selectata != null)
             {
-                DialogResult dialogResult = MessageBox.Show($"Sunteti sigur ca doriti sa stergeti furnizorul {dataGridView1.CurrentCell.Value}", "Stergere Furnizor", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show($"Sunteti sigur ca doriti sa stergeti furnizorul {dataGridViewFurnizori.CurrentCell.Value}", "Stergere Furnizor", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     using (IDbConnection connection = new SqlConnection(Helper.CnnVal("ConnStr")))
@@ -191,7 +284,7 @@ namespace Aplicatie_Scanner
                             connection.Open();
                             var cmd = connection.CreateCommand();
 
-                            cmd.CommandText = $"Delete From Furnizori WHERE Denumire = '{dataGridView1.CurrentCell.Value.ToString()}'";
+                            cmd.CommandText = $"Delete From Furnizori WHERE Denumire = '{dataGridViewFurnizori.CurrentCell.Value.ToString()}'";
                             cmd.CommandTimeout = 15;
                             cmd.CommandType = CommandType.Text;
                             cmd.ExecuteNonQuery();
@@ -225,5 +318,151 @@ namespace Aplicatie_Scanner
 
         }
 
+        private void Btn_Add_Calitate_Click(object sender, EventArgs e)
+        {
+            if (tbCalitate.Text != "")
+            {
+                AdaugaIntrariCalitate(tbCalitate.Text);
+
+            }
+
+            else
+            {
+                MessageBox.Show("Introduceti Calitate!");
+            }
+        }
+
+        private void btnDeleteCalitate_Click(object sender, EventArgs e)
+        {
+            string? Valoare_Selectata = null;
+            try
+            {
+                if (calitateList.Count > 0)
+                {
+                    Valoare_Selectata = dataGridViewCalitate.CurrentCell.Value.ToString();
+                }
+                else MessageBox.Show("Nu ati selectat nicio calitate!");
+
+
+
+                if (Valoare_Selectata != null)
+                {
+                    DialogResult dialogResult = MessageBox.Show($"Sunteti sigur ca doriti sa stergeti calitatea {dataGridViewCalitate.CurrentCell.Value}", "Stergere Furnizor", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        using (IDbConnection connection = new SqlConnection(Helper.CnnVal("ConnStr")))
+                        {
+                            try
+                            {
+                                connection.Open();
+                                var cmd = connection.CreateCommand();
+
+                                cmd.CommandText = $"Delete From Calitate WHERE Calitate = '{dataGridViewCalitate.CurrentCell.Value.ToString()}'";
+                                cmd.CommandTimeout = 15;
+                                cmd.CommandType = CommandType.Text;
+                                cmd.ExecuteNonQuery();
+
+                                connection.Close();
+                                MessageBox.Show("Stergere Confirmata.");
+                            }
+
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error:" + ex.Message);
+                            }
+
+
+                        }
+
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+
+                    }
+
+                }
+            }
+            catch
+            {
+
+            }
+
+
+        }
+
+        private void Btn_Add_Lungimi_Click(object sender, EventArgs e)
+        {
+            if (tbLungimi.Text != "")
+            {
+                AdaugaIntrariLungime(tbLungimi.Text);
+
+            }
+
+            else
+            {
+                MessageBox.Show("Introduceti Lungime!");
+            }
+        }
+
+        private void btnDeleteLungime_Click(object sender, EventArgs e)
+        {
+            string? Valoare_Selectata = null;
+            try
+            {
+                if (lungimeList.Count > 0)
+                {
+                    Valoare_Selectata = dataGridViewLungime.CurrentCell.Value.ToString();
+                }
+                else MessageBox.Show("Nu ati selectat nicio lungime!");
+
+
+
+                if (Valoare_Selectata != null)
+                {
+                    DialogResult dialogResult = MessageBox.Show($"Sunteti sigur ca doriti sa stergeti lungimea {dataGridViewLungime.CurrentCell.Value}", "Stergere Furnizor", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        using (IDbConnection connection = new SqlConnection(Helper.CnnVal("ConnStr")))
+                        {
+                            try
+                            {
+                                connection.Open();
+                                var cmd = connection.CreateCommand();
+
+                                cmd.CommandText = $"Delete From Lungimi WHERE Lungime = '{dataGridViewLungime.CurrentCell.Value.ToString()}'";
+                                cmd.CommandTimeout = 15;
+                                cmd.CommandType = CommandType.Text;
+                                cmd.ExecuteNonQuery();
+
+                                connection.Close();
+                                MessageBox.Show("Stergere Confirmata.");
+                            }
+
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error:" + ex.Message);
+                            }
+
+
+                        }
+
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+
+                    }
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void dataGridViewCalitate_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

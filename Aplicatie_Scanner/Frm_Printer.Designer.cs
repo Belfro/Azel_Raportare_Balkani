@@ -57,6 +57,8 @@
             this.tbNrReceptie = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.rtbComentariu = new System.Windows.Forms.RichTextBox();
+            this.lblReceptiePornita = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRomply)).BeginInit();
@@ -401,12 +403,36 @@
             this.rtbComentariu.TabIndex = 75;
             this.rtbComentariu.Text = "";
             // 
+            // lblReceptiePornita
+            // 
+            this.lblReceptiePornita.AutoSize = true;
+            this.lblReceptiePornita.Cursor = System.Windows.Forms.Cursors.No;
+            this.lblReceptiePornita.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReceptiePornita.ForeColor = System.Drawing.Color.Red;
+            this.lblReceptiePornita.Location = new System.Drawing.Point(573, 25);
+            this.lblReceptiePornita.Name = "lblReceptiePornita";
+            this.lblReceptiePornita.Size = new System.Drawing.Size(171, 30);
+            this.lblReceptiePornita.TabIndex = 76;
+            this.lblReceptiePornita.Text = "Receptie Oprita!";
+            // 
+            // tbID
+            // 
+            this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbID.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbID.Location = new System.Drawing.Point(45, 450);
+            this.tbID.Name = "tbID";
+            this.tbID.Size = new System.Drawing.Size(235, 22);
+            this.tbID.TabIndex = 77;
+            // 
             // Frm_Printer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(867, 574);
+            this.Controls.Add(this.tbID);
+            this.Controls.Add(this.lblReceptiePornita);
             this.Controls.Add(this.rtbComentariu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbCalitate);
@@ -477,5 +503,7 @@
         private ListBox lbCalitate;
         private Label label5;
         private RichTextBox rtbComentariu;
+        private Label lblReceptiePornita;
+        private TextBox tbID;
     }
 }

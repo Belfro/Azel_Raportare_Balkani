@@ -87,7 +87,7 @@ namespace Aplicatie_Scanner
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (pictureBox1.Image != null)
+            if (pictureBox1.Image != null && !checkboxScanare.Checked)
             {
                 BarcodeReader reader = new BarcodeReader();
                 Result result = reader.Decode((Bitmap)pictureBox1.Image);
@@ -154,6 +154,97 @@ namespace Aplicatie_Scanner
                     pictureBox1.Image = null;
                     if (Webcam.IsRunning)
                         Webcam.SignalToStop();
+                }
+            }
+            if (pictureBox1.Image != null && checkboxScanare.Checked)
+            {
+                BarcodeReader reader = new BarcodeReader();
+                Result result = reader.Decode((Bitmap)pictureBox1.Image);
+                if (result != null)
+                {
+                    playSound();
+
+                    try
+                    {
+                        using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                        {
+
+
+                            var output = connection.Query<DateDB>(@$"select * from Etichete_Generate WHERE GUID = '{result.ToString()}'
+                               UNION select * from Depozit WHERE GUID = '{result.ToString()}'
+                               UNION select * from Linie_Productie_1 WHERE GUID = '{result.ToString()}'     
+                               UNION select * from Linie_Productie_2 WHERE GUID = '{result.ToString()}'
+                               UNION select * from Linie_Productie_3 WHERE GUID = '{result.ToString()}'
+                               ").ToList();
+
+
+
+                            if (output.FirstOrDefault().Furnizor.ToString() != null)
+                            {
+                                tbFurnizor.Text = output.FirstOrDefault().Furnizor.ToString();
+                                tbNrAviz.Text = output.FirstOrDefault().Numar_Aviz.ToString();
+                                tbNrBucati.Text = output.FirstOrDefault().Numar_Bucati.ToString();
+                                tbNrReceptie.Text = output.FirstOrDefault().Numar_Receptie.ToString();
+                                tbDiametruBrut.Text = output.FirstOrDefault().Diametru.ToString();
+                                tbLungime.Text = Math.Round(output.FirstOrDefault().Lungime, 2).ToString();
+                                ID = output.FirstOrDefault().GUID.ToString();
+                                tbLocatieCurenta.Text = output.FirstOrDefault().Locatie_Actuala.ToString();
+                                cbLocatieNoua.Visible = true;
+                                lblLocatieNoua.Visible = true;
+                                btnModifica.Visible = true;
+                                ////Calcul Automat Diametru NET////
+                                if (output.FirstOrDefault().Diametru >= 42)
+                                {
+                                    lblDiametruNet.Text = "Net: " + (output.FirstOrDefault().Diametru - 3).ToString();
+                                }
+                                else if (output.FirstOrDefault().Diametru > 18 && output.FirstOrDefault().Diametru < 41)
+                                {
+                                    lblDiametruNet.Text = "Net: " + (output.FirstOrDefault().Diametru - 2).ToString();
+                                }
+                                else
+                                {
+                                    lblDiametruNet.Text = "Net: " + (output.FirstOrDefault().Diametru).ToString();
+                                }
+                                tbCalitate.Text = output.FirstOrDefault().Calitate.ToString();
+                            }
+
+                            try
+                            {
+                                if (tbLocatieCurenta.Text != cbLocatieNoua.Text)
+                                { 
+                                    var cmd = connection.CreateCommand();
+
+
+                                cmd.CommandText = $" BEGIN TRANSACTION;" +
+                                    $"\r\nINSERT INTO {cbLocatieNoua.Text} (Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala)" +
+                                    $"\r\nSELECT Data_Timp,Furnizor,Numar_Aviz,Numar_Bucati,Numar_Receptie,Lungime,Diametru,Calitate,GUID,Locatie_Actuala" +
+                                    $"\r\nFROM {tbLocatieCurenta.Text}\r\nWHERE GUID = '{ID}';" +
+                                    $"\r\nDELETE FROM {tbLocatieCurenta.Text}" +
+                                    $"\r\nWHERE GUID = '{ID}';\r\nCOMMIT;" +
+                                    $"\r\n UPDATE {cbLocatieNoua.Text} SET Locatie_Actuala = '{cbLocatieNoua.Text}' ";
+                                cmd.CommandTimeout = 15;
+                                cmd.CommandType = CommandType.Text;
+                                cmd.ExecuteNonQuery();
+                                tbLocatieCurenta.Text = cbLocatieNoua.Text;
+                                }
+                                connection.Close();
+                            }
+
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error:" + ex.Message);
+                            }
+                        }  
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Error:" + ex.Message);
+
+                    }
+                    tbGUIDScanat.Text = result.ToString();
+
+                   
                 }
             }
         }
@@ -226,6 +317,20 @@ namespace Aplicatie_Scanner
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkboxScanare_CheckedChanged(object sender, EventArgs e)
+        {
+                if (checkboxScanare.Checked)
+            {
+                lblLocatieNoua.Visible = true;
+                cbLocatieNoua.Visible = true;
+            }
+                if (!checkboxScanare.Checked)
+            {
+                lblLocatieNoua.Visible = false;
+                cbLocatieNoua.Visible = false;
+            }
         }
     }
 }
