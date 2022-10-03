@@ -38,7 +38,7 @@ namespace Aplicatie_Scanner
             tbNrReceptie.Text = DateTime.Now.ToString("yyMMdd");
             tbDiametruBrut.Text = "40";
             ID = Guid.NewGuid().ToString().Replace("-", "").ToUpper();
-            StergeEticheteVechi();
+            
 
 
         }
@@ -74,7 +74,7 @@ namespace Aplicatie_Scanner
 
             }
         }
-        private void StergeEticheteVechi()
+        private async void StergeEticheteVechi()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
             {
@@ -92,7 +92,6 @@ namespace Aplicatie_Scanner
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error:" + ex.Message);
                 }
 
 
@@ -237,7 +236,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
         }
         public async Task LoadDatePrinter()
         {
-
+           
             DataAccess db = new DataAccess();
             Task<List<DateCalitate>> task_calitate = db.GetDateCalitate();
             Task<List<DateFurnizori>> task_furnizori = db.GetDateFurnizori();
@@ -257,7 +256,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
 
                
                     await Task.Run(async () => LoadDatePrinter());
-      
+                    await Task.Run(StergeEticheteVechi);
 
 
 
