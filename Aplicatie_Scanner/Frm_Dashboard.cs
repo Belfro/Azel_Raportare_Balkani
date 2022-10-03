@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Text;
+using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using ZXing;
 using ZXing.Windows.Compatibility;
@@ -181,7 +182,13 @@ namespace Aplicatie_Scanner
 
         private void btnPrintCSV_Click(object sender, EventArgs e)
         {
-            using (StreamWriter file = File.CreateText(@$"C:\Users\andrei.stan\Documents\AS\Aplicatie Scanner\Raportari CSV\Raport_Aplicatie_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm")}.csv"))
+            string subPath = @$"C:\Azel\Raportari Romply\"; 
+
+            bool exists = System.IO.Directory.Exists(subPath);
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory(subPath);
+            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari Romply\Raport_Aplicatie_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm")}.csv"))
             {
                 foreach (var arr in date)
                 {
