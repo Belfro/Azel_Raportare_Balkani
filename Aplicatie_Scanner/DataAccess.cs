@@ -41,8 +41,7 @@ namespace Aplicatie_Scanner
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
                 {
 
-                    var output = connection.Query<DateFurnizori>($"SELECT Denumire FROM Furnizori ORDER BY Data_Timp").ToList();
-                    // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
+                    var output = connection.Query<DateFurnizori>($"SELECT Denumire FROM Furnizori ORDER BY Denumire").ToList();
                     return output;
                 }
 
