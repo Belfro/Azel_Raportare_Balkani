@@ -191,7 +191,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
                      // Close Connection
                      writer.Close();
                      client.Close();
-                     MessageBox.Show("Done Sending Data.");
+                    // MessageBox.Show("Done Sending Data.");
 
                  }
                  catch (Exception ex)
