@@ -33,16 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Timp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Locatie_Actuala = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Furnizor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numar_Aviz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numar_Bucati = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numar_Receptie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lungime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Diametru = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Calitate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.newCalendar1 = new Aplicatie_Scanner.NewCalendar();
             this.Search = new System.Windows.Forms.Button();
@@ -54,6 +44,16 @@
             this.cbCalitate = new System.Windows.Forms.ComboBox();
             this.checkBoxCalitate = new System.Windows.Forms.CheckBox();
             this.btnPrintCSV = new System.Windows.Forms.Button();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Timp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Locatie_Actuala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Furnizor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numar_Aviz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numar_Bucati = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numar_Receptie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lungime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diametru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Calitate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -112,61 +112,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(835, 336);
             this.dataGridView1.TabIndex = 35;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Data
-            // 
-            this.Data.FillWeight = 80F;
-            this.Data.HeaderText = "Data";
-            this.Data.Name = "Data";
-            // 
-            // Timp
-            // 
-            this.Timp.FillWeight = 80F;
-            this.Timp.HeaderText = "Timp";
-            this.Timp.Name = "Timp";
-            // 
-            // Locatie_Actuala
-            // 
-            this.Locatie_Actuala.HeaderText = "Locatie Actuala";
-            this.Locatie_Actuala.Name = "Locatie_Actuala";
-            // 
-            // Furnizor
-            // 
-            this.Furnizor.HeaderText = "Furnizor";
-            this.Furnizor.Name = "Furnizor";
-            // 
-            // Numar_Aviz
-            // 
-            this.Numar_Aviz.HeaderText = "Numar Aviz";
-            this.Numar_Aviz.Name = "Numar_Aviz";
-            // 
-            // Numar_Bucati
-            // 
-            this.Numar_Bucati.FillWeight = 40F;
-            this.Numar_Bucati.HeaderText = "Numar Bucati";
-            this.Numar_Bucati.Name = "Numar_Bucati";
-            // 
-            // Numar_Receptie
-            // 
-            this.Numar_Receptie.HeaderText = "Numar Receptie";
-            this.Numar_Receptie.Name = "Numar_Receptie";
-            // 
-            // Lungime
-            // 
-            this.Lungime.FillWeight = 40F;
-            this.Lungime.HeaderText = "Lungime";
-            this.Lungime.Name = "Lungime";
-            // 
-            // Diametru
-            // 
-            this.Diametru.FillWeight = 40F;
-            this.Diametru.HeaderText = "Diametru";
-            this.Diametru.Name = "Diametru";
-            // 
-            // Calitate
-            // 
-            this.Calitate.HeaderText = "Calitate";
-            this.Calitate.Name = "Calitate";
             // 
             // backgroundWorker1
             // 
@@ -299,6 +244,62 @@
             this.btnPrintCSV.Visible = false;
             this.btnPrintCSV.Click += new System.EventHandler(this.btnPrintCSV_Click);
             // 
+            // Data
+            // 
+            this.Data.FillWeight = 80F;
+            this.Data.HeaderText = "Data";
+            this.Data.Name = "Data";
+            // 
+            // Timp
+            // 
+            this.Timp.FillWeight = 80F;
+            this.Timp.HeaderText = "Timp";
+            this.Timp.Name = "Timp";
+            // 
+            // Locatie_Actuala
+            // 
+            this.Locatie_Actuala.HeaderText = "Locatie Actuala";
+            this.Locatie_Actuala.Name = "Locatie_Actuala";
+            // 
+            // Furnizor
+            // 
+            this.Furnizor.HeaderText = "Furnizor";
+            this.Furnizor.Name = "Furnizor";
+            // 
+            // Numar_Aviz
+            // 
+            this.Numar_Aviz.HeaderText = "Numar Aviz";
+            this.Numar_Aviz.Name = "Numar_Aviz";
+            // 
+            // Numar_Bucati
+            // 
+            this.Numar_Bucati.FillWeight = 40F;
+            this.Numar_Bucati.HeaderText = "Numar Bucati";
+            this.Numar_Bucati.Name = "Numar_Bucati";
+            // 
+            // Numar_Receptie
+            // 
+            this.Numar_Receptie.HeaderText = "Numar Receptie";
+            this.Numar_Receptie.Name = "Numar_Receptie";
+            // 
+            // Lungime
+            // 
+            this.Lungime.FillWeight = 50F;
+            this.Lungime.HeaderText = "Lungime";
+            this.Lungime.Name = "Lungime";
+            // 
+            // Diametru
+            // 
+            this.Diametru.FillWeight = 50F;
+            this.Diametru.HeaderText = "Diametru";
+            this.Diametru.Name = "Diametru";
+            // 
+            // Calitate
+            // 
+            this.Calitate.FillWeight = 40F;
+            this.Calitate.HeaderText = "Calitate";
+            this.Calitate.Name = "Calitate";
+            // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -338,6 +339,11 @@
         private CheckBox checkBoxFurnizor;
         private Label label1;
         private ComboBox cbFurnizor;
+        private Label label2;
+        private ComboBox cbZonaSelectie;
+        private ComboBox cbCalitate;
+        private CheckBox checkBoxCalitate;
+        private Button btnPrintCSV;
         private DataGridViewTextBoxColumn Data;
         private DataGridViewTextBoxColumn Timp;
         private DataGridViewTextBoxColumn Locatie_Actuala;
@@ -348,11 +354,6 @@
         private DataGridViewTextBoxColumn Lungime;
         private DataGridViewTextBoxColumn Diametru;
         private DataGridViewTextBoxColumn Calitate;
-        private Label label2;
-        private ComboBox cbZonaSelectie;
-        private ComboBox cbCalitate;
-        private CheckBox checkBoxCalitate;
-        private Button btnPrintCSV;
     }
             
 }
