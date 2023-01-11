@@ -142,7 +142,7 @@ namespace Aplicatie_Scanner
 
 
             // Printer IP Address and communication port
-            string ipAddress = "192.168.170.165";
+            string ipAddress = "192.168.170.137";
             int port = 9100;
             string Data_Curenta = $"{DateTime.Now.Day.ToString("D2")}/{DateTime.Now.Month.ToString("D2")}/{DateTime.Now.Date.ToString("yy")}";
             // ZPL Command(s)
