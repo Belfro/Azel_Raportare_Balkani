@@ -33,7 +33,7 @@ namespace Aplicatie_Scanner
         {
             InitializeComponent();
             pbRomply.Visible = false;
-            pbAzel.Visible = false;
+            //pbAzel.Visible = false;
             tbNrAviz.Text = "000000";
             tbNrReceptie.Text = DateTime.Now.ToString("yyMMdd");
             tbDiametruBrut.Text = "40";
@@ -147,33 +147,29 @@ namespace Aplicatie_Scanner
             string Data_Curenta = $"{DateTime.Now.Day.ToString("D2")}/{DateTime.Now.Month.ToString("D2")}/{DateTime.Now.Date.ToString("yy")}";
             // ZPL Command(s)
             ZPLString =
-$@"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
+                $@"
+^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
 ^XA
 ^MMT
-^PW799
-^LL1194
+^PW779
+^LL0406
 ^LS0
-^FO640,1056^GFA,02560,02560,00020,:Z64:
-eJztk71qwzAURq8VCYSyeLB3k8mob5BJAndXwHof4SzGfQmhLuL6JSsIjWwHPLWUgg/y8nG4P0IGODj4JUgERI84+ZyxHqxV1jKVszPCPId5vm89vfYEwvRSrwKotYGlJzF9QwSx8OoawBYbTzhAwLj0egZFX9h+6eGbOyGZ8bzw0hLMbD10wpNVvSJ5tVr3JelSpCer+QrDlIWNF4lHWHss1eppYSjrntnZn3DGe5pvjgvv9rg/a74z4UhEHBAFPr2EUgoe559AopRtOiik2xV5w7njfBz9fj1xEXKYcMKwW49wR/gwxrF1+15zkY1sGtLK3b5/BcHrFMPkr9f8DAq40VJXytyq7Lkw8jB634zPjIKuqKbK6IUnsRWfH17KvC+jXVnrEqquzN4URBtGEIHnvp2m5j39dql3ni8MXrYQA/ofW/rg4OCFL+r7b/I=:4C0F
-^FO96,32^GFA,10240,10240,00080,:Z64:
-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:9CB7
-^FO74,1076^GB685,0,5^FS
-^BY440,440^FT180,998^BXN,22,200,0,0,1,~
+^FO416,32^GFA,02304,02304,00036,:Z64:
+eJztVLFu2zAUPNIWIAiGSgHSTnAijADpaGhoGaAfoMH6H0JZBA/9BkKT4QKZjQ5xP0VjkCljkSV9pNXYllF3SLfmaBHm6fF474kk8M8hAa4Il2IMwArCpZiedDYE++cQZv5uh3ud0N6m4/2cwB5mR4Yta7CKGTGFISC6qVAjMp5FYXDtdtsPuxd3fQ/3Md3ntdvd8xf3udt5dtfrAlVV0MQiYqaasiwrMlYtC3ZT5SywVSVm6HXK7fqK2/4hHYzppLEPmls94/aH1jlMnjPQLK+zjzEiIkYMLFCiL5OJXZSTpn9KhkItJrcNdYF9BnJK50iH+eZ1qAssJYiYVqdVdUx++iGvXvPmq9V7NnUY+flCCDo5Bh0qUQm3+BRWtj3VJ+wfR362cjFxnlVb72ecV9CpxKBjBGaDH31SHz7U58rX5+AnOq+PCawgP8/buffzrenL7yEvX5rbDXWPT8Q+/iSd2q9aFTUzxZLVhOCnpvrUpqjpNdUnsVQFmaxhkzvYlhqVBhsr6UnXmL9uI9IjTMfbLj8Zlb5LxzHl+Yx8HHNKaHqSu/H5mp3NiKrwvS7qzN1YR48Xf8cbEIfe/h7aA3fAaNsY32WjGKW4kmiVlhL+jpZKStlJyDAekMGfeSYy5lWnmT/tdKllR1ekVjGdzlbFrQK3vJFKyXgl25U66Ewh9n9Y+BmQhhCke+LHn/Kmi1cKExvOvCRbHT/SIUM0i0Fke1USID90Nx5FzFXC57Bd3HY+r0Z2ygGNdJ3DBZhLL9/xf+AXXH2t+A==:EB28
+^BY300,300^FT35,353^BXN,15,200,0,0,1,~
 ^FH\^FD{ID}^FS
-^FO56,177^GB699,0,5^FS
-^FT94,215^A0N,28,28^FH\^FDLungime : ^FS
-^FT230,215^A0N,28,28^FH\^FD{lbLungime.Text}^FS
-^FT89,257^A0N,28,28^FH\^FDDiametru : ^FS
-^FT230,257^A0N,28,28^FH\^FD{tbDiametruBrut.Text}^FS
-^FT108,300^A0N,28,28^FH\^FDCalitate : ^FS
-^FT230,300^A0N,28,28^FH\^FD{lbCalitate.Text}^FS
-^FT144,342^A0N,28,28^FH\^FDData : ^FS
-^FT230,344^A0N,28,28^FH\^FD{Data_Curenta}^FS
-^FT99,386^A0N,28,28^FH\^FDFurnizor : ^FS
-^FT230,388^A0N,28,28^FH\^FD{cbFurnizor.Text}^FS
-^FT48,430^A0N,28,28^FH\^FDNr. Receptie : ^FS
-^FT230,432^A0N,28,28^FH\^FD{tbNrReceptie.Text}^FS
-^FO69,460^GB690,0,5^FS
+^FT390,140^A0N,28,28^FH\^FDLungime : ^FS
+^FT506,140^A0N,28,28^FH\^FD{lbLungime.Text}^FS
+^FT382,182^A0N,28,28^FH\^FDDiametru : ^FS
+^FT513,182^A0N,28,28^FH\^FD{tbDiametruBrut.Text}^FS
+^FT382,224^A0N,28,28^FH\^FDCalitate : ^FS
+^FT498,224^A0N,28,28^FH\^FD{lbCalitate.Text}^FS
+^FT382,266^A0N,28,28^FH\^FDData : ^FS
+^FT462,269^A0N,28,28^FH\^FD{Data_Curenta}^FS
+^FT382,311^A0N,28,28^FH\^FDFurnizor : ^FS
+^FT498,313^A0N,28,28^FH\^FD{cbFurnizor.Text}^FS
+^FT382,355^A0N,28,28^FH\^FDNr. Receptie : ^FS
+^FT564,357^A0N,28,28^FH\^FD{tbNrReceptie.Text}^FS
 ^PQ1,0,1,Y^XZ";
 
                 try
@@ -217,7 +213,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
                 }
                 pictureBox1.Image = (Bitmap)((new ImageConverter()).ConvertFrom(imageData));
                 pbRomply.Visible = true;
-                pbAzel.Visible = true;
+                //pbAzel.Visible = true;
                 tbID.Text = ID;
             }
             catch (Exception ex)
@@ -411,8 +407,35 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
         {
             string Data_Curenta = $"{DateTime.Now.Day.ToString("D2")}/{DateTime.Now.Month.ToString("D2")}/{DateTime.Now.Date.ToString("yy")}";
 
-            ZPLString =
-$@"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
+            ZPLString = 
+                $@"
+^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
+^XA
+^MMT
+^PW779
+^LL0406
+^LS0
+^FO416,32^GFA,02304,02304,00036,:Z64:
+eJztVLFu2zAUPNIWIAiGSgHSTnAijADpaGhoGaAfoMH6H0JZBA/9BkKT4QKZjQ5xP0VjkCljkSV9pNXYllF3SLfmaBHm6fF474kk8M8hAa4Il2IMwArCpZiedDYE++cQZv5uh3ud0N6m4/2cwB5mR4Yta7CKGTGFISC6qVAjMp5FYXDtdtsPuxd3fQ/3Md3ntdvd8xf3udt5dtfrAlVV0MQiYqaasiwrMlYtC3ZT5SywVSVm6HXK7fqK2/4hHYzppLEPmls94/aH1jlMnjPQLK+zjzEiIkYMLFCiL5OJXZSTpn9KhkItJrcNdYF9BnJK50iH+eZ1qAssJYiYVqdVdUx++iGvXvPmq9V7NnUY+flCCDo5Bh0qUQm3+BRWtj3VJ+wfR362cjFxnlVb72ecV9CpxKBjBGaDH31SHz7U58rX5+AnOq+PCawgP8/buffzrenL7yEvX5rbDXWPT8Q+/iSd2q9aFTUzxZLVhOCnpvrUpqjpNdUnsVQFmaxhkzvYlhqVBhsr6UnXmL9uI9IjTMfbLj8Zlb5LxzHl+Yx8HHNKaHqSu/H5mp3NiKrwvS7qzN1YR48Xf8cbEIfe/h7aA3fAaNsY32WjGKW4kmiVlhL+jpZKStlJyDAekMGfeSYy5lWnmT/tdKllR1ekVjGdzlbFrQK3vJFKyXgl25U66Ewh9n9Y+BmQhhCke+LHn/Kmi1cKExvOvCRbHT/SIUM0i0Fke1USID90Nx5FzFXC57Bd3HY+r0Z2ygGNdJ3DBZhLL9/xf+AXXH2t+A==:EB28
+^BY300,300^FT30,353^BXN,15,200,0,0,1,~
+^FH\^FD{ID}^FS
+^FT390,140^A0N,28,28^FH\^FDLungime : ^FS
+^FT506,140^A0N,28,28^FH\^FD{lbLungime.Text}^FS
+^FT382,182^A0N,28,28^FH\^FDDiametru : ^FS
+^FT513,182^A0N,28,28^FH\^FD{tbDiametruBrut.Text}^FS
+^FT382,224^A0N,28,28^FH\^FDCalitate : ^FS
+^FT498,224^A0N,28,28^FH\^FD{lbCalitate.Text}^FS
+^FT382,266^A0N,28,28^FH\^FDData : ^FS
+^FT462,269^A0N,28,28^FH\^FD{Data_Curenta}^FS
+^FT382,311^A0N,28,28^FH\^FDFurnizor : ^FS
+^FT498,313^A0N,28,28^FH\^FD{cbFurnizor.Text}^FS
+^FT382,355^A0N,28,28^FH\^FDNr. Receptie : ^FS
+^FT564,357^A0N,28,28^FH\^FD{tbNrReceptie.Text}^FS
+^PQ1,0,1,Y^XZ";
+
+
+
+/*$@"^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR2,2~SD30^JUS^LRN^CI0^XZ
 ^XA
 ^MMT
 ^PW799
@@ -439,7 +462,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
 ^FT48,430^A0N,28,28^FH\^FDNr. Receptie : ^FS
 ^FT230,432^A0N,28,28^FH\^FD{tbNrReceptie.Text}^FS
 ^FO69,460^GB690,0,5^FS
-^PQ1,0,1,Y^XZ";
+^PQ1,0,1,Y^XZ";*/
             try
             {
 
@@ -457,7 +480,7 @@ eJztWctq40gUvSpJg5CD4oZ4b3plkkW2IoG0Aum9F/JuPqZwb0IW+QYxvRFpcGYZbOhPmG/QUnhhbU0v
                 }
                 pictureBox1.Image = (Bitmap)((new ImageConverter()).ConvertFrom(imageData));
                 pbRomply.Visible = true;
-                pbAzel.Visible = true;
+                //pbAzel.Visible = true;
             }
             catch (Exception ex)
             {

@@ -48,8 +48,6 @@
             this.lblLungime = new System.Windows.Forms.Label();
             this.btnPreview = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbRomply = new System.Windows.Forms.PictureBox();
-            this.pbAzel = new System.Windows.Forms.PictureBox();
             this.lbLungime = new System.Windows.Forms.ListBox();
             this.btnStartReceptie = new System.Windows.Forms.Button();
             this.btnStopReceptie = new System.Windows.Forms.Button();
@@ -59,10 +57,12 @@
             this.rtbComentariu = new System.Windows.Forms.RichTextBox();
             this.lblReceptiePornita = new System.Windows.Forms.Label();
             this.tbID = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pbRomply = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRomply)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAzel)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_print
@@ -288,36 +288,13 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(301, 455);
+            this.pictureBox1.Size = new System.Drawing.Size(301, 447);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pbRomply
-            // 
-            this.pbRomply.Image = ((System.Drawing.Image)(resources.GetObject("pbRomply.Image")));
-            this.pbRomply.Location = new System.Drawing.Point(25, 77);
-            this.pbRomply.Name = "pbRomply";
-            this.pbRomply.Size = new System.Drawing.Size(272, 50);
-            this.pbRomply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbRomply.TabIndex = 65;
-            this.pbRomply.TabStop = false;
-            this.pbRomply.Visible = false;
-            // 
-            // pbAzel
-            // 
-            this.pbAzel.BackColor = System.Drawing.Color.White;
-            this.pbAzel.Image = ((System.Drawing.Image)(resources.GetObject("pbAzel.Image")));
-            this.pbAzel.Location = new System.Drawing.Point(253, 483);
-            this.pbAzel.Name = "pbAzel";
-            this.pbAzel.Size = new System.Drawing.Size(44, 34);
-            this.pbAzel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbAzel.TabIndex = 66;
-            this.pbAzel.TabStop = false;
-            this.pbAzel.Visible = false;
             // 
             // lbLungime
             // 
@@ -420,10 +397,32 @@
             this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbID.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbID.Location = new System.Drawing.Point(45, 450);
+            this.tbID.Location = new System.Drawing.Point(39, 243);
             this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(235, 22);
             this.tbID.TabIndex = 77;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pbRomply);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Location = new System.Drawing.Point(10, 72);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(301, 150);
+            this.groupBox1.TabIndex = 78;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // pbRomply
+            // 
+            this.pbRomply.Image = global::Aplicatie_Scanner.Properties.Resources.logo_romply_merops_1_1600;
+            this.pbRomply.Location = new System.Drawing.Point(153, 18);
+            this.pbRomply.Name = "pbRomply";
+            this.pbRomply.Size = new System.Drawing.Size(118, 23);
+            this.pbRomply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRomply.TabIndex = 79;
+            this.pbRomply.TabStop = false;
             // 
             // Frm_Printer
             // 
@@ -431,6 +430,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(867, 574);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.lblReceptiePornita);
             this.Controls.Add(this.rtbComentariu);
@@ -439,9 +439,6 @@
             this.Controls.Add(this.btnStopReceptie);
             this.Controls.Add(this.btnStartReceptie);
             this.Controls.Add(this.lbLungime);
-            this.Controls.Add(this.pbAzel);
-            this.Controls.Add(this.pbRomply);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.lblLungime);
             this.Controls.Add(this.label4);
@@ -465,8 +462,8 @@
             this.Load += new System.EventHandler(this.Frm_Printer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbRomply)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAzel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,8 +490,6 @@
         private Label lblLungime;
         private Button btnPreview;
         private PictureBox pictureBox1;
-        private PictureBox pbRomply;
-        private PictureBox pbAzel;
         private ListBox lbLungime;
         private Button btnStartReceptie;
         private Button btnStopReceptie;
@@ -505,5 +500,7 @@
         private RichTextBox rtbComentariu;
         private Label lblReceptiePornita;
         private TextBox tbID;
+        private GroupBox groupBox1;
+        private PictureBox pbRomply;
     }
 }
