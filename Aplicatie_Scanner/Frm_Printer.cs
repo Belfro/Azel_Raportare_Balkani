@@ -195,6 +195,8 @@ eJztVLFu2zAUPNIWIAiGSgHSTnAijADpaGhoGaAfoMH6H0JZBA/9BkKT4QKZjQ5xP0VjkCljkSV9pNXY
                      MessageBox.Show(ex.Message);
                  }
             lbCalitate.SelectedIndex = 0;
+            //lbLungime.SelectedIndex = lbLungime.Items.IndexOf(1.3);
+            
             tbDiametruBrut.SelectAll();
             try
             {
