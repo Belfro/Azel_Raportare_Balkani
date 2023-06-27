@@ -20,7 +20,7 @@ namespace Azel_Raportare_Balkani
             System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
             try
             {
-                System.Windows.Forms.Application.Run(new Aplicatie_Scanare());
+                System.Windows.Forms.Application.Run(new Aplicatie_Raportare_Balkani());
             }
             catch (Exception ex)
             {

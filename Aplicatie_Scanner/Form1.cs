@@ -10,7 +10,7 @@ using System.Data;
 namespace Azel_Raportare_Balkani
 {
 
-    public partial class Aplicatie_Scanare : Form
+    public partial class Aplicatie_Raportare_Balkani : Form
     {
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -66,7 +66,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-        public Aplicatie_Scanare()
+        public Aplicatie_Raportare_Balkani()
         {
             InitializeComponent();
             Old_Region = Region;
@@ -578,6 +578,11 @@ namespace Azel_Raportare_Balkani
             PLC_Sebesel_1_Grup_2.Close();
             PLC_Sebesel_2_Grup_1.Close();
             PLC_Sebesel_2_Grup_2.Close();
+        }
+
+        private void lblAppVersion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

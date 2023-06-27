@@ -50,7 +50,6 @@ C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raporta
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.csproj.AssemblyReference.cache
-C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Aplicatie_Scanare.resources
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Dashboard.resources
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Scanner.resources
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Settings.resources
@@ -67,3 +66,4 @@ C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raporta
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.genruntimeconfig.cache
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\ref\Azel_Raportare_Balkani.dll
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Grafice.resources
+C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Aplicatie_Raportare_Balkani.resources

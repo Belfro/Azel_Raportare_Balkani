@@ -5,7 +5,7 @@
 
 namespace Azel_Raportare_Balkani
 {
-    partial class Aplicatie_Scanare
+    partial class Aplicatie_Raportare_Balkani
     {
         /// <summary>
         ///  Required designer variable.
@@ -34,7 +34,7 @@ namespace Azel_Raportare_Balkani
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aplicatie_Scanare));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aplicatie_Raportare_Balkani));
             panel1 = new Panel();
             Panel_Nav = new Panel();
             Btn_Settings = new Button();
@@ -228,7 +228,7 @@ namespace Azel_Raportare_Balkani
             lbl_time.AutoSize = true;
             lbl_time.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_time.ForeColor = Color.DarkGray;
-            lbl_time.Location = new Point(3, 9);
+            lbl_time.Location = new Point(5, 9);
             lbl_time.Name = "lbl_time";
             lbl_time.Size = new Size(78, 18);
             lbl_time.TabIndex = 1;

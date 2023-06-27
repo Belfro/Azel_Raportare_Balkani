@@ -80,7 +80,7 @@
                 dataGridView1.Columns["Timp"].DataPropertyName = "DoarTimp";
 
 
-                tbEnergie_Produsa.Text = (date[date.Count - 1].Energie - date[date.SkipWhile(x=> x.Energie > 0).Count()-1].Energie).ToString() + " [kWh]";
+                tbEnergie_Produsa.Text = (date[date.Count - 1].Energie - date[date.SkipWhile(x => x.Energie > 0).Count() - 1].Energie).ToString() + " [kWh]";
                 tbApa_Consumata.Text = (date[date.Count - 1].Debit_Turbinat_Total - date[date.SkipWhile(x => x.Debit_Turbinat_Total > 0).Count() - 1].Debit_Turbinat_Total).ToString() + " [m³]";
                 tbPutereMedie.Text = Math.Round(date.Average(p => p.Putere), 2).ToString() + " kW";
 

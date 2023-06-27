@@ -249,9 +249,9 @@
             btnPrintCSV.FlatStyle = FlatStyle.Flat;
             btnPrintCSV.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnPrintCSV.ForeColor = Color.White;
-            btnPrintCSV.Location = new Point(252, 615);
+            btnPrintCSV.Location = new Point(255, 617);
             btnPrintCSV.Name = "btnPrintCSV";
-            btnPrintCSV.Size = new Size(132, 50);
+            btnPrintCSV.Size = new Size(174, 50);
             btnPrintCSV.TabIndex = 46;
             btnPrintCSV.Text = "Print\r\nCSV";
             btnPrintCSV.UseVisualStyleBackColor = false;
