@@ -251,7 +251,7 @@
             btnPrintCSV.ForeColor = Color.White;
             btnPrintCSV.Location = new Point(255, 617);
             btnPrintCSV.Name = "btnPrintCSV";
-            btnPrintCSV.Size = new Size(174, 50);
+            btnPrintCSV.Size = new Size(129, 50);
             btnPrintCSV.TabIndex = 46;
             btnPrintCSV.Text = "Print\r\nCSV";
             btnPrintCSV.UseVisualStyleBackColor = false;
