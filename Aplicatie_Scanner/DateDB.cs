@@ -1,31 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Aplicatie_Scanner
+﻿namespace Azel_Raportare_Balkani
 {
-    
+
     public class DateDB
     {
-        public DateTime Data_Timp { get; set; }
-        public string Furnizor { get; set; }
+        public DateTime Date_Time { get; set; }
+        public double Putere { get; set; }
 
-        public string Numar_Aviz { get; set; }
-        public string Numar_Receptie { get; set; }
-        public double Lungime { get; set; }
-        public double Diametru { get; set; }
-        public string Calitate { get; set; }
-        public string GUID { get; set; }
-        public string Locatie_Actuala { get; set; }
-        public string Comentariu { get; set; }
+        public double Energie { get; set; }
+        public double Presiune_Aductiune { get; set; }
+        public double Presiune_GUP { get; set; }
+        public double Pozitie_Injector_1 { get; set; }
+        public double Pozitie_Injector_2 { get; set; }
+        public double Vibratii_Generator { get; set; }
+        public double Debit_Turbinat_Instantaneu { get; set; }
+        public double Debit_Turbinat_Total { get; set; }
+        public double Meteo_Temperatura { get; set; }
+        public double Meteo_Umiditate { get; set; }
+        public double Meteo_Precipitatii { get; set; }
+
         public string Doardata
         {
             get
             {
                 // Stringul afisat 
-                return $"{Data_Timp.Day.ToString("D2")}/{Data_Timp.Month.ToString("D2")}/{Data_Timp.Year}";
+                return $"{Date_Time.Day.ToString("D2")}/{Date_Time.Month.ToString("D2")}/{Date_Time.Year}";
             }
         }
         public string DoarTimp
@@ -33,7 +31,7 @@ namespace Aplicatie_Scanner
             get
             {
                 // Stringul afisat 
-                return $"{Data_Timp.Hour.ToString("D2")}:{Data_Timp.Minute.ToString("D2")}:{Data_Timp.Second.ToString("D2")}";
+                return $"{Date_Time.Hour.ToString("D2")}:{Date_Time.Minute.ToString("D2")}:{Date_Time.Second.ToString("D2")}";
             }
         }
         public string FullString
@@ -41,24 +39,40 @@ namespace Aplicatie_Scanner
             get
             {
                 // Stringul afisat 
-                return $"{Doardata},{DoarTimp},{Furnizor},{Numar_Aviz},{Numar_Receptie},{Lungime},{Diametru},{Calitate},{GUID},{Locatie_Actuala},{Comentariu}";
+                return $"{Doardata},{DoarTimp},{Putere},{Energie},{Presiune_Aductiune},{Presiune_GUP},{Pozitie_Injector_1},{Pozitie_Injector_2},{Vibratii_Generator},{Debit_Turbinat_Instantaneu},{Debit_Turbinat_Total},{Meteo_Temperatura},{Meteo_Umiditate},{Meteo_Precipitatii}";
+                return null;
             }
         }
     }
-    public class DateFurnizori
-    { 
-        public float Index { get; set; }
-        public DateTime Data_Timp { get; set; }
-        public string Denumire { get; set; }
-        public string Localitate { get; set; }
+    public class DatePutere
+    {
+        public DateTime Date_Time { get; set; }
+        public double Cuntu_Grup_1 { get; set; }
+        public double Cuntu_Grup_2 { get; set; }
+        public double Craiu_1_Grup_1 { get; set; }
+        public double Craiu_1_Grup_2 { get; set; }
+        public double Craiu_2_Grup_1 { get; set; }
+        public double Craiu_2_Grup_2 { get; set; }
+        public double Sebesel_1_Grup_1 { get; set; }
+        public double Sebesel_1_Grup_2 { get; set; }
+        public double Sebesel_2_Grup_1 { get; set; }
+        public double Sebesel_2_Grup_2 { get; set; }
+        public double Cornereva { get; set; }
 
+        public double Total
+        {
+            get
+            {
+                return Cuntu_Grup_1 + Cuntu_Grup_2 + Craiu_1_Grup_1 + Craiu_1_Grup_2+ Craiu_2_Grup_1+ Craiu_2_Grup_2+ Sebesel_1_Grup_1+ Sebesel_1_Grup_2+ Sebesel_2_Grup_1+ Sebesel_2_Grup_2 + Cornereva;
+            }
+        }
 
         public string Doardata
         {
             get
             {
                 // Stringul afisat 
-                return $"{Data_Timp.Day.ToString("D2")}/{Data_Timp.Month.ToString("D2")}/{Data_Timp.Year}";
+                return $"{Date_Time.Day.ToString("D2")}/{Date_Time.Month.ToString("D2")}/{Date_Time.Year}";
             }
         }
         public string DoarTimp
@@ -66,20 +80,10 @@ namespace Aplicatie_Scanner
             get
             {
                 // Stringul afisat 
-                return $"{Data_Timp.Hour.ToString("D2")}:{Data_Timp.Minute.ToString("D2")}:{Data_Timp.Second.ToString("D2")}";
+                return $"{Date_Time.Hour.ToString("D2")}:{Date_Time.Minute.ToString("D2")}:{Date_Time.Second.ToString("D2")}";
             }
         }
     }
 
-    public class DateCalitate
-    {
-        public float Index { get; set; }
 
-        public string Calitate { get; set; }
-    }
-
-    public class DateLungime
-    {
-        public double Lungime{ get; set; }
-    }
 }

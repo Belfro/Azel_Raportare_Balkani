@@ -1,34 +1,40 @@
-﻿using AForge.Video;
-using AForge.Video.DirectShow;
-using Dapper;
-using SixLabors.ImageSharp.ColorSpaces;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Text;
-using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using ZXing;
-using ZXing.Windows.Compatibility;
-
-namespace Aplicatie_Scanner
+﻿namespace Azel_Raportare_Balkani
 {
     public partial class Frm_Dashboard : Form
     {
-        List<DateFurnizori> furnizoriList = new List<DateFurnizori>();
-        List<DateCalitate> CalitateList = new List<DateCalitate>();
+
         public Frm_Dashboard()
         {
             InitializeComponent();
         }
 
         List<DateDB> date = new List<DateDB>();
-
-
+        List<DatePutere> date_putere = new List<DatePutere>();
+        List<DatePutere> date_putere_ora = new List<DatePutere>();
 
 
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
+            #region DataProperty
+            dataGridView1.Columns[2].DataPropertyName = "Putere";
+            dataGridView1.Columns[3].DataPropertyName = "Energie";
+            dataGridView1.Columns[4].DataPropertyName = "Presiune_Aductiune";
+            dataGridView1.Columns[5].DataPropertyName = "Presiune_GUP";
+            dataGridView1.Columns[6].DataPropertyName = "Pozitie_Injector_1";
+            dataGridView1.Columns[7].DataPropertyName = "Pozitie_Injector_2";
+            dataGridView1.Columns[8].DataPropertyName = "Vibratii_Generator";
+            dataGridView1.Columns[9].DataPropertyName = "Debit_Turbinat_Instantaneu";
+            dataGridView1.Columns[10].DataPropertyName = "Debit_Turbinat_Total";
+            dataGridView1.Columns[11].DataPropertyName = "Meteo_Temperatura";
+            dataGridView1.Columns[12].DataPropertyName = "Meteo_Umiditate";
+            dataGridView1.Columns[13].DataPropertyName = "Meteo_Precipitatii";
+            #endregion
+            rbDefault.Checked = true;
+            cbEnergieOra.Visible = false;
+            rbPutere.Checked = false;
+            rbEnergie.Checked = false;
+
+            newCalendar1.SelectionEnd = DateTime.Now.AddDays(1).AddTicks(-1);
             cbZonaSelectie.SelectedIndex = 0;
         }
 
@@ -44,54 +50,11 @@ namespace Aplicatie_Scanner
 
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
 
         private void Search_Click(object sender, EventArgs e)
         {
-            bool Prima_Conditie_Selectata = false;
-            string Conditii_Get_Date = "";
-            if (checkBoxCalitate.Checked || checkBoxFurnizor.Checked)
-            { Conditii_Get_Date = "WHERE"; }
 
-            if (checkBoxFurnizor.Checked)
-            {
-                if (!Prima_Conditie_Selectata)
-                {
-                    Conditii_Get_Date = Conditii_Get_Date + $" Furnizor = '{cbFurnizor.SelectedItem.ToString()}'";
-                    Prima_Conditie_Selectata=true;
-                }
-                
-            }
-
-            if (checkBoxCalitate.Checked)
-            {
-                if (!Prima_Conditie_Selectata)
-                {
-                    Conditii_Get_Date = Conditii_Get_Date + $" Calitate = '{cbCalitate.SelectedItem.ToString()}'";
-                    Prima_Conditie_Selectata = true;
-                }
-                else
-                Conditii_Get_Date = Conditii_Get_Date + $" AND Calitate = '{cbCalitate.SelectedItem.ToString()}'";
-            }
-            
-            try
-            {
-               
-                DataAccess db = new DataAccess();
-                date = db.GetDateToataZiua(newCalendar1.SelectionStart, newCalendar1.SelectionEnd,Conditii_Get_Date,cbZonaSelectie.SelectedItem.ToString().Replace(" ","_"));
-
-                UpdateBinding();
-                if (date.Count < 1) MessageBox.Show("Nu a fost gasit niciun produs !");
-                else btnPrintCSV.Visible = true;
-                    
-            }
-            catch
-            {
-
-            }
+            Cautare_Date();
         }
 
         private void UpdateBinding()
@@ -101,22 +64,30 @@ namespace Aplicatie_Scanner
             try
             {
                 dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = date;
+                if (rbDefault.Checked)
+                    dataGridView1.DataSource = date;
+                else
+                {
+                    if (cbEnergieOra.Checked)
+                        dataGridView1.DataSource = date_putere_ora;
+                    else
+                    {
+                        dataGridView1.DataSource = date_putere;
+                    }
+                }
 
                 dataGridView1.Columns["Data"].DataPropertyName = "DoarData";
                 dataGridView1.Columns["Timp"].DataPropertyName = "DoarTimp";
-                dataGridView1.Columns["Locatie_Actuala"].DataPropertyName = "Locatie_Actuala";
-                dataGridView1.Columns["Furnizor"].DataPropertyName = "Furnizor";
-                dataGridView1.Columns["Numar_Aviz"].DataPropertyName = "Numar_Aviz";
-                dataGridView1.Columns["Numar_Bucati"].DataPropertyName = "Numar_Bucati";
-                dataGridView1.Columns["Numar_Receptie"].DataPropertyName = "Numar_Receptie";
-                dataGridView1.Columns["Lungime"].DataPropertyName = "Lungime";
-                dataGridView1.Columns["Diametru"].DataPropertyName = "Diametru";
-                dataGridView1.Columns["Calitate"].DataPropertyName = "Calitate";
+
+
+                tbEnergie_Produsa.Text = (date[date.Count - 1].Energie - date[date.SkipWhile(x=> x.Energie > 0).Count()-1].Energie).ToString() + " [kWh]";
+                tbApa_Consumata.Text = (date[date.Count - 1].Debit_Turbinat_Total - date[date.SkipWhile(x => x.Debit_Turbinat_Total > 0).Count() - 1].Debit_Turbinat_Total).ToString() + " [m³]";
+                tbPutereMedie.Text = Math.Round(date.Average(p => p.Putere), 2).ToString() + " kW";
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message); 
+                // MessageBox.Show(ex.Message);
             }
         }
 
@@ -125,76 +96,256 @@ namespace Aplicatie_Scanner
 
         }
 
-        private void checkBoxFurnizor_CheckedChanged(object sender, EventArgs e)
+        private void Cautare_Date()
         {
-            if (checkBoxFurnizor.Checked)
-            {
-                cbFurnizor.Visible = true;
-                try
-                {
-                    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
-                    {
-                        furnizoriList = connection.Query<DateFurnizori>($"select * from Furnizori").ToList();
-                    }
-                    cbFurnizor.Items.Clear();
-                    foreach (DateFurnizori Date in furnizoriList)
-                    {
-                        cbFurnizor.Items.Add(Date.Denumire);
-                    }
-                    cbFurnizor.SelectedIndex = 0;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);     
-                }
-            }
-            if (!checkBoxFurnizor.Checked)
-                cbFurnizor.Visible = false;
-        }
-
-        private void checkBoxCalitate_CheckedChanged(object sender, EventArgs e)
-        {
-            cbCalitate.Visible = true;
+            bool Prima_Conditie_Selectata = false;
+            string Conditii_Get_Date = "";
             try
             {
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+
+                DataAccess db = new DataAccess();
+
+                if (rbDefault.Checked)
                 {
-                    CalitateList = connection.Query<DateCalitate>($"select * from Calitate").ToList();
+                    date = db.GetDateToataZiua(newCalendar1.SelectionStart, newCalendar1.SelectionEnd, Conditii_Get_Date, cbZonaSelectie.SelectedItem.ToString().Replace(" ", "_"));
                 }
-                cbCalitate.Items.Clear();
-                foreach (DateCalitate Date in CalitateList)
+                if (rbPutere.Checked)
                 {
-                    cbCalitate.Items.Add(Date.Calitate);
+
+                    date_putere = db.GetDatePuteri(newCalendar1.SelectionStart, newCalendar1.SelectionEnd);
                 }
-                cbCalitate.SelectedIndex = 0;
+                if (rbEnergie.Checked)
+                {
+                    int index = 0;
+                    date_putere = db.GetDateEnergie(newCalendar1.SelectionStart, newCalendar1.SelectionEnd);
+                    date_putere_ora.Clear();
+                    if (cbEnergieOra.Checked)
+                    {
+                        for (int i = date_putere.FindIndex(x => x.Date_Time.Minute == 00); i < date_putere.Count - 4; i = i + 4)
+                        {
+
+
+                            date_putere_ora.Add(date_putere[i]);
+
+                            #region Calcul Energie Per Ora
+                            date_putere_ora[index].Cuntu_Grup_1 = date_putere[i].Cuntu_Grup_1 + date_putere[i + 1].Cuntu_Grup_1 + date_putere[i + 2].Cuntu_Grup_1 + date_putere[i + 3].Cuntu_Grup_1;
+                            date_putere_ora[index].Cuntu_Grup_2 = date_putere[i].Cuntu_Grup_2 + date_putere[i + 1].Cuntu_Grup_2 + date_putere[i + 2].Cuntu_Grup_2 + date_putere[i + 3].Cuntu_Grup_2;
+                            date_putere_ora[index].Craiu_1_Grup_1 = date_putere[i].Craiu_1_Grup_1 + date_putere[i + 1].Craiu_1_Grup_1 + date_putere[i + 2].Craiu_1_Grup_1 + date_putere[i + 3].Craiu_1_Grup_1;
+                            date_putere_ora[index].Craiu_1_Grup_2 = date_putere[i].Craiu_1_Grup_2 + date_putere[i + 1].Craiu_1_Grup_2 + date_putere[i + 2].Craiu_1_Grup_2 + date_putere[i + 3].Craiu_1_Grup_2;
+                            date_putere_ora[index].Craiu_2_Grup_1 = date_putere[i].Craiu_2_Grup_1 + date_putere[i + 1].Craiu_2_Grup_1 + date_putere[i + 2].Craiu_2_Grup_1 + date_putere[i + 3].Craiu_2_Grup_1;
+                            date_putere_ora[index].Craiu_2_Grup_2 = date_putere[i].Craiu_2_Grup_2 + date_putere[i + 1].Craiu_2_Grup_2 + date_putere[i + 2].Craiu_2_Grup_2 + date_putere[i + 3].Craiu_2_Grup_2;
+                            date_putere_ora[index].Sebesel_1_Grup_1 = date_putere[i].Sebesel_1_Grup_1 + date_putere[i + 1].Sebesel_1_Grup_1 + date_putere[i + 2].Sebesel_1_Grup_1 + date_putere[i + 3].Sebesel_1_Grup_1;
+                            date_putere_ora[index].Sebesel_1_Grup_2 = date_putere[i].Sebesel_1_Grup_2 + date_putere[i + 1].Sebesel_1_Grup_2 + date_putere[i + 2].Sebesel_1_Grup_2 + date_putere[i + 3].Sebesel_1_Grup_2;
+                            date_putere_ora[index].Sebesel_2_Grup_1 = date_putere[i].Sebesel_2_Grup_1 + date_putere[i + 1].Sebesel_2_Grup_1 + date_putere[i + 2].Sebesel_2_Grup_1 + date_putere[i + 3].Sebesel_2_Grup_1;
+                            date_putere_ora[index].Sebesel_2_Grup_2 = date_putere[i].Sebesel_2_Grup_2 + date_putere[i + 1].Sebesel_2_Grup_2 + date_putere[i + 2].Sebesel_2_Grup_2 + date_putere[i + 3].Sebesel_2_Grup_2;
+                            date_putere_ora[index].Cornereva = date_putere[i].Cornereva + date_putere[i + 1].Cornereva + date_putere[i + 2].Cornereva + date_putere[i + 3].Cornereva;
+                            #endregion
+                            index++;
+
+                        }
+                    }
+
+                }
+
+                UpdateBinding();
+                if (date.Count < 1) { }
+                else btnPrintCSV.Visible = true;
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
-            } 
-            if (!checkBoxCalitate.Checked)
-                cbCalitate.Visible = false;
+                // MessageBox.Show(ex.ToString());
+            }
         }
-
         private void cbZonaSelectie_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Cautare_Date();
         }
 
         private void btnPrintCSV_Click(object sender, EventArgs e)
         {
-            string subPath = @$"C:\Azel\Raportari Romply\"; 
+            if (rbDefault.Checked)
+                Print_Date();
+            else
+            {
+                Print_Puteri();
+            }
+
+
+        }
+        private void Print_Date()
+        {
+            string subPath = @$"C:\Azel\Raportari\";
 
             bool exists = System.IO.Directory.Exists(subPath);
 
             if (!exists)
                 System.IO.Directory.CreateDirectory(subPath);
-            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari Romply\Raport_Aplicatie_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm")}.csv"))
+            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Raport_Aplicatie_{cbZonaSelectie.Text.Replace(" ", "_")}_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm")}.csv"))
             {
+                file.WriteLine("Data,Timp,Putere,Energie,Presiune_Aductiune,Presiune_GUP,Pozitie_Injector_1,Pozitie_Injector_2,Vibratii_Generator,Debit_Turbinat_Instantaneu,Debit_Turbinat_Total,Meteo_Temperatura,Meteo_Umiditate,Meteo_Precipitatii");
                 foreach (var arr in date)
                 {
                     file.WriteLine(string.Join(",", arr.FullString));
                 }
             }
+        }
+
+        private void Print_Puteri()
+        {
+            string subPath = @$"C:\Azel\Raportari\";
+
+            bool exists = System.IO.Directory.Exists(subPath);
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory(subPath);
+            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Raport_Aplicatie_{cbZonaSelectie.Text.Replace(" ", "_")}_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm")}.csv"))
+            {
+                file.WriteLine("Data,Timp,Cuntu Grup 1,Cuntu Grup 2,Craiu 1 Grup 1,Craiu 1 Grup 2,Craiu 2 Grup 1,Craiu 2 Grup 2,Sebesel 1 Grup 1,Sebesel 1 Grup 2,Sebesel 2 Grup 1,Sebesel 2 Grup 2,Cornereva,Total");
+                foreach (var arr in date)
+                {
+                    file.WriteLine(string.Join(",", arr.FullString));
+                }
+            }
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            //Cautare_Date();
+        }
+
+        private void rbDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDefault.Checked == true)
+            {
+
+
+                Afisare_Productie(true);
+
+
+                dataGridView1.Columns[2].HeaderText = "Putere";
+                dataGridView1.Columns[3].HeaderText = "Energie";
+                dataGridView1.Columns[4].HeaderText = "Presiune Aductiune";
+                dataGridView1.Columns[5].HeaderText = "Presiune GUP";
+                dataGridView1.Columns[6].HeaderText = "Pozitie Injector 1";
+                dataGridView1.Columns[7].HeaderText = "Pozitie Injector 2";
+                dataGridView1.Columns[8].HeaderText = "Vibratii Generator";
+                dataGridView1.Columns[9].HeaderText = "Debit Instantaneu";
+                dataGridView1.Columns[10].HeaderText = "Debit Turbinat Total";
+                dataGridView1.Columns[11].HeaderText = "Temperatura Meteo";
+                dataGridView1.Columns[12].HeaderText = "Umiditate Meteo";
+                dataGridView1.Columns[13].HeaderText = "Precipitatii Meteo";
+
+                dataGridView1.Columns[2].DataPropertyName = "Putere";
+                dataGridView1.Columns[3].DataPropertyName = "Energie";
+                dataGridView1.Columns[4].DataPropertyName = "Presiune_Aductiune";
+                dataGridView1.Columns[5].DataPropertyName = "Presiune_GUP";
+                dataGridView1.Columns[6].DataPropertyName = "Pozitie_Injector_1";
+                dataGridView1.Columns[7].DataPropertyName = "Pozitie_Injector_2";
+                dataGridView1.Columns[8].DataPropertyName = "Vibratii_Generator";
+                dataGridView1.Columns[9].DataPropertyName = "Debit_Turbinat_Instantaneu";
+                dataGridView1.Columns[10].DataPropertyName = "Debit_Turbinat_Total";
+                dataGridView1.Columns[11].DataPropertyName = "Meteo_Temperatura";
+                dataGridView1.Columns[12].DataPropertyName = "Meteo_Umiditate";
+                dataGridView1.Columns[13].DataPropertyName = "Meteo_Precipitatii";
+                Cautare_Date();
+            }
+
+        }
+
+        private void rbEnergie_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (rbEnergie.Checked == true)
+            {
+                cbEnergieOra.Visible = true;
+                Afisare_Productie(false);
+                cbZonaSelectie.Visible = false;
+                dataGridView1.Columns[2].HeaderText = "Cuntu Grup 1";
+                dataGridView1.Columns[3].HeaderText = "Cuntu Grup 2";
+                dataGridView1.Columns[4].HeaderText = "Craiu 1 Grup 1";
+                dataGridView1.Columns[5].HeaderText = "Craiu 1 Grup 2";
+                dataGridView1.Columns[6].HeaderText = "Craiu 2 Grup 1";
+                dataGridView1.Columns[7].HeaderText = "Craiu 2 Grup 2";
+                dataGridView1.Columns[8].HeaderText = "Sebesel 1 Grup 1";
+                dataGridView1.Columns[9].HeaderText = "Sebesel 1 Grup 2";
+                dataGridView1.Columns[10].HeaderText = "Sebesel 2 Grup 1";
+                dataGridView1.Columns[11].HeaderText = "Sebesel 2 Grup 2";
+                dataGridView1.Columns[12].HeaderText = "Cornereva";
+                dataGridView1.Columns[13].HeaderText = "Total";
+
+                dataGridView1.Columns[2].DataPropertyName = "Cuntu_Grup_1";
+                dataGridView1.Columns[3].DataPropertyName = "Cuntu_Grup_2";
+                dataGridView1.Columns[4].DataPropertyName = "Craiu_1_Grup_1";
+                dataGridView1.Columns[5].DataPropertyName = "Craiu_1_Grup_2";
+                dataGridView1.Columns[6].DataPropertyName = "Craiu_2_Grup_1";
+                dataGridView1.Columns[7].DataPropertyName = "Craiu_2_Grup_2";
+                dataGridView1.Columns[8].DataPropertyName = "Sebesel_1_Grup_1";
+                dataGridView1.Columns[9].DataPropertyName = "Sebesel_1_Grup_2";
+                dataGridView1.Columns[10].DataPropertyName = "Sebesel_2_Grup_1";
+                dataGridView1.Columns[11].DataPropertyName = "Sebesel_2_Grup_2";
+                dataGridView1.Columns[12].DataPropertyName = "Cornereva";
+                dataGridView1.Columns[13].DataPropertyName = "Total";
+                Cautare_Date();
+            }
+            else
+            {
+                cbEnergieOra.Visible = false;
+            }
+        }
+
+        private void rbPutere_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPutere.Checked == true)
+            {
+                Afisare_Productie(false);
+                cbZonaSelectie.Visible = false;
+                dataGridView1.Columns[2].HeaderText = "Cuntu Grup 1";
+                dataGridView1.Columns[3].HeaderText = "Cuntu Grup 2";
+                dataGridView1.Columns[4].HeaderText = "Craiu 1 Grup 1";
+                dataGridView1.Columns[5].HeaderText = "Craiu 1 Grup 2";
+                dataGridView1.Columns[6].HeaderText = "Craiu 2 Grup 1";
+                dataGridView1.Columns[7].HeaderText = "Craiu 2 Grup 2";
+                dataGridView1.Columns[8].HeaderText = "Sebesel 1 Grup 1";
+                dataGridView1.Columns[9].HeaderText = "Sebesel 1 Grup 2";
+                dataGridView1.Columns[10].HeaderText = "Sebesel 2 Grup 1";
+                dataGridView1.Columns[11].HeaderText = "Sebesel 2 Grup 2";
+                dataGridView1.Columns[12].HeaderText = "Cornereva";
+                dataGridView1.Columns[13].HeaderText = "Total";
+
+                dataGridView1.Columns[2].DataPropertyName = "Cuntu_Grup_1";
+                dataGridView1.Columns[3].DataPropertyName = "Cuntu_Grup_2";
+                dataGridView1.Columns[4].DataPropertyName = "Craiu_1_Grup_1";
+                dataGridView1.Columns[5].DataPropertyName = "Craiu_1_Grup_2";
+                dataGridView1.Columns[6].DataPropertyName = "Craiu_2_Grup_1";
+                dataGridView1.Columns[7].DataPropertyName = "Craiu_2_Grup_2";
+                dataGridView1.Columns[8].DataPropertyName = "Sebesel_1_Grup_1";
+                dataGridView1.Columns[9].DataPropertyName = "Sebesel_1_Grup_2";
+                dataGridView1.Columns[10].DataPropertyName = "Sebesel_2_Grup_1";
+                dataGridView1.Columns[11].DataPropertyName = "Sebesel_2_Grup_2";
+                dataGridView1.Columns[12].DataPropertyName = "Cornereva";
+                dataGridView1.Columns[13].DataPropertyName = "Total";
+                Cautare_Date();
+            }
+        }
+        private void Afisare_Productie(bool afisare)
+        {
+            cbZonaSelectie.Visible = afisare;
+            lblPutere_Medie.Visible = afisare;
+            tbPutereMedie.Visible = afisare;
+            lblEnergie_Produsa.Visible = afisare;
+            tbEnergie_Produsa.Visible = afisare;
+            lblApa_Consumata.Visible = afisare;
+            tbApa_Consumata.Visible = afisare;
+        }
+
+        private void cbEnergieOra_CheckedChanged(object sender, EventArgs e)
+        {
+            Cautare_Date();
         }
     }
 }

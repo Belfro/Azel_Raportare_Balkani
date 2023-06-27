@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.InteropServices;
-using System.IO;
+﻿using System.Runtime.InteropServices;
 
-namespace Aplicatie_Scanner
+namespace Azel_Raportare_Balkani
 {
     public class RawPrinterHelper
     {

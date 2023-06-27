@@ -3,9 +3,9 @@
 
 
 
-namespace Aplicatie_Scanner
+namespace Azel_Raportare_Balkani
 {
-    partial class Aplicatie_Scanare 
+    partial class Aplicatie_Scanare
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,256 +33,718 @@ namespace Aplicatie_Scanner
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aplicatie_Scanare));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Panel_Nav = new System.Windows.Forms.Panel();
-            this.Btn_Settings = new System.Windows.Forms.Button();
-            this.Btn_Printer = new System.Windows.Forms.Button();
-            this.Btn_Scanner = new System.Windows.Forms.Button();
-            this.Btn_Dashboard = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbl_time = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Panel_Form_Loader = new System.Windows.Forms.Panel();
-            this.Btn_Close_App = new System.Windows.Forms.Button();
-            this.Btn_Minimize = new System.Windows.Forms.Button();
-            this.lbltitle = new System.Windows.Forms.Label();
-            this.timer_timp = new System.Windows.Forms.Timer(this.components);
-            this.lblAppVersion = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            Panel_Nav = new Panel();
+            Btn_Settings = new Button();
+            Btn_Printer = new Button();
+            Btn_Scanner = new Button();
+            Btn_Dashboard = new Button();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            lbl_time = new Label();
+            label1 = new Label();
+            Panel_Form_Loader = new Panel();
+            Btn_Close_App = new Button();
+            Btn_Minimize = new Button();
+            lbltitle = new Label();
+            timer_timp = new System.Windows.Forms.Timer(components);
+            lblAppVersion = new Label();
+            Cuntu_Grup_2_pbX = new PictureBox();
+            Cuntu_Grup_2_pbTick = new PictureBox();
+            Cuntu_Grup_1_pbX = new PictureBox();
+            Cuntu_Grup_1_pbTick = new PictureBox();
+            lblCuntuGrup2 = new Label();
+            lblCuntuGrup1 = new Label();
+            Craiu_1_Grup_2_pbX = new PictureBox();
+            Craiu_1_Grup_2_pbTick = new PictureBox();
+            Craiu_1_Grup_1_pbX = new PictureBox();
+            Craiu_1_Grup_1_pbTick = new PictureBox();
+            label2 = new Label();
+            label3 = new Label();
+            Sebesel_1_Grup_2_pbX = new PictureBox();
+            Sebesel_1_Grup_2_pbTick = new PictureBox();
+            Sebesel_1_Grup_1_pbX = new PictureBox();
+            Sebesel_1_Grup_1_pbTick = new PictureBox();
+            label4 = new Label();
+            label5 = new Label();
+            Sebesel_2_Grup_2_pbX = new PictureBox();
+            Sebesel_2_Grup_2_pbTick = new PictureBox();
+            Sebesel_2_Grup_1_pbX = new PictureBox();
+            Sebesel_2_Grup_1_pbTick = new PictureBox();
+            label6 = new Label();
+            label7 = new Label();
+            Craiu_2_Grup_2_pbX = new PictureBox();
+            Craiu_2_Grup_2_pbTick = new PictureBox();
+            Craiu_2_Grup_1_pbX = new PictureBox();
+            Craiu_2_Grup_1_pbTick = new PictureBox();
+            label8 = new Label();
+            label9 = new Label();
+            Cornereva_pbX = new PictureBox();
+            Cornereva_pbTick = new PictureBox();
+            label10 = new Label();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_2_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_2_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_1_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_1_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_1_Grup_2_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_1_Grup_2_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_1_Grup_1_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_1_Grup_1_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_1_Grup_2_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_1_Grup_2_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_1_Grup_1_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_1_Grup_1_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_2_Grup_2_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_2_Grup_2_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_2_Grup_1_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_2_Grup_1_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_2_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_2_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_1_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_1_pbTick).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Cornereva_pbX).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Cornereva_pbTick).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.Panel_Nav);
-            this.panel1.Controls.Add(this.Btn_Settings);
-            this.panel1.Controls.Add(this.Btn_Printer);
-            this.panel1.Controls.Add(this.Btn_Scanner);
-            this.panel1.Controls.Add(this.Btn_Dashboard);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 647);
-            this.panel1.TabIndex = 7;
+            panel1.BackColor = Color.FromArgb(8, 35, 50);
+            panel1.Controls.Add(Panel_Nav);
+            panel1.Controls.Add(Btn_Settings);
+            panel1.Controls.Add(Btn_Printer);
+            panel1.Controls.Add(Btn_Scanner);
+            panel1.Controls.Add(Btn_Dashboard);
+            panel1.Controls.Add(panel2);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(186, 761);
+            panel1.TabIndex = 7;
             // 
             // Panel_Nav
             // 
-            this.Panel_Nav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(149)))));
-            this.Panel_Nav.Location = new System.Drawing.Point(0, 192);
-            this.Panel_Nav.Name = "Panel_Nav";
-            this.Panel_Nav.Size = new System.Drawing.Size(3, 100);
-            this.Panel_Nav.TabIndex = 10;
+            Panel_Nav.BackColor = Color.FromArgb(0, 126, 149);
+            Panel_Nav.Location = new Point(0, 192);
+            Panel_Nav.Name = "Panel_Nav";
+            Panel_Nav.Size = new Size(3, 100);
+            Panel_Nav.TabIndex = 10;
             // 
             // Btn_Settings
             // 
-            this.Btn_Settings.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Btn_Settings.FlatAppearance.BorderSize = 0;
-            this.Btn_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Settings.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Btn_Settings.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Settings.Image")));
-            this.Btn_Settings.Location = new System.Drawing.Point(0, 605);
-            this.Btn_Settings.Name = "Btn_Settings";
-            this.Btn_Settings.Size = new System.Drawing.Size(186, 42);
-            this.Btn_Settings.TabIndex = 9;
-            this.Btn_Settings.Text = "Settings";
-            this.Btn_Settings.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.Btn_Settings.UseVisualStyleBackColor = true;
-            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
-            this.Btn_Settings.Leave += new System.EventHandler(this.Btn_Settings_Leave);
+            Btn_Settings.Dock = DockStyle.Bottom;
+            Btn_Settings.FlatAppearance.BorderSize = 0;
+            Btn_Settings.FlatStyle = FlatStyle.Flat;
+            Btn_Settings.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Settings.ForeColor = Color.FromArgb(4, 224, 190);
+            Btn_Settings.Image = (Image)resources.GetObject("Btn_Settings.Image");
+            Btn_Settings.Location = new Point(0, 719);
+            Btn_Settings.Name = "Btn_Settings";
+            Btn_Settings.Size = new Size(186, 42);
+            Btn_Settings.TabIndex = 9;
+            Btn_Settings.Text = "Settings";
+            Btn_Settings.TextImageRelation = TextImageRelation.TextBeforeImage;
+            Btn_Settings.UseVisualStyleBackColor = true;
+            Btn_Settings.Click += Btn_Settings_Click;
+            Btn_Settings.Leave += Btn_Settings_Leave;
             // 
             // Btn_Printer
             // 
-            this.Btn_Printer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Printer.FlatAppearance.BorderSize = 0;
-            this.Btn_Printer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Printer.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Printer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Btn_Printer.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Printer.Image")));
-            this.Btn_Printer.Location = new System.Drawing.Point(0, 228);
-            this.Btn_Printer.Name = "Btn_Printer";
-            this.Btn_Printer.Size = new System.Drawing.Size(186, 42);
-            this.Btn_Printer.TabIndex = 9;
-            this.Btn_Printer.Text = "    Printer";
-            this.Btn_Printer.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.Btn_Printer.UseVisualStyleBackColor = true;
-            this.Btn_Printer.Click += new System.EventHandler(this.Btn_Printer_Click);
-            this.Btn_Printer.Leave += new System.EventHandler(this.Btn_Printer_Leave);
+            Btn_Printer.Dock = DockStyle.Top;
+            Btn_Printer.FlatAppearance.BorderSize = 0;
+            Btn_Printer.FlatStyle = FlatStyle.Flat;
+            Btn_Printer.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Printer.ForeColor = Color.FromArgb(4, 224, 190);
+            Btn_Printer.Image = Properties.Resources.trendi1;
+            Btn_Printer.Location = new Point(0, 228);
+            Btn_Printer.Name = "Btn_Printer";
+            Btn_Printer.Size = new Size(186, 42);
+            Btn_Printer.TabIndex = 9;
+            Btn_Printer.Text = "    Grafice";
+            Btn_Printer.TextImageRelation = TextImageRelation.TextBeforeImage;
+            Btn_Printer.UseVisualStyleBackColor = true;
+            Btn_Printer.Click += Btn_Printer_Click;
+            Btn_Printer.Leave += Btn_Printer_Leave;
             // 
             // Btn_Scanner
             // 
-            this.Btn_Scanner.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Scanner.FlatAppearance.BorderSize = 0;
-            this.Btn_Scanner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Scanner.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Scanner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Btn_Scanner.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Scanner.Image")));
-            this.Btn_Scanner.Location = new System.Drawing.Point(0, 186);
-            this.Btn_Scanner.Name = "Btn_Scanner";
-            this.Btn_Scanner.Size = new System.Drawing.Size(186, 42);
-            this.Btn_Scanner.TabIndex = 9;
-            this.Btn_Scanner.Text = "   Scanner";
-            this.Btn_Scanner.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.Btn_Scanner.UseVisualStyleBackColor = true;
-            this.Btn_Scanner.Click += new System.EventHandler(this.Btn_Scanner_Click);
-            this.Btn_Scanner.Leave += new System.EventHandler(this.Btn_Scanner_Leave);
+            Btn_Scanner.Dock = DockStyle.Top;
+            Btn_Scanner.FlatAppearance.BorderSize = 0;
+            Btn_Scanner.FlatStyle = FlatStyle.Flat;
+            Btn_Scanner.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Scanner.ForeColor = Color.FromArgb(4, 224, 190);
+            Btn_Scanner.Image = (Image)resources.GetObject("Btn_Scanner.Image");
+            Btn_Scanner.Location = new Point(0, 186);
+            Btn_Scanner.Name = "Btn_Scanner";
+            Btn_Scanner.Size = new Size(186, 42);
+            Btn_Scanner.TabIndex = 9;
+            Btn_Scanner.Text = "   Prognoza";
+            Btn_Scanner.TextImageRelation = TextImageRelation.TextBeforeImage;
+            Btn_Scanner.UseVisualStyleBackColor = true;
+            Btn_Scanner.Click += Btn_Scanner_Click;
+            Btn_Scanner.Leave += Btn_Scanner_Leave;
             // 
             // Btn_Dashboard
             // 
-            this.Btn_Dashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Dashboard.FlatAppearance.BorderSize = 0;
-            this.Btn_Dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Dashboard.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Dashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Btn_Dashboard.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Dashboard.Image")));
-            this.Btn_Dashboard.Location = new System.Drawing.Point(0, 144);
-            this.Btn_Dashboard.Name = "Btn_Dashboard";
-            this.Btn_Dashboard.Size = new System.Drawing.Size(186, 42);
-            this.Btn_Dashboard.TabIndex = 9;
-            this.Btn_Dashboard.Text = "Overview";
-            this.Btn_Dashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.Btn_Dashboard.UseVisualStyleBackColor = true;
-            this.Btn_Dashboard.Click += new System.EventHandler(this.Btn_Dashboard_Click);
-            this.Btn_Dashboard.Leave += new System.EventHandler(this.Btn_Dashboard_Leave);
+            Btn_Dashboard.Dock = DockStyle.Top;
+            Btn_Dashboard.FlatAppearance.BorderSize = 0;
+            Btn_Dashboard.FlatStyle = FlatStyle.Flat;
+            Btn_Dashboard.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Dashboard.ForeColor = Color.FromArgb(4, 224, 190);
+            Btn_Dashboard.Image = (Image)resources.GetObject("Btn_Dashboard.Image");
+            Btn_Dashboard.Location = new Point(0, 144);
+            Btn_Dashboard.Name = "Btn_Dashboard";
+            Btn_Dashboard.Size = new Size(186, 42);
+            Btn_Dashboard.TabIndex = 9;
+            Btn_Dashboard.Text = "Overview";
+            Btn_Dashboard.TextImageRelation = TextImageRelation.TextBeforeImage;
+            Btn_Dashboard.UseVisualStyleBackColor = true;
+            Btn_Dashboard.Click += Btn_Dashboard_Click;
+            Btn_Dashboard.Leave += Btn_Dashboard_Leave;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.lbl_time);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(186, 144);
-            this.panel2.TabIndex = 8;
+            panel2.Controls.Add(panel3);
+            panel2.Controls.Add(lbl_time);
+            panel2.Controls.Add(label1);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(186, 144);
+            panel2.TabIndex = 8;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(185, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(765, 78);
-            this.panel3.TabIndex = 16;
+            panel3.Location = new Point(185, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(765, 78);
+            panel3.TabIndex = 16;
             // 
             // lbl_time
             // 
-            this.lbl_time.AutoSize = true;
-            this.lbl_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_time.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbl_time.Location = new System.Drawing.Point(3, 9);
-            this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Size = new System.Drawing.Size(78, 18);
-            this.lbl_time.TabIndex = 1;
-            this.lbl_time.Text = "Time Left";
-            this.lbl_time.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_time.Click += new System.EventHandler(this.label2_Click);
+            lbl_time.AutoSize = true;
+            lbl_time.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_time.ForeColor = Color.DarkGray;
+            lbl_time.Location = new Point(3, 9);
+            lbl_time.Name = "lbl_time";
+            lbl_time.Size = new Size(78, 18);
+            lbl_time.TabIndex = 1;
+            lbl_time.Text = "Time Left";
+            lbl_time.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_time.Click += label2_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label1.Location = new System.Drawing.Point(21, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "AZEL Database \r\nManagement Studio";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(8, 35, 50);
+            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(4, 224, 190);
+            label1.Location = new Point(21, 100);
+            label1.Name = "label1";
+            label1.Size = new Size(144, 32);
+            label1.TabIndex = 0;
+            label1.Text = "AZEL Database \r\nManagement Studio";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Panel_Form_Loader
             // 
-            this.Panel_Form_Loader.Location = new System.Drawing.Point(185, 61);
-            this.Panel_Form_Loader.Name = "Panel_Form_Loader";
-            this.Panel_Form_Loader.Size = new System.Drawing.Size(867, 574);
-            this.Panel_Form_Loader.TabIndex = 15;
+            Panel_Form_Loader.Location = new Point(185, 84);
+            Panel_Form_Loader.Name = "Panel_Form_Loader";
+            Panel_Form_Loader.Size = new Size(1290, 674);
+            Panel_Form_Loader.TabIndex = 15;
             // 
             // Btn_Close_App
             // 
-            this.Btn_Close_App.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Close_App.BackColor = System.Drawing.Color.Red;
-            this.Btn_Close_App.FlatAppearance.BorderSize = 0;
-            this.Btn_Close_App.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Close_App.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Close_App.ForeColor = System.Drawing.Color.White;
-            this.Btn_Close_App.Location = new System.Drawing.Point(980, 12);
-            this.Btn_Close_App.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Btn_Close_App.Name = "Btn_Close_App";
-            this.Btn_Close_App.Size = new System.Drawing.Size(57, 40);
-            this.Btn_Close_App.TabIndex = 13;
-            this.Btn_Close_App.Text = "X";
-            this.Btn_Close_App.UseVisualStyleBackColor = false;
-            this.Btn_Close_App.Click += new System.EventHandler(this.button3_Click);
+            Btn_Close_App.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Btn_Close_App.BackColor = Color.Red;
+            Btn_Close_App.FlatAppearance.BorderSize = 0;
+            Btn_Close_App.FlatStyle = FlatStyle.Flat;
+            Btn_Close_App.Font = new Font("Microsoft Sans Serif", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Close_App.ForeColor = Color.White;
+            Btn_Close_App.Location = new Point(1394, 12);
+            Btn_Close_App.Margin = new Padding(4, 3, 4, 3);
+            Btn_Close_App.Name = "Btn_Close_App";
+            Btn_Close_App.Size = new Size(57, 40);
+            Btn_Close_App.TabIndex = 13;
+            Btn_Close_App.Text = "X";
+            Btn_Close_App.UseVisualStyleBackColor = false;
+            Btn_Close_App.Click += button3_Click;
             // 
             // Btn_Minimize
             // 
-            this.Btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(51)))), ((int)(((byte)(86)))));
-            this.Btn_Minimize.FlatAppearance.BorderSize = 0;
-            this.Btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.Btn_Minimize.Location = new System.Drawing.Point(928, 12);
-            this.Btn_Minimize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Btn_Minimize.Name = "Btn_Minimize";
-            this.Btn_Minimize.Size = new System.Drawing.Size(40, 40);
-            this.Btn_Minimize.TabIndex = 14;
-            this.Btn_Minimize.Text = "_";
-            this.Btn_Minimize.UseVisualStyleBackColor = false;
-            this.Btn_Minimize.Click += new System.EventHandler(this.Btn_Minimize_Click);
+            Btn_Minimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Btn_Minimize.BackColor = Color.FromArgb(21, 47, 62);
+            Btn_Minimize.FlatAppearance.BorderSize = 0;
+            Btn_Minimize.FlatStyle = FlatStyle.Flat;
+            Btn_Minimize.Font = new Font("Microsoft Sans Serif", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Minimize.ForeColor = Color.White;
+            Btn_Minimize.Location = new Point(1342, 12);
+            Btn_Minimize.Margin = new Padding(4, 3, 4, 3);
+            Btn_Minimize.Name = "Btn_Minimize";
+            Btn_Minimize.Size = new Size(40, 40);
+            Btn_Minimize.TabIndex = 14;
+            Btn_Minimize.Text = "_";
+            Btn_Minimize.UseVisualStyleBackColor = false;
+            Btn_Minimize.Click += Btn_Minimize_Click;
             // 
             // lbltitle
             // 
-            this.lbltitle.AutoSize = true;
-            this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbltitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lbltitle.Location = new System.Drawing.Point(204, 16);
-            this.lbltitle.Name = "lbltitle";
-            this.lbltitle.Size = new System.Drawing.Size(211, 42);
-            this.lbltitle.TabIndex = 19;
-            this.lbltitle.Text = "Dashboard";
-            this.lbltitle.Click += new System.EventHandler(this.lbltitle_Click);
+            lbltitle.AutoSize = true;
+            lbltitle.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbltitle.ForeColor = Color.FromArgb(4, 224, 190);
+            lbltitle.Location = new Point(188, 20);
+            lbltitle.Name = "lbltitle";
+            lbltitle.Size = new Size(211, 42);
+            lbltitle.TabIndex = 19;
+            lbltitle.Text = "Dashboard";
             // 
             // timer_timp
             // 
-            this.timer_timp.Tick += new System.EventHandler(this.timer_timp_Tick);
+            timer_timp.Tick += timer_timp_Tick;
             // 
             // lblAppVersion
             // 
-            this.lblAppVersion.AutoSize = true;
-            this.lblAppVersion.ForeColor = System.Drawing.Color.White;
-            this.lblAppVersion.Location = new System.Drawing.Point(185, 0);
-            this.lblAppVersion.Name = "lblAppVersion";
-            this.lblAppVersion.Size = new System.Drawing.Size(102, 15);
-            this.lblAppVersion.TabIndex = 11;
-            this.lblAppVersion.Text = "Versiunea Curenta";
+            lblAppVersion.AutoSize = true;
+            lblAppVersion.ForeColor = Color.White;
+            lblAppVersion.Location = new Point(185, 0);
+            lblAppVersion.Name = "lblAppVersion";
+            lblAppVersion.Size = new Size(102, 15);
+            lblAppVersion.TabIndex = 11;
+            lblAppVersion.Text = "Versiunea Curenta";
+            // 
+            // Cuntu_Grup_2_pbX
+            // 
+            Cuntu_Grup_2_pbX.Image = Properties.Resources.close;
+            Cuntu_Grup_2_pbX.Location = new Point(499, 53);
+            Cuntu_Grup_2_pbX.Name = "Cuntu_Grup_2_pbX";
+            Cuntu_Grup_2_pbX.Size = new Size(26, 29);
+            Cuntu_Grup_2_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cuntu_Grup_2_pbX.TabIndex = 49;
+            Cuntu_Grup_2_pbX.TabStop = false;
+            // 
+            // Cuntu_Grup_2_pbTick
+            // 
+            Cuntu_Grup_2_pbTick.Image = Properties.Resources.checkmark;
+            Cuntu_Grup_2_pbTick.Location = new Point(499, 53);
+            Cuntu_Grup_2_pbTick.Name = "Cuntu_Grup_2_pbTick";
+            Cuntu_Grup_2_pbTick.Size = new Size(26, 29);
+            Cuntu_Grup_2_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cuntu_Grup_2_pbTick.TabIndex = 48;
+            Cuntu_Grup_2_pbTick.TabStop = false;
+            Cuntu_Grup_2_pbTick.Visible = false;
+            // 
+            // Cuntu_Grup_1_pbX
+            // 
+            Cuntu_Grup_1_pbX.Image = Properties.Resources.close;
+            Cuntu_Grup_1_pbX.Location = new Point(499, 17);
+            Cuntu_Grup_1_pbX.Name = "Cuntu_Grup_1_pbX";
+            Cuntu_Grup_1_pbX.Size = new Size(26, 29);
+            Cuntu_Grup_1_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cuntu_Grup_1_pbX.TabIndex = 47;
+            Cuntu_Grup_1_pbX.TabStop = false;
+            // 
+            // Cuntu_Grup_1_pbTick
+            // 
+            Cuntu_Grup_1_pbTick.Image = Properties.Resources.checkmark;
+            Cuntu_Grup_1_pbTick.Location = new Point(499, 17);
+            Cuntu_Grup_1_pbTick.Name = "Cuntu_Grup_1_pbTick";
+            Cuntu_Grup_1_pbTick.Size = new Size(26, 29);
+            Cuntu_Grup_1_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cuntu_Grup_1_pbTick.TabIndex = 46;
+            Cuntu_Grup_1_pbTick.TabStop = false;
+            Cuntu_Grup_1_pbTick.Visible = false;
+            // 
+            // lblCuntuGrup2
+            // 
+            lblCuntuGrup2.AutoSize = true;
+            lblCuntuGrup2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCuntuGrup2.ForeColor = Color.White;
+            lblCuntuGrup2.Location = new Point(398, 57);
+            lblCuntuGrup2.Name = "lblCuntuGrup2";
+            lblCuntuGrup2.Size = new Size(103, 20);
+            lblCuntuGrup2.TabIndex = 45;
+            lblCuntuGrup2.Text = "Cuntu Grup 2";
+            // 
+            // lblCuntuGrup1
+            // 
+            lblCuntuGrup1.AutoSize = true;
+            lblCuntuGrup1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCuntuGrup1.ForeColor = Color.White;
+            lblCuntuGrup1.Location = new Point(398, 21);
+            lblCuntuGrup1.Name = "lblCuntuGrup1";
+            lblCuntuGrup1.Size = new Size(103, 20);
+            lblCuntuGrup1.TabIndex = 44;
+            lblCuntuGrup1.Text = "Cuntu Grup 1";
+            // 
+            // Craiu_1_Grup_2_pbX
+            // 
+            Craiu_1_Grup_2_pbX.Image = Properties.Resources.close;
+            Craiu_1_Grup_2_pbX.Location = new Point(644, 53);
+            Craiu_1_Grup_2_pbX.Name = "Craiu_1_Grup_2_pbX";
+            Craiu_1_Grup_2_pbX.Size = new Size(26, 29);
+            Craiu_1_Grup_2_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Craiu_1_Grup_2_pbX.TabIndex = 55;
+            Craiu_1_Grup_2_pbX.TabStop = false;
+            // 
+            // Craiu_1_Grup_2_pbTick
+            // 
+            Craiu_1_Grup_2_pbTick.Image = Properties.Resources.checkmark;
+            Craiu_1_Grup_2_pbTick.Location = new Point(644, 53);
+            Craiu_1_Grup_2_pbTick.Name = "Craiu_1_Grup_2_pbTick";
+            Craiu_1_Grup_2_pbTick.Size = new Size(26, 29);
+            Craiu_1_Grup_2_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Craiu_1_Grup_2_pbTick.TabIndex = 54;
+            Craiu_1_Grup_2_pbTick.TabStop = false;
+            Craiu_1_Grup_2_pbTick.Visible = false;
+            // 
+            // Craiu_1_Grup_1_pbX
+            // 
+            Craiu_1_Grup_1_pbX.Image = Properties.Resources.close;
+            Craiu_1_Grup_1_pbX.Location = new Point(644, 17);
+            Craiu_1_Grup_1_pbX.Name = "Craiu_1_Grup_1_pbX";
+            Craiu_1_Grup_1_pbX.Size = new Size(26, 29);
+            Craiu_1_Grup_1_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Craiu_1_Grup_1_pbX.TabIndex = 53;
+            Craiu_1_Grup_1_pbX.TabStop = false;
+            // 
+            // Craiu_1_Grup_1_pbTick
+            // 
+            Craiu_1_Grup_1_pbTick.Image = Properties.Resources.checkmark;
+            Craiu_1_Grup_1_pbTick.Location = new Point(644, 17);
+            Craiu_1_Grup_1_pbTick.Name = "Craiu_1_Grup_1_pbTick";
+            Craiu_1_Grup_1_pbTick.Size = new Size(26, 29);
+            Craiu_1_Grup_1_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Craiu_1_Grup_1_pbTick.TabIndex = 52;
+            Craiu_1_Grup_1_pbTick.TabStop = false;
+            Craiu_1_Grup_1_pbTick.Visible = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(535, 57);
+            label2.Name = "label2";
+            label2.Size = new Size(110, 20);
+            label2.TabIndex = 51;
+            label2.Text = "Craiu 1 Grup 2";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(535, 21);
+            label3.Name = "label3";
+            label3.Size = new Size(110, 20);
+            label3.TabIndex = 50;
+            label3.Text = "Craiu 1 Grup 1";
+            // 
+            // Sebesel_1_Grup_2_pbX
+            // 
+            Sebesel_1_Grup_2_pbX.Image = Properties.Resources.close;
+            Sebesel_1_Grup_2_pbX.Location = new Point(944, 53);
+            Sebesel_1_Grup_2_pbX.Name = "Sebesel_1_Grup_2_pbX";
+            Sebesel_1_Grup_2_pbX.Size = new Size(26, 29);
+            Sebesel_1_Grup_2_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Sebesel_1_Grup_2_pbX.TabIndex = 61;
+            Sebesel_1_Grup_2_pbX.TabStop = false;
+            // 
+            // Sebesel_1_Grup_2_pbTick
+            // 
+            Sebesel_1_Grup_2_pbTick.Image = Properties.Resources.checkmark;
+            Sebesel_1_Grup_2_pbTick.Location = new Point(944, 53);
+            Sebesel_1_Grup_2_pbTick.Name = "Sebesel_1_Grup_2_pbTick";
+            Sebesel_1_Grup_2_pbTick.Size = new Size(26, 29);
+            Sebesel_1_Grup_2_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Sebesel_1_Grup_2_pbTick.TabIndex = 60;
+            Sebesel_1_Grup_2_pbTick.TabStop = false;
+            Sebesel_1_Grup_2_pbTick.Visible = false;
+            // 
+            // Sebesel_1_Grup_1_pbX
+            // 
+            Sebesel_1_Grup_1_pbX.Image = Properties.Resources.close;
+            Sebesel_1_Grup_1_pbX.Location = new Point(944, 17);
+            Sebesel_1_Grup_1_pbX.Name = "Sebesel_1_Grup_1_pbX";
+            Sebesel_1_Grup_1_pbX.Size = new Size(26, 29);
+            Sebesel_1_Grup_1_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Sebesel_1_Grup_1_pbX.TabIndex = 59;
+            Sebesel_1_Grup_1_pbX.TabStop = false;
+            // 
+            // Sebesel_1_Grup_1_pbTick
+            // 
+            Sebesel_1_Grup_1_pbTick.Image = Properties.Resources.checkmark;
+            Sebesel_1_Grup_1_pbTick.Location = new Point(944, 17);
+            Sebesel_1_Grup_1_pbTick.Name = "Sebesel_1_Grup_1_pbTick";
+            Sebesel_1_Grup_1_pbTick.Size = new Size(26, 29);
+            Sebesel_1_Grup_1_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Sebesel_1_Grup_1_pbTick.TabIndex = 58;
+            Sebesel_1_Grup_1_pbTick.TabStop = false;
+            Sebesel_1_Grup_1_pbTick.Visible = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(817, 57);
+            label4.Name = "label4";
+            label4.Size = new Size(126, 20);
+            label4.TabIndex = 57;
+            label4.Text = "Sebesel 1 Grup 2";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(817, 21);
+            label5.Name = "label5";
+            label5.Size = new Size(126, 20);
+            label5.TabIndex = 56;
+            label5.Text = "Sebesel 1 Grup 1";
+            // 
+            // Sebesel_2_Grup_2_pbX
+            // 
+            Sebesel_2_Grup_2_pbX.Image = Properties.Resources.close;
+            Sebesel_2_Grup_2_pbX.Location = new Point(1102, 53);
+            Sebesel_2_Grup_2_pbX.Name = "Sebesel_2_Grup_2_pbX";
+            Sebesel_2_Grup_2_pbX.Size = new Size(26, 29);
+            Sebesel_2_Grup_2_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Sebesel_2_Grup_2_pbX.TabIndex = 67;
+            Sebesel_2_Grup_2_pbX.TabStop = false;
+            // 
+            // Sebesel_2_Grup_2_pbTick
+            // 
+            Sebesel_2_Grup_2_pbTick.Image = Properties.Resources.checkmark;
+            Sebesel_2_Grup_2_pbTick.Location = new Point(1102, 53);
+            Sebesel_2_Grup_2_pbTick.Name = "Sebesel_2_Grup_2_pbTick";
+            Sebesel_2_Grup_2_pbTick.Size = new Size(26, 29);
+            Sebesel_2_Grup_2_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Sebesel_2_Grup_2_pbTick.TabIndex = 66;
+            Sebesel_2_Grup_2_pbTick.TabStop = false;
+            Sebesel_2_Grup_2_pbTick.Visible = false;
+            // 
+            // Sebesel_2_Grup_1_pbX
+            // 
+            Sebesel_2_Grup_1_pbX.Image = Properties.Resources.close;
+            Sebesel_2_Grup_1_pbX.Location = new Point(1102, 17);
+            Sebesel_2_Grup_1_pbX.Name = "Sebesel_2_Grup_1_pbX";
+            Sebesel_2_Grup_1_pbX.Size = new Size(26, 29);
+            Sebesel_2_Grup_1_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Sebesel_2_Grup_1_pbX.TabIndex = 65;
+            Sebesel_2_Grup_1_pbX.TabStop = false;
+            // 
+            // Sebesel_2_Grup_1_pbTick
+            // 
+            Sebesel_2_Grup_1_pbTick.Image = Properties.Resources.checkmark;
+            Sebesel_2_Grup_1_pbTick.Location = new Point(1102, 17);
+            Sebesel_2_Grup_1_pbTick.Name = "Sebesel_2_Grup_1_pbTick";
+            Sebesel_2_Grup_1_pbTick.Size = new Size(26, 29);
+            Sebesel_2_Grup_1_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Sebesel_2_Grup_1_pbTick.TabIndex = 64;
+            Sebesel_2_Grup_1_pbTick.TabStop = false;
+            Sebesel_2_Grup_1_pbTick.Visible = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(976, 57);
+            label6.Name = "label6";
+            label6.Size = new Size(126, 20);
+            label6.TabIndex = 63;
+            label6.Text = "Sebesel 2 Grup 2";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(976, 21);
+            label7.Name = "label7";
+            label7.Size = new Size(126, 20);
+            label7.TabIndex = 62;
+            label7.Text = "Sebesel 2 Grup 1";
+            // 
+            // Craiu_2_Grup_2_pbX
+            // 
+            Craiu_2_Grup_2_pbX.Image = Properties.Resources.close;
+            Craiu_2_Grup_2_pbX.Location = new Point(785, 52);
+            Craiu_2_Grup_2_pbX.Name = "Craiu_2_Grup_2_pbX";
+            Craiu_2_Grup_2_pbX.Size = new Size(26, 29);
+            Craiu_2_Grup_2_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Craiu_2_Grup_2_pbX.TabIndex = 73;
+            Craiu_2_Grup_2_pbX.TabStop = false;
+            // 
+            // Craiu_2_Grup_2_pbTick
+            // 
+            Craiu_2_Grup_2_pbTick.Image = Properties.Resources.checkmark;
+            Craiu_2_Grup_2_pbTick.Location = new Point(785, 53);
+            Craiu_2_Grup_2_pbTick.Name = "Craiu_2_Grup_2_pbTick";
+            Craiu_2_Grup_2_pbTick.Size = new Size(26, 29);
+            Craiu_2_Grup_2_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Craiu_2_Grup_2_pbTick.TabIndex = 72;
+            Craiu_2_Grup_2_pbTick.TabStop = false;
+            Craiu_2_Grup_2_pbTick.Visible = false;
+            // 
+            // Craiu_2_Grup_1_pbX
+            // 
+            Craiu_2_Grup_1_pbX.Image = Properties.Resources.close;
+            Craiu_2_Grup_1_pbX.Location = new Point(785, 17);
+            Craiu_2_Grup_1_pbX.Name = "Craiu_2_Grup_1_pbX";
+            Craiu_2_Grup_1_pbX.Size = new Size(26, 29);
+            Craiu_2_Grup_1_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Craiu_2_Grup_1_pbX.TabIndex = 71;
+            Craiu_2_Grup_1_pbX.TabStop = false;
+            // 
+            // Craiu_2_Grup_1_pbTick
+            // 
+            Craiu_2_Grup_1_pbTick.Image = Properties.Resources.checkmark;
+            Craiu_2_Grup_1_pbTick.Location = new Point(785, 17);
+            Craiu_2_Grup_1_pbTick.Name = "Craiu_2_Grup_1_pbTick";
+            Craiu_2_Grup_1_pbTick.Size = new Size(26, 29);
+            Craiu_2_Grup_1_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Craiu_2_Grup_1_pbTick.TabIndex = 70;
+            Craiu_2_Grup_1_pbTick.TabStop = false;
+            Craiu_2_Grup_1_pbTick.Visible = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(676, 57);
+            label8.Name = "label8";
+            label8.Size = new Size(110, 20);
+            label8.TabIndex = 69;
+            label8.Text = "Craiu 2 Grup 2";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(676, 21);
+            label9.Name = "label9";
+            label9.Size = new Size(110, 20);
+            label9.TabIndex = 68;
+            label9.Text = "Craiu 2 Grup 1";
+            // 
+            // Cornereva_pbX
+            // 
+            Cornereva_pbX.Image = Properties.Resources.close;
+            Cornereva_pbX.Location = new Point(1220, 17);
+            Cornereva_pbX.Name = "Cornereva_pbX";
+            Cornereva_pbX.Size = new Size(26, 29);
+            Cornereva_pbX.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cornereva_pbX.TabIndex = 76;
+            Cornereva_pbX.TabStop = false;
+            // 
+            // Cornereva_pbTick
+            // 
+            Cornereva_pbTick.Image = Properties.Resources.checkmark;
+            Cornereva_pbTick.Location = new Point(1220, 17);
+            Cornereva_pbTick.Name = "Cornereva_pbTick";
+            Cornereva_pbTick.Size = new Size(26, 29);
+            Cornereva_pbTick.SizeMode = PictureBoxSizeMode.StretchImage;
+            Cornereva_pbTick.TabIndex = 75;
+            Cornereva_pbTick.TabStop = false;
+            Cornereva_pbTick.Visible = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(1134, 21);
+            label10.Name = "label10";
+            label10.Size = new Size(80, 20);
+            label10.TabIndex = 74;
+            label10.Text = "Cornereva";
             // 
             // Aplicatie_Scanare
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1064, 647);
-            this.Controls.Add(this.lblAppVersion);
-            this.Controls.Add(this.Panel_Form_Loader);
-            this.Controls.Add(this.lbltitle);
-            this.Controls.Add(this.Btn_Minimize);
-            this.Controls.Add(this.Btn_Close_App);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Aplicatie_Scanare";
-            this.Text = "Scanare Azel";
-            this.Load += new System.EventHandler(this.Aplicatie_Scanare_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Aplicatie_Scanare_MouseDown);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(35, 65, 82);
+            ClientSize = new Size(1478, 761);
+            Controls.Add(Craiu_1_Grup_1_pbX);
+            Controls.Add(Cornereva_pbX);
+            Controls.Add(Cornereva_pbTick);
+            Controls.Add(label10);
+            Controls.Add(Craiu_2_Grup_2_pbX);
+            Controls.Add(Craiu_2_Grup_2_pbTick);
+            Controls.Add(Craiu_2_Grup_1_pbX);
+            Controls.Add(Craiu_2_Grup_1_pbTick);
+            Controls.Add(label8);
+            Controls.Add(label9);
+            Controls.Add(Sebesel_2_Grup_2_pbX);
+            Controls.Add(Sebesel_2_Grup_2_pbTick);
+            Controls.Add(Sebesel_2_Grup_1_pbX);
+            Controls.Add(Sebesel_2_Grup_1_pbTick);
+            Controls.Add(label6);
+            Controls.Add(label7);
+            Controls.Add(Sebesel_1_Grup_2_pbX);
+            Controls.Add(Sebesel_1_Grup_2_pbTick);
+            Controls.Add(Sebesel_1_Grup_1_pbX);
+            Controls.Add(Sebesel_1_Grup_1_pbTick);
+            Controls.Add(label4);
+            Controls.Add(label5);
+            Controls.Add(Craiu_1_Grup_2_pbX);
+            Controls.Add(Craiu_1_Grup_2_pbTick);
+            Controls.Add(Craiu_1_Grup_1_pbTick);
+            Controls.Add(label2);
+            Controls.Add(label3);
+            Controls.Add(Cuntu_Grup_2_pbX);
+            Controls.Add(Cuntu_Grup_2_pbTick);
+            Controls.Add(Cuntu_Grup_1_pbX);
+            Controls.Add(Cuntu_Grup_1_pbTick);
+            Controls.Add(lblCuntuGrup2);
+            Controls.Add(lblCuntuGrup1);
+            Controls.Add(lblAppVersion);
+            Controls.Add(Panel_Form_Loader);
+            Controls.Add(lbltitle);
+            Controls.Add(Btn_Minimize);
+            Controls.Add(Btn_Close_App);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Aplicatie_Scanare";
+            Text = "Scanare Azel";
+            FormClosing += Aplicatie_Scanare_FormClosing;
+            Load += Aplicatie_Scanare_Load;
+            MouseDown += Aplicatie_Scanare_MouseDown;
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_2_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_2_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_1_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_1_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_1_Grup_2_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_1_Grup_2_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_1_Grup_1_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_1_Grup_1_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_1_Grup_2_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_1_Grup_2_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_1_Grup_1_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_1_Grup_1_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_2_Grup_2_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_2_Grup_2_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_2_Grup_1_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Sebesel_2_Grup_1_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_2_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_2_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_1_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_1_pbTick).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Cornereva_pbX).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Cornereva_pbTick).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -302,5 +764,38 @@ namespace Aplicatie_Scanner
         private System.Windows.Forms.Timer timer_timp;
         private Panel panel3;
         private Label lblAppVersion;
+        private PictureBox Cuntu_Grup_2_pbX;
+        private PictureBox Cuntu_Grup_2_pbTick;
+        private PictureBox Cuntu_Grup_1_pbX;
+        private PictureBox Cuntu_Grup_1_pbTick;
+        private Label lblCuntuGrup2;
+        private Label lblCuntuGrup1;
+        private PictureBox Craiu_1_Grup_2_pbX;
+        private PictureBox Craiu_1_Grup_2_pbTick;
+        private PictureBox Craiu_1_Grup_1_pbX;
+        private PictureBox Craiu_1_Grup_1_pbTick;
+        private Label label2;
+        private Label label3;
+        private PictureBox Sebesel_1_Grup_2_pbX;
+        private PictureBox Sebesel_1_Grup_2_pbTick;
+        private PictureBox Sebesel_1_Grup_1_pbX;
+        private PictureBox Sebesel_1_Grup_1_pbTick;
+        private Label label4;
+        private Label label5;
+        private PictureBox Sebesel_2_Grup_2_pbX;
+        private PictureBox Sebesel_2_Grup_2_pbTick;
+        private PictureBox Sebesel_2_Grup_1_pbX;
+        private PictureBox Sebesel_2_Grup_1_pbTick;
+        private Label label6;
+        private Label label7;
+        private PictureBox Craiu_2_Grup_2_pbX;
+        private PictureBox Craiu_2_Grup_2_pbTick;
+        private PictureBox Craiu_2_Grup_1_pbX;
+        private PictureBox Craiu_2_Grup_1_pbTick;
+        private Label label8;
+        private Label label9;
+        private PictureBox Cornereva_pbX;
+        private PictureBox Cornereva_pbTick;
+        private Label label10;
     }
 }

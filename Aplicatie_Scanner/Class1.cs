@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-    using System;
-    using System.Windows.Forms;
-    using System.Runtime.InteropServices;
-namespace Aplicatie_Scanner
+﻿using System.Runtime.InteropServices;
+namespace Azel_Raportare_Balkani
 {
 
 

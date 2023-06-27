@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Romply\\Aplicatie Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner.csproj": {}
+    "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Balkani\\Aplicatie_Logare_Scada\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Aplicatie_Scanner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Romply\\Aplicatie Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner.csproj": {
+    "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Balkani\\Aplicatie_Logare_Scada\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Aplicatie_Scanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Romply\\Aplicatie Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner.csproj",
+        "projectUniqueName": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Balkani\\Aplicatie_Logare_Scada\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Aplicatie_Scanner.csproj",
         "projectName": "Aplicatie_Scanner",
-        "projectPath": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Romply\\Aplicatie Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner.csproj",
+        "projectPath": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Balkani\\Aplicatie_Logare_Scada\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Aplicatie_Scanner.csproj",
         "packagesPath": "C:\\Users\\AndreiS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Romply\\Aplicatie Scanner\\Aplicatie_Scanner\\Aplicatie_Scanner\\obj\\",
+        "outputPath": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Balkani\\Aplicatie_Logare_Scada\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -27,6 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Users\\AndreiS\\.nuget\\packages\\LivechartSkia": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

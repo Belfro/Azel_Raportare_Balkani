@@ -1,28 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
+using System.CodeDom.Compiler;
 using System.Data;
-using System.Windows.Forms;
-using System.Data.SqlClient;
 
-namespace Aplicatie_Scanner
+namespace Azel_Raportare_Balkani
 {
     public class DataAccess
     {
-       public List<DateDB> GetDateToataZiua(DateTime DataSetata1, DateTime DataSetata2, String Conditii_Where, String Zona_Selectie)
+        public List<DateDB> GetDateToataZiua(DateTime DataSetata1, DateTime DataSetata2, String Conditii_Where, String Zona_Selectie)
         {
 
             try
-            { 
+            {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
                 {
 
+                    string sql = $"select * from {Zona_Selectie} WHERE (Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND '{DataSetata2.ToString("yyyy-MM-dd HH:mm:ss.fff")}') {Conditii_Where} ORDER BY Date_Time";
+                    var output = connection.Query<DateDB>($"select * from {Zona_Selectie} WHERE (Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND '{DataSetata2.ToString("yyyy-MM-dd HH:mm:ss.fff")}') ORDER BY Date_Time").ToList();
+                    
+                    foreach (var item in output)
+                    {
+                        item.Putere = Verificare_Pozitiv(item.Putere);
+                        
+                    }
 
-                    var output = connection.Query<DateDB>($"select * from {Zona_Selectie} {Conditii_Where} ORDER BY Data_Timp").ToList();
-                     return output;
+                    return output;
+
                 }
             }
             catch (Exception ex)
@@ -33,73 +35,217 @@ namespace Aplicatie_Scanner
             }
         }
 
-        public async Task<List<DateFurnizori>> GetDateFurnizori()
+        public List<DatePutere> GetDatePuteri(DateTime DataSetata1, DateTime DataSetata2)
         {
 
             try
             {
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
                 {
+                   /* string sql = $"" +
+                        $"SELECT Cuntu_Grup_1.[Date_Time] " +
+                        $",Cuntu_Grup_1.[Putere] as Cuntu_Grup_1 " +
+                        $",Cuntu_Grup_2.[Putere] as Cuntu_Grup_2 " +
+                        $",Sebesel_2_Grup_1.[Putere] as Sebesel_2_Grup_1 " +
+                        $",Sebesel_2_Grup_2.[Putere] as Sebesel_2_Grup_2 " +
+                        $" FROM Cuntu_Grup_1" +
+                        $" full outer join Cuntu_Grup_2" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Cuntu_Grup_2.Date_Time) ) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Cuntu_Grup_2.Date_Time)))" +
+                        $" full outer join Sebesel_2_Grup_1" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_1.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_1.Date_Time)))" +
+                        $" full outer join Sebesel_2_Grup_2" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_2.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_2.Date_Time)))" +
+                        $" WHERE (Cuntu_Grup_1.Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND '{DataSetata2.ToString("yyyy-MM-dd HH:mm:ss.fff")}')" +
+                        $" ORDER BY Date_Time ";*/
 
-                    var output = connection.Query<DateFurnizori>($"SELECT Denumire FROM Furnizori ORDER BY Denumire").ToList();
-                    return output;
-                }
+                    var output = connection.Query<DatePutere>($"" +
+                        $"SELECT Cuntu_Grup_1.[Date_Time] " +
+                        $",Cuntu_Grup_1.[Putere] as Cuntu_Grup_1 " +
+                        $",Cuntu_Grup_2.[Putere] as Cuntu_Grup_2 " +
+                        $",Sebesel_2_Grup_1.[Putere] as Sebesel_2_Grup_1 " +
+                        $",Sebesel_2_Grup_2.[Putere] as Sebesel_2_Grup_2 " +
+                        $" FROM Cuntu_Grup_1" +
+                        $" full outer join Cuntu_Grup_2" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Cuntu_Grup_2.Date_Time) ) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Cuntu_Grup_2.Date_Time)))" +
+                        $" full outer join Sebesel_2_Grup_1" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_1.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_1.Date_Time)))" +
+                        $" full outer join Sebesel_2_Grup_2" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_2.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_2.Date_Time)))" +
+                        $" WHERE (Cuntu_Grup_1.Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND '{DataSetata2.ToString("yyyy-MM-dd HH:mm:ss.fff")}')" +
+                        $" ORDER BY Date_Time ").ToList();
 
-            }
-            catch (Exception ex)
-            {
-
-                return null;
-            }
-
-        }
-
-        public async Task<List<DateCalitate>> GetDateCalitate()
-        {
-            try
-            {
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
-                {
-                    var output = connection.Query<DateCalitate>($"SELECT Calitate FROM Calitate").ToList();
-                    // "Data Source=192.168.100.55,1433;Network Library=DBMSSOCN;Initial Catalog=Siemens_PLC;User ID=siemens;Password=siemens;"
-                    return output;
-                }
-            }
-            catch (Exception ex)
-            {
-
-
-                 // MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
-                return null;
-            }
-
-
-        }
-        public async Task<List<DateLungime>> GetDateLungime()
-        {
-            try
-            {
-                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
-                {
-                    var output = connection.Query<DateLungime>($"SELECT Lungime FROM Lungimi Order by Lungime").ToList();
-                    for (var i = 0; i < output.Count; i++)
+                    foreach ( var item in output)
                     {
-                        output[i].Lungime = Math.Round(output[i].Lungime, 2);
+                       item.Cuntu_Grup_1= Verificare_Pozitiv(item.Cuntu_Grup_1);
+                       item.Cuntu_Grup_2 = Verificare_Pozitiv(item.Cuntu_Grup_2);
+                       item.Craiu_1_Grup_1 = Verificare_Pozitiv(item.Craiu_1_Grup_1);
+                       item.Craiu_1_Grup_2 = Verificare_Pozitiv(item.Craiu_1_Grup_2);
+                       item.Craiu_2_Grup_1 = Verificare_Pozitiv(item.Craiu_2_Grup_1);
+                       item.Craiu_2_Grup_2 = Verificare_Pozitiv(item.Craiu_2_Grup_2);
+                       item.Sebesel_1_Grup_1 = Verificare_Pozitiv(item.Sebesel_1_Grup_1);
+                       item.Sebesel_1_Grup_2 = Verificare_Pozitiv(item.Sebesel_1_Grup_2);
+                       item.Sebesel_2_Grup_1 = Verificare_Pozitiv(item.Sebesel_2_Grup_1);
+                       item.Sebesel_2_Grup_2 = Verificare_Pozitiv(item.Sebesel_2_Grup_2);
+                       item.Cornereva = Verificare_Pozitiv(item.Cornereva);
                     }
-
                     return output;
                 }
             }
             catch (Exception ex)
             {
 
-
-                // MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
+                MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
                 return null;
             }
+        }
+        private double Verificare_Pozitiv(double valoare)
+        {
+            if (valoare <0) 
+            { 
+            valoare = 0;
+            }
+            return valoare;
+        }
+        public List<DatePutere> GetDateEnergie(DateTime DataSetata1, DateTime DataSetata2)
+        {
+
+            try
+            {
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                {
+
+                    var output = connection.Query<DatePutere>($"" +
+                        $"SELECT Cuntu_Grup_1.[Date_Time] " +
+                        $",Cuntu_Grup_1.[Energie] as Cuntu_Grup_1 " +
+                        $",Cuntu_Grup_2.[Energie] as Cuntu_Grup_2 " +
+                        $",Sebesel_2_Grup_1.[Energie] as Sebesel_2_Grup_1 " +
+                        $",Sebesel_2_Grup_2.[Energie] as Sebesel_2_Grup_2 " +
+                        $" FROM Cuntu_Grup_1" +
+                        $" full outer join Cuntu_Grup_2" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Cuntu_Grup_2.Date_Time) ) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Cuntu_Grup_2.Date_Time)))" +
+                        $" full outer join Sebesel_2_Grup_1" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_1.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_1.Date_Time)))" +
+                        $" full outer join Sebesel_2_Grup_2" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_2.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_2.Date_Time)))" +
+                        $" WHERE (Cuntu_Grup_1.Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND DATEADD(ss,30,'{DataSetata2.ToString("yyyy-MM-dd HH:mm:ss.fff")}'))" +
+                        $" ORDER BY Date_Time ").ToList();
+
+                    for (int i = 0; i < output.Count-1; i++)
+                    {
+                        var date = new Tuple<DatePutere, DatePutere>(output[i], output[i + 1]);
+
+                        Verificare_Energie(ref date);
+                        output[i] = date.Item1;
+                        output[i + 1] = date.Item2;
+                     
+                    }
+                    output.RemoveAt(output.Count-1);
+                    return output;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
+                return null;
+            }
+        }
+        private void Verificare_Energie(ref Tuple<DatePutere, DatePutere> i)
+        {
+            double initial = i.Item1.Cuntu_Grup_1;
+            double final = i.Item2.Cuntu_Grup_1;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Cuntu_Grup_1 = initial;
+            i.Item2.Cuntu_Grup_1 = final;
+
+            initial = i.Item1.Cuntu_Grup_2;
+            final = i.Item2.Cuntu_Grup_2;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Cuntu_Grup_2 = initial;
+            i.Item2.Cuntu_Grup_2 = final;
+
+            initial = i.Item1.Craiu_1_Grup_1;
+            final = i.Item2.Craiu_1_Grup_1;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Craiu_1_Grup_1 = initial;
+            i.Item2.Craiu_1_Grup_1 = final;
+
+            initial = i.Item1.Craiu_1_Grup_2;
+            final = i.Item2.Craiu_1_Grup_2;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Craiu_1_Grup_2 = initial;
+            i.Item2.Craiu_1_Grup_2 = final;
+
+            initial = i.Item1.Craiu_2_Grup_1;
+            final = i.Item2.Craiu_2_Grup_1;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Craiu_2_Grup_1 = initial;
+            i.Item2.Craiu_2_Grup_1 = final;
+
+            initial = i.Item1.Craiu_2_Grup_2;
+            final = i.Item2.Craiu_2_Grup_2;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Craiu_2_Grup_2 = initial;
+            i.Item2.Craiu_2_Grup_2 = final;
+
+            initial = i.Item1.Sebesel_1_Grup_1;
+            final = i.Item2.Sebesel_1_Grup_1;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Sebesel_1_Grup_1 = initial;
+            i.Item2.Sebesel_1_Grup_1 = final;
+
+            initial = i.Item1.Sebesel_1_Grup_2;
+            final = i.Item2.Sebesel_1_Grup_2;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Sebesel_1_Grup_2 = initial;
+            i.Item2.Sebesel_1_Grup_2 = final;
+
+            initial = i.Item1.Sebesel_2_Grup_1;
+            final = i.Item2.Sebesel_2_Grup_1;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Sebesel_2_Grup_1 = initial;
+            i.Item2.Sebesel_2_Grup_1 = final;
+
+            initial = i.Item1.Sebesel_2_Grup_2;
+            final = i.Item2.Sebesel_2_Grup_2;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Sebesel_2_Grup_2 = initial;
+            i.Item2.Sebesel_2_Grup_2 = final;
+
+            initial = i.Item1.Cornereva;
+            final = i.Item2.Cornereva;
+            Verificare_Valori_Energie(ref initial, ref final);
+            i.Item1.Cornereva = initial;
+            i.Item2.Cornereva = final;
 
 
         }
+        private void Verificare_Valori_Energie(ref double valoare_initiala,ref double valoare_finala)
+        {
+       
+            if (valoare_initiala <= 0 && valoare_finala > 0)
+            {
+                valoare_initiala = 0;
+
+            }
+            else if (valoare_finala <= 0 && valoare_initiala > 0)
+            {
+                valoare_finala = valoare_initiala;
+                valoare_initiala = valoare_finala - valoare_initiala;
+            }
+            else if (valoare_initiala <= 0 && valoare_finala <= 0)
+            {
+                valoare_initiala = 0;
+            }
+            else
+            {
+                valoare_initiala = valoare_finala - valoare_initiala;
+            }
+            
+
+        }
+
+
         /*     public List<DateDB> GetDateOra(DateTime DataSetata1, DateTime DataSetata2, DateTime timpselectat)
              {
 
@@ -130,24 +276,21 @@ namespace Aplicatie_Scanner
                      return output;
                  }
              }*/
-        internal List<DateDB> GetDate(object text)
-        {
-            throw new NotImplementedException();
-        }
 
-    /*    public double? SumData1(DateTime DataSetata1, DateTime DataSetata2)
-        {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+
+        /*    public double? SumData1(DateTime DataSetata1, DateTime DataSetata2)
             {
+                using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
+                {
 
-                var output_sum = connection.Query($"select SUM(Cantitate_Descarcata_Snec_1) As Suma from Linia_2 WHERE Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}' ORDER BY Data_Timp ").SingleOrDefault();
+                    var output_sum = connection.Query($"select SUM(Cantitate_Descarcata_Snec_1) As Suma from Linia_2 WHERE Data_Timp BETWEEN '{DataSetata1}' AND '{DataSetata2}' ORDER BY Data_Timp ").SingleOrDefault();
 
 
 
 
-                return output_sum.Suma;
-            }
-        }*/
+                    return output_sum.Suma;
+                }
+            }*/
 
 
         /*  public void InsertDate(float Data1, float Data2, float Data3, DateTime DataTimp)
