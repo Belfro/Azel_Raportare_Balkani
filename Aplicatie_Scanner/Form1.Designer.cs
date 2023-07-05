@@ -84,6 +84,9 @@ namespace Azel_Raportare_Balkani
             Cornereva_pbX = new PictureBox();
             Cornereva_pbTick = new PictureBox();
             label10 = new Label();
+            notifyIcon1 = new NotifyIcon(components);
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            exitToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_2_pbX).BeginInit();
@@ -108,6 +111,7 @@ namespace Azel_Raportare_Balkani
             ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_1_pbTick).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Cornereva_pbX).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Cornereva_pbTick).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -272,6 +276,8 @@ namespace Azel_Raportare_Balkani
             Btn_Close_App.Text = "X";
             Btn_Close_App.UseVisualStyleBackColor = false;
             Btn_Close_App.Click += button3_Click;
+            Btn_Close_App.KeyDown += Btn_Close_App_KeyDown;
+            Btn_Close_App.Resize += Btn_Close_App_Resize;
             // 
             // Btn_Minimize
             // 
@@ -667,7 +673,30 @@ namespace Azel_Raportare_Balkani
             label10.TabIndex = 74;
             label10.Text = "Cornereva";
             // 
-            // Aplicatie_Scanare
+            // notifyIcon1
+            // 
+            notifyIcon1.BalloonTipTitle = "Azel Raportare";
+            notifyIcon1.ContextMenuStrip = contextMenuStrip1;
+            notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
+            notifyIcon1.DoubleClick += notifyIcon1_DoubleClick;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(181, 48);
+            contextMenuStrip1.Opening += contextMenuStrip1_Opening;
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // Aplicatie_Raportare_Balkani
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -713,10 +742,11 @@ namespace Azel_Raportare_Balkani
             Controls.Add(Btn_Close_App);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Aplicatie_Scanare";
+            Name = "Aplicatie_Raportare_Balkani";
             Text = "Scanare Azel";
-            FormClosing += Aplicatie_Scanare_FormClosing;
+            FormClosing += Aplicatie_Raportare_Balkani_FormClosing;
             Load += Aplicatie_Scanare_Load;
+            KeyDown += Aplicatie_Raportare_Balkani_KeyDown;
             MouseDown += Aplicatie_Scanare_MouseDown;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -743,6 +773,7 @@ namespace Azel_Raportare_Balkani
             ((System.ComponentModel.ISupportInitialize)Craiu_2_Grup_1_pbTick).EndInit();
             ((System.ComponentModel.ISupportInitialize)Cornereva_pbX).EndInit();
             ((System.ComponentModel.ISupportInitialize)Cornereva_pbTick).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -797,5 +828,8 @@ namespace Azel_Raportare_Balkani
         private PictureBox Cornereva_pbX;
         private PictureBox Cornereva_pbTick;
         private Label label10;
+        private NotifyIcon notifyIcon1;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem exitToolStripMenuItem;
     }
 }

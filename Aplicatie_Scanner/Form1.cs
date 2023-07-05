@@ -6,12 +6,32 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using S7.Net;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Azel_Raportare_Balkani
 {
 
     public partial class Aplicatie_Raportare_Balkani : Form
     {
+
+
+
+        bool _allowClose = false;
+
+        void Aplicatie_Raportare_Balkani_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.F4) _allowClose = true;
+        }
+
+        void Aplicatie_Raportare_Balkani_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!_allowClose && e.CloseReason == CloseReason.UserClosing)
+            {
+                notifyIcon1.Visible = true;
+                this.Hide();
+                e.Cancel = true;
+            }
+        }
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -68,6 +88,8 @@ namespace Azel_Raportare_Balkani
 
         public Aplicatie_Raportare_Balkani()
         {
+
+
             InitializeComponent();
             Old_Region = Region;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
@@ -194,7 +216,9 @@ namespace Azel_Raportare_Balkani
 
         private void button3_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            notifyIcon1.Visible = true;
+            this.Hide();
+            //System.Windows.Forms.Application.Exit();
 
         }
 
@@ -580,9 +604,42 @@ namespace Azel_Raportare_Balkani
             PLC_Sebesel_2_Grup_2.Close();
         }
 
-        private void lblAppVersion_Click(object sender, EventArgs e)
+        private void Btn_Close_App_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void Btn_Close_App_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(500);
+                this.Hide();
+            }
+
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                notifyIcon1.Visible = false;
+            }
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            notifyIcon1.Visible = false;
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }
