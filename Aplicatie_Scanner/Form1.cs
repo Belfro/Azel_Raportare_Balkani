@@ -162,7 +162,7 @@ namespace Azel_Raportare_Balkani
             Reset_Btn_BackColor();
             lbltitle.Text = "Prognoza";
             this.Panel_Form_Loader.Controls.Clear();
-            Frm_Scanner Frm_Scanner_Vrb = new Frm_Scanner() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_Prognoza Frm_Scanner_Vrb = new Frm_Prognoza() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             Frm_Scanner_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.Panel_Form_Loader.Controls.Add(Frm_Scanner_Vrb);
             Frm_Scanner_Vrb.Show();
@@ -288,20 +288,20 @@ namespace Azel_Raportare_Balkani
                 {
                     minut_scris = System.DateTime.Now.Minute;
 
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cuntu_Grup_1, "Cuntu_Grup_1"));
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cuntu_Grup_2, "Cuntu_Grup_2"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cuntu_Grup_1, "Cuntu_Grup_1"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cuntu_Grup_2, "Cuntu_Grup_2"));
 
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_1_Grup_1, "Craiu_1_Grup_1"));
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_1_Grup_2, "Craiu_1_Grup_2"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_1_Grup_1, "Craiu_1_Grup_1"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_1_Grup_2, "Craiu_1_Grup_2"));
 
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_2_Grup_1, "Craiu_2_Grup_1"));
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_2_Grup_2, "Craiu_2_Grup_2"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_2_Grup_1, "Craiu_2_Grup_1"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_2_Grup_2, "Craiu_2_Grup_2"));
 
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_1_Grup_1, "Sebesel_1_Grup_1"));
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_1_Grup_2, "Sebesel_1_Grup_2"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_1_Grup_1, "Sebesel_1_Grup_1"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_1_Grup_2, "Sebesel_1_Grup_2"));
 
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_1, "Sebesel_2_Grup_1"));
-                    await Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_2, "Sebesel_2_Grup_2"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_1, "Sebesel_2_Grup_1"));
+                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_2, "Sebesel_2_Grup_2"));
                 }
 
 

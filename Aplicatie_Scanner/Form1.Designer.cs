@@ -743,7 +743,7 @@ namespace Azel_Raportare_Balkani
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Aplicatie_Raportare_Balkani";
-            Text = "Scanare Azel";
+            Text = "Azel Raportare";
             FormClosing += Aplicatie_Raportare_Balkani_FormClosing;
             Load += Aplicatie_Scanare_Load;
             KeyDown += Aplicatie_Raportare_Balkani_KeyDown;

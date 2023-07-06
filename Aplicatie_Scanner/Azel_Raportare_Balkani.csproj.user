@@ -16,7 +16,7 @@
     <Compile Update="Frm_Grafice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Frm_Scanner.cs">
+    <Compile Update="Frm_Prognoza.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Frm_Settings.cs">
