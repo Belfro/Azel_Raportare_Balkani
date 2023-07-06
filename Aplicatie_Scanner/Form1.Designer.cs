@@ -87,6 +87,7 @@ namespace Azel_Raportare_Balkani
             notifyIcon1 = new NotifyIcon(components);
             contextMenuStrip1 = new ContextMenuStrip(components);
             exitToolStripMenuItem = new ToolStripMenuItem();
+            timer_connect = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_2_pbX).BeginInit();
@@ -248,7 +249,7 @@ namespace Azel_Raportare_Balkani
             label1.ForeColor = Color.FromArgb(4, 224, 190);
             label1.Location = new Point(21, 100);
             label1.Name = "label1";
-            label1.Size = new Size(144, 32);
+            label1.Size = new Size(147, 32);
             label1.TabIndex = 0;
             label1.Text = "AZEL Database \r\nManagement Studio";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -686,15 +687,20 @@ namespace Azel_Raportare_Balkani
             // 
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 48);
+            contextMenuStrip1.Size = new Size(94, 26);
             contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(93, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // timer_connect
+            // 
+            timer_connect.Interval = 10000;
+            timer_connect.Tick += timer_connect_Tick;
             // 
             // Aplicatie_Raportare_Balkani
             // 
@@ -831,5 +837,6 @@ namespace Azel_Raportare_Balkani
         private NotifyIcon notifyIcon1;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Timer timer_connect;
     }
 }

@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using S7.Net;
 using System.Data;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
 
 namespace Azel_Raportare_Balkani
 {
@@ -106,6 +107,7 @@ namespace Azel_Raportare_Balkani
             Frm_Printer_Vrb.Show();
             Btn_Printer.BackColor = Color.FromArgb(35, 65, 82);
             timer_timp.Start();
+            timer_connect.Start();
 
 
 
@@ -244,10 +246,11 @@ namespace Azel_Raportare_Balkani
         private async void Conectare_PLC(Plc PLC)
         {
             bool Start_Conectare_PLC = false;
-
+            var ping = new Ping();
+            var reply = ping.Send(PLC.IP.ToString(), 5000);
             try
             {
-                if (!PLC.IsConnected && Start_Conectare_PLC == false)
+                if (reply.Status == IPStatus.Success && !PLC.IsConnected && Start_Conectare_PLC == false)
                 {
                     Start_Conectare_PLC = true;
                     await PLC.OpenAsync();
@@ -257,8 +260,26 @@ namespace Azel_Raportare_Balkani
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
             }
+        }
+        private void timer_connect_Tick(object sender, EventArgs e)
+        {
+            Task.Run(() => Conectare_PLC(PLC_Cuntu_Grup_1));
+            Task.Run(() => Conectare_PLC(PLC_Cuntu_Grup_2));
+
+            Task.Run(() => Conectare_PLC(PLC_Craiu_1_Grup_1));
+            Task.Run(() => Conectare_PLC(PLC_Craiu_1_Grup_2));
+
+            Task.Run(() => Conectare_PLC(PLC_Craiu_2_Grup_1));
+            Task.Run(() => Conectare_PLC(PLC_Craiu_2_Grup_2));
+
+            Task.Run(() => Conectare_PLC(PLC_Sebesel_1_Grup_1));
+            Task.Run(() => Conectare_PLC(PLC_Sebesel_1_Grup_2));
+
+            Task.Run(() => Conectare_PLC(PLC_Sebesel_2_Grup_1));
+            Task.Run(() => Conectare_PLC(PLC_Sebesel_2_Grup_2));
+
         }
         private async void timer_timp_Tick(object sender, EventArgs e)
         {
@@ -267,41 +288,27 @@ namespace Azel_Raportare_Balkani
             try
             {
 
-                Task.Run(async () => Conectare_PLC(PLC_Cuntu_Grup_1));
-                Task.Run(async () => Conectare_PLC(PLC_Cuntu_Grup_2));
-
-                Task.Run(async () => Conectare_PLC(PLC_Craiu_1_Grup_1));
-                Task.Run(async () => Conectare_PLC(PLC_Craiu_1_Grup_2));
-
-                Task.Run(async () => Conectare_PLC(PLC_Craiu_2_Grup_1));
-                Task.Run(async () => Conectare_PLC(PLC_Craiu_2_Grup_2));
-
-                Task.Run(async () => Conectare_PLC(PLC_Sebesel_1_Grup_1));
-                Task.Run(async () => Conectare_PLC(PLC_Sebesel_1_Grup_2));
-
-                Task.Run(async () => Conectare_PLC(PLC_Sebesel_2_Grup_1));
-                Task.Run(async () => Conectare_PLC(PLC_Sebesel_2_Grup_2));
-
+               
                 Verificare_Conexiuni();
 
                 if (minut_scris != System.DateTime.Now.Minute && (System.DateTime.Now.Minute == 0 || System.DateTime.Now.Minute == 15 || System.DateTime.Now.Minute == 30 || System.DateTime.Now.Minute == 45))
                 {
                     minut_scris = System.DateTime.Now.Minute;
 
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cuntu_Grup_1, "Cuntu_Grup_1"));
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cuntu_Grup_2, "Cuntu_Grup_2"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cuntu_Grup_1, "Cuntu_Grup_1"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cuntu_Grup_2, "Cuntu_Grup_2"));
 
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_1_Grup_1, "Craiu_1_Grup_1"));
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_1_Grup_2, "Craiu_1_Grup_2"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_1_Grup_1, "Craiu_1_Grup_1"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_1_Grup_2, "Craiu_1_Grup_2"));
 
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_2_Grup_1, "Craiu_2_Grup_1"));
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_2_Grup_2, "Craiu_2_Grup_2"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_2_Grup_1, "Craiu_2_Grup_1"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Craiu_2_Grup_2, "Craiu_2_Grup_2"));
 
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_1_Grup_1, "Sebesel_1_Grup_1"));
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_1_Grup_2, "Sebesel_1_Grup_2"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_1_Grup_1, "Sebesel_1_Grup_1"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_1_Grup_2, "Sebesel_1_Grup_2"));
 
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_1, "Sebesel_2_Grup_1"));
-                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_2, "Sebesel_2_Grup_2"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_1, "Sebesel_2_Grup_1"));
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_2, "Sebesel_2_Grup_2"));
                 }
 
 
@@ -641,5 +648,7 @@ namespace Azel_Raportare_Balkani
         {
             System.Windows.Forms.Application.Exit();
         }
+
+      
     }
 }
