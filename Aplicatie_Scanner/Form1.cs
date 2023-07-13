@@ -94,18 +94,18 @@ namespace Azel_Raportare_Balkani
             InitializeComponent();
             Old_Region = Region;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            Panel_Nav.Height = Btn_Printer.Height;
-            Panel_Nav.Top = Btn_Printer.Top;
+            Panel_Nav.Height = Btn_Dashboard.Height;
+            Panel_Nav.Top = Btn_Dashboard.Top;
 
 
 
-            lbltitle.Text = "Printer";
+            lbltitle.Text = "Dashboard";
             this.Panel_Form_Loader.Controls.Clear();
-            Frm_Grafice Frm_Printer_Vrb = new Frm_Grafice() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            Frm_Dashboard Frm_Printer_Vrb = new Frm_Dashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             Frm_Printer_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.Panel_Form_Loader.Controls.Add(Frm_Printer_Vrb);
             Frm_Printer_Vrb.Show();
-            Btn_Printer.BackColor = Color.FromArgb(35, 65, 82);
+            Btn_Dashboard.BackColor = Color.FromArgb(35, 65, 82);
             timer_timp.Start();
             timer_connect.Start();
 
