@@ -15,6 +15,7 @@ namespace Azel_Raportare_Balkani
 
         private void Frm_Scanner_Load(object sender, EventArgs e)
         {
+            newCalendar1.SelectionStart = DateTime.Now.Date.AddDays(-1);
 
         }
 
@@ -55,14 +56,53 @@ namespace Azel_Raportare_Balkani
 
 
                 int index = 0;
-                date_putere = db.GetDateEnergie(DateTime.Now, DateTime.Now.AddDays(1).AddTicks(-1));
+                date_putere = db.GetDateEnergie(newCalendar1.SelectionStart, newCalendar1.SelectionStart.AddDays(1).AddTicks(-1));
 
 
-
-
+                List<DatePutere> date_putere_prognoza = new List<DatePutere>(date_putere.Count);
+                date_putere.ForEach((item) =>
+                {
+                    date_putere_prognoza.Add((DatePutere)item.Clone());
+                });
                 UpdateBinding();
 
 
+
+
+                for (int i = 0; i < date_putere.Count; i++)
+                {
+                    date_putere_prognoza[i].Date_Time = date_putere_prognoza[i].Date_Time.AddDays(1);
+                    date_putere_prognoza[i].Cuntu_Grup_1 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_1;
+                    date_putere_prognoza[i].Cuntu_Grup_2 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_1;
+                    date_putere_prognoza[i].Craiu_1_Grup_1 = 0.9 * date_putere_prognoza[i].Craiu_1_Grup_1;
+                    date_putere_prognoza[i].Craiu_1_Grup_2 = 0.9 * date_putere_prognoza[i].Craiu_1_Grup_2;
+                    date_putere_prognoza[i].Craiu_2_Grup_1 = 0.9 * date_putere_prognoza[i].Craiu_2_Grup_1;
+                    date_putere_prognoza[i].Craiu_2_Grup_2 = 0.9 * date_putere_prognoza[i].Craiu_2_Grup_2;
+                    date_putere_prognoza[i].Sebesel_1_Grup_1 = 0.9 * date_putere_prognoza[i].Sebesel_1_Grup_1;
+                    date_putere_prognoza[i].Sebesel_1_Grup_2 = 0.9 * date_putere_prognoza[i].Sebesel_1_Grup_2;
+                    date_putere_prognoza[i].Sebesel_2_Grup_1 = 0.9 * date_putere_prognoza[i].Sebesel_2_Grup_1;
+                    date_putere_prognoza[i].Sebesel_2_Grup_2 = 0.9 * date_putere_prognoza[i].Sebesel_2_Grup_2;
+                    date_putere_prognoza[i].Cornereva = 0.9 * date_putere_prognoza[i].Cornereva;
+                }
+
+
+
+                dataGridView2.AutoGenerateColumns = false;
+                dataGridView2.Columns[0].DataPropertyName = "DoarData";
+                dataGridView2.Columns[1].DataPropertyName = "DoarTimp";
+                dataGridView2.Columns[2].DataPropertyName = "Cuntu_Grup_1";
+                dataGridView2.Columns[3].DataPropertyName = "Cuntu_Grup_2";
+                dataGridView2.Columns[4].DataPropertyName = "Craiu_1_Grup_1";
+                dataGridView2.Columns[5].DataPropertyName = "Craiu_1_Grup_2";
+                dataGridView2.Columns[6].DataPropertyName = "Craiu_2_Grup_1";
+                dataGridView2.Columns[7].DataPropertyName = "Craiu_2_Grup_2";
+                dataGridView2.Columns[8].DataPropertyName = "Sebesel_1_Grup_1";
+                dataGridView2.Columns[9].DataPropertyName = "Sebesel_1_Grup_2";
+                dataGridView2.Columns[10].DataPropertyName = "Sebesel_2_Grup_1";
+                dataGridView2.Columns[11].DataPropertyName = "Sebesel_2_Grup_2";
+                dataGridView2.Columns[12].DataPropertyName = "Cornereva";
+                dataGridView2.Columns[13].DataPropertyName = "Total";
+                dataGridView2.DataSource = date_putere_prognoza;
 
             }
             catch (Exception ex)

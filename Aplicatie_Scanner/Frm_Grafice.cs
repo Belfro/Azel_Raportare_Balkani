@@ -64,11 +64,6 @@ namespace Azel_Raportare_Balkani
 
                 DataAccess db = new DataAccess();
 
-                if (rbPutere.Checked)
-                {
-
-                    date_putere = db.GetDatePuteri(newCalendar1.SelectionStart, newCalendar1.SelectionEnd);
-                }
                 if (rbEnergie.Checked)
                 {
                     int index = 0;
@@ -98,6 +93,7 @@ namespace Azel_Raportare_Balkani
                             index++;
 
                         }
+                        update_chart(date_putere_ora);
                     }
                     else
                     {
@@ -167,7 +163,8 @@ namespace Azel_Raportare_Balkani
 
                 }
                 seriesCollection.Add(new ColumnSeries<ObservablePoint> { Name = i.ToString(), Values = ChartValues[i], });
-
+                
+               
             }
             seriesCollection[0].Name = "Cuntu Grup 1";
             seriesCollection[1].Name = "Cuntu Grup 2";
@@ -181,6 +178,8 @@ namespace Azel_Raportare_Balkani
             seriesCollection[9].Name = "Sebesel 2 Grup 2";
             seriesCollection[10].Name = "Cornereva";
 
+            int timespanaxis = 0;
+            if (cbEnergieOra.Checked) timespanaxis = 60; else { timespanaxis = 15; }
             try
             {
                 cartesianChart1.XAxes = new Axis[]
@@ -189,9 +188,9 @@ namespace Azel_Raportare_Balkani
     {
         Name = "Timp",
         NamePaint = new SolidColorPaint(SKColors.White),
-        MinStep = TimeSpan.FromMinutes(15).Ticks,
+        MinStep = TimeSpan.FromMinutes(timespanaxis).Ticks,
         ForceStepToMin = true,
-        UnitWidth =TimeSpan.FromMinutes(15).Ticks,
+        UnitWidth =TimeSpan.FromMinutes(timespanaxis).Ticks,
         LabelsPaint = new SolidColorPaint(SKColors.White),
         Labeler = val => new DateTime((long)val).ToString("HH:mm"),
         TextSize = 10,
@@ -319,7 +318,7 @@ namespace Azel_Raportare_Balkani
             if (cbCornereva.Checked)
             {
                 seriesCollection[10].IsVisible = true;
-               
+
             }
             else
             {

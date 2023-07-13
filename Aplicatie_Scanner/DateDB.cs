@@ -44,7 +44,7 @@
             }
         }
     }
-    public class DatePutere
+    public class DatePutere :ICloneable
     {
         public DateTime Date_Time { get; set; }
         public double Cuntu_Grup_1 { get; set; }
@@ -82,6 +82,11 @@
                 // Stringul afisat 
                 return $"{Date_Time.Hour.ToString("D2")}:{Date_Time.Minute.ToString("D2")}:{Date_Time.Second.ToString("D2")}";
             }
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 

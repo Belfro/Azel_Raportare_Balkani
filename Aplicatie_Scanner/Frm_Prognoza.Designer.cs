@@ -37,6 +37,20 @@
             pictureBox2 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
             dataGridView1 = new DataGridView();
+            Data = new DataGridViewTextBoxColumn();
+            Timp = new DataGridViewTextBoxColumn();
+            Cuntu_Grup_1 = new DataGridViewTextBoxColumn();
+            Cuntu_Grup_2 = new DataGridViewTextBoxColumn();
+            Craiu_1_Grup_1 = new DataGridViewTextBoxColumn();
+            Craiu_1_Grup_2 = new DataGridViewTextBoxColumn();
+            Craiu_2_Grup_1 = new DataGridViewTextBoxColumn();
+            Craiu_2_Grup_2 = new DataGridViewTextBoxColumn();
+            Sebesel_1_Grup_1 = new DataGridViewTextBoxColumn();
+            Sebesel_1_Grup_2 = new DataGridViewTextBoxColumn();
+            Sebesel_2_Grup_1 = new DataGridViewTextBoxColumn();
+            Sebesel_2_Grup_2 = new DataGridViewTextBoxColumn();
+            Cornereva = new DataGridViewTextBoxColumn();
+            Total = new DataGridViewTextBoxColumn();
             dataGridView2 = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
@@ -52,22 +66,10 @@
             dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
-            Search = new Button();
             BtnSearch = new Button();
-            Data = new DataGridViewTextBoxColumn();
-            Timp = new DataGridViewTextBoxColumn();
-            Cuntu_Grup_1 = new DataGridViewTextBoxColumn();
-            Cuntu_Grup_2 = new DataGridViewTextBoxColumn();
-            Craiu_1_Grup_1 = new DataGridViewTextBoxColumn();
-            Craiu_1_Grup_2 = new DataGridViewTextBoxColumn();
-            Craiu_2_Grup_1 = new DataGridViewTextBoxColumn();
-            Craiu_2_Grup_2 = new DataGridViewTextBoxColumn();
-            Sebesel_1_Grup_1 = new DataGridViewTextBoxColumn();
-            Sebesel_1_Grup_2 = new DataGridViewTextBoxColumn();
-            Sebesel_2_Grup_1 = new DataGridViewTextBoxColumn();
-            Sebesel_2_Grup_2 = new DataGridViewTextBoxColumn();
-            Cornereva = new DataGridViewTextBoxColumn();
-            Total = new DataGridViewTextBoxColumn();
+            newCalendar1 = new NewCalendar();
+            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -105,7 +107,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Data, Timp, Cuntu_Grup_1, Cuntu_Grup_2, Craiu_1_Grup_1, Craiu_1_Grup_2, Craiu_2_Grup_1, Craiu_2_Grup_2, Sebesel_1_Grup_1, Sebesel_1_Grup_2, Sebesel_2_Grup_1, Sebesel_2_Grup_2, Cornereva, Total });
             dataGridView1.GridColor = SystemColors.ControlLight;
-            dataGridView1.Location = new Point(16, 9);
+            dataGridView1.Location = new Point(6, 9);
             dataGridView1.Margin = new Padding(0);
             dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -117,153 +119,19 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(620, 436);
+            dataGridView1.Size = new Size(637, 413);
             dataGridView1.TabIndex = 36;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // dataGridView2
-            // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView2.BackgroundColor = Color.FromArgb(8, 35, 50);
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14 });
-            dataGridView2.GridColor = SystemColors.ControlLight;
-            dataGridView2.Location = new Point(658, 9);
-            dataGridView2.Margin = new Padding(0);
-            dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(620, 436);
-            dataGridView2.TabIndex = 37;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.FillWeight = 80F;
-            dataGridViewTextBoxColumn1.HeaderText = "Data";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.FillWeight = 80F;
-            dataGridViewTextBoxColumn2.HeaderText = "Timp";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Cuntu Grup 1";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.HeaderText = "Cuntu Grup 2";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "Craiu 1 Grup 1";
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "Craiu 1 Grup 2";
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.HeaderText = "Craiu 2 Grup 1";
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewTextBoxColumn8.HeaderText = "Craiu 2 Grup 2";
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            dataGridViewTextBoxColumn9.HeaderText = "Sebesel 1 Grup 1";
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewTextBoxColumn10.HeaderText = "Sebesel 1 Grup 2";
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            dataGridViewTextBoxColumn11.HeaderText = "Sebesel 2 Grup 1";
-            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            dataGridViewTextBoxColumn12.HeaderText = "Sebesel 2 Grup 1";
-            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            dataGridViewTextBoxColumn13.HeaderText = "Cornereva";
-            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            dataGridViewTextBoxColumn14.HeaderText = "Total";
-            dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // Search
-            // 
-            Search.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Search.BackColor = Color.FromArgb(8, 35, 50);
-            Search.FlatAppearance.BorderColor = Color.White;
-            Search.FlatStyle = FlatStyle.Flat;
-            Search.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Search.ForeColor = Color.White;
-            Search.Location = new Point(73, 466);
-            Search.Name = "Search";
-            Search.Size = new Size(213, 50);
-            Search.TabIndex = 39;
-            Search.Text = "Search";
-            Search.UseVisualStyleBackColor = false;
-            // 
-            // BtnSearch
-            // 
-            BtnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnSearch.BackColor = Color.FromArgb(8, 35, 50);
-            BtnSearch.FlatAppearance.BorderColor = Color.White;
-            BtnSearch.FlatStyle = FlatStyle.Flat;
-            BtnSearch.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnSearch.ForeColor = Color.White;
-            BtnSearch.Location = new Point(73, 466);
-            BtnSearch.Name = "BtnSearch";
-            BtnSearch.Size = new Size(213, 50);
-            BtnSearch.TabIndex = 40;
-            BtnSearch.Text = "Search";
-            BtnSearch.UseVisualStyleBackColor = false;
-            BtnSearch.Click += BtnSearch_Click;
-            // 
             // Data
             // 
-            Data.FillWeight = 80F;
+            Data.FillWeight = 130F;
             Data.HeaderText = "Data";
             Data.Name = "Data";
             // 
             // Timp
             // 
-            Timp.FillWeight = 80F;
+            Timp.FillWeight = 130F;
             Timp.HeaderText = "Timp";
             Timp.Name = "Timp";
             // 
@@ -327,14 +195,173 @@
             Total.HeaderText = "Total";
             Total.Name = "Total";
             // 
+            // dataGridView2
+            // 
+            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.BackgroundColor = Color.FromArgb(8, 35, 50);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14 });
+            dataGridView2.GridColor = SystemColors.ControlLight;
+            dataGridView2.Location = new Point(648, 9);
+            dataGridView2.Margin = new Padding(0);
+            dataGridView2.Name = "dataGridView2";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.Size = new Size(637, 413);
+            dataGridView2.TabIndex = 37;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.FillWeight = 130F;
+            dataGridViewTextBoxColumn1.HeaderText = "Data";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.FillWeight = 130F;
+            dataGridViewTextBoxColumn2.HeaderText = "Timp";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.HeaderText = "Cuntu Grup 1";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.HeaderText = "Cuntu Grup 2";
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.HeaderText = "Craiu 1 Grup 1";
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.HeaderText = "Craiu 1 Grup 2";
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.HeaderText = "Craiu 2 Grup 1";
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.HeaderText = "Craiu 2 Grup 2";
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.HeaderText = "Sebesel 1 Grup 1";
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.HeaderText = "Sebesel 1 Grup 2";
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            dataGridViewTextBoxColumn11.HeaderText = "Sebesel 2 Grup 1";
+            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            dataGridViewTextBoxColumn12.HeaderText = "Sebesel 2 Grup 1";
+            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            dataGridViewTextBoxColumn13.HeaderText = "Cornereva";
+            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            dataGridViewTextBoxColumn14.HeaderText = "Total";
+            dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // BtnSearch
+            // 
+            BtnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnSearch.BackColor = Color.FromArgb(8, 35, 50);
+            BtnSearch.FlatAppearance.BorderColor = Color.White;
+            BtnSearch.FlatStyle = FlatStyle.Flat;
+            BtnSearch.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnSearch.ForeColor = Color.White;
+            BtnSearch.Location = new Point(539, 615);
+            BtnSearch.Name = "BtnSearch";
+            BtnSearch.Size = new Size(213, 50);
+            BtnSearch.TabIndex = 40;
+            BtnSearch.Text = "Search";
+            BtnSearch.UseVisualStyleBackColor = false;
+            BtnSearch.Click += BtnSearch_Click;
+            // 
+            // newCalendar1
+            // 
+            newCalendar1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            newCalendar1.BackColor = Color.FromArgb(8, 35, 50);
+            newCalendar1.FirstDayOfWeek = Day.Monday;
+            newCalendar1.Font = new Font("Nirmala UI", 8F, FontStyle.Bold, GraphicsUnit.Point);
+            newCalendar1.ForeColor = Color.White;
+            newCalendar1.Location = new Point(539, 452);
+            newCalendar1.Margin = new Padding(0);
+            newCalendar1.MaxSelectionCount = 365;
+            newCalendar1.Name = "newCalendar1";
+            newCalendar1.TabIndex = 41;
+            newCalendar1.TitleBackColor = Color.White;
+            newCalendar1.TitleForeColor = Color.FromArgb(8, 35, 50);
+            newCalendar1.TrailingForeColor = Color.LightGray;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(202, 426);
+            label1.Name = "label1";
+            label1.Size = new Size(197, 37);
+            label1.TabIndex = 42;
+            label1.Text = "Ziua Selectata";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(880, 426);
+            label2.Name = "label2";
+            label2.Size = new Size(219, 37);
+            label2.TabIndex = 43;
+            label2.Text = "Ziua Urmatoare";
+            // 
             // Frm_Prognoza
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 65, 82);
             ClientSize = new Size(1290, 674);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(newCalendar1);
             Controls.Add(BtnSearch);
-            Controls.Add(Search);
             Controls.Add(dataGridView2);
             Controls.Add(dataGridView1);
             Controls.Add(pictureBox2);
@@ -348,6 +375,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -356,22 +384,10 @@
         private System.Windows.Forms.Timer timer1;
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private Button Search;
         private Button BtnSearch;
+        private NewCalendar newCalendar1;
+        private Label label1;
+        private Label label2;
         private DataGridViewTextBoxColumn Data;
         private DataGridViewTextBoxColumn Timp;
         private DataGridViewTextBoxColumn Cuntu_Grup_1;
@@ -386,5 +402,19 @@
         private DataGridViewTextBoxColumn Sebesel_2_Grup_2;
         private DataGridViewTextBoxColumn Cornereva;
         private DataGridViewTextBoxColumn Total;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }
 }

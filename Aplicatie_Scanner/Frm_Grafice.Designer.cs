@@ -36,8 +36,6 @@
             Search = new Button();
             newCalendar1 = new NewCalendar();
             rbEnergie = new RadioButton();
-            rbPutere = new RadioButton();
-            tbtest = new TextBox();
             cbEnergieOra = new CheckBox();
             cbCuntu = new CheckBox();
             cbCraiu1 = new CheckBox();
@@ -66,9 +64,9 @@
             // 
             // cartesianChart1
             // 
-            cartesianChart1.Location = new Point(83, 12);
+            cartesianChart1.Location = new Point(21, 12);
             cartesianChart1.Name = "cartesianChart1";
-            cartesianChart1.Size = new Size(1195, 394);
+            cartesianChart1.Size = new Size(1257, 394);
             cartesianChart1.TabIndex = 38;
             // 
             // Search
@@ -106,35 +104,16 @@
             // rbEnergie
             // 
             rbEnergie.AutoSize = true;
+            rbEnergie.Checked = true;
             rbEnergie.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             rbEnergie.Location = new Point(302, 532);
             rbEnergie.Name = "rbEnergie";
             rbEnergie.Size = new Size(79, 24);
             rbEnergie.TabIndex = 59;
+            rbEnergie.TabStop = true;
             rbEnergie.Text = "Energie";
             rbEnergie.UseVisualStyleBackColor = true;
             rbEnergie.CheckedChanged += rbEnergie_CheckedChanged;
-            // 
-            // rbPutere
-            // 
-            rbPutere.AutoSize = true;
-            rbPutere.Checked = true;
-            rbPutere.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            rbPutere.Location = new Point(302, 508);
-            rbPutere.Name = "rbPutere";
-            rbPutere.Size = new Size(73, 24);
-            rbPutere.TabIndex = 58;
-            rbPutere.TabStop = true;
-            rbPutere.Text = "Putere";
-            rbPutere.UseVisualStyleBackColor = true;
-            rbPutere.CheckedChanged += rbPutere_CheckedChanged;
-            // 
-            // tbtest
-            // 
-            tbtest.Location = new Point(555, 466);
-            tbtest.Name = "tbtest";
-            tbtest.Size = new Size(100, 23);
-            tbtest.TabIndex = 61;
             // 
             // cbEnergieOra
             // 
@@ -146,11 +125,12 @@
             cbEnergieOra.TabIndex = 60;
             cbEnergieOra.Text = "Energie/Ora";
             cbEnergieOra.UseVisualStyleBackColor = true;
-            cbEnergieOra.Visible = false;
             // 
             // cbCuntu
             // 
             cbCuntu.AutoSize = true;
+            cbCuntu.Checked = true;
+            cbCuntu.CheckState = CheckState.Checked;
             cbCuntu.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cbCuntu.Location = new Point(734, 464);
             cbCuntu.Name = "cbCuntu";
@@ -163,6 +143,8 @@
             // cbCraiu1
             // 
             cbCraiu1.AutoSize = true;
+            cbCraiu1.Checked = true;
+            cbCraiu1.CheckState = CheckState.Checked;
             cbCraiu1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cbCraiu1.Location = new Point(734, 494);
             cbCraiu1.Name = "cbCraiu1";
@@ -175,6 +157,8 @@
             // cbCraiu2
             // 
             cbCraiu2.AutoSize = true;
+            cbCraiu2.Checked = true;
+            cbCraiu2.CheckState = CheckState.Checked;
             cbCraiu2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cbCraiu2.Location = new Point(734, 524);
             cbCraiu2.Name = "cbCraiu2";
@@ -187,6 +171,8 @@
             // cbSebesel1
             // 
             cbSebesel1.AutoSize = true;
+            cbSebesel1.Checked = true;
+            cbSebesel1.CheckState = CheckState.Checked;
             cbSebesel1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cbSebesel1.Location = new Point(823, 466);
             cbSebesel1.Name = "cbSebesel1";
@@ -199,6 +185,8 @@
             // cbSebesel2
             // 
             cbSebesel2.AutoSize = true;
+            cbSebesel2.Checked = true;
+            cbSebesel2.CheckState = CheckState.Checked;
             cbSebesel2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cbSebesel2.Location = new Point(823, 496);
             cbSebesel2.Name = "cbSebesel2";
@@ -211,6 +199,8 @@
             // cbCornereva
             // 
             cbCornereva.AutoSize = true;
+            cbCornereva.Checked = true;
+            cbCornereva.CheckState = CheckState.Checked;
             cbCornereva.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cbCornereva.Location = new Point(823, 524);
             cbCornereva.Name = "cbCornereva";
@@ -232,10 +222,8 @@
             Controls.Add(cbCraiu2);
             Controls.Add(cbCraiu1);
             Controls.Add(cbCuntu);
-            Controls.Add(tbtest);
             Controls.Add(cbEnergieOra);
             Controls.Add(rbEnergie);
-            Controls.Add(rbPutere);
             Controls.Add(Search);
             Controls.Add(newCalendar1);
             Controls.Add(cartesianChart1);
@@ -258,8 +246,6 @@
         private Button Search;
         private NewCalendar newCalendar1;
         private RadioButton rbEnergie;
-        private RadioButton rbPutere;
-        private TextBox tbtest;
         private CheckBox cbEnergieOra;
         private CheckBox cbCuntu;
         private CheckBox cbCraiu1;

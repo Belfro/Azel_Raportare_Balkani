@@ -30,7 +30,7 @@ namespace Azel_Raportare_Balkani
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message);
                 return null;
             }
         }
@@ -125,7 +125,7 @@ namespace Azel_Raportare_Balkani
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message);
                 return null;
             }
         }
@@ -208,7 +208,7 @@ namespace Azel_Raportare_Balkani
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error Connecting to the Database ! Error:" + ex.Message);
+                MessageBox.Show("Database Error: " + ex.Message);
                 return null;
             }
         }
