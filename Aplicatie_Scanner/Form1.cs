@@ -435,29 +435,29 @@ namespace Azel_Raportare_Balkani
 
             AdaugaIntrari($"convert(datetime,'{Data} {Timp}',5)"
                 + ",'"
-                + Putere
+                + "Round(" + Putere + ",2)"
                 + "','"
-                + Energie
+                + "Round(" + Energie + ",2)"
                 + "','"
-                + Presiune_Aductiune
+                + "Round(" + Presiune_Aductiune + ",2)"
                 + "','"
-                + Presiune_GUP
+                + "Round(" + Presiune_GUP + ",2)"
                 + "','"
-                + Pozitie_Injector_1
+                + "Round(" + Pozitie_Injector_1 + ",2)"
                 + "','"
-                + Pozitie_Injector_2
+                + "Round(" + Pozitie_Injector_2 + ",2)"
                 + "','"
-                + Vibratii
+                + "Round(" + Vibratii + ",2)"
                 + "','"
-                + Debit_Turbinat
+                + "Round(" + Debit_Turbinat + ",2)"
                 + "','"
-                + Total_Turbinat
+                + "Round(" + Total_Turbinat + ",2)"
                 + "','"
-                + Temperatura_Meteo
+                + "Round(" + Temperatura_Meteo + ",2)"
                 + "','"
-                + Umiditate_Meteo
+                + "Round(" + Umiditate_Meteo + ",2)"
                 + "','"
-                + Precipitatii_Meteo
+                + "Round(" + Precipitatii_Meteo + ",2)"
                 + "'"
                 ,
                 Nume_PLC
