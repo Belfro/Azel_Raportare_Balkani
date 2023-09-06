@@ -163,12 +163,12 @@ namespace Azel_Raportare_Balkani
             Btn_Printer.FlatStyle = FlatStyle.Flat;
             Btn_Printer.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Btn_Printer.ForeColor = Color.FromArgb(4, 224, 190);
-            Btn_Printer.Image = Properties.Resources.trendi1;
+            Btn_Printer.Image = (Image)resources.GetObject("Btn_Printer.Image");
             Btn_Printer.Location = new Point(0, 228);
             Btn_Printer.Name = "Btn_Printer";
             Btn_Printer.Size = new Size(186, 42);
             Btn_Printer.TabIndex = 9;
-            Btn_Printer.Text = "    Grafice";
+            Btn_Printer.Text = "    Grafice    ";
             Btn_Printer.TextImageRelation = TextImageRelation.TextBeforeImage;
             Btn_Printer.UseVisualStyleBackColor = true;
             Btn_Printer.Click += Btn_Printer_Click;
@@ -204,7 +204,7 @@ namespace Azel_Raportare_Balkani
             Btn_Dashboard.Name = "Btn_Dashboard";
             Btn_Dashboard.Size = new Size(186, 42);
             Btn_Dashboard.TabIndex = 9;
-            Btn_Dashboard.Text = "Overview";
+            Btn_Dashboard.Text = "  Overview";
             Btn_Dashboard.TextImageRelation = TextImageRelation.TextBeforeImage;
             Btn_Dashboard.UseVisualStyleBackColor = true;
             Btn_Dashboard.Click += Btn_Dashboard_Click;
@@ -249,7 +249,7 @@ namespace Azel_Raportare_Balkani
             label1.ForeColor = Color.FromArgb(4, 224, 190);
             label1.Location = new Point(21, 100);
             label1.Name = "label1";
-            label1.Size = new Size(147, 32);
+            label1.Size = new Size(144, 32);
             label1.TabIndex = 0;
             label1.Text = "AZEL Database \r\nManagement Studio";
             label1.TextAlign = ContentAlignment.MiddleCenter;

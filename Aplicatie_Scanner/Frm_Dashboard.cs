@@ -1,4 +1,6 @@
-﻿namespace Azel_Raportare_Balkani
+﻿using System.Diagnostics;
+
+namespace Azel_Raportare_Balkani
 {
     public partial class Frm_Dashboard : Form
     {
@@ -11,7 +13,7 @@
         List<DateDB> date = new List<DateDB>();
         List<DatePutere> date_putere = new List<DatePutere>();
         List<DatePutere> date_putere_ora = new List<DatePutere>();
-
+        public bool fisier_deschis = false;
 
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
@@ -33,7 +35,7 @@
             cbEnergieOra.Visible = false;
             rbPutere.Checked = false;
             rbEnergie.Checked = false;
-
+            fisier_deschis = false;
             newCalendar1.SelectionEnd = DateTime.Now.AddDays(1).AddTicks(-1);
             cbZonaSelectie.SelectedIndex = 0;
         }
@@ -79,10 +81,14 @@
                 dataGridView1.Columns["Data"].DataPropertyName = "DoarData";
                 dataGridView1.Columns["Timp"].DataPropertyName = "DoarTimp";
 
+                tbEnergie_Produsa.Text = "0" + " [kWh]";
+                tbApa_Consumata.Text = "0" + " [m³]";
+                tbPutereMedie.Text = "0" + " kW";
 
-                tbEnergie_Produsa.Text = (date[date.Count - 1].Energie - date[date.SkipWhile(x => x.Energie > 0).Count() - 1].Energie).ToString() + " [kWh]";
-                tbApa_Consumata.Text = (date[date.Count - 1].Debit_Turbinat_Total - date[date.SkipWhile(x => x.Debit_Turbinat_Total > 0).Count() - 1].Debit_Turbinat_Total).ToString() + " [m³]";
                 tbPutereMedie.Text = Math.Round(date.Average(p => p.Putere), 2).ToString() + " kW";
+                tbEnergie_Produsa.Text = (date[date.FindLastIndex(item => item.Energie > 0)].Energie - date[date.FindIndex(item => item.Energie > 0 )].Energie).ToString() + " [kWh]";
+                tbApa_Consumata.Text = (date[date.FindLastIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total - date[date.FindIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total).ToString() + " [m³]";
+                
 
             }
             catch (Exception ex)
@@ -170,9 +176,14 @@
             {
                 Print_Puteri();
             }
-
-
+            if (fisier_deschis == false)
+            {
+                OpenFolder(@$"C:\Azel\Raportari\");
+                fisier_deschis = true;
+            }
+            else { fisier_deschis = false;}
         }
+
         private void Print_Date()
         {
             string subPath = @$"C:\Azel\Raportari\";
@@ -191,6 +202,24 @@
             }
         }
 
+        private void OpenFolder(string path)
+        {
+            try
+            {
+                if (Directory.Exists(path))
+                {
+                    ProcessStartInfo startinfo = new ProcessStartInfo
+                    {
+                        Arguments = path,
+                        FileName = "explorer.exe"
+                };
+                    Process.Start(startinfo);   
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+
+        }
+
         private void Print_Puteri()
         {
             string subPath = @$"C:\Azel\Raportari\";
@@ -199,7 +228,7 @@
 
             if (!exists)
                 System.IO.Directory.CreateDirectory(subPath);
-            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Raport_Aplicatie_{cbZonaSelectie.Text.Replace(" ", "_")}_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm")}.csv"))
+            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Raport_Aplicatie_{DateTime.Now.ToString("yyyy-MM-dd_HH-mm")}.csv"))
             {
                 file.WriteLine("Data,Timp,Cuntu Grup 1,Cuntu Grup 2,Craiu 1 Grup 1,Craiu 1 Grup 2,Craiu 2 Grup 1,Craiu 2 Grup 2,Sebesel 1 Grup 1,Sebesel 1 Grup 2,Sebesel 2 Grup 1,Sebesel 2 Grup 2,Cornereva,Total");
                 foreach (var arr in date)

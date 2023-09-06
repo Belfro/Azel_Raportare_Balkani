@@ -288,7 +288,7 @@ namespace Azel_Raportare_Balkani
             try
             {
 
-               
+
                 Verificare_Conexiuni();
 
                 if (minut_scris != System.DateTime.Now.Minute && (System.DateTime.Now.Minute == 0 || System.DateTime.Now.Minute == 15 || System.DateTime.Now.Minute == 30 || System.DateTime.Now.Minute == 45))
@@ -649,6 +649,6 @@ namespace Azel_Raportare_Balkani
             System.Windows.Forms.Application.Exit();
         }
 
-      
+
     }
 }
