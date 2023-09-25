@@ -66,8 +66,8 @@ namespace Azel_Raportare_Balkani
         Plc PLC_Cuntu_Grup_2 = new Plc(CpuType.S71200, "192.168.103.21", 0, 1);
 
         ///////////////Craiu 1///////////////////
-        Plc PLC_Craiu_1_Grup_1 = new Plc(CpuType.S71200, "192.168.1.20", 0, 1);
-        Plc PLC_Craiu_1_Grup_2 = new Plc(CpuType.S71200, "192.168.1.21", 0, 1);
+        Plc PLC_Craiu_1_Grup_1 = new Plc(CpuType.S71200, "192.168.107.20", 0, 1);
+        Plc PLC_Craiu_1_Grup_2 = new Plc(CpuType.S71200, "192.168.107.21", 0, 1);
 
         ///////////////Craiu 2///////////////////
         Plc PLC_Craiu_2_Grup_1 = new Plc(CpuType.S71200, "192.168.105.20", 0, 1);
