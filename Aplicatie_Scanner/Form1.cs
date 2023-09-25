@@ -82,8 +82,8 @@ namespace Azel_Raportare_Balkani
         Plc PLC_Sebesel_2_Grup_2 = new Plc(CpuType.S71200, "192.168.102.21", 0, 1);
 
         ///////////// Cornereva////////////////
-        // Plc PLC_Cornereva_Grup_1 = new Plc(CpuType.S71200, "192.168.102.20", 0, 1);
-        // Plc PLC_Cornereva_Grup_2 = new Plc(CpuType.S71200, "192.168.102.21", 0, 1);
+         Plc PLC_Cornereva = new Plc(CpuType.S71200, "172.16.11.200", 0, 1);
+        
 
 
 
@@ -280,6 +280,8 @@ namespace Azel_Raportare_Balkani
             Task.Run(() => Conectare_PLC(PLC_Sebesel_2_Grup_1));
             Task.Run(() => Conectare_PLC(PLC_Sebesel_2_Grup_2));
 
+            Task.Run(() => Conectare_PLC(PLC_Cornereva));
+
         }
         private async void timer_timp_Tick(object sender, EventArgs e)
         {
@@ -309,6 +311,8 @@ namespace Azel_Raportare_Balkani
 
                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_1, "Sebesel_2_Grup_1"));
                     Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Sebesel_2_Grup_2, "Sebesel_2_Grup_2"));
+
+                    Task.Run(async () => Preluare_Si_Scriere_Date_PLC(PLC_Cornereva, "Cornereva"));
                 }
 
 
@@ -589,10 +593,21 @@ namespace Azel_Raportare_Balkani
                 Sebesel_2_Grup_2_pbTick.Visible = true;
                 Sebesel_2_Grup_2_pbX.Visible = false;
             }
-            else
+            else 
             {
                 Sebesel_2_Grup_2_pbTick.Visible = false;
                 Sebesel_2_Grup_2_pbX.Visible = true;
+            }
+
+            if (PLC_Cornereva.IsConnected)
+            {
+                Cornereva_pbTick.Visible = true;
+                Cornereva_pbX.Visible = false;
+            }
+            else
+            {
+                Cornereva_pbTick.Visible = false;
+                Cornereva_pbX.Visible = true;
             }
 
         }
@@ -609,6 +624,7 @@ namespace Azel_Raportare_Balkani
             PLC_Sebesel_1_Grup_2.Close();
             PLC_Sebesel_2_Grup_1.Close();
             PLC_Sebesel_2_Grup_2.Close();
+            PLC_Cornereva.Close();
         }
 
         private void Btn_Close_App_KeyDown(object sender, KeyEventArgs e)

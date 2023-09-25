@@ -71,6 +71,7 @@ namespace Azel_Raportare_Balkani
                         $",Sebesel_1_Grup_2.[Putere] as Sebesel_1_Grup_2 " +
                         $",Sebesel_2_Grup_1.[Putere] as Sebesel_2_Grup_1 " +
                         $",Sebesel_2_Grup_2.[Putere] as Sebesel_2_Grup_2 " +
+                        $",Cornereva.[Putere] as Cornereva " +
 
                         $" FROM Cuntu_Grup_1" +
                         $" full outer join Cuntu_Grup_2" +
@@ -99,6 +100,9 @@ namespace Azel_Raportare_Balkani
 
                         $" full outer join Sebesel_2_Grup_2" +
                         $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_2.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_2.Date_Time)))" +
+                        
+                        $" full outer join Cornereva" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Cornereva.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Cornereva.Date_Time)))" +
 
 
 
@@ -158,6 +162,7 @@ namespace Azel_Raportare_Balkani
                         $",Sebesel_1_Grup_2.[Energie] as Sebesel_1_Grup_2 " +
                         $",Sebesel_2_Grup_1.[Energie] as Sebesel_2_Grup_1 " +
                         $",Sebesel_2_Grup_2.[Energie] as Sebesel_2_Grup_2 " +
+                        $",Cornereva.[Energie] as Cornereva " +
 
                         $" FROM Cuntu_Grup_1" +
                         $" full outer join Cuntu_Grup_2" +
@@ -186,6 +191,9 @@ namespace Azel_Raportare_Balkani
 
                         $" full outer join Sebesel_2_Grup_2" +
                         $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_2.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_2.Date_Time)))" +
+                        
+                        $" full outer join Cornereva" +
+                        $" on ((Cuntu_Grup_1.Date_Time < DATEADD(ss,30,Cornereva.Date_Time)) and (Cuntu_Grup_1.Date_Time > DATEADD(ss,-30,Cornereva.Date_Time)))" +
 
 
 

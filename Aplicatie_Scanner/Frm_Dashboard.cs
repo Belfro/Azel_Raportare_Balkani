@@ -86,9 +86,9 @@ namespace Azel_Raportare_Balkani
                 tbPutereMedie.Text = "0" + " kW";
 
                 tbPutereMedie.Text = Math.Round(date.Average(p => p.Putere), 2).ToString() + " kW";
-                tbEnergie_Produsa.Text = (date[date.FindLastIndex(item => item.Energie > 0)].Energie - date[date.FindIndex(item => item.Energie > 0 )].Energie).ToString() + " [kWh]";
+                tbEnergie_Produsa.Text = (date[date.FindLastIndex(item => item.Energie > 0)].Energie - date[date.FindIndex(item => item.Energie > 0)].Energie).ToString() + " [kWh]";
                 tbApa_Consumata.Text = (date[date.FindLastIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total - date[date.FindIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total).ToString() + " [m³]";
-                
+
 
             }
             catch (Exception ex)
@@ -181,7 +181,7 @@ namespace Azel_Raportare_Balkani
                 OpenFolder(@$"C:\Azel\Raportari\");
                 fisier_deschis = true;
             }
-            else { fisier_deschis = false;}
+            else { fisier_deschis = false; }
         }
 
         private void Print_Date()
@@ -212,8 +212,8 @@ namespace Azel_Raportare_Balkani
                     {
                         Arguments = path,
                         FileName = "explorer.exe"
-                };
-                    Process.Start(startinfo);   
+                    };
+                    Process.Start(startinfo);
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }

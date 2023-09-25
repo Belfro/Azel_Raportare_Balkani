@@ -63,6 +63,7 @@
             rbEnergie = new RadioButton();
             rbDefault = new RadioButton();
             cbEnergieOra = new CheckBox();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -363,12 +364,23 @@
             cbEnergieOra.Visible = false;
             cbEnergieOra.CheckedChanged += cbEnergieOra_CheckedChanged;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CustomFormat = "MMMM yyyy";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(524, 473);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.ShowUpDown = true;
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 58;
+            // 
             // Frm_Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 65, 82);
             ClientSize = new Size(1290, 674);
+            Controls.Add(dateTimePicker1);
             Controls.Add(cbEnergieOra);
             Controls.Add(rbDefault);
             Controls.Add(rbEnergie);
@@ -430,6 +442,7 @@
         private DataGridViewTextBoxColumn Meteo_Umiditate;
         private DataGridViewTextBoxColumn Meteo_Precipitatii;
         private CheckBox cbEnergieOra;
+        private DateTimePicker dateTimePicker1;
     }
 
 }
