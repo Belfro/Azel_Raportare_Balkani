@@ -64,6 +64,7 @@
             rbDefault = new RadioButton();
             cbEnergieOra = new CheckBox();
             dateTimePicker1 = new DateTimePicker();
+            Btn_Print_Raport_Lunar = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -235,7 +236,7 @@
             // cbZonaSelectie
             // 
             cbZonaSelectie.FormattingEnabled = true;
-            cbZonaSelectie.Items.AddRange(new object[] { "Cuntu Grup 1", "Cuntu Grup 2", "Craiu 1 Grup 1", "Craiu 1 Grup 2", "Craiu 2 Grup 1", "Craiu 2 Grup 2", "Sebesel 1 Grup 1", "Sebesel 1 Grup 2", "Sebesel 2 Grup 1", "Sebesel 2 Grup 2" });
+            cbZonaSelectie.Items.AddRange(new object[] { "Cuntu Grup 1", "Cuntu Grup 2", "Craiu 1 Grup 1", "Craiu 1 Grup 2", "Craiu 2 Grup 1", "Craiu 2 Grup 2", "Sebesel 1 Grup 1", "Sebesel 1 Grup 2", "Sebesel 2 Grup 1", "Sebesel 2 Grup 2", "Cornereva" });
             cbZonaSelectie.Location = new Point(321, 472);
             cbZonaSelectie.Name = "cbZonaSelectie";
             cbZonaSelectie.Size = new Size(163, 23);
@@ -374,12 +375,29 @@
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 58;
             // 
+            // Btn_Print_Raport_Lunar
+            // 
+            Btn_Print_Raport_Lunar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Btn_Print_Raport_Lunar.BackColor = Color.FromArgb(8, 35, 50);
+            Btn_Print_Raport_Lunar.FlatAppearance.BorderColor = Color.White;
+            Btn_Print_Raport_Lunar.FlatStyle = FlatStyle.Flat;
+            Btn_Print_Raport_Lunar.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Print_Raport_Lunar.ForeColor = Color.White;
+            Btn_Print_Raport_Lunar.Location = new Point(524, 507);
+            Btn_Print_Raport_Lunar.Name = "Btn_Print_Raport_Lunar";
+            Btn_Print_Raport_Lunar.Size = new Size(200, 50);
+            Btn_Print_Raport_Lunar.TabIndex = 59;
+            Btn_Print_Raport_Lunar.Text = "Print\r\nRaport";
+            Btn_Print_Raport_Lunar.UseVisualStyleBackColor = false;
+            Btn_Print_Raport_Lunar.Click += Btn_Print_Raport_Lunar_Click;
+            // 
             // Frm_Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 65, 82);
             ClientSize = new Size(1290, 674);
+            Controls.Add(Btn_Print_Raport_Lunar);
             Controls.Add(dateTimePicker1);
             Controls.Add(cbEnergieOra);
             Controls.Add(rbDefault);
@@ -443,6 +461,7 @@
         private DataGridViewTextBoxColumn Meteo_Precipitatii;
         private CheckBox cbEnergieOra;
         private DateTimePicker dateTimePicker1;
+        private Button Btn_Print_Raport_Lunar;
     }
 
 }

@@ -14,7 +14,8 @@ namespace Azel_Raportare_Balkani
         List<DatePutere> date_putere = new List<DatePutere>();
         List<DatePutere> date_putere_ora = new List<DatePutere>();
         public bool fisier_deschis = false;
-
+        public double energie_raport_lunar = 0;
+        public double debit_raport_lunar = 0;
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
             #region DataProperty
@@ -87,7 +88,7 @@ namespace Azel_Raportare_Balkani
 
                 tbPutereMedie.Text = Math.Round(date.Average(p => p.Putere), 2).ToString() + " kW";
                 tbEnergie_Produsa.Text = (date[date.FindLastIndex(item => item.Energie > 0)].Energie - date[date.FindIndex(item => item.Energie > 0)].Energie).ToString() + " [kWh]";
-                tbApa_Consumata.Text = (date[date.FindLastIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total - date[date.FindIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total).ToString() + " [m³]";
+                tbApa_Consumata.Text = (Math.Round(date[date.FindLastIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total - date[date.FindIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total, 2)).ToString() + " [m³]";
 
 
             }
@@ -375,6 +376,73 @@ namespace Azel_Raportare_Balkani
         private void cbEnergieOra_CheckedChanged(object sender, EventArgs e)
         {
             Cautare_Date();
+        }
+
+        private void Btn_Print_Raport_Lunar_Click(object sender, EventArgs e)
+        {
+            string subPath = @$"C:\Azel\Raportari\Rapoarte_Lunare";
+
+            bool exists = System.IO.Directory.Exists(subPath);
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory(subPath);
+            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}_.csv"))
+            {
+                energie_raport_lunar = 0;
+                debit_raport_lunar = 0;
+
+                file.WriteLine("");
+                file.WriteLine("MHC,Index Vechi Energie,Index Nou Energie,Energie Produsa,Index Vechi Debit,Index Nou Debit, Volum Apa Turbinat");
+
+                file.WriteLine(GetDateLuna("Cuntu_Grup_1"));
+                file.WriteLine(GetDateLuna("Cuntu_Grup_2"));
+                file.WriteLine(GetDateLuna("Craiu_1_Grup_1"));
+                file.WriteLine(GetDateLuna("Craiu_1_Grup_2"));
+                file.WriteLine(GetDateLuna("Craiu_2_Grup_1"));
+                file.WriteLine(GetDateLuna("Craiu_2_Grup_2"));
+                file.WriteLine(GetDateLuna("Sebesel_1_Grup_1"));
+                file.WriteLine(GetDateLuna("Sebesel_1_Grup_2"));
+                file.WriteLine(GetDateLuna("Sebesel_2_Grup_1"));
+                file.WriteLine(GetDateLuna("Sebesel_2_Grup_2"));
+                file.WriteLine(GetDateLuna("Cornereva"));
+                file.WriteLine("");
+
+                file.WriteLine($",,,{energie_raport_lunar},,,{debit_raport_lunar}");
+                file.WriteLine($",,,Energie Totala,,,Volum Total Turbinat");
+
+            }
+
+        }
+        private string GetDateLuna(string MHC)
+        {
+            double energie_totala = 0;
+            double debit_total = 0;
+            double index_initial_energie = 0;
+            double index_final_energie = 0;
+            double index_initial_debit = 0;
+            double index_final_debit = 0;
+            string rezultat = "";
+            DataAccess db = new DataAccess();
+
+            var inceputul_lunii = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1);
+            var sfarsitul_lunii = inceputul_lunii.AddMonths(1).AddTicks(-1);
+            var date_luna = db.GetDateToataZiua(inceputul_lunii, sfarsitul_lunii.AddDays(1).AddTicks(-1), "", MHC);
+            if (date_luna.Any())
+            {
+                index_initial_energie = date_luna.Select(x => x.Energie).SkipWhile(x => x == 0).FirstOrDefault(0);
+                index_final_energie = date_luna.Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
+                energie_totala = (index_final_energie - index_initial_energie);
+
+                index_initial_debit = date_luna.Select(x => x.Debit_Turbinat_Total).SkipWhile(x => x == 0).FirstOrDefault(0);
+                index_final_debit = date_luna.Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
+                debit_total = (index_final_debit - index_initial_debit);
+            }
+            energie_raport_lunar = energie_raport_lunar + energie_totala;
+            debit_raport_lunar = debit_raport_lunar + debit_total;
+
+            rezultat = $"{MHC.Replace("_", " ")},{index_initial_energie},{index_final_energie},{energie_totala},{index_initial_debit},{index_final_debit},{debit_total}";
+            return rezultat;
+
         }
     }
 }
