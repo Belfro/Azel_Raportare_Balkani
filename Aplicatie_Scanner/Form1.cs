@@ -82,7 +82,7 @@ namespace Azel_Raportare_Balkani
         Plc PLC_Sebesel_2_Grup_2 = new Plc(CpuType.S71200, "192.168.102.21", 0, 1);
 
         ///////////// Cornereva////////////////
-         Plc PLC_Cornereva = new Plc(CpuType.S71200, "172.16.11.200", 0, 1);
+        Plc PLC_Cornereva = new Plc(CpuType.S71200, "172.16.11.200", 0, 1);
         
 
 

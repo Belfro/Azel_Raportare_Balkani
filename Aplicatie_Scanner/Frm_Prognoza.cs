@@ -5,7 +5,7 @@ namespace Azel_Raportare_Balkani
 {
     public partial class Frm_Prognoza : Form
     {
-        List<DatePutere>[] date_putere = new List<DatePutere>[7];
+        List<DatePutere> date_putere = new List<DatePutere>();
 
         public Frm_Prognoza()
         {
@@ -56,7 +56,7 @@ namespace Azel_Raportare_Balkani
 
 
                 int index = 0;
-                date_putere[0] = db.GetDateEnergie(newCalendar1.SelectionStart, newCalendar1.SelectionStart.AddDays(1).AddTicks(-1));
+                date_putere = db.GetDateEnergie(newCalendar1.SelectionStart, newCalendar1.SelectionStart.AddDays(1).AddTicks(-1));
                /* date_putere[1] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-1), newCalendar1.SelectionStart.AddDays(0).AddTicks(-1));
                 date_putere[2] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-2), newCalendar1.SelectionStart.AddDays(-1).AddTicks(-1));
                 date_putere[3] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-3), newCalendar1.SelectionStart.AddDays(-2).AddTicks(-1));
@@ -68,13 +68,13 @@ namespace Azel_Raportare_Balkani
 
 
 
-                List<DatePutere> date_putere_prognoza = new List<DatePutere>(date_putere[0].Count);
+                List<DatePutere> date_putere_prognoza = new List<DatePutere>(date_putere.Count);
 
-             /*     date_putere[0].ForEach((item) =>
+                  date_putere.ForEach((item) =>
                   {
                       date_putere_prognoza.Add((DatePutere)item.Clone());
                   });
-                var prognoza = ForecastElectricity(date_putere, 96);
+               /* var prognoza = ForecastElectricity(date_putere, 96);
                 for (int i = 0; i < 24; i++)
                 {
 
@@ -89,7 +89,7 @@ namespace Azel_Raportare_Balkani
                
 
 
-                  for (int i = 0; i < date_putere[0].Count; i++)
+                  for (int i = 0; i < date_putere.Count; i++)
                   {
                       date_putere_prognoza[i].Date_Time = date_putere_prognoza[i].Date_Time.AddDays(1);
                       date_putere_prognoza[i].Cuntu_Grup_1 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_1;
@@ -139,7 +139,7 @@ namespace Azel_Raportare_Balkani
             {
                 dataGridView1.AutoGenerateColumns = false;
 
-                dataGridView1.DataSource = date_putere[0];
+                dataGridView1.DataSource = date_putere;
 
 
 
