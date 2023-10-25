@@ -386,6 +386,9 @@ namespace Azel_Raportare_Balkani
 
             if (!exists)
                 System.IO.Directory.CreateDirectory(subPath);
+
+
+
             using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}_.csv"))
             {
                 energie_raport_lunar = 0;
@@ -411,6 +414,14 @@ namespace Azel_Raportare_Balkani
                 file.WriteLine($",,,Energie Totala,,,Volum Total Turbinat");
 
             }
+
+            if (fisier_deschis == false)
+            {
+                OpenFolder(@$"C:\Azel\Raportari\Rapoarte_Lunare");
+                fisier_deschis = true;
+            }
+            else { fisier_deschis = false; }
+
 
         }
         private string GetDateLuna(string MHC)
