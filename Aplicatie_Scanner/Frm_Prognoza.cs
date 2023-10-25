@@ -93,7 +93,7 @@ namespace Azel_Raportare_Balkani
                   {
                       date_putere_prognoza[i].Date_Time = date_putere_prognoza[i].Date_Time.AddDays(1);
                       date_putere_prognoza[i].Cuntu_Grup_1 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_1;
-                      date_putere_prognoza[i].Cuntu_Grup_2 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_1;
+                      date_putere_prognoza[i].Cuntu_Grup_2 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_2;
                       date_putere_prognoza[i].Craiu_1_Grup_1 = 0.9 * date_putere_prognoza[i].Craiu_1_Grup_1;
                       date_putere_prognoza[i].Craiu_1_Grup_2 = 0.9 * date_putere_prognoza[i].Craiu_1_Grup_2;
                       date_putere_prognoza[i].Craiu_2_Grup_1 = 0.9 * date_putere_prognoza[i].Craiu_2_Grup_1;
