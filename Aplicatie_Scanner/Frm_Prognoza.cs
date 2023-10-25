@@ -70,7 +70,7 @@ namespace Azel_Raportare_Balkani
 
                 List<DatePutere> date_putere_prognoza = new List<DatePutere>(date_putere[0].Count);
 
-                  date_putere[0].ForEach((item) =>
+             /*     date_putere[0].ForEach((item) =>
                   {
                       date_putere_prognoza.Add((DatePutere)item.Clone());
                   });
@@ -80,16 +80,16 @@ namespace Azel_Raportare_Balkani
 
                     date_putere_prognoza[i].Craiu_2_Grup_1 = prognoza[i];
                 }
-
+                */
 
                
 
 
 
-                /*
+               
 
 
-                  for (int i = 0; i < date_putere.Count; i++)
+                  for (int i = 0; i < date_putere[0].Count; i++)
                   {
                       date_putere_prognoza[i].Date_Time = date_putere_prognoza[i].Date_Time.AddDays(1);
                       date_putere_prognoza[i].Cuntu_Grup_1 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_1;
@@ -105,7 +105,7 @@ namespace Azel_Raportare_Balkani
                       date_putere_prognoza[i].Cornereva = 0.9 * date_putere_prognoza[i].Cornereva;
                   }
 
-                  */
+                
 
                 UpdateBinding();
                 dataGridView2.AutoGenerateColumns = false;
