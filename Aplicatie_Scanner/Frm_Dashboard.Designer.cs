@@ -65,8 +65,12 @@
             cbEnergieOra = new CheckBox();
             dateTimePicker1 = new DateTimePicker();
             Btn_Print_Raport_Lunar = new Button();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox2
@@ -108,7 +112,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1269, 436);
+            dataGridView1.Size = new Size(1269, 414);
             dataGridView1.TabIndex = 35;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -195,7 +199,7 @@
             newCalendar1.FirstDayOfWeek = Day.Monday;
             newCalendar1.Font = new Font("Nirmala UI", 8F, FontStyle.Bold, GraphicsUnit.Point);
             newCalendar1.ForeColor = Color.White;
-            newCalendar1.Location = new Point(9, 453);
+            newCalendar1.Location = new Point(13, 20);
             newCalendar1.Margin = new Padding(0);
             newCalendar1.MaxSelectionCount = 365;
             newCalendar1.Name = "newCalendar1";
@@ -213,7 +217,7 @@
             Search.FlatStyle = FlatStyle.Flat;
             Search.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Search.ForeColor = Color.White;
-            Search.Location = new Point(9, 616);
+            Search.Location = new Point(13, 183);
             Search.Name = "Search";
             Search.Size = new Size(213, 50);
             Search.TabIndex = 38;
@@ -226,7 +230,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(252, 473);
+            label2.Location = new Point(249, 39);
             label2.Name = "label2";
             label2.Size = new Size(63, 20);
             label2.TabIndex = 42;
@@ -237,9 +241,9 @@
             // 
             cbZonaSelectie.FormattingEnabled = true;
             cbZonaSelectie.Items.AddRange(new object[] { "Cuntu Grup 1", "Cuntu Grup 2", "Craiu 1 Grup 1", "Craiu 1 Grup 2", "Craiu 2 Grup 1", "Craiu 2 Grup 2", "Sebesel 1 Grup 1", "Sebesel 1 Grup 2", "Sebesel 2 Grup 1", "Sebesel 2 Grup 2", "Cornereva" });
-            cbZonaSelectie.Location = new Point(321, 472);
+            cbZonaSelectie.Location = new Point(318, 38);
             cbZonaSelectie.Name = "cbZonaSelectie";
-            cbZonaSelectie.Size = new Size(163, 23);
+            cbZonaSelectie.Size = new Size(163, 25);
             cbZonaSelectie.TabIndex = 43;
             cbZonaSelectie.SelectedIndexChanged += cbZonaSelectie_SelectedIndexChanged;
             // 
@@ -251,7 +255,7 @@
             btnPrintCSV.FlatStyle = FlatStyle.Flat;
             btnPrintCSV.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnPrintCSV.ForeColor = Color.White;
-            btnPrintCSV.Location = new Point(255, 617);
+            btnPrintCSV.Location = new Point(715, 183);
             btnPrintCSV.Name = "btnPrintCSV";
             btnPrintCSV.Size = new Size(129, 50);
             btnPrintCSV.TabIndex = 46;
@@ -262,9 +266,9 @@
             // 
             // tbEnergie_Produsa
             // 
-            tbEnergie_Produsa.Location = new Point(897, 498);
+            tbEnergie_Produsa.Location = new Point(505, 65);
             tbEnergie_Produsa.Name = "tbEnergie_Produsa";
-            tbEnergie_Produsa.Size = new Size(174, 23);
+            tbEnergie_Produsa.Size = new Size(174, 25);
             tbEnergie_Produsa.TabIndex = 47;
             // 
             // lblEnergie_Produsa
@@ -272,7 +276,7 @@
             lblEnergie_Produsa.AutoSize = true;
             lblEnergie_Produsa.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblEnergie_Produsa.ForeColor = Color.White;
-            lblEnergie_Produsa.Location = new Point(904, 475);
+            lblEnergie_Produsa.Location = new Point(512, 42);
             lblEnergie_Produsa.Name = "lblEnergie_Produsa";
             lblEnergie_Produsa.Size = new Size(161, 20);
             lblEnergie_Produsa.TabIndex = 48;
@@ -283,7 +287,7 @@
             lblApa_Consumata.AutoSize = true;
             lblApa_Consumata.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblApa_Consumata.ForeColor = Color.White;
-            lblApa_Consumata.Location = new Point(890, 537);
+            lblApa_Consumata.Location = new Point(498, 104);
             lblApa_Consumata.Name = "lblApa_Consumata";
             lblApa_Consumata.Size = new Size(188, 20);
             lblApa_Consumata.TabIndex = 50;
@@ -291,9 +295,9 @@
             // 
             // tbApa_Consumata
             // 
-            tbApa_Consumata.Location = new Point(897, 560);
+            tbApa_Consumata.Location = new Point(505, 127);
             tbApa_Consumata.Name = "tbApa_Consumata";
-            tbApa_Consumata.Size = new Size(174, 23);
+            tbApa_Consumata.Size = new Size(174, 25);
             tbApa_Consumata.TabIndex = 49;
             // 
             // lblPutere_Medie
@@ -301,7 +305,7 @@
             lblPutere_Medie.AutoSize = true;
             lblPutere_Medie.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblPutere_Medie.ForeColor = Color.White;
-            lblPutere_Medie.Location = new Point(890, 602);
+            lblPutere_Medie.Location = new Point(498, 169);
             lblPutere_Medie.Name = "lblPutere_Medie";
             lblPutere_Medie.Size = new Size(189, 20);
             lblPutere_Medie.TabIndex = 52;
@@ -309,16 +313,16 @@
             // 
             // tbPutereMedie
             // 
-            tbPutereMedie.Location = new Point(897, 625);
+            tbPutereMedie.Location = new Point(505, 192);
             tbPutereMedie.Name = "tbPutereMedie";
-            tbPutereMedie.Size = new Size(174, 23);
+            tbPutereMedie.Size = new Size(174, 25);
             tbPutereMedie.TabIndex = 51;
             // 
             // rbPutere
             // 
             rbPutere.AutoSize = true;
             rbPutere.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            rbPutere.Location = new Point(252, 533);
+            rbPutere.Location = new Point(249, 99);
             rbPutere.Name = "rbPutere";
             rbPutere.Size = new Size(73, 24);
             rbPutere.TabIndex = 54;
@@ -330,7 +334,7 @@
             // 
             rbEnergie.AutoSize = true;
             rbEnergie.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            rbEnergie.Location = new Point(252, 557);
+            rbEnergie.Location = new Point(249, 123);
             rbEnergie.Name = "rbEnergie";
             rbEnergie.Size = new Size(79, 24);
             rbEnergie.TabIndex = 55;
@@ -343,7 +347,7 @@
             rbDefault.AutoSize = true;
             rbDefault.Checked = true;
             rbDefault.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            rbDefault.Location = new Point(252, 512);
+            rbDefault.Location = new Point(249, 78);
             rbDefault.Name = "rbDefault";
             rbDefault.Size = new Size(79, 24);
             rbDefault.TabIndex = 56;
@@ -356,7 +360,7 @@
             // 
             cbEnergieOra.AutoSize = true;
             cbEnergieOra.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            cbEnergieOra.Location = new Point(351, 560);
+            cbEnergieOra.Location = new Point(348, 126);
             cbEnergieOra.Name = "cbEnergieOra";
             cbEnergieOra.Size = new Size(112, 24);
             cbEnergieOra.TabIndex = 57;
@@ -369,10 +373,10 @@
             // 
             dateTimePicker1.CustomFormat = "MMMM yyyy";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(524, 473);
+            dateTimePicker1.Location = new Point(21, 32);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.ShowUpDown = true;
-            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.Size = new Size(200, 25);
             dateTimePicker1.TabIndex = 58;
             // 
             // Btn_Print_Raport_Lunar
@@ -383,13 +387,51 @@
             Btn_Print_Raport_Lunar.FlatStyle = FlatStyle.Flat;
             Btn_Print_Raport_Lunar.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Btn_Print_Raport_Lunar.ForeColor = Color.White;
-            Btn_Print_Raport_Lunar.Location = new Point(524, 507);
+            Btn_Print_Raport_Lunar.Location = new Point(21, 71);
             Btn_Print_Raport_Lunar.Name = "Btn_Print_Raport_Lunar";
             Btn_Print_Raport_Lunar.Size = new Size(200, 50);
             Btn_Print_Raport_Lunar.TabIndex = 59;
-            Btn_Print_Raport_Lunar.Text = "Print\r\nRaport";
+            Btn_Print_Raport_Lunar.Text = "Print\r\nRaport Lunar";
             Btn_Print_Raport_Lunar.UseVisualStyleBackColor = false;
             Btn_Print_Raport_Lunar.Click += Btn_Print_Raport_Lunar_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(Btn_Print_Raport_Lunar);
+            groupBox1.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox1.Location = new Point(825, 489);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(237, 147);
+            groupBox1.TabIndex = 60;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Raport Lunar";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(newCalendar1);
+            groupBox2.Controls.Add(Search);
+            groupBox2.Controls.Add(cbEnergieOra);
+            groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(rbDefault);
+            groupBox2.Controls.Add(cbZonaSelectie);
+            groupBox2.Controls.Add(rbEnergie);
+            groupBox2.Controls.Add(btnPrintCSV);
+            groupBox2.Controls.Add(rbPutere);
+            groupBox2.Controls.Add(tbEnergie_Produsa);
+            groupBox2.Controls.Add(lblPutere_Medie);
+            groupBox2.Controls.Add(lblEnergie_Produsa);
+            groupBox2.Controls.Add(tbPutereMedie);
+            groupBox2.Controls.Add(tbApa_Consumata);
+            groupBox2.Controls.Add(lblApa_Consumata);
+            groupBox2.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox2.Location = new Point(12, 429);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(700, 240);
+            groupBox2.TabIndex = 61;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Raport Selectie";
             // 
             // Frm_Dashboard
             // 
@@ -397,23 +439,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 65, 82);
             ClientSize = new Size(1290, 674);
-            Controls.Add(Btn_Print_Raport_Lunar);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(cbEnergieOra);
-            Controls.Add(rbDefault);
-            Controls.Add(rbEnergie);
-            Controls.Add(rbPutere);
-            Controls.Add(lblPutere_Medie);
-            Controls.Add(tbPutereMedie);
-            Controls.Add(lblApa_Consumata);
-            Controls.Add(tbApa_Consumata);
-            Controls.Add(lblEnergie_Produsa);
-            Controls.Add(tbEnergie_Produsa);
-            Controls.Add(btnPrintCSV);
-            Controls.Add(cbZonaSelectie);
-            Controls.Add(label2);
-            Controls.Add(Search);
-            Controls.Add(newCalendar1);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(dataGridView1);
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
@@ -422,8 +449,10 @@
             Load += Frm_Dashboard_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
 
@@ -462,6 +491,8 @@
         private CheckBox cbEnergieOra;
         private DateTimePicker dateTimePicker1;
         private Button Btn_Print_Raport_Lunar;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
     }
 
 }

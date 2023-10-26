@@ -455,5 +455,10 @@ namespace Azel_Raportare_Balkani
             return rezultat;
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
