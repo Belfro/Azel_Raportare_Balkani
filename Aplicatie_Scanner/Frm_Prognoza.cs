@@ -84,23 +84,42 @@ namespace Azel_Raportare_Balkani
 
 
                 UpdateBinding();
+
+
+                int contor_valori_pozitive_cuntu = date_putere.Where(x=>x.Cuntu_Grup_1>2 || x.Cuntu_Grup_2>2).Count();
+                int contor_valori_pozitive_craiu_1 = date_putere.Where(x => x.Craiu_1_Grup_1 > 2 || x.Craiu_1_Grup_2 > 2).Count();
+                int contor_valori_pozitive_craiu_2 = date_putere.Where(x => x.Craiu_2_Grup_1 > 2 || x.Craiu_2_Grup_2 > 2).Count();
+                int contor_valori_pozitive_Sebesel_1 = date_putere.Where(x => x.Sebesel_1_Grup_1 > 2 || x.Sebesel_1_Grup_2 > 2).Count();
+                int contor_valori_pozitive_Sebesel_2 = date_putere.Where(x => x.Sebesel_2_Grup_1 > 2 || x.Sebesel_2_Grup_2 > 2).Count();
+                int contor_valori_pozitive_Cornereva = date_putere.Where(x => x.Cornereva > 2).Count();
+
+                if (contor_valori_pozitive_cuntu == 0) contor_valori_pozitive_cuntu = 1;
+                if (contor_valori_pozitive_craiu_1 == 0) contor_valori_pozitive_craiu_1 = 1;
+                if (contor_valori_pozitive_craiu_2 == 0) contor_valori_pozitive_craiu_2 = 1;
+                if (contor_valori_pozitive_Sebesel_1 == 0) contor_valori_pozitive_Sebesel_1 = 1;
+                if (contor_valori_pozitive_Sebesel_2 == 0) contor_valori_pozitive_Sebesel_2 = 1;
+                if (contor_valori_pozitive_Cornereva == 0) contor_valori_pozitive_Cornereva = 1;
+
+
+
+
                 for (int i = 0; i < 96; i++)
                 {
                     date_putere_prognoza.Add(new DatePutere
                     {
                         Date_Time = newCalendar1.SelectionStart.AddDays(1).AddMinutes(15 * i),
-                        Cuntu_Grup_1 = Math.Round((date_putere.Sum(x => x.Cuntu_Grup_1) + date_putere.Sum(x => x.Cuntu_Grup_2)) / 96, 2),
+                        Cuntu_Grup_1 = Math.Round((date_putere.Sum(x => x.Cuntu_Grup_1) + date_putere.Sum(x => x.Cuntu_Grup_2)) / contor_valori_pozitive_cuntu, 2),
 
 
-                        Craiu_1_Grup_1 = Math.Round((date_putere.Sum(x => x.Craiu_1_Grup_1) + date_putere.Sum(x => x.Craiu_1_Grup_2)) / 96, 2),
+                        Craiu_1_Grup_1 = Math.Round((date_putere.Sum(x => x.Craiu_1_Grup_1) + date_putere.Sum(x => x.Craiu_1_Grup_2)) / contor_valori_pozitive_craiu_1, 2),
 
-                        Craiu_2_Grup_1 = Math.Round((date_putere.Sum(x => x.Craiu_2_Grup_1) + date_putere.Sum(x => x.Craiu_2_Grup_2)) / 96, 2),
+                        Craiu_2_Grup_1 = Math.Round((date_putere.Sum(x => x.Craiu_2_Grup_1) + date_putere.Sum(x => x.Craiu_2_Grup_2)) / contor_valori_pozitive_craiu_2, 2),
 
-                        Sebesel_1_Grup_1 = Math.Round((date_putere.Sum(x => x.Sebesel_1_Grup_1) + date_putere.Sum(x => x.Sebesel_1_Grup_2)) / 96, 2),
+                        Sebesel_1_Grup_1 = Math.Round((date_putere.Sum(x => x.Sebesel_1_Grup_1) + date_putere.Sum(x => x.Sebesel_1_Grup_2)) / contor_valori_pozitive_Sebesel_1, 2),
 
-                        Sebesel_2_Grup_1 = Math.Round((date_putere.Sum(x => x.Sebesel_2_Grup_1) + date_putere.Sum(x => x.Sebesel_2_Grup_2)) / 96, 2),
+                        Sebesel_2_Grup_1 = Math.Round((date_putere.Sum(x => x.Sebesel_2_Grup_1) + date_putere.Sum(x => x.Sebesel_2_Grup_2)) / contor_valori_pozitive_Sebesel_2, 2),
 
-                        Cornereva = Math.Round((date_putere.Sum(x => x.Cornereva)) / 96, 2)
+                        Cornereva = Math.Round((date_putere.Sum(x => x.Cornereva)) / contor_valori_pozitive_Cornereva, 2)
                     }
 
                     );
