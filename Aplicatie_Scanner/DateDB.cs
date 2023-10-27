@@ -63,7 +63,7 @@
         {
             get
             {
-                return Cuntu_Grup_1 + Cuntu_Grup_2 + Craiu_1_Grup_1 + Craiu_1_Grup_2+ Craiu_2_Grup_1+ Craiu_2_Grup_2+ Sebesel_1_Grup_1+ Sebesel_1_Grup_2+ Sebesel_2_Grup_1+ Sebesel_2_Grup_2 + Cornereva;
+                return Math.Round(Cuntu_Grup_1 + Cuntu_Grup_2 + Craiu_1_Grup_1 + Craiu_1_Grup_2 + Craiu_2_Grup_1 + Craiu_2_Grup_2 + Sebesel_1_Grup_1 + Sebesel_1_Grup_2 + Sebesel_2_Grup_1 + Sebesel_2_Grup_2 + Cornereva, 1) ;
             }
         }
 
