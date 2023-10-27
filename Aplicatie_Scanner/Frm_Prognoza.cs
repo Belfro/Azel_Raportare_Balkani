@@ -93,12 +93,12 @@ namespace Azel_Raportare_Balkani
                 int contor_valori_pozitive_Sebesel_2 = date_putere.Where(x => x.Sebesel_2_Grup_1 > 2 || x.Sebesel_2_Grup_2 > 2).Count();
                 int contor_valori_pozitive_Cornereva = date_putere.Where(x => x.Cornereva > 2).Count();
 
-                if (contor_valori_pozitive_cuntu == 0) contor_valori_pozitive_cuntu = 1;
-                if (contor_valori_pozitive_craiu_1 == 0) contor_valori_pozitive_craiu_1 = 1;
-                if (contor_valori_pozitive_craiu_2 == 0) contor_valori_pozitive_craiu_2 = 1;
-                if (contor_valori_pozitive_Sebesel_1 == 0) contor_valori_pozitive_Sebesel_1 = 1;
-                if (contor_valori_pozitive_Sebesel_2 == 0) contor_valori_pozitive_Sebesel_2 = 1;
-                if (contor_valori_pozitive_Cornereva == 0) contor_valori_pozitive_Cornereva = 1;
+                if (contor_valori_pozitive_cuntu <30) contor_valori_pozitive_cuntu = 30;
+                if (contor_valori_pozitive_craiu_1 <30) contor_valori_pozitive_craiu_1 = 30;
+                if (contor_valori_pozitive_craiu_2 < 30) contor_valori_pozitive_craiu_2 = 30;
+                if (contor_valori_pozitive_Sebesel_1 < 30) contor_valori_pozitive_Sebesel_1 = 30;
+                if (contor_valori_pozitive_Sebesel_2 < 30) contor_valori_pozitive_Sebesel_2 = 30;
+                if (contor_valori_pozitive_Cornereva < 30) contor_valori_pozitive_Cornereva = 30;
 
 
 
