@@ -217,7 +217,7 @@
             Search.FlatStyle = FlatStyle.Flat;
             Search.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Search.ForeColor = Color.White;
-            Search.Location = new Point(13, 183);
+            Search.Location = new Point(13, 190);
             Search.Name = "Search";
             Search.Size = new Size(213, 50);
             Search.TabIndex = 38;
@@ -255,7 +255,7 @@
             btnPrintCSV.FlatStyle = FlatStyle.Flat;
             btnPrintCSV.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnPrintCSV.ForeColor = Color.White;
-            btnPrintCSV.Location = new Point(715, 183);
+            btnPrintCSV.Location = new Point(262, 178);
             btnPrintCSV.Name = "btnPrintCSV";
             btnPrintCSV.Size = new Size(129, 50);
             btnPrintCSV.TabIndex = 46;
