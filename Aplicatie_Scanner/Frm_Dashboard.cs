@@ -428,7 +428,7 @@ namespace Azel_Raportare_Balkani
                 file.WriteLine(GetDateLuna("Cornereva"));
                 file.WriteLine("");
 
-                file.WriteLine($",,,{energie_raport_lunar},,,{debit_raport_lunar}");
+                file.WriteLine($",,,{Math.Round(energie_raport_lunar,2)},,,{Math.Round(debit_raport_lunar,2)}");
                 file.WriteLine($",,,Energie Totala,,,Volum Total Turbinat");
 
             }
@@ -460,11 +460,11 @@ namespace Azel_Raportare_Balkani
             {
                 index_initial_energie = date_luna.Select(x => x.Energie).SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_energie = date_luna.Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
-                energie_totala = (index_final_energie - index_initial_energie);
+                energie_totala = Math.Round((index_final_energie - index_initial_energie),2);
 
                 index_initial_debit = date_luna.Select(x => x.Debit_Turbinat_Total).SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_debit = date_luna.Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
-                debit_total = (index_final_debit - index_initial_debit);
+                debit_total = Math.Round((index_final_debit - index_initial_debit),2);
             }
             energie_raport_lunar = energie_raport_lunar + energie_totala;
             debit_raport_lunar = debit_raport_lunar + debit_total;
