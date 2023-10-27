@@ -405,7 +405,7 @@
             groupBox1.Size = new Size(237, 147);
             groupBox1.TabIndex = 60;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Raport Lunar";
+            groupBox1.Text = "Raport Lunar Energie/Debite";
             groupBox1.Enter += groupBox1_Enter;
             // 
             // groupBox2

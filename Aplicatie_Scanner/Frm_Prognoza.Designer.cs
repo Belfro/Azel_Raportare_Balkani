@@ -55,15 +55,10 @@
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
             BtnSearch = new Button();
@@ -209,7 +204,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14 });
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14 });
             dataGridView2.GridColor = SystemColors.ControlLight;
             dataGridView2.Location = new Point(648, 9);
             dataGridView2.Margin = new Padding(0);
@@ -240,53 +235,28 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewTextBoxColumn3.HeaderText = "Cuntu Grup 1";
+            dataGridViewTextBoxColumn3.HeaderText = "Cuntu";
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.HeaderText = "Cuntu Grup 2";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewTextBoxColumn5.HeaderText = "Craiu 1 Grup 1";
+            dataGridViewTextBoxColumn5.HeaderText = "Craiu 1";
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "Craiu 1 Grup 2";
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewTextBoxColumn7.HeaderText = "Craiu 2 Grup 1";
+            dataGridViewTextBoxColumn7.HeaderText = "Craiu 2";
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewTextBoxColumn8.HeaderText = "Craiu 2 Grup 2";
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn9
             // 
-            dataGridViewTextBoxColumn9.HeaderText = "Sebesel 1 Grup 1";
+            dataGridViewTextBoxColumn9.HeaderText = "Sebesel 1";
             dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewTextBoxColumn10.HeaderText = "Sebesel 1 Grup 2";
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // dataGridViewTextBoxColumn11
             // 
-            dataGridViewTextBoxColumn11.HeaderText = "Sebesel 2 Grup 1";
+            dataGridViewTextBoxColumn11.HeaderText = "Sebesel 2";
             dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            dataGridViewTextBoxColumn12.HeaderText = "Sebesel 2 Grup 1";
-            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -332,25 +302,29 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(202, 426);
+            label1.Location = new Point(105, 422);
             label1.Name = "label1";
-            label1.Size = new Size(197, 37);
+            label1.Size = new Size(238, 37);
             label1.TabIndex = 42;
-            label1.Text = "Ziua Selectata";
+            label1.Text = "Ziua Precedenta: ";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(880, 426);
+            label2.Location = new Point(825, 422);
             label2.Name = "label2";
-            label2.Size = new Size(219, 37);
+            label2.Size = new Size(233, 37);
             label2.TabIndex = 43;
-            label2.Text = "Ziua Urmatoare";
+            label2.Text = "Ziua Urmatoare: ";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Frm_Prognoza
             // 
@@ -405,15 +379,10 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }

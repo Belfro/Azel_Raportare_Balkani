@@ -249,7 +249,7 @@ namespace Azel_Raportare_Balkani
             label1.ForeColor = Color.FromArgb(4, 224, 190);
             label1.Location = new Point(21, 100);
             label1.Name = "label1";
-            label1.Size = new Size(144, 32);
+            label1.Size = new Size(147, 32);
             label1.TabIndex = 0;
             label1.Text = "AZEL Database \r\nManagement Studio";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -679,9 +679,10 @@ namespace Azel_Raportare_Balkani
             notifyIcon1.BalloonTipTitle = "Azel Raportare";
             notifyIcon1.ContextMenuStrip = contextMenuStrip1;
             notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
-            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Text = "Azel Raportare Balkani";
             notifyIcon1.Visible = true;
             notifyIcon1.DoubleClick += notifyIcon1_DoubleClick;
+            notifyIcon1.MouseDoubleClick += notifyIcon1_MouseDoubleClick;
             // 
             // contextMenuStrip1
             // 

@@ -83,7 +83,7 @@ namespace Azel_Raportare_Balkani
 
         ///////////// Cornereva////////////////
         Plc PLC_Cornereva = new Plc(CpuType.S71200, "172.16.11.200", 0, 1);
-        
+
 
 
 
@@ -593,7 +593,7 @@ namespace Azel_Raportare_Balkani
                 Sebesel_2_Grup_2_pbTick.Visible = true;
                 Sebesel_2_Grup_2_pbX.Visible = false;
             }
-            else 
+            else
             {
                 Sebesel_2_Grup_2_pbTick.Visible = false;
                 Sebesel_2_Grup_2_pbX.Visible = true;
@@ -665,6 +665,9 @@ namespace Azel_Raportare_Balkani
             System.Windows.Forms.Application.Exit();
         }
 
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
 
+        }
     }
 }

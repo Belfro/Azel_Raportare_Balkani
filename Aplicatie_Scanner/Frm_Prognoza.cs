@@ -56,79 +56,90 @@ namespace Azel_Raportare_Balkani
 
 
                 int index = 0;
-                date_putere = db.GetDateEnergie(newCalendar1.SelectionStart, newCalendar1.SelectionStart.AddDays(1).AddTicks(-1));
-               /* date_putere[1] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-1), newCalendar1.SelectionStart.AddDays(0).AddTicks(-1));
-                date_putere[2] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-2), newCalendar1.SelectionStart.AddDays(-1).AddTicks(-1));
-                date_putere[3] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-3), newCalendar1.SelectionStart.AddDays(-2).AddTicks(-1));
-                date_putere[4] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-4), newCalendar1.SelectionStart.AddDays(-3).AddTicks(-1));
-                date_putere[5] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-5), newCalendar1.SelectionStart.AddDays(-4).AddTicks(-1));
-                date_putere[6] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-6), newCalendar1.SelectionStart.AddDays(-5).AddTicks(-1));*/
-
-               
+                date_putere = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-1), newCalendar1.SelectionStart.AddDays(0).AddTicks(-1));
+                /* date_putere[1] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-1), newCalendar1.SelectionStart.AddDays(0).AddTicks(-1));
+                 date_putere[2] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-2), newCalendar1.SelectionStart.AddDays(-1).AddTicks(-1));
+                 date_putere[3] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-3), newCalendar1.SelectionStart.AddDays(-2).AddTicks(-1));
+                 date_putere[4] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-4), newCalendar1.SelectionStart.AddDays(-3).AddTicks(-1));
+                 date_putere[5] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-5), newCalendar1.SelectionStart.AddDays(-4).AddTicks(-1));
+                 date_putere[6] = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-6), newCalendar1.SelectionStart.AddDays(-5).AddTicks(-1));*/
 
 
+                label1.Text = "Ziua Precedenta: " + newCalendar1.SelectionStart.AddDays(-1).ToString("yyyy-MM-dd");
+                label2.Text = "Ziua Urmatoare: " + newCalendar1.SelectionStart.AddDays(+1).ToString("yyyy-MM-dd");
 
-                List<DatePutere> date_putere_prognoza = new List<DatePutere>(date_putere.Count);
+                List<DatePutere> date_putere_prognoza = new List<DatePutere>();
 
-                  date_putere.ForEach((item) =>
-                  {
-                      date_putere_prognoza.Add((DatePutere)item.Clone());
-                  });
-               /* var prognoza = ForecastElectricity(date_putere, 96);
-                for (int i = 0; i < 24; i++)
+                /*  date_putere.ForEach((item) =>
                 {
+                    date_putere_prognoza.Add((DatePutere)item.Clone());
+                });*/
+                /* var prognoza = ForecastElectricity(date_putere, 96);
+                 for (int i = 0; i < 24; i++)
+                 {
 
-                    date_putere_prognoza[i].Craiu_2_Grup_1 = prognoza[i];
-                }
-                */
+                     date_putere_prognoza[i].Craiu_2_Grup_1 = prognoza[i];
+                 }
+                 */
 
-               
-
-
-
-               
-
-
-                  for (int i = 0; i < date_putere.Count; i++)
-                  {
-                      date_putere_prognoza[i].Date_Time = date_putere_prognoza[i].Date_Time.AddDays(1);
-                      date_putere_prognoza[i].Cuntu_Grup_1 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_1;
-                      date_putere_prognoza[i].Cuntu_Grup_2 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_2;
-                      date_putere_prognoza[i].Craiu_1_Grup_1 = 0.9 * date_putere_prognoza[i].Craiu_1_Grup_1;
-                      date_putere_prognoza[i].Craiu_1_Grup_2 = 0.9 * date_putere_prognoza[i].Craiu_1_Grup_2;
-                      date_putere_prognoza[i].Craiu_2_Grup_1 = 0.9 * date_putere_prognoza[i].Craiu_2_Grup_1;
-                      date_putere_prognoza[i].Craiu_2_Grup_2 = 0.9 * date_putere_prognoza[i].Craiu_2_Grup_2;
-                      date_putere_prognoza[i].Sebesel_1_Grup_1 = 0.9 * date_putere_prognoza[i].Sebesel_1_Grup_1;
-                      date_putere_prognoza[i].Sebesel_1_Grup_2 = 0.9 * date_putere_prognoza[i].Sebesel_1_Grup_2;
-                      date_putere_prognoza[i].Sebesel_2_Grup_1 = 0.9 * date_putere_prognoza[i].Sebesel_2_Grup_1;
-                      date_putere_prognoza[i].Sebesel_2_Grup_2 = 0.9 * date_putere_prognoza[i].Sebesel_2_Grup_2;
-                      date_putere_prognoza[i].Cornereva = 0.9 * date_putere_prognoza[i].Cornereva;
-                  }
-
-                
 
                 UpdateBinding();
+                for (int i = 0; i < 96; i++)
+                {
+                    date_putere_prognoza.Add(new DatePutere
+                    {
+                        Date_Time = newCalendar1.SelectionStart.AddDays(1).AddMinutes(15 * i),
+                        Cuntu_Grup_1 = Math.Round((date_putere.Sum(x => x.Cuntu_Grup_1) + date_putere.Sum(x => x.Cuntu_Grup_2)) / 96, 2),
+
+
+                        Craiu_1_Grup_1 = Math.Round((date_putere.Sum(x => x.Craiu_1_Grup_1) + date_putere.Sum(x => x.Craiu_1_Grup_2)) / 96, 2),
+
+                        Craiu_2_Grup_1 = Math.Round((date_putere.Sum(x => x.Craiu_2_Grup_1) + date_putere.Sum(x => x.Craiu_2_Grup_2)) / 96, 2),
+
+                        Sebesel_1_Grup_1 = Math.Round((date_putere.Sum(x => x.Sebesel_1_Grup_1) + date_putere.Sum(x => x.Sebesel_1_Grup_2)) / 96, 2),
+
+                        Sebesel_2_Grup_1 = Math.Round((date_putere.Sum(x => x.Sebesel_2_Grup_1) + date_putere.Sum(x => x.Sebesel_2_Grup_2)) / 96, 2),
+
+                        Cornereva = Math.Round((date_putere.Sum(x => x.Cornereva)) / 96, 2)
+                    }
+
+                    );
+                }
+
+
+
+
+                /*           for (int i = 0; i < date_putere.Count; i++)
+                           {
+
+                               date_putere_prognoza[i].Date_Time = date_putere_prognoza[i].Date_Time.AddDays(1);
+                               date_putere_prognoza[i].Cuntu_Grup_1 = 0.9 * date_putere_prognoza[i].Cuntu_Grup_1 + 0.9 * date_putere_prognoza[i].Cuntu_Grup_2;
+                               date_putere_prognoza[i].Craiu_1_Grup_1 = 0.9 * date_putere_prognoza[i].Craiu_1_Grup_1 + 0.9 * date_putere_prognoza[i].Craiu_1_Grup_2;
+                               date_putere_prognoza[i].Craiu_2_Grup_1 = 0.9 * date_putere_prognoza[i].Craiu_2_Grup_1 + 0.9 * date_putere_prognoza[i].Craiu_2_Grup_2;
+                               date_putere_prognoza[i].Sebesel_1_Grup_1 = 0.9 * date_putere_prognoza[i].Sebesel_1_Grup_1 + 0.9 * date_putere_prognoza[i].Sebesel_1_Grup_2;
+                               date_putere_prognoza[i].Sebesel_2_Grup_1 = 0.9 * date_putere_prognoza[i].Sebesel_2_Grup_1 + 0.9 * date_putere_prognoza[i].Sebesel_2_Grup_2;
+                               date_putere_prognoza[i].Cornereva = 0.9 * date_putere_prognoza[i].Cornereva;
+                           }*/
+
+
+
+
                 dataGridView2.AutoGenerateColumns = false;
                 dataGridView2.Columns[0].DataPropertyName = "DoarData";
                 dataGridView2.Columns[1].DataPropertyName = "DoarTimp";
                 dataGridView2.Columns[2].DataPropertyName = "Cuntu_Grup_1";
-                dataGridView2.Columns[3].DataPropertyName = "Cuntu_Grup_2";
-                dataGridView2.Columns[4].DataPropertyName = "Craiu_1_Grup_1";
-                dataGridView2.Columns[5].DataPropertyName = "Craiu_1_Grup_2";
-                dataGridView2.Columns[6].DataPropertyName = "Craiu_2_Grup_1";
-                dataGridView2.Columns[7].DataPropertyName = "Craiu_2_Grup_2";
-                dataGridView2.Columns[8].DataPropertyName = "Sebesel_1_Grup_1";
-                dataGridView2.Columns[9].DataPropertyName = "Sebesel_1_Grup_2";
-                dataGridView2.Columns[10].DataPropertyName = "Sebesel_2_Grup_1";
-                dataGridView2.Columns[11].DataPropertyName = "Sebesel_2_Grup_2";
-                dataGridView2.Columns[12].DataPropertyName = "Cornereva";
-                dataGridView2.Columns[13].DataPropertyName = "Total";
+                dataGridView2.Columns[3].DataPropertyName = "Craiu_1_Grup_1";
+                dataGridView2.Columns[4].DataPropertyName = "Craiu_2_Grup_1";
+                dataGridView2.Columns[5].DataPropertyName = "Sebesel_1_Grup_1";
+                dataGridView2.Columns[6].DataPropertyName = "Sebesel_2_Grup_1";
+                dataGridView2.Columns[7].DataPropertyName = "Cornereva";
+                dataGridView2.Columns[8].DataPropertyName = "Total";
                 dataGridView2.DataSource = date_putere_prognoza;
 
             }
             catch (Exception ex)
             {
-                 MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
         }
         private void UpdateBinding()
@@ -183,7 +194,7 @@ namespace Azel_Raportare_Balkani
 
 
             // Convert historical data to an array
-            double[] data = historicalData[0].Select(x=>x.Craiu_2_Grup_1).ToArray();
+            double[] data = historicalData[0].Select(x => x.Craiu_2_Grup_1).ToArray();
 
             // Calculate the average seasonality over the last week (7 days)
             double averageSeasonality = CalculateAverageSeasonality(data, 7);
@@ -208,7 +219,7 @@ namespace Azel_Raportare_Balkani
             }
 
             // Forecast using Holt-Winters method
-            for (int i = 0; i < dataLength-1; i++)
+            for (int i = 0; i < dataLength - 1; i++)
             {
 
                 level[i + 1] = alpha * data[i] / seasonal[i] + (1 - alpha) * (level[i] + trend[i]);
@@ -218,7 +229,7 @@ namespace Azel_Raportare_Balkani
 
             // Generate forecasts for the next day
             double[] forecasts = new double[forecastHorizon];
-            for (int i = 0; i < forecastHorizon-1; i++)
+            for (int i = 0; i < forecastHorizon - 1; i++)
             {
                 int dataIndex = i;
                 if (dataIndex < data.Length)
