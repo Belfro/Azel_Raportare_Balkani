@@ -65,9 +65,23 @@
             newCalendar1 = new NewCalendar();
             label1 = new Label();
             label2 = new Label();
+            tbfactorCuntu = new TextBox();
+            groupBox1 = new GroupBox();
+            label8 = new Label();
+            tbfactorCornereva = new TextBox();
+            label7 = new Label();
+            tbfactorSebesel2 = new TextBox();
+            label6 = new Label();
+            tbfactorSebesel1 = new TextBox();
+            label5 = new Label();
+            tbfactorCraiu2 = new TextBox();
+            label4 = new Label();
+            tbfactorCraiu1 = new TextBox();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox2
@@ -326,12 +340,167 @@
             label2.Text = "Ziua Urmatoare: ";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // tbfactorCuntu
+            // 
+            tbfactorCuntu.Location = new Point(13, 50);
+            tbfactorCuntu.Name = "tbfactorCuntu";
+            tbfactorCuntu.Size = new Size(72, 33);
+            tbfactorCuntu.TabIndex = 44;
+            tbfactorCuntu.Text = "1.0";
+            tbfactorCuntu.TextChanged += tbfactorCuntu_TextChanged;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(tbfactorCornereva);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(tbfactorSebesel2);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(tbfactorSebesel1);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(tbfactorCraiu2);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(tbfactorCraiu1);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(tbfactorCuntu);
+            groupBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox1.Location = new Point(803, 472);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(282, 178);
+            groupBox1.TabIndex = 45;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Factori Corectie";
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(180, 106);
+            label8.Name = "label8";
+            label8.Size = new Size(91, 23);
+            label8.TabIndex = 56;
+            label8.Text = "Cornereva";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tbfactorCornereva
+            // 
+            tbfactorCornereva.Location = new Point(191, 129);
+            tbfactorCornereva.Name = "tbfactorCornereva";
+            tbfactorCornereva.Size = new Size(72, 33);
+            tbfactorCornereva.TabIndex = 55;
+            tbfactorCornereva.Text = "1.0";
+            tbfactorCornereva.TextChanged += tbfactorCornereva_TextChanged;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(97, 106);
+            label7.Name = "label7";
+            label7.Size = new Size(85, 23);
+            label7.TabIndex = 54;
+            label7.Text = "Sebesel 2";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tbfactorSebesel2
+            // 
+            tbfactorSebesel2.Location = new Point(103, 129);
+            tbfactorSebesel2.Name = "tbfactorSebesel2";
+            tbfactorSebesel2.Size = new Size(72, 33);
+            tbfactorSebesel2.TabIndex = 53;
+            tbfactorSebesel2.Text = "1.0";
+            tbfactorSebesel2.TextChanged += tbfactorSebesel2_TextChanged;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(7, 106);
+            label6.Name = "label6";
+            label6.Size = new Size(85, 23);
+            label6.TabIndex = 52;
+            label6.Text = "Sebesel 1";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tbfactorSebesel1
+            // 
+            tbfactorSebesel1.Location = new Point(13, 129);
+            tbfactorSebesel1.Name = "tbfactorSebesel1";
+            tbfactorSebesel1.Size = new Size(72, 33);
+            tbfactorSebesel1.TabIndex = 51;
+            tbfactorSebesel1.Text = "1.0";
+            tbfactorSebesel1.TextChanged += tbfactorSebesel1_TextChanged;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(193, 27);
+            label5.Name = "label5";
+            label5.Size = new Size(67, 23);
+            label5.TabIndex = 50;
+            label5.Text = "Craiu 2";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tbfactorCraiu2
+            // 
+            tbfactorCraiu2.Location = new Point(191, 50);
+            tbfactorCraiu2.Name = "tbfactorCraiu2";
+            tbfactorCraiu2.Size = new Size(72, 33);
+            tbfactorCraiu2.TabIndex = 49;
+            tbfactorCraiu2.Text = "1.0";
+            tbfactorCraiu2.TextChanged += tbfactorCraiu2_TextChanged;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(105, 27);
+            label4.Name = "label4";
+            label4.Size = new Size(67, 23);
+            label4.TabIndex = 48;
+            label4.Text = "Craiu 1";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tbfactorCraiu1
+            // 
+            tbfactorCraiu1.Location = new Point(103, 50);
+            tbfactorCraiu1.Name = "tbfactorCraiu1";
+            tbfactorCraiu1.Size = new Size(72, 33);
+            tbfactorCraiu1.TabIndex = 47;
+            tbfactorCraiu1.Text = "1.0";
+            tbfactorCraiu1.TextChanged += tbfactorCraiu1_TextChanged;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(20, 27);
+            label3.Name = "label3";
+            label3.Size = new Size(58, 23);
+            label3.TabIndex = 46;
+            label3.Text = "Cuntu";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Frm_Prognoza
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 65, 82);
             ClientSize = new Size(1290, 674);
+            Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(newCalendar1);
@@ -348,6 +517,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -385,5 +556,18 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private TextBox tbfactorCuntu;
+        private GroupBox groupBox1;
+        private Label label8;
+        private TextBox tbfactorCornereva;
+        private Label label7;
+        private TextBox tbfactorSebesel2;
+        private Label label6;
+        private TextBox tbfactorSebesel1;
+        private Label label5;
+        private TextBox tbfactorCraiu2;
+        private Label label4;
+        private TextBox tbfactorCraiu1;
+        private Label label3;
     }
 }

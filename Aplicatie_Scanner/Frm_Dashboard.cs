@@ -87,7 +87,7 @@ namespace Azel_Raportare_Balkani
                 tbPutereMedie.Text = "0" + " kW";
 
                 tbPutereMedie.Text = Math.Round(date.Average(p => p.Putere), 2).ToString() + " kW";
-                tbEnergie_Produsa.Text = (Math.Round(date[date.FindLastIndex(item => item.Energie > 0)].Energie - date[date.FindIndex(item => item.Energie > 0)].Energie,2)).ToString() + " [kWh]";
+                tbEnergie_Produsa.Text = (Math.Round(date[date.FindLastIndex(item => item.Energie > 0)].Energie - date[date.FindIndex(item => item.Energie > 0)].Energie, 2)).ToString() + " [kWh]";
                 tbApa_Consumata.Text = (Math.Round(date[date.FindLastIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total - date[date.FindIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total, 2)).ToString() + " [m³]";
 
 
@@ -128,28 +128,46 @@ namespace Azel_Raportare_Balkani
                     date_putere_ora.Clear();
                     if (cbEnergieOra.Checked)
                     {
-                        for (int i = date_putere.FindIndex(x => x.Date_Time.Minute == 00); i < date_putere.Count - 4; i = i + 4)
-                        {
+
+                 /*       date_putere_ora = (List<DatePutere>)date_putere.GroupBy(d => d.Date_Time.Hour)
+           .Select(
+          g => new DatePutere
+          {
+              Date_Time = g.First().Date_Time,
+              Cuntu_Grup_1 = g.Sum(s => s.Cuntu_Grup_1),
+              Cuntu_Grup_2 = g.Sum(s => s.Cuntu_Grup_2),
+              Craiu_1_Grup_1 = g.Sum(s => s.Craiu_1_Grup_1),
+              Craiu_2_Grup_1 = g.Sum(s => s.Craiu_2_Grup_1),
+              Sebesel_1_Grup_1 = g.Sum(s => s.Sebesel_1_Grup_1),
+              Sebesel_1_Grup_2 = g.Sum(s => s.Sebesel_1_Grup_2),
+              Sebesel_2_Grup_1 = g.Sum(s => s.Sebesel_2_Grup_1),
+              Sebesel_2_Grup_2 = g.Sum(s => s.Sebesel_2_Grup_2)
 
 
-                            date_putere_ora.Add(date_putere[i]);
 
-                            #region Calcul Energie Per Ora
-                            date_putere_ora[index].Cuntu_Grup_1 = date_putere[i].Cuntu_Grup_1 + date_putere[i + 1].Cuntu_Grup_1 + date_putere[i + 2].Cuntu_Grup_1 + date_putere[i + 3].Cuntu_Grup_1;
-                            date_putere_ora[index].Cuntu_Grup_2 = date_putere[i].Cuntu_Grup_2 + date_putere[i + 1].Cuntu_Grup_2 + date_putere[i + 2].Cuntu_Grup_2 + date_putere[i + 3].Cuntu_Grup_2;
-                            date_putere_ora[index].Craiu_1_Grup_1 = date_putere[i].Craiu_1_Grup_1 + date_putere[i + 1].Craiu_1_Grup_1 + date_putere[i + 2].Craiu_1_Grup_1 + date_putere[i + 3].Craiu_1_Grup_1;
-                            date_putere_ora[index].Craiu_1_Grup_2 = date_putere[i].Craiu_1_Grup_2 + date_putere[i + 1].Craiu_1_Grup_2 + date_putere[i + 2].Craiu_1_Grup_2 + date_putere[i + 3].Craiu_1_Grup_2;
-                            date_putere_ora[index].Craiu_2_Grup_1 = date_putere[i].Craiu_2_Grup_1 + date_putere[i + 1].Craiu_2_Grup_1 + date_putere[i + 2].Craiu_2_Grup_1 + date_putere[i + 3].Craiu_2_Grup_1;
-                            date_putere_ora[index].Craiu_2_Grup_2 = date_putere[i].Craiu_2_Grup_2 + date_putere[i + 1].Craiu_2_Grup_2 + date_putere[i + 2].Craiu_2_Grup_2 + date_putere[i + 3].Craiu_2_Grup_2;
-                            date_putere_ora[index].Sebesel_1_Grup_1 = date_putere[i].Sebesel_1_Grup_1 + date_putere[i + 1].Sebesel_1_Grup_1 + date_putere[i + 2].Sebesel_1_Grup_1 + date_putere[i + 3].Sebesel_1_Grup_1;
-                            date_putere_ora[index].Sebesel_1_Grup_2 = date_putere[i].Sebesel_1_Grup_2 + date_putere[i + 1].Sebesel_1_Grup_2 + date_putere[i + 2].Sebesel_1_Grup_2 + date_putere[i + 3].Sebesel_1_Grup_2;
-                            date_putere_ora[index].Sebesel_2_Grup_1 = date_putere[i].Sebesel_2_Grup_1 + date_putere[i + 1].Sebesel_2_Grup_1 + date_putere[i + 2].Sebesel_2_Grup_1 + date_putere[i + 3].Sebesel_2_Grup_1;
-                            date_putere_ora[index].Sebesel_2_Grup_2 = date_putere[i].Sebesel_2_Grup_2 + date_putere[i + 1].Sebesel_2_Grup_2 + date_putere[i + 2].Sebesel_2_Grup_2 + date_putere[i + 3].Sebesel_2_Grup_2;
-                            date_putere_ora[index].Cornereva = date_putere[i].Cornereva + date_putere[i + 1].Cornereva + date_putere[i + 2].Cornereva + date_putere[i + 3].Cornereva;
-                            #endregion
-                            index++;
+          });;*/
+                            for (int i = date_putere.FindIndex(x => x.Date_Time.Minute == 00); i < date_putere.Count - 4; i = i + 4)
+                             {
 
-                        }
+
+                                 date_putere_ora.Add(date_putere[i]);
+
+                                 #region Calcul Energie Per Ora
+                                 date_putere_ora[index].Cuntu_Grup_1 = date_putere[i].Cuntu_Grup_1 + date_putere[i + 1].Cuntu_Grup_1 + date_putere[i + 2].Cuntu_Grup_1 + date_putere[i + 3].Cuntu_Grup_1;
+                                 date_putere_ora[index].Cuntu_Grup_2 = date_putere[i].Cuntu_Grup_2 + date_putere[i + 1].Cuntu_Grup_2 + date_putere[i + 2].Cuntu_Grup_2 + date_putere[i + 3].Cuntu_Grup_2;
+                                 date_putere_ora[index].Craiu_1_Grup_1 = date_putere[i].Craiu_1_Grup_1 + date_putere[i + 1].Craiu_1_Grup_1 + date_putere[i + 2].Craiu_1_Grup_1 + date_putere[i + 3].Craiu_1_Grup_1;
+                                 date_putere_ora[index].Craiu_1_Grup_2 = date_putere[i].Craiu_1_Grup_2 + date_putere[i + 1].Craiu_1_Grup_2 + date_putere[i + 2].Craiu_1_Grup_2 + date_putere[i + 3].Craiu_1_Grup_2;
+                                 date_putere_ora[index].Craiu_2_Grup_1 = date_putere[i].Craiu_2_Grup_1 + date_putere[i + 1].Craiu_2_Grup_1 + date_putere[i + 2].Craiu_2_Grup_1 + date_putere[i + 3].Craiu_2_Grup_1;
+                                 date_putere_ora[index].Craiu_2_Grup_2 = date_putere[i].Craiu_2_Grup_2 + date_putere[i + 1].Craiu_2_Grup_2 + date_putere[i + 2].Craiu_2_Grup_2 + date_putere[i + 3].Craiu_2_Grup_2;
+                                 date_putere_ora[index].Sebesel_1_Grup_1 = date_putere[i].Sebesel_1_Grup_1 + date_putere[i + 1].Sebesel_1_Grup_1 + date_putere[i + 2].Sebesel_1_Grup_1 + date_putere[i + 3].Sebesel_1_Grup_1;
+                                 date_putere_ora[index].Sebesel_1_Grup_2 = date_putere[i].Sebesel_1_Grup_2 + date_putere[i + 1].Sebesel_1_Grup_2 + date_putere[i + 2].Sebesel_1_Grup_2 + date_putere[i + 3].Sebesel_1_Grup_2;
+                                 date_putere_ora[index].Sebesel_2_Grup_1 = date_putere[i].Sebesel_2_Grup_1 + date_putere[i + 1].Sebesel_2_Grup_1 + date_putere[i + 2].Sebesel_2_Grup_1 + date_putere[i + 3].Sebesel_2_Grup_1;
+                                 date_putere_ora[index].Sebesel_2_Grup_2 = date_putere[i].Sebesel_2_Grup_2 + date_putere[i + 1].Sebesel_2_Grup_2 + date_putere[i + 2].Sebesel_2_Grup_2 + date_putere[i + 3].Sebesel_2_Grup_2;
+                                 date_putere_ora[index].Cornereva = date_putere[i].Cornereva + date_putere[i + 1].Cornereva + date_putere[i + 2].Cornereva + date_putere[i + 3].Cornereva;
+                                 #endregion
+                                 index++;
+
+                             }
                     }
 
                 }

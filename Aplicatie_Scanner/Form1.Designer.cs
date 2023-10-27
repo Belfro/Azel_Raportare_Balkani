@@ -171,6 +171,7 @@ namespace Azel_Raportare_Balkani
             Btn_Printer.Text = "    Grafice    ";
             Btn_Printer.TextImageRelation = TextImageRelation.TextBeforeImage;
             Btn_Printer.UseVisualStyleBackColor = true;
+            Btn_Printer.Visible = false;
             Btn_Printer.Click += Btn_Printer_Click;
             Btn_Printer.Leave += Btn_Printer_Leave;
             // 
