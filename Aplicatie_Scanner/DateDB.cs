@@ -43,6 +43,7 @@
                 return null;
             }
         }
+
     }
     public class DatePutere :ICloneable
     {
@@ -81,6 +82,16 @@
             {
                 // Stringul afisat 
                 return $"{Date_Time.Hour.ToString("D2")}:{Date_Time.Minute.ToString("D2")}:{Date_Time.Second.ToString("D2")}";
+            }
+        }
+
+        public string FullString
+        {
+            get
+            {
+                // Stringul afisat 
+                return $"{Doardata},{DoarTimp},{Cuntu_Grup_1},{Craiu_1_Grup_1},{Craiu_2_Grup_1},{Sebesel_1_Grup_1},{Sebesel_2_Grup_1},{Cornereva}";
+                return null;
             }
         }
 

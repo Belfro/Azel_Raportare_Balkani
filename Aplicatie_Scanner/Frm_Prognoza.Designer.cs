@@ -78,6 +78,7 @@
             label4 = new Label();
             tbfactorCraiu1 = new TextBox();
             label3 = new Label();
+            btn_Print_Prognoza = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -494,12 +495,29 @@
             label3.Text = "Cuntu";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btn_Print_Prognoza
+            // 
+            btn_Print_Prognoza.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_Print_Prognoza.BackColor = Color.FromArgb(8, 35, 50);
+            btn_Print_Prognoza.FlatAppearance.BorderColor = Color.White;
+            btn_Print_Prognoza.FlatStyle = FlatStyle.Flat;
+            btn_Print_Prognoza.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Print_Prognoza.ForeColor = Color.White;
+            btn_Print_Prognoza.Location = new Point(260, 541);
+            btn_Print_Prognoza.Name = "btn_Print_Prognoza";
+            btn_Print_Prognoza.Size = new Size(213, 50);
+            btn_Print_Prognoza.TabIndex = 46;
+            btn_Print_Prognoza.Text = "Print Prognoza";
+            btn_Print_Prognoza.UseVisualStyleBackColor = false;
+            btn_Print_Prognoza.Click += btn_Print_Prognoza_Click;
+            // 
             // Frm_Prognoza
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 65, 82);
             ClientSize = new Size(1290, 674);
+            Controls.Add(btn_Print_Prognoza);
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -569,5 +587,6 @@
         private Label label4;
         private TextBox tbfactorCraiu1;
         private Label label3;
+        private Button btn_Print_Prognoza;
     }
 }

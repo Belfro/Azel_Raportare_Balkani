@@ -16,7 +16,7 @@ namespace Azel_Raportare_Balkani
     {
 
 
-
+        public bool activare_print = false;
         bool _allowClose = false;
 
         void Aplicatie_Raportare_Balkani_KeyDown(object sender, KeyEventArgs e)
@@ -263,8 +263,11 @@ namespace Azel_Raportare_Balkani
                 //MessageBox.Show(ex.ToString());
             }
         }
+
         private void timer_connect_Tick(object sender, EventArgs e)
         {
+
+
             Task.Run(() => Conectare_PLC(PLC_Cuntu_Grup_1));
             Task.Run(() => Conectare_PLC(PLC_Cuntu_Grup_2));
 
@@ -286,6 +289,7 @@ namespace Azel_Raportare_Balkani
         private async void timer_timp_Tick(object sender, EventArgs e)
         {
             lbl_time.Text = DateTime.Now.ToString();
+            
 
             try
             {
@@ -664,6 +668,7 @@ namespace Azel_Raportare_Balkani
         {
             System.Windows.Forms.Application.Exit();
         }
+
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {

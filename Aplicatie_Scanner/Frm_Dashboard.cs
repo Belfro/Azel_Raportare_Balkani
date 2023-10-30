@@ -1,4 +1,7 @@
 ﻿using System.Diagnostics;
+using System.Net;
+using System.Net.Mail;
+using static QRCoder.PayloadGenerator;
 
 namespace Azel_Raportare_Balkani
 {
@@ -83,7 +86,7 @@ namespace Azel_Raportare_Balkani
                 dataGridView1.Columns["Timp"].DataPropertyName = "DoarTimp";
 
                 tbEnergie_Produsa.Text = "0" + " [kWh]";
-                tbApa_Consumata.Text = "0" + " [m³]";
+                tbApa_Consumata.Text = "0" + " [1000 x m³]";
                 tbPutereMedie.Text = "0" + " kW";
 
                 tbPutereMedie.Text = Math.Round(date.Average(p => p.Putere), 2).ToString() + " kW";
@@ -395,8 +398,7 @@ namespace Azel_Raportare_Balkani
         {
             Cautare_Date();
         }
-
-        private void Btn_Print_Raport_Lunar_Click(object sender, EventArgs e)
+        private void Printare_Raport_Lunar()
         {
             string subPath = @$"C:\Azel\Raportari\Rapoarte_Lunare";
 
@@ -407,7 +409,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}_.csv"))
+            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}.csv"))
             {
                 energie_raport_lunar = 0;
                 debit_raport_lunar = 0;
@@ -428,7 +430,7 @@ namespace Azel_Raportare_Balkani
                 file.WriteLine(GetDateLuna("Cornereva"));
                 file.WriteLine("");
 
-                file.WriteLine($",,,{Math.Round(energie_raport_lunar,2)},,,{Math.Round(debit_raport_lunar,2)}");
+                file.WriteLine($",,,{Math.Round(energie_raport_lunar, 2)},,,{Math.Round(debit_raport_lunar, 2)}");
                 file.WriteLine($",,,Energie Totala,,,Volum Total Turbinat");
 
             }
@@ -439,8 +441,55 @@ namespace Azel_Raportare_Balkani
                 fisier_deschis = true;
             }
             else { fisier_deschis = false; }
+        }
+        public void Printare_Si_Trimitere_Raport_Lunar()
+        {
+           Printare_Raport_Lunar();
+
+            ///////////////////////////////
+            ///////TRIMITERE MAIL//////////
+            ///////////////////////////////
+            try
+            {
+                var smtpClient = new SmtpClient("mail.azel.ro")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
+                    EnableSsl = false,
+                };
+
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("calin.rizoiu@azel.ro"),
+                    Subject = @$"Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}",
+                    Body = "Email Auto-Generat " +
+                    "\n \n Azel Design Group SRL ",
 
 
+
+
+                   // IsBodyHtml = true,
+                };
+
+                System.Net.Mail.Attachment attachment;
+                attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}.csv");
+                mailMessage.Attachments.Add(attachment);
+                mailMessage.To.Add("crizoiu@yahoo.com");
+                mailMessage.To.Add("stanfandrei@yahoo.com");
+                mailMessage.To.Add("office@azel.ro");
+
+                smtpClient.Send(mailMessage);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void Btn_Print_Raport_Lunar_Click(object sender, EventArgs e)
+        {
+            Printare_Raport_Lunar();
         }
         private string GetDateLuna(string MHC)
         {
