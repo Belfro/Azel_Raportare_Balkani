@@ -31,7 +31,7 @@ namespace Azel_Raportare_Balkani
 
         List<DatePutere> date_energie_ieri = new List<DatePutere>();
         List<DatePutere> date_energie_alaltaieri = new List<DatePutere>();
-        
+
         public bool activare_print = false;
         bool _allowClose = false;
         public double energie_raport_lunar = 0;
@@ -323,8 +323,8 @@ namespace Azel_Raportare_Balkani
                 mail_trimis = false;
             }
 
-           
-          
+
+
             try
             {
 
@@ -922,7 +922,7 @@ namespace Azel_Raportare_Balkani
 
                     iText.Layout.Element.Cell cellx6 = new iText.Layout.Element.Cell(2, 1)
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE)
-                   .Add(new Paragraph((prognoza[i/2].Energie_Rotunjita).ToString()));
+                   .Add(new Paragraph((prognoza[i / 2].Energie_Rotunjita).ToString()));
 
                     table.AddCell(cellx6);
                 }
@@ -937,7 +937,7 @@ namespace Azel_Raportare_Balkani
                     iText.Layout.Element.Cell cellx6 = new iText.Layout.Element.Cell(1, 1)
                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE)
                   .Add(new Paragraph((prognoza[i / 2].Energie_Rotunjita).ToString()));
-                    
+
                     table.AddCell(cellx6);
                 }
 
@@ -952,10 +952,10 @@ namespace Azel_Raportare_Balkani
 
             document.Add(table);
             document.Add(new Paragraph(new Text("\n")));
-           
+
             document.Add(new Paragraph(new Text(" " +
                 "Registered to the Commercial Registry under no.J 35 / 3152 / 2006" +
-                "\r\nUnique code of registration : R 18737871")).SetFixedPosition(document.GetLeftMargin(),document.GetBottomMargin(),PageSize.A4.GetWidth()));
+                "\r\nUnique code of registration : R 18737871")).SetFixedPosition(document.GetLeftMargin(), document.GetBottomMargin(), PageSize.A4.GetWidth()));
             document.Close();
 
 
@@ -963,42 +963,42 @@ namespace Azel_Raportare_Balkani
             ///////////////////////////////
             ///////TRIMITERE MAIL//////////
             ///////////////////////////////
-                try
+            try
+            {
+                var smtpClient = new SmtpClient("mail.azel.ro")
                 {
-                    var smtpClient = new SmtpClient("mail.azel.ro")
-                    {
-                        Port = 587,
-                        Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
-                        EnableSsl = false,
-                    };
+                    Port = 587,
+                    Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
+                    EnableSsl = false,
+                };
 
-                    var mailMessage = new MailMessage
-                    {
-                        From = new MailAddress("calin.rizoiu@azel.ro"),
-                        Subject = @$"Raport Zilnic {DateTime.Now.ToString("dd_MM_yy")}",
-                        Body = "Email Auto-Generat " +
-                        "\n \n Azel Design Group SRL ",
-
-
-
-
-                        // IsBodyHtml = true,
-                    };
-
-                    System.Net.Mail.Attachment attachment;
-                    attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Zilnice\Raport_{DateTime.Now.ToString("dd_MM_yy")}.pdf");
-                    mailMessage.Attachments.Add(attachment);
-                    mailMessage.To.Add("crizoiu@yahoo.com");
-                    mailMessage.To.Add("stanfandrei@yahoo.com");
-                    //mailMessage.To.Add("office@azel.ro");
-
-                    smtpClient.Send(mailMessage);
-
-                }
-                catch (Exception ex)
+                var mailMessage = new MailMessage
                 {
-                    MessageBox.Show(ex.ToString());
-                }
+                    From = new MailAddress("calin.rizoiu@azel.ro"),
+                    Subject = @$"Raport Zilnic {DateTime.Now.ToString("dd_MM_yy")}",
+                    Body = "Email Auto-Generat " +
+                    "\n \n Azel Design Group SRL ",
+
+
+
+
+                    // IsBodyHtml = true,
+                };
+
+                System.Net.Mail.Attachment attachment;
+                attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Zilnice\Raport_{DateTime.Now.ToString("dd_MM_yy")}.pdf");
+                mailMessage.Attachments.Add(attachment);
+                mailMessage.To.Add("crizoiu@yahoo.com");
+                mailMessage.To.Add("stanfandrei@yahoo.com");
+                //mailMessage.To.Add("office@azel.ro");
+
+                smtpClient.Send(mailMessage);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         public static byte[] ImageToByte(System.Drawing.Image img)
         {
@@ -1036,10 +1036,10 @@ namespace Azel_Raportare_Balkani
 
                 date_energie_ieri = db.GetDateEnergie(DateTime.Now.AddDays(-1), DateTime.Now.AddDays(0).AddTicks(-1));
                 date_energie_alaltaieri = db.GetDateEnergie(DateTime.Now.AddDays(-2), DateTime.Now.AddDays(-1).AddTicks(-1));
-              
+
 
                 double suma_cuntu = (date_energie_ieri.Sum(x => x.Cuntu_Grup_1) + date_energie_ieri.Sum(x => x.Cuntu_Grup_2));
-                double suma_cuntu_prev = (date_energie_alaltaieri.Sum(x => x.Cuntu_Grup_1) + date_energie_alaltaieri.Sum(x => x.Cuntu_Grup_2)) ;
+                double suma_cuntu_prev = (date_energie_alaltaieri.Sum(x => x.Cuntu_Grup_1) + date_energie_alaltaieri.Sum(x => x.Cuntu_Grup_2));
 
                 double suma_craiu_1 = (date_energie_ieri.Sum(x => x.Craiu_1_Grup_1) + date_energie_ieri.Sum(x => x.Craiu_1_Grup_2));
                 double suma_craiu_1_prev = (date_energie_alaltaieri.Sum(x => x.Craiu_1_Grup_1) + date_energie_alaltaieri.Sum(x => x.Craiu_1_Grup_2));
@@ -1055,16 +1055,16 @@ namespace Azel_Raportare_Balkani
                 double suma_sebesel_2_prev = (date_energie_alaltaieri.Sum(x => x.Sebesel_2_Grup_1) + date_energie_alaltaieri.Sum(x => x.Sebesel_2_Grup_2));
 
 
-                double suma_cornereva = (date_energie_ieri.Sum(x => x.Cornereva) );
-                double suma_cornereva_prev = (date_energie_alaltaieri.Sum(x => x.Cornereva)) ;
+                double suma_cornereva = (date_energie_ieri.Sum(x => x.Cornereva));
+                double suma_cornereva_prev = (date_energie_alaltaieri.Sum(x => x.Cornereva));
 
 
                 double factor_corectie_cuntu = Math.Round(suma_cuntu / suma_cuntu_prev, 2);
-                double factor_corectie_craiu_1 = Math.Round(suma_craiu_1/suma_craiu_1_prev, 2);
+                double factor_corectie_craiu_1 = Math.Round(suma_craiu_1 / suma_craiu_1_prev, 2);
                 double factor_corectie_craiu_2 = Math.Round(suma_craiu_2 / suma_craiu_2_prev, 2);
                 double factor_corectie_sebesel_1 = Math.Round(suma_sebesel_1 / suma_sebesel_1_prev, 2);
                 double factor_corectie_sebesel_2 = Math.Round(suma_sebesel_2 / suma_sebesel_2_prev, 2);
-                double factor_corectie_cornereva = Math.Round(suma_cornereva/ suma_cornereva_prev, 2);
+                double factor_corectie_cornereva = Math.Round(suma_cornereva / suma_cornereva_prev, 2);
 
 
                 if (factor_corectie_cuntu < 0.8 || Double.IsNaN(factor_corectie_cuntu)) factor_corectie_cuntu = 0.8;
@@ -1086,7 +1086,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Cuntu", Energie = Math.Round(suma_cuntu * factor_corectie_cuntu, 2)});
+                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Cuntu", Energie = Math.Round(suma_cuntu * factor_corectie_cuntu, 2) });
                 prognoza.Add(new DateRaportZilnic { Nume_Grup = "Craiu_1", Energie = Math.Round(suma_craiu_1 * factor_corectie_craiu_1, 2) });
                 prognoza.Add(new DateRaportZilnic { Nume_Grup = "Craiu_2", Energie = Math.Round(suma_craiu_2 * factor_corectie_craiu_2, 2) });
                 prognoza.Add(new DateRaportZilnic { Nume_Grup = "Sebesel_1", Energie = Math.Round(suma_sebesel_1 * factor_corectie_sebesel_1, 2) });
@@ -1098,7 +1098,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-             
+
 
             }
             catch (Exception ex)

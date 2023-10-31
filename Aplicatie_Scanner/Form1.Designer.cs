@@ -88,7 +88,6 @@ namespace Azel_Raportare_Balkani
             contextMenuStrip1 = new ContextMenuStrip(components);
             exitToolStripMenuItem = new ToolStripMenuItem();
             timer_connect = new System.Windows.Forms.Timer(components);
-            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Cuntu_Grup_2_pbX).BeginInit();
@@ -119,7 +118,6 @@ namespace Azel_Raportare_Balkani
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(8, 35, 50);
-            panel1.Controls.Add(button1);
             panel1.Controls.Add(Panel_Nav);
             panel1.Controls.Add(Btn_Settings);
             panel1.Controls.Add(Btn_Printer);
@@ -252,7 +250,7 @@ namespace Azel_Raportare_Balkani
             label1.ForeColor = Color.FromArgb(4, 224, 190);
             label1.Location = new Point(21, 100);
             label1.Name = "label1";
-            label1.Size = new Size(147, 32);
+            label1.Size = new Size(144, 32);
             label1.TabIndex = 0;
             label1.Text = "AZEL Database \r\nManagement Studio";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -706,16 +704,6 @@ namespace Azel_Raportare_Balkani
             timer_connect.Interval = 10000;
             timer_connect.Tick += timer_connect_Tick;
             // 
-            // button1
-            // 
-            button1.Location = new Point(40, 343);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 11;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // Aplicatie_Raportare_Balkani
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -852,6 +840,5 @@ namespace Azel_Raportare_Balkani
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Timer timer_connect;
-        private Button button1;
     }
 }
