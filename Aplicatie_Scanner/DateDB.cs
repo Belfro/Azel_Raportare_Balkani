@@ -45,6 +45,8 @@
         }
 
     }
+
+
     public class DatePutere :ICloneable
     {
         public DateTime Date_Time { get; set; }
@@ -101,5 +103,20 @@
         }
     }
 
+    public class DateRaportZilnic
+    {
+        public double Energie { get; set; }
+        public string Nume_Grup { get; set; }
+
+        public double Energie_Rotunjita
+        {
+            get
+            {
+                return Math.Round(Energie, 0);
+            }
+        }
+
+          
+    }
 
 }

@@ -18,8 +18,9 @@
       <ExcludeAssets>IZplAnalyzer.cs </ExcludeAssets>
     </PackageReference>
     <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="itext7" Version="8.0.2" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.2" />
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WinForms" Version="2.0.0-beta.701" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="S7netplus" Version="0.16.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     <PackageReference Include="XamForms.Controls.Calendar" Version="1.1.1" />

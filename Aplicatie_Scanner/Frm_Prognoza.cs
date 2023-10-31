@@ -11,7 +11,6 @@ namespace Azel_Raportare_Balkani
         public Frm_Prognoza()
         {
             InitializeComponent();
-
         }
 
         private void Frm_Scanner_Load(object sender, EventArgs e)

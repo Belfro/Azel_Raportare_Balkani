@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Azel_Raportare_Balkani</id>
+    <version>1.0.0</version>
+    <authors>Azel_Raportare_Balkani</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0">
+        <dependency id="BinaryKits.Zpl.Viewer" version="1.1.3" exclude="Build,Analyzers" />
+        <dependency id="Dapper" version="2.0.123" exclude="Build,Analyzers" />
+        <dependency id="LiveChartsCore.SkiaSharpView.WinForms" version="2.0.0-beta.701" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="2.2.0" exclude="Build,Analyzers" />
+        <dependency id="S7netplus" version="0.16.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SqlClient" version="4.8.3" exclude="Build,Analyzers" />
+        <dependency id="XamForms.Controls.Calendar" version="1.1.1" exclude="Build,Analyzers" />
+        <dependency id="ZXing.Net" version="0.16.8" exclude="Build,Analyzers" />
+        <dependency id="ZXing.Net.Bindings.Windows.Compatibility" version="0.16.10" exclude="Build,Analyzers" />
+        <dependency id="itext7" version="8.0.2" exclude="Build,Analyzers" />
+        <dependency id="itext7.bouncy-castle-adapter" version="8.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net6.0-windows7.0/b1zoci3k.nyc.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.runtimeconfig.json" target="lib\net6.0-windows7.0\Azel_Raportare_Balkani.runtimeconfig.json" />
+    <file src="C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.dll" target="lib\net6.0-windows7.0\Azel_Raportare_Balkani.dll" />
+    <file src="C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\b1zoci3k.nyc.ico" target="content\b1zoci3k.nyc.ico" />
+    <file src="C:\Users\AndreiS\iCloudDrive\AS\Azel\Balkani\Aplicatie_Logare_Scada\Azel_Raportare_Balkani\Aplicatie_Scanner\b1zoci3k.nyc.ico" target="contentFiles\any\net6.0-windows7.0\b1zoci3k.nyc.ico" />
+  </files>
+</package>
