@@ -69,7 +69,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>SxgZowS2W321FijmoDdxo6kOlYoeAuibP+UanguOAGk=</dsig:DigestValue>
+      <dsig:DigestValue>f8sBHrxWHFdvVtzPlk4KCMzOanjwXFc7Tzz5zxFu7b8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Azel_Raportare_Balkani.dll.config" size="414">

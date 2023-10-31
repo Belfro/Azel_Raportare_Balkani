@@ -91,7 +91,7 @@ namespace Azel_Raportare_Balkani
 
                 tbPutereMedie.Text = Math.Round(date.Average(p => p.Putere), 2).ToString() + " kW";
                 tbEnergie_Produsa.Text = (Math.Round(date[date.FindLastIndex(item => item.Energie > 0)].Energie - date[date.FindIndex(item => item.Energie > 0)].Energie, 2)).ToString() + " [kWh]";
-                tbApa_Consumata.Text = (Math.Round(date[date.FindLastIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total - date[date.FindIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total, 2)).ToString() + " [m³]";
+                tbApa_Consumata.Text = (Math.Round(date[date.FindLastIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total - date[date.FindIndex(item => item.Debit_Turbinat_Total > 0)].Debit_Turbinat_Total, 2)).ToString() + " [1000 x m³]";
 
 
             }
