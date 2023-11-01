@@ -63,13 +63,13 @@
       <dsig:DigestValue>saBKvDSKlH0LMif+LjMljxLllnFo63bfvecG4F833jI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Azel_Raportare_Balkani.dll" size="881648">
+  <file name="Azel_Raportare_Balkani.dll" size="886256">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>f8sBHrxWHFdvVtzPlk4KCMzOanjwXFc7Tzz5zxFu7b8=</dsig:DigestValue>
+      <dsig:DigestValue>XhUDBUhrWZ0Gg8oM2FjkGqP0fV9H3xt5E2mRzgWRdwk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Azel_Raportare_Balkani.dll.config" size="414">

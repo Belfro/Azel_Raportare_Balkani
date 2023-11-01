@@ -36,6 +36,7 @@ namespace Azel_Raportare_Balkani
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aplicatie_Raportare_Balkani));
             panel1 = new Panel();
+            button1 = new Button();
             Panel_Nav = new Panel();
             Btn_Settings = new Button();
             Btn_Printer = new Button();
@@ -118,6 +119,7 @@ namespace Azel_Raportare_Balkani
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(8, 35, 50);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(Panel_Nav);
             panel1.Controls.Add(Btn_Settings);
             panel1.Controls.Add(Btn_Printer);
@@ -129,6 +131,17 @@ namespace Azel_Raportare_Balkani
             panel1.Name = "panel1";
             panel1.Size = new Size(186, 761);
             panel1.TabIndex = 7;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(55, 351);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 11;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
+            button1.Click += button1_Click;
             // 
             // Panel_Nav
             // 
@@ -250,7 +263,7 @@ namespace Azel_Raportare_Balkani
             label1.ForeColor = Color.FromArgb(4, 224, 190);
             label1.Location = new Point(21, 100);
             label1.Name = "label1";
-            label1.Size = new Size(144, 32);
+            label1.Size = new Size(147, 32);
             label1.TabIndex = 0;
             label1.Text = "AZEL Database \r\nManagement Studio";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -840,5 +853,6 @@ namespace Azel_Raportare_Balkani
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Timer timer_connect;
+        private Button button1;
     }
 }

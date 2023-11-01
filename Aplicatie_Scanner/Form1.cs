@@ -28,7 +28,7 @@ namespace Azel_Raportare_Balkani
 
     public partial class Aplicatie_Raportare_Balkani : Form
     {
-
+        List<DatePutere> date_putere = new List<DatePutere>();
         List<DatePutere> date_energie_ieri = new List<DatePutere>();
         List<DatePutere> date_energie_alaltaieri = new List<DatePutere>();
 
@@ -777,7 +777,10 @@ namespace Azel_Raportare_Balkani
                 mailMessage.Attachments.Add(attachment);
                 mailMessage.To.Add("crizoiu@yahoo.com");
                 mailMessage.To.Add("stanfandrei@yahoo.com");
-                //mailMessage.To.Add("office@azel.ro");
+                mailMessage.To.Add("jancaj68@gmail.com");
+                mailMessage.To.Add("lucian@constructim.ro");
+                mailMessage.To.Add("cristian_bogdan_tm@yahoo.com");
+                mailMessage.To.Add("radu@constructim.ro");
 
                 smtpClient.Send(mailMessage);
 
@@ -844,7 +847,7 @@ namespace Azel_Raportare_Balkani
 
             document.Add(new Paragraph(new Text("\n")));
 
-            Paragraph header = new Paragraph($"Raport Zilnic Productie Balkani {DateTime.Now.ToString("dd.MM")}")
+            Paragraph header = new Paragraph($"Raport Zilnic Productie Balkani {DateTime.Now.ToString("dd.MM.yyyy")}")
                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
                .SetFontSize(20);
 
@@ -853,7 +856,7 @@ namespace Azel_Raportare_Balkani
             document.Add(new LineSeparator(new DottedLine()));
             document.Add(new Paragraph(new Text("\n")));
             // Table
-            Table table = new Table(6, false).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+            Table table = new Table(7, false).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
 
             iText.Layout.Element.Cell cell11 = new iText.Layout.Element.Cell(1, 1)
                .SetBackgroundColor(ColorConstants.GRAY)
@@ -875,8 +878,12 @@ namespace Azel_Raportare_Balkani
             iText.Layout.Element.Cell cell15 = new iText.Layout.Element.Cell(1, 1)
                 .SetBackgroundColor(ColorConstants.GRAY)
                 .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
-                .Add(new Paragraph("Energie Produsa Per Centrala [kWh]"));
+                .Add(new Paragraph("Timp Functionare [Ore]"));
             iText.Layout.Element.Cell cell16 = new iText.Layout.Element.Cell(1, 1)
+               .SetBackgroundColor(ColorConstants.GRAY)
+               .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+               .Add(new Paragraph("Energie Produsa Per Centrala [kWh]"));
+            iText.Layout.Element.Cell cell17 = new iText.Layout.Element.Cell(1, 1)
                 .SetBackgroundColor(ColorConstants.GRAY)
                 .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
                 .Add(new Paragraph($"Prognoza {DateTime.Now.AddDays(+1).ToString("dd.MM")} [kWh]"));
@@ -888,8 +895,10 @@ namespace Azel_Raportare_Balkani
             table.AddCell(cell14);
             table.AddCell(cell15);
             table.AddCell(cell16);
-
+            table.AddCell(cell17);
+            date_putere = db.GetDatePuteri(DateTime.Now.AddDays(-1), DateTime.Now.AddTicks(-1));
             var prognoza = GenerarePrognozaRaportZilnic();
+
             for (int i = 0; i < date_raport_ziua_trecuta.Count; i++)
             {
                 iText.Layout.Element.Cell cellx1 = new iText.Layout.Element.Cell(1, 1)
@@ -912,43 +921,84 @@ namespace Azel_Raportare_Balkani
                 table.AddCell(cellx3);
                 table.AddCell(cellx4);
 
+
+
+                double[] contor = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                contor[0] = date_putere.Where(x => x.Cuntu_Grup_1 > 1).Count();
+                contor[1] = date_putere.Where(x => x.Cuntu_Grup_2 > 1).Count();
+                contor[2] = date_putere.Where(x => x.Craiu_1_Grup_1 > 1).Count();
+                contor[3] = date_putere.Where(x => x.Craiu_1_Grup_2 > 1).Count();
+                contor[4] = date_putere.Where(x => x.Craiu_2_Grup_1 > 1).Count();
+                contor[5] = date_putere.Where(x => x.Craiu_2_Grup_2 > 1).Count();
+                contor[6] = date_putere.Where(x => x.Sebesel_1_Grup_1 > 1).Count();
+                contor[7] = date_putere.Where(x => x.Sebesel_1_Grup_2 > 1).Count();
+                contor[8] = date_putere.Where(x => x.Sebesel_2_Grup_1 > 1).Count();
+                contor[9] = date_putere.Where(x => x.Sebesel_2_Grup_2 > 1).Count();
+                contor[10] = date_putere.Where(x => x.Cornereva > 1).Count();
+
+
+
+
+                iText.Layout.Element.Cell cellx5 = new iText.Layout.Element.Cell(1, 1)
+               .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+               .Add(new Paragraph((contor[i] / 4.0).ToString()));
+                table.AddCell(cellx5);
+
+
+
+
+
                 if (i % 2 == 0 && i < date_raport_ziua_trecuta.Count - 1)
                 {
-                    iText.Layout.Element.Cell cellx5 = new iText.Layout.Element.Cell(2, 1)
+                    iText.Layout.Element.Cell cellx6 = new iText.Layout.Element.Cell(2, 1)
                     .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE)
                     .Add(new Paragraph((date_raport[i].Energie_Rotunjita - date_raport_ziua_trecuta[i].Energie_Rotunjita + date_raport[i + 1].Energie_Rotunjita - date_raport_ziua_trecuta[i + 1].Energie_Rotunjita).ToString()));
 
-                    table.AddCell(cellx5);
+                    table.AddCell(cellx6);
 
-                    iText.Layout.Element.Cell cellx6 = new iText.Layout.Element.Cell(2, 1)
+                    iText.Layout.Element.Cell cellx7 = new iText.Layout.Element.Cell(2, 1)
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE)
                    .Add(new Paragraph((prognoza[i / 2].Energie_Rotunjita).ToString()));
 
-                    table.AddCell(cellx6);
+                    table.AddCell(cellx7);
                 }
                 else if (i % 2 == 0 && i == date_raport_ziua_trecuta.Count - 1)
                 {
-                    iText.Layout.Element.Cell cellx5 = new iText.Layout.Element.Cell(1, 1)
+                    iText.Layout.Element.Cell cellx6 = new iText.Layout.Element.Cell(1, 1)
                     .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
                     .Add(new Paragraph((date_raport[i].Energie_Rotunjita - date_raport_ziua_trecuta[i].Energie_Rotunjita).ToString()));
 
-                    table.AddCell(cellx5);
+                    table.AddCell(cellx6);
 
-                    iText.Layout.Element.Cell cellx6 = new iText.Layout.Element.Cell(1, 1)
+                    iText.Layout.Element.Cell cellx7 = new iText.Layout.Element.Cell(1, 1)
                   .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE)
                   .Add(new Paragraph((prognoza[i / 2].Energie_Rotunjita).ToString()));
 
-                    table.AddCell(cellx6);
+                    table.AddCell(cellx7);
                 }
 
 
             }
-            for (int i = 0; i < date_raport.Count; i = i + 2)
-            {
 
+            var suma_total_productie = date_raport.Sum(x => x.Energie_Rotunjita) - date_raport_ziua_trecuta.Sum(x => x.Energie_Rotunjita);
+            var suma_total_prognoza = prognoza.Sum(x => x.Energie_Rotunjita);
 
-            }
+            iText.Layout.Element.Cell cellTotal = new iText.Layout.Element.Cell(1, 5)
+          .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE).SetBold()
+          .Add(new Paragraph(("TOTAL")));
 
+            table.AddCell(cellTotal);
+
+            iText.Layout.Element.Cell cellTotalProductie = new iText.Layout.Element.Cell(1, 1)
+         .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE).SetBold()
+         .Add(new Paragraph((suma_total_productie.ToString())));
+
+            table.AddCell(cellTotalProductie);
+            iText.Layout.Element.Cell cellTotalPrognoza = new iText.Layout.Element.Cell(1, 1)
+         .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetVerticalAlignment(VerticalAlignment.MIDDLE).SetBold()
+         .Add(new Paragraph((suma_total_prognoza.ToString())));
+
+            table.AddCell(cellTotalPrognoza);
 
             document.Add(table);
             document.Add(new Paragraph(new Text("\n")));
@@ -960,45 +1010,48 @@ namespace Azel_Raportare_Balkani
 
 
 
-            ///////////////////////////////
-            ///////TRIMITERE MAIL//////////
-            ///////////////////////////////
-            try
-            {
-                var smtpClient = new SmtpClient("mail.azel.ro")
-                {
-                    Port = 587,
-                    Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
-                    EnableSsl = false,
-                };
+            /*   ///////////////////////////////
+               ///////TRIMITERE MAIL//////////
+               ///////////////////////////////
+               try
+               {
+                   var smtpClient = new SmtpClient("mail.azel.ro")
+                   {
+                       Port = 587,
+                       Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
+                       EnableSsl = false,
+                   };
 
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress("calin.rizoiu@azel.ro"),
-                    Subject = @$"Raport Zilnic {DateTime.Now.ToString("dd_MM_yy")}",
-                    Body = "Email Auto-Generat " +
-                    "\n \n Azel Design Group SRL ",
-
-
+                   var mailMessage = new MailMessage
+                   {
+                       From = new MailAddress("calin.rizoiu@azel.ro"),
+                       Subject = @$"Raport Zilnic {DateTime.Now.ToString("dd_MM_yy")}",
+                       Body = "Email Auto-Generat " +
+                       "\n \n Azel Design Group SRL ",
 
 
-                    // IsBodyHtml = true,
-                };
 
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Zilnice\Raport_{DateTime.Now.ToString("dd_MM_yy")}.pdf");
-                mailMessage.Attachments.Add(attachment);
-                mailMessage.To.Add("crizoiu@yahoo.com");
-                mailMessage.To.Add("stanfandrei@yahoo.com");
-                //mailMessage.To.Add("office@azel.ro");
 
-                smtpClient.Send(mailMessage);
+                       // IsBodyHtml = true,
+                   };
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+                   System.Net.Mail.Attachment attachment;
+                   attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Zilnice\Raport_{DateTime.Now.ToString("dd_MM_yy")}.pdf");
+                   mailMessage.Attachments.Add(attachment);
+                   mailMessage.To.Add("crizoiu@yahoo.com");
+                   mailMessage.To.Add("stanfandrei@yahoo.com");
+                   mailMessage.To.Add("jancaj68@gmail.com");
+                   mailMessage.To.Add("lucian@constructim.ro");
+                   mailMessage.To.Add("cristian_bogdan_tm@yahoo.com");
+                   mailMessage.To.Add("radu@constructim.ro");
+
+                   smtpClient.Send(mailMessage);
+
+               }
+               catch (Exception ex)
+               {
+                   MessageBox.Show(ex.ToString());
+               }*/
         }
         public static byte[] ImageToByte(System.Drawing.Image img)
         {
@@ -1037,6 +1090,27 @@ namespace Azel_Raportare_Balkani
                 date_energie_ieri = db.GetDateEnergie(DateTime.Now.AddDays(-1), DateTime.Now.AddDays(0).AddTicks(-1));
                 date_energie_alaltaieri = db.GetDateEnergie(DateTime.Now.AddDays(-2), DateTime.Now.AddDays(-1).AddTicks(-1));
 
+                double[] contor_ieri = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                contor_ieri[0] = date_energie_ieri.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();
+                contor_ieri[1] = date_energie_ieri.Where(x => x.Craiu_1_Grup_1 > 2 || x.Craiu_1_Grup_2 > 2).Count();
+                contor_ieri[2] = date_energie_ieri.Where(x => x.Craiu_2_Grup_1 > 2 || x.Craiu_2_Grup_2 > 2).Count();
+                contor_ieri[3] = date_energie_ieri.Where(x => x.Sebesel_1_Grup_1 > 2 || x.Sebesel_1_Grup_2 > 2).Count();
+                contor_ieri[4] = date_energie_ieri.Where(x => x.Sebesel_2_Grup_1 > 2 || x.Sebesel_2_Grup_2 > 2).Count();
+                contor_ieri[5] = date_energie_ieri.Where(x => x.Cornereva > 2).Count();
+
+                double[] contor_alaltaieri = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                contor_alaltaieri[0] = date_energie_alaltaieri.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();
+                contor_alaltaieri[1] = date_energie_alaltaieri.Where(x => x.Craiu_1_Grup_1 > 2 || x.Craiu_1_Grup_2 > 2).Count();
+                contor_alaltaieri[2] = date_energie_alaltaieri.Where(x => x.Craiu_2_Grup_1 > 2 || x.Craiu_2_Grup_2 > 2).Count();
+                contor_alaltaieri[3] = date_energie_alaltaieri.Where(x => x.Sebesel_1_Grup_1 > 2 || x.Sebesel_1_Grup_2 > 2).Count();
+                contor_alaltaieri[4] = date_energie_alaltaieri.Where(x => x.Sebesel_2_Grup_1 > 2 || x.Sebesel_2_Grup_2 > 2).Count();
+                contor_alaltaieri[5] = date_energie_alaltaieri.Where(x => x.Cornereva > 2).Count();
+
+                for (int i = 0; i < 6; i++)
+                {
+                    if (contor_ieri[i] < 30) { contor_ieri[i] = 30; }
+                    if (contor_alaltaieri[i] < 30) { contor_alaltaieri[i] = 30; }
+                }
 
                 double suma_cuntu = (date_energie_ieri.Sum(x => x.Cuntu_Grup_1) + date_energie_ieri.Sum(x => x.Cuntu_Grup_2));
                 double suma_cuntu_prev = (date_energie_alaltaieri.Sum(x => x.Cuntu_Grup_1) + date_energie_alaltaieri.Sum(x => x.Cuntu_Grup_2));
@@ -1059,26 +1133,29 @@ namespace Azel_Raportare_Balkani
                 double suma_cornereva_prev = (date_energie_alaltaieri.Sum(x => x.Cornereva));
 
 
-                double factor_corectie_cuntu = Math.Round(suma_cuntu / suma_cuntu_prev, 2);
-                double factor_corectie_craiu_1 = Math.Round(suma_craiu_1 / suma_craiu_1_prev, 2);
-                double factor_corectie_craiu_2 = Math.Round(suma_craiu_2 / suma_craiu_2_prev, 2);
-                double factor_corectie_sebesel_1 = Math.Round(suma_sebesel_1 / suma_sebesel_1_prev, 2);
-                double factor_corectie_sebesel_2 = Math.Round(suma_sebesel_2 / suma_sebesel_2_prev, 2);
-                double factor_corectie_cornereva = Math.Round(suma_cornereva / suma_cornereva_prev, 2);
+                double factor_corectie_cuntu = Math.Round((suma_cuntu / contor_ieri[0]) / (suma_cuntu_prev / contor_alaltaieri[0]), 2);
+                double factor_corectie_craiu_1 = Math.Round((suma_craiu_1 / contor_ieri[1]) / (suma_craiu_1_prev / contor_alaltaieri[1]), 2);
+                double factor_corectie_craiu_2 = Math.Round((suma_craiu_2 / contor_ieri[2]) / (suma_craiu_2_prev / contor_alaltaieri[2]), 2);
+                double factor_corectie_sebesel_1 = Math.Round((suma_sebesel_1 / contor_ieri[3]) / (suma_sebesel_1_prev / contor_alaltaieri[3]), 2);
+                double factor_corectie_sebesel_2 = Math.Round((suma_sebesel_2 / contor_ieri[4]) / (suma_sebesel_2_prev / contor_alaltaieri[4]), 2);
+                double factor_corectie_cornereva = Math.Round((suma_cornereva / contor_ieri[5]) / (suma_cornereva_prev / contor_alaltaieri[5]), 2);
+
+
+
 
 
                 if (factor_corectie_cuntu < 0.8 || Double.IsNaN(factor_corectie_cuntu)) factor_corectie_cuntu = 0.8;
-                if (factor_corectie_cuntu > 1.2) factor_corectie_cuntu = 1.2;
+                if (factor_corectie_cuntu > 1.05) factor_corectie_cuntu = 1.05;
                 if (factor_corectie_craiu_1 < 0.8 || Double.IsNaN(factor_corectie_craiu_1)) factor_corectie_craiu_1 = 0.8;
-                if (factor_corectie_craiu_1 > 1.2) factor_corectie_craiu_1 = 1.2;
+                if (factor_corectie_craiu_1 > 1.05) factor_corectie_craiu_1 = 1.05;
                 if (factor_corectie_craiu_2 < 0.8 || Double.IsNaN(factor_corectie_craiu_2)) factor_corectie_craiu_2 = 0.8;
-                if (factor_corectie_craiu_2 > 1.2) factor_corectie_craiu_2 = 1.2;
+                if (factor_corectie_craiu_2 > 1.05) factor_corectie_craiu_2 = 1.05;
                 if (factor_corectie_sebesel_1 < 0.8 || Double.IsNaN(factor_corectie_sebesel_1)) factor_corectie_sebesel_1 = 0.8;
-                if (factor_corectie_sebesel_1 > 1.2) factor_corectie_sebesel_1 = 1.2;
+                if (factor_corectie_sebesel_1 > 1.05) factor_corectie_sebesel_1 = 1.05;
                 if (factor_corectie_sebesel_2 < 0.8 || Double.IsNaN(factor_corectie_sebesel_2)) factor_corectie_sebesel_2 = 0.8;
-                if (factor_corectie_sebesel_2 > 1.2) factor_corectie_sebesel_2 = 1.2;
+                if (factor_corectie_sebesel_2 > 1.05) factor_corectie_sebesel_2 = 1.05;
                 if (factor_corectie_cornereva < 0.8 || Double.IsNaN(factor_corectie_cornereva)) factor_corectie_cornereva = 0.8;
-                if (factor_corectie_cornereva > 1.2) factor_corectie_cornereva = 1.2;
+                if (factor_corectie_cornereva > 1.05) factor_corectie_cornereva = 1.05;
 
 
 

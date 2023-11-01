@@ -301,7 +301,7 @@ namespace Azel_Raportare_Balkani
             else if (valoare_finala <= 0 && valoare_initiala > 0)
             {
                 valoare_finala = valoare_initiala;
-                valoare_initiala = valoare_finala - valoare_initiala;
+                valoare_initiala = Math.Round(valoare_finala - valoare_initiala,2);
             }
             else if (valoare_initiala <= 0 && valoare_finala <= 0)
             {
@@ -309,7 +309,7 @@ namespace Azel_Raportare_Balkani
             }
             else
             {
-                valoare_initiala = valoare_finala - valoare_initiala;
+                valoare_initiala = Math.Round(valoare_finala - valoare_initiala, 2);
             }
             
 
