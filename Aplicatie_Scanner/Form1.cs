@@ -1010,7 +1010,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-            /*   ///////////////////////////////
+               ///////////////////////////////
                ///////TRIMITERE MAIL//////////
                ///////////////////////////////
                try
@@ -1051,7 +1051,7 @@ namespace Azel_Raportare_Balkani
                catch (Exception ex)
                {
                    MessageBox.Show(ex.ToString());
-               }*/
+               }
         }
         public static byte[] ImageToByte(System.Drawing.Image img)
         {
