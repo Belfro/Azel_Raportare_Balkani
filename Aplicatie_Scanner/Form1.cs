@@ -1019,46 +1019,46 @@ namespace Azel_Raportare_Balkani
             ///////////////////////////////
             ///////TRIMITERE MAIL//////////
             ///////////////////////////////
-          /*  try
-            {
-                var smtpClient = new SmtpClient("mail.azel.ro")
-                {
-                    Port = 587,
-                    Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
-                    EnableSsl = false,
-                };
+              try
+              {
+                  var smtpClient = new SmtpClient("mail.azel.ro")
+                  {
+                      Port = 587,
+                      Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
+                      EnableSsl = false,
+                  };
 
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress("calin.rizoiu@azel.ro"),
-                    Subject = @$"Raport Zilnic {DateTime.Now.ToString("dd_MM_yy")}",
-                    Body = "Email Auto-Generat " +
-                    "\n \n Azel Design Group SRL ",
-
-
+                  var mailMessage = new MailMessage
+                  {
+                      From = new MailAddress("calin.rizoiu@azel.ro"),
+                      Subject = @$"Raport Zilnic {DateTime.Now.ToString("dd_MM_yy")}",
+                      Body = "Email Auto-Generat " +
+                      "\n \n Azel Design Group SRL ",
 
 
-                    // IsBodyHtml = true,
-                };
 
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Zilnice\Raport_{DateTime.Now.ToString("dd_MM_yy")}.pdf");
-                mailMessage.Attachments.Add(attachment);
-                mailMessage.To.Add("crizoiu@yahoo.com");
-                mailMessage.To.Add("stanfandrei@yahoo.com");
-                mailMessage.To.Add("jancaj68@gmail.com");
-                mailMessage.To.Add("lucian@constructim.ro");
-                mailMessage.To.Add("cristian_bogdan_tm@yahoo.com");
-                mailMessage.To.Add("radu@constructim.ro");
-                mailMessage.To.Add("office@azel.ro");
 
-                smtpClient.Send(mailMessage);
+                      // IsBodyHtml = true,
+                  };
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }*/
+                  System.Net.Mail.Attachment attachment;
+                  attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Zilnice\Raport_{DateTime.Now.ToString("dd_MM_yy")}.pdf");
+                  mailMessage.Attachments.Add(attachment);
+                  mailMessage.To.Add("crizoiu@yahoo.com");
+                  mailMessage.To.Add("stanfandrei@yahoo.com");
+                  mailMessage.To.Add("jancaj68@gmail.com");
+                  mailMessage.To.Add("lucian@constructim.ro");
+                  mailMessage.To.Add("cristian_bogdan_tm@yahoo.com");
+                  mailMessage.To.Add("radu@constructim.ro");
+                  mailMessage.To.Add("office@azel.ro");
+
+                  smtpClient.Send(mailMessage);
+
+              }
+              catch (Exception ex)
+              {
+                  MessageBox.Show(ex.ToString());
+              }
         }
         public static byte[] ImageToByte(System.Drawing.Image img)
         {
