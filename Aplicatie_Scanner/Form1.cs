@@ -781,6 +781,7 @@ namespace Azel_Raportare_Balkani
                 mailMessage.To.Add("lucian@constructim.ro");
                 mailMessage.To.Add("cristian_bogdan_tm@yahoo.com");
                 mailMessage.To.Add("radu@constructim.ro");
+                mailMessage.To.Add("office@azel.ro");
 
                 smtpClient.Send(mailMessage);
 
@@ -901,7 +902,7 @@ namespace Azel_Raportare_Balkani
             table.AddCell(cell15);
             table.AddCell(cell16);
             table.AddCell(cell17);
-            date_putere = db.GetDatePuteri(DateTime.Now.AddDays(-1), DateTime.Now.AddTicks(-1));
+            date_putere = db.GetDatePuteri(DateTime.Now.Date.AddDays(-1), DateTime.Now.Date.AddDays(0).AddTicks(-1));
             var prognoza = GenerarePrognozaRaportZilnic();
 
             for (int i = 0; i < date_raport_ziua_trecuta.Count; i++)
@@ -1018,7 +1019,7 @@ namespace Azel_Raportare_Balkani
             ///////////////////////////////
             ///////TRIMITERE MAIL//////////
             ///////////////////////////////
-            try
+          /*  try
             {
                 var smtpClient = new SmtpClient("mail.azel.ro")
                 {
@@ -1049,6 +1050,7 @@ namespace Azel_Raportare_Balkani
                 mailMessage.To.Add("lucian@constructim.ro");
                 mailMessage.To.Add("cristian_bogdan_tm@yahoo.com");
                 mailMessage.To.Add("radu@constructim.ro");
+                mailMessage.To.Add("office@azel.ro");
 
                 smtpClient.Send(mailMessage);
 
@@ -1056,7 +1058,7 @@ namespace Azel_Raportare_Balkani
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }
+            }*/
         }
         public static byte[] ImageToByte(System.Drawing.Image img)
         {
@@ -1092,8 +1094,8 @@ namespace Azel_Raportare_Balkani
                 date_energie_ieri.Clear();
                 date_energie_alaltaieri.Clear();
 
-                date_energie_ieri = db.GetDateEnergie(DateTime.Now.AddDays(-1), DateTime.Now.AddDays(0).AddTicks(-1));
-                date_energie_alaltaieri = db.GetDateEnergie(DateTime.Now.AddDays(-2), DateTime.Now.AddDays(-1).AddTicks(-1));
+                date_energie_ieri = db.GetDateEnergie(DateTime.Now.Date.AddDays(-1), DateTime.Now.Date.AddDays(0).AddTicks(-1));
+                date_energie_alaltaieri = db.GetDateEnergie(DateTime.Now.Date.AddDays(-2), DateTime.Now.Date.AddDays(-1).AddTicks(-1));
 
                 double[] contor_ieri = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                 contor_ieri[0] = date_energie_ieri.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();
