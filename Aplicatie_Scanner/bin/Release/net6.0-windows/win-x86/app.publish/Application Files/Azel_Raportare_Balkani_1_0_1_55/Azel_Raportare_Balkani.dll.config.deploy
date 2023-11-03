@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <connectionStrings>
-    <add name="ConnStr" connectionString="Data Source=192.168.88.252,1433;Initial Catalog=Balkani; Integrated Security=False;User ID=balkani;Password=balkani;Connection Timeout=4"/>
-  </connectionStrings>
-    <startup> 
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8"/>
-    </startup>
-</configuration>

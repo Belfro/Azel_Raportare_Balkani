@@ -140,6 +140,7 @@ namespace Azel_Raportare_Balkani
             button1.TabIndex = 11;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
             button1.Click += button1_Click;
             // 
             // Panel_Nav
@@ -262,7 +263,7 @@ namespace Azel_Raportare_Balkani
             label1.ForeColor = Color.FromArgb(4, 224, 190);
             label1.Location = new Point(21, 100);
             label1.Name = "label1";
-            label1.Size = new Size(144, 32);
+            label1.Size = new Size(147, 32);
             label1.TabIndex = 0;
             label1.Text = "AZEL Database \r\nManagement Studio";
             label1.TextAlign = ContentAlignment.MiddleCenter;
