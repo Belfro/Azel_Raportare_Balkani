@@ -5,8 +5,8 @@ namespace Azel_Raportare_Balkani
 {
     public partial class Frm_Prognoza : Form
     {
-        List<DatePutere> date_putere = new List<DatePutere>();
-        List<DatePutere> date_putere_anterior = new List<DatePutere>();
+        List<DatePutere> date_energie_ieri = new List<DatePutere>();
+        List<DatePutere> date_energie_alaltaieri = new List<DatePutere>();
         List<DatePutere> date_putere_prognoza = new List<DatePutere>();
         public Frm_Prognoza()
         {
@@ -51,16 +51,81 @@ namespace Azel_Raportare_Balkani
             string Conditii_Get_Date = "";
             try
             {
-
                 DataAccess db = new DataAccess();
-                date_putere.Clear();
-                date_putere_anterior.Clear();
-                date_putere_prognoza.Clear();
+                date_energie_ieri.Clear();
+                date_energie_alaltaieri.Clear();
 
-                date_putere = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-1), newCalendar1.SelectionStart.AddDays(0).AddTicks(-1));
-                date_putere_anterior = db.GetDateEnergie(newCalendar1.SelectionStart.AddDays(-2), newCalendar1.SelectionStart.AddDays(-1).AddTicks(-1));
-              
+                date_energie_ieri = db.GetDateEnergie(DateTime.Now.Date.AddDays(-1), DateTime.Now.Date.AddDays(0).AddTicks(-1));
+                date_energie_alaltaieri = db.GetDateEnergie(DateTime.Now.Date.AddDays(-2), DateTime.Now.Date.AddDays(-1).AddTicks(-1));
 
+                double[] contor_ieri = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                contor_ieri[0] = date_energie_ieri.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();
+                contor_ieri[1] = date_energie_ieri.Where(x => x.Craiu_1_Grup_1 > 2 || x.Craiu_1_Grup_2 > 2).Count();
+                contor_ieri[2] = date_energie_ieri.Where(x => x.Craiu_2_Grup_1 > 2 || x.Craiu_2_Grup_2 > 2).Count();
+                contor_ieri[3] = date_energie_ieri.Where(x => x.Sebesel_1_Grup_1 > 2 || x.Sebesel_1_Grup_2 > 2).Count();
+                contor_ieri[4] = date_energie_ieri.Where(x => x.Sebesel_2_Grup_1 > 2 || x.Sebesel_2_Grup_2 > 2).Count();
+                contor_ieri[5] = date_energie_ieri.Where(x => x.Cornereva > 2).Count();
+
+                double[] contor_alaltaieri = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                contor_alaltaieri[0] = date_energie_alaltaieri.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();
+                contor_alaltaieri[1] = date_energie_alaltaieri.Where(x => x.Craiu_1_Grup_1 > 2 || x.Craiu_1_Grup_2 > 2).Count();
+                contor_alaltaieri[2] = date_energie_alaltaieri.Where(x => x.Craiu_2_Grup_1 > 2 || x.Craiu_2_Grup_2 > 2).Count();
+                contor_alaltaieri[3] = date_energie_alaltaieri.Where(x => x.Sebesel_1_Grup_1 > 2 || x.Sebesel_1_Grup_2 > 2).Count();
+                contor_alaltaieri[4] = date_energie_alaltaieri.Where(x => x.Sebesel_2_Grup_1 > 2 || x.Sebesel_2_Grup_2 > 2).Count();
+                contor_alaltaieri[5] = date_energie_alaltaieri.Where(x => x.Cornereva > 2).Count();
+
+                for (int i = 0; i < 6; i++)
+                {
+                    if (contor_ieri[i] < 30) { contor_ieri[i] = 30; }
+                    if (contor_alaltaieri[i] < 30) { contor_alaltaieri[i] = 30; }
+                }
+
+                double suma_cuntu = (date_energie_ieri.Sum(x => x.Cuntu_Grup_1) + date_energie_ieri.Sum(x => x.Cuntu_Grup_2));
+                double suma_cuntu_prev = (date_energie_alaltaieri.Sum(x => x.Cuntu_Grup_1) + date_energie_alaltaieri.Sum(x => x.Cuntu_Grup_2));
+
+                double suma_craiu_1 = (date_energie_ieri.Sum(x => x.Craiu_1_Grup_1) + date_energie_ieri.Sum(x => x.Craiu_1_Grup_2));
+                double suma_craiu_1_prev = (date_energie_alaltaieri.Sum(x => x.Craiu_1_Grup_1) + date_energie_alaltaieri.Sum(x => x.Craiu_1_Grup_2));
+
+                double suma_craiu_2 = (date_energie_ieri.Sum(x => x.Craiu_2_Grup_1) + date_energie_ieri.Sum(x => x.Craiu_2_Grup_2));
+                double suma_craiu_2_prev = (date_energie_alaltaieri.Sum(x => x.Craiu_2_Grup_1) + date_energie_alaltaieri.Sum(x => x.Craiu_2_Grup_2));
+
+                double suma_sebesel_1 = (date_energie_ieri.Sum(x => x.Sebesel_1_Grup_1) + date_energie_ieri.Sum(x => x.Sebesel_1_Grup_2));
+                double suma_sebesel_1_prev = (date_energie_alaltaieri.Sum(x => x.Sebesel_1_Grup_1) + date_energie_alaltaieri.Sum(x => x.Sebesel_1_Grup_2));
+
+
+                double suma_sebesel_2 = (date_energie_ieri.Sum(x => x.Sebesel_2_Grup_1) + date_energie_ieri.Sum(x => x.Sebesel_2_Grup_2));
+                double suma_sebesel_2_prev = (date_energie_alaltaieri.Sum(x => x.Sebesel_2_Grup_1) + date_energie_alaltaieri.Sum(x => x.Sebesel_2_Grup_2));
+
+
+                double suma_cornereva = (date_energie_ieri.Sum(x => x.Cornereva));
+                double suma_cornereva_prev = (date_energie_alaltaieri.Sum(x => x.Cornereva));
+
+
+                double factor_corectie_cuntu = Math.Round((suma_cuntu / contor_ieri[0]) / (suma_cuntu_prev / contor_alaltaieri[0]), 2);
+                double factor_corectie_craiu_1 = Math.Round((suma_craiu_1 / contor_ieri[1]) / (suma_craiu_1_prev / contor_alaltaieri[1]), 2);
+                double factor_corectie_craiu_2 = Math.Round((suma_craiu_2 / contor_ieri[2]) / (suma_craiu_2_prev / contor_alaltaieri[2]), 2);
+                double factor_corectie_sebesel_1 = Math.Round((suma_sebesel_1 / contor_ieri[3]) / (suma_sebesel_1_prev / contor_alaltaieri[3]), 2);
+                double factor_corectie_sebesel_2 = Math.Round((suma_sebesel_2 / contor_ieri[4]) / (suma_sebesel_2_prev / contor_alaltaieri[4]), 2);
+                double factor_corectie_cornereva = Math.Round((suma_cornereva / contor_ieri[5]) / (suma_cornereva_prev / contor_alaltaieri[5]), 2);
+
+
+
+
+
+                if (factor_corectie_cuntu < 0.8 || Double.IsNaN(factor_corectie_cuntu)) factor_corectie_cuntu = 0.8;
+                if (factor_corectie_cuntu > 1.05) factor_corectie_cuntu = 1.05;
+                if (factor_corectie_craiu_1 < 0.8 || Double.IsNaN(factor_corectie_craiu_1)) factor_corectie_craiu_1 = 0.8;
+                if (factor_corectie_craiu_1 > 1.05) factor_corectie_craiu_1 = 1.05;
+                if (factor_corectie_craiu_2 < 0.8 || Double.IsNaN(factor_corectie_craiu_2)) factor_corectie_craiu_2 = 0.8;
+                if (factor_corectie_craiu_2 > 1.05) factor_corectie_craiu_2 = 1.05;
+                if (factor_corectie_sebesel_1 < 0.8 || Double.IsNaN(factor_corectie_sebesel_1)) factor_corectie_sebesel_1 = 0.8;
+                if (factor_corectie_sebesel_1 > 1.05) factor_corectie_sebesel_1 = 1.05;
+                if (factor_corectie_sebesel_2 < 0.8 || Double.IsNaN(factor_corectie_sebesel_2)) factor_corectie_sebesel_2 = 0.8;
+                if (factor_corectie_sebesel_2 > 1.05) factor_corectie_sebesel_2 = 1.05;
+                if (factor_corectie_cornereva < 0.8 || Double.IsNaN(factor_corectie_cornereva)) factor_corectie_cornereva = 0.8;
+                if (factor_corectie_cornereva > 1.05) factor_corectie_cornereva = 1.05;
+               
+            
 
                 label1.Text = "Ziua Precedenta: " + newCalendar1.SelectionStart.AddDays(-1).ToString("yyyy-MM-dd");
                 label2.Text = "Ziua Urmatoare: " + newCalendar1.SelectionStart.AddDays(+1).ToString("yyyy-MM-dd");
@@ -70,69 +135,7 @@ namespace Azel_Raportare_Balkani
 
                 UpdateBinding();
 
-                int contor_valori_pozitive_cuntu = date_putere.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();
-                int contor_valori_pozitive_craiu_1 = date_putere.Where(x => x.Craiu_1_Grup_1 > 2 || x.Craiu_1_Grup_2 > 2).Count();
-                int contor_valori_pozitive_craiu_2 = date_putere.Where(x => x.Craiu_2_Grup_1 > 2 || x.Craiu_2_Grup_2 > 2).Count();
-                int contor_valori_pozitive_Sebesel_1 = date_putere.Where(x => x.Sebesel_1_Grup_1 > 2 || x.Sebesel_1_Grup_2 > 2).Count();
-                int contor_valori_pozitive_Sebesel_2 = date_putere.Where(x => x.Sebesel_2_Grup_1 > 2 || x.Sebesel_2_Grup_2 > 2).Count();
-                int contor_valori_pozitive_Cornereva = date_putere.Where(x => x.Cornereva > 2).Count();
 
-                int contor_valori_pozitive_cuntu_prev = date_putere_anterior.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();
-                int contor_valori_pozitive_craiu_1_prev = date_putere_anterior.Where(x => x.Craiu_1_Grup_1 > 2 || x.Craiu_1_Grup_2 > 2).Count();
-                int contor_valori_pozitive_craiu_2_prev = date_putere_anterior.Where(x => x.Craiu_2_Grup_1 > 2 || x.Craiu_2_Grup_2 > 2).Count();
-                int contor_valori_pozitive_Sebesel_1_prev = date_putere_anterior.Where(x => x.Sebesel_1_Grup_1 > 2 || x.Sebesel_1_Grup_2 > 2).Count();
-                int contor_valori_pozitive_Sebesel_2_prev = date_putere_anterior.Where(x => x.Sebesel_2_Grup_1 > 2 || x.Sebesel_2_Grup_2 > 2).Count();
-                int contor_valori_pozitive_Cornereva_prev = date_putere_anterior.Where(x => x.Cornereva > 2).Count();
-
-                if (contor_valori_pozitive_cuntu < 30) contor_valori_pozitive_cuntu = 30;
-                if (contor_valori_pozitive_craiu_1 < 30) contor_valori_pozitive_craiu_1 = 30;
-                if (contor_valori_pozitive_craiu_2 < 30) contor_valori_pozitive_craiu_2 = 30;
-                if (contor_valori_pozitive_Sebesel_1 < 30) contor_valori_pozitive_Sebesel_1 = 30;
-                if (contor_valori_pozitive_Sebesel_2 < 30) contor_valori_pozitive_Sebesel_2 = 30;
-                if (contor_valori_pozitive_Cornereva < 30) contor_valori_pozitive_Cornereva = 30;
-
-
-                double suma_cuntu = (date_putere.Sum(x => x.Cuntu_Grup_1) + date_putere.Sum(x => x.Cuntu_Grup_2)) / contor_valori_pozitive_cuntu;
-                double suma_cuntu_prev = (date_putere_anterior.Sum(x => x.Cuntu_Grup_1) + date_putere_anterior.Sum(x => x.Cuntu_Grup_2)) / contor_valori_pozitive_cuntu_prev;
-
-                double suma_craiu_1 = (date_putere.Sum(x => x.Craiu_1_Grup_1) + date_putere.Sum(x => x.Craiu_1_Grup_2)) / contor_valori_pozitive_craiu_1;
-                double suma_craiu_1_prev = (date_putere_anterior.Sum(x => x.Craiu_1_Grup_1) + date_putere_anterior.Sum(x => x.Craiu_1_Grup_2)) / contor_valori_pozitive_craiu_1_prev;
-
-                double suma_craiu_2 = (date_putere.Sum(x => x.Craiu_2_Grup_1) + date_putere.Sum(x => x.Craiu_2_Grup_2)) / contor_valori_pozitive_craiu_2;
-                double suma_craiu_2_prev = (date_putere_anterior.Sum(x => x.Craiu_2_Grup_1) + date_putere_anterior.Sum(x => x.Craiu_2_Grup_2)) / contor_valori_pozitive_craiu_2_prev;
-
-                double suma_sebesel_1 = (date_putere.Sum(x => x.Sebesel_1_Grup_1) + date_putere.Sum(x => x.Sebesel_1_Grup_2)) / contor_valori_pozitive_Sebesel_1;
-                double suma_sebesel_1_prev = (date_putere_anterior.Sum(x => x.Sebesel_1_Grup_1) + date_putere_anterior.Sum(x => x.Sebesel_1_Grup_2)) / contor_valori_pozitive_Sebesel_1_prev;
-
-
-                double suma_sebesel_2 = (date_putere.Sum(x => x.Sebesel_2_Grup_1) + date_putere.Sum(x => x.Sebesel_2_Grup_2)) / contor_valori_pozitive_Sebesel_2;
-                double suma_sebesel_2_prev = (date_putere_anterior.Sum(x => x.Sebesel_2_Grup_1) + date_putere_anterior.Sum(x => x.Sebesel_2_Grup_2)) / contor_valori_pozitive_Sebesel_2_prev;
-
-
-                double suma_cornereva = (date_putere.Sum(x => x.Cornereva) + date_putere.Sum(x => x.Cornereva)) / contor_valori_pozitive_Cornereva;
-                double suma_cornereva_prev = (date_putere_anterior.Sum(x => x.Cornereva) + date_putere_anterior.Sum(x => x.Cornereva)) / contor_valori_pozitive_Cornereva_prev;
-
-
-                double factor_corectie_cuntu = Math.Round(suma_cuntu / suma_cuntu_prev, 2);
-                double factor_corectie_craiu_1 = Math.Round((date_putere.Sum(x => x.Craiu_1_Grup_1) + date_putere.Sum(x => x.Craiu_1_Grup_2)) / (date_putere_anterior.Sum(x => x.Craiu_1_Grup_1) + date_putere_anterior.Sum(x => x.Craiu_1_Grup_2)), 2);
-                double factor_corectie_craiu_2 = Math.Round((date_putere.Sum(x => x.Craiu_2_Grup_1) + date_putere.Sum(x => x.Craiu_2_Grup_2)) / (date_putere_anterior.Sum(x => x.Craiu_2_Grup_1) + date_putere_anterior.Sum(x => x.Craiu_2_Grup_2)), 2);
-                double factor_corectie_sebesel_1 = Math.Round((date_putere.Sum(x => x.Sebesel_1_Grup_1) + date_putere.Sum(x => x.Sebesel_1_Grup_2)) / (date_putere_anterior.Sum(x => x.Sebesel_1_Grup_1) + date_putere_anterior.Sum(x => x.Sebesel_1_Grup_2)), 2);
-                double factor_corectie_sebesel_2 = Math.Round((date_putere.Sum(x => x.Sebesel_2_Grup_1) + date_putere.Sum(x => x.Sebesel_2_Grup_2)) / (date_putere_anterior.Sum(x => x.Sebesel_2_Grup_1) + date_putere_anterior.Sum(x => x.Sebesel_2_Grup_2)), 2);
-                double factor_corectie_cornereva = Math.Round((date_putere.Sum(x => x.Cornereva)) / (date_putere_anterior.Sum(x => x.Cornereva)), 2);
-
-
-                if (factor_corectie_cuntu < 0.8 || Double.IsNaN(factor_corectie_cuntu)) factor_corectie_cuntu = 0.8;
-                if (factor_corectie_cuntu > 1.2) factor_corectie_cuntu = 1.2;
-                if (factor_corectie_craiu_1 < 0.8 || Double.IsNaN(factor_corectie_craiu_1)) factor_corectie_craiu_1 = 0.8;
-                if (factor_corectie_craiu_1 > 1.2) factor_corectie_craiu_1 = 1.2;
-                if (factor_corectie_craiu_2 < 0.8 || Double.IsNaN(factor_corectie_craiu_2)) factor_corectie_craiu_2 = 0.8;
-                if (factor_corectie_craiu_2 > 1.2) factor_corectie_craiu_2 = 1.2;
-                if (factor_corectie_sebesel_1 < 0.8 || Double.IsNaN(factor_corectie_sebesel_1)) factor_corectie_sebesel_1 = 0.8;
-                if (factor_corectie_sebesel_1 > 1.2) factor_corectie_sebesel_1 = 1.2;
-                if (factor_corectie_sebesel_2 < 0.8 || Double.IsNaN(factor_corectie_sebesel_2)) factor_corectie_sebesel_2 = 0.8;
-                if (factor_corectie_sebesel_2 > 1.2) factor_corectie_sebesel_2 = 1.2;
-                if (factor_corectie_cornereva < 0.8 || Double.IsNaN(factor_corectie_cornereva)) factor_corectie_cornereva = 0.8;
-                if (factor_corectie_cornereva > 1.2) factor_corectie_cornereva = 1.2;
 
 
 
@@ -143,17 +146,17 @@ namespace Azel_Raportare_Balkani
                     date_putere_prognoza.Add(new DatePutere
                     {
                         Date_Time = newCalendar1.SelectionStart.AddDays(1).AddMinutes(15 * i),
-                        Cuntu_Grup_1 = Math.Round(((date_putere.Sum(x => x.Cuntu_Grup_1) + date_putere.Sum(x => x.Cuntu_Grup_2)) / contor_valori_pozitive_cuntu) * factor_corectie_cuntu * Convert.ToDouble(tbfactorCuntu.Text), 2),
+                        Cuntu_Grup_1 = Math.Round(((suma_cuntu * factor_corectie_cuntu)/96) * Convert.ToDouble(tbfactorCuntu.Text), 2),
 
-                        Craiu_1_Grup_1 = Math.Round(((date_putere.Sum(x => x.Craiu_1_Grup_1) + date_putere.Sum(x => x.Craiu_1_Grup_2)) / contor_valori_pozitive_craiu_1) * factor_corectie_craiu_1 * Convert.ToDouble(tbfactorCraiu1.Text), 2),
+                        Craiu_1_Grup_1 = Math.Round(((suma_craiu_1 * factor_corectie_craiu_1) / 96) * Convert.ToDouble(tbfactorCraiu1.Text), 2),
 
-                        Craiu_2_Grup_1 = Math.Round(((date_putere.Sum(x => x.Craiu_2_Grup_1) + date_putere.Sum(x => x.Craiu_2_Grup_2)) / contor_valori_pozitive_craiu_2) * factor_corectie_craiu_2 * Convert.ToDouble(tbfactorCraiu2.Text), 2),
+                        Craiu_2_Grup_1 = Math.Round(((suma_craiu_2 * factor_corectie_craiu_2) / 96) * Convert.ToDouble(tbfactorCraiu2.Text), 2),
 
-                        Sebesel_1_Grup_1 = Math.Round(((date_putere.Sum(x => x.Sebesel_1_Grup_1) + date_putere.Sum(x => x.Sebesel_1_Grup_2)) / contor_valori_pozitive_Sebesel_1) * factor_corectie_sebesel_1 * Convert.ToDouble(tbfactorSebesel1.Text), 2),
+                        Sebesel_1_Grup_1 = Math.Round(((suma_sebesel_1 * factor_corectie_sebesel_1) / 96) * Convert.ToDouble(tbfactorSebesel1.Text), 2),
 
-                        Sebesel_2_Grup_1 = Math.Round(((date_putere.Sum(x => x.Sebesel_2_Grup_1) + date_putere.Sum(x => x.Sebesel_2_Grup_2)) / contor_valori_pozitive_Sebesel_2) * factor_corectie_sebesel_2 * Convert.ToDouble(tbfactorSebesel2.Text), 2),
+                        Sebesel_2_Grup_1 = Math.Round(((suma_sebesel_2 * factor_corectie_sebesel_2) / 96) * Convert.ToDouble(tbfactorSebesel2.Text), 2),
 
-                        Cornereva = Math.Round(((date_putere.Sum(x => x.Cornereva)) / contor_valori_pozitive_Cornereva) * factor_corectie_cornereva * Convert.ToDouble(tbfactorCornereva.Text), 2)
+                        Cornereva = Math.Round(((suma_cornereva * factor_corectie_cornereva) / 96) * Convert.ToDouble(tbfactorCornereva.Text), 2),
                     }
 
                     );
@@ -193,7 +196,7 @@ namespace Azel_Raportare_Balkani
             {
                 dataGridView1.AutoGenerateColumns = false;
 
-                dataGridView1.DataSource = date_putere;
+                dataGridView1.DataSource = date_energie_ieri;
 
 
 
@@ -297,7 +300,7 @@ namespace Azel_Raportare_Balkani
                 System.IO.Directory.CreateDirectory(subPath);
             using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Prognoze\Raport_Prognoza_{newCalendar1.SelectionStart.AddDays(+1).ToString("yyyy-MM-dd")}.csv"))
             {
-                file.WriteLine("Data,Timp,Cuntu,Craiu 1,Craiu 2,Sebesel 1,Sebesel 2,Cornereva");
+                file.WriteLine("Data,Timp,Cuntu [kWh],Craiu 1 [kWh],Craiu 2 [kWh],Sebesel 1 [kWh],Sebesel 2 [kWh],Cornereva [kWh]");
                 foreach (var arr in date_putere_prognoza)
                 {
                     file.WriteLine(string.Join(",", arr.FullString));
