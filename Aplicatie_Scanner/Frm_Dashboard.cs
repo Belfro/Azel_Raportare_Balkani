@@ -117,17 +117,17 @@ namespace Azel_Raportare_Balkani
 
                 if (rbDefault.Checked)
                 {
-                    date = db.GetDateToataZiua(newCalendar1.SelectionStart, newCalendar1.SelectionEnd, Conditii_Get_Date, cbZonaSelectie.SelectedItem.ToString().Replace(" ", "_"));
+                    date = db.GetDateToataZiua(newCalendar1.SelectionStart, newCalendar1.SelectionEnd.AddMinutes(2), Conditii_Get_Date, cbZonaSelectie.SelectedItem.ToString().Replace(" ", "_"));
                 }
                 if (rbPutere.Checked)
                 {
 
-                    date_putere = db.GetDatePuteri(newCalendar1.SelectionStart, newCalendar1.SelectionEnd);
+                    date_putere = db.GetDatePuteri(newCalendar1.SelectionStart, newCalendar1.SelectionEnd.AddMinutes(2));
                 }
                 if (rbEnergie.Checked)
                 {
                     int index = 0;
-                    date_putere = db.GetDateEnergie(newCalendar1.SelectionStart, newCalendar1.SelectionEnd);
+                    date_putere = db.GetDateEnergie(newCalendar1.SelectionStart, newCalendar1.SelectionEnd.AddMinutes(2));
                     date_putere_ora.Clear();
                     if (cbEnergieOra.Checked)
                     {
