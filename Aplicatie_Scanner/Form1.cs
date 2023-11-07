@@ -727,7 +727,7 @@ namespace Azel_Raportare_Balkani
                 debit_raport_lunar = 0;
 
                 file.WriteLine("");
-                file.WriteLine("MHC,Index Vechi Energie,Index Nou Energie,Energie Produsa,Index Vechi Debit,Index Nou Debit, Volum Apa Turbinat");
+                file.WriteLine("MHC,Index Vechi Energie,Index Nou Energie,Energie Produsa [kWh],Index Vechi Debit,Index Nou Debit, Volum Apa Turbinat [1000 x m³]");
 
                 file.WriteLine(GetDateLuna("Cuntu_Grup_1"));
                 file.WriteLine(GetDateLuna("Cuntu_Grup_2"));
@@ -743,7 +743,7 @@ namespace Azel_Raportare_Balkani
                 file.WriteLine("");
 
                 file.WriteLine($",,,{Math.Round(energie_raport_lunar, 2)},,,{Math.Round(debit_raport_lunar, 2)}");
-                file.WriteLine($",,,Energie Totala,,,Volum Total Turbinat");
+                file.WriteLine($",,,Energie Totala [kWh],,,Volum Total Turbinat [1000 x m³]");
 
             }
 
