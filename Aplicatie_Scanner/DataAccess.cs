@@ -323,7 +323,7 @@ namespace Azel_Raportare_Balkani
                 using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("ConnStr")))
                 {
 
-                    var output = connection.Query<DateRaportZilnic>($"Select * From (Select top (1)  Energie, 'Cuntu_Grup_1' as Nume_Grup from Cuntu_Grup_1 where Energie > 0 and Date_Time < '{DateTime.Now.Date.ToString("yyyy-MM-dd")}' Order by Date_Time desc) As A1 " +
+                    var output = connection.Query<DateRaportZilnic>($"Select * From (Select top (1)  Energie, 'Cuntu_Grup_1' as Nume_Grup from Cuntu_Grup_1 where Energie > 0 and Date_Time < '{DateTime.Now.Date.AddMinutes(1).ToString("yyyy-MM-dd HH:mm")}' Order by Date_Time desc) As A1 " +
                         $"\r\nUNION ALL\r\nSelect * From (Select top (1)  Energie, 'Cuntu_Grup_2' as Nume_Grup from Cuntu_Grup_2 where Energie > 0 and Date_Time < '{DateTime.Now.Date.AddMinutes(1).ToString("yyyy-MM-dd HH:mm")}'  Order by Date_Time desc) As A2" +
                         $"\r\nUNION ALL\r\nSelect * From (Select top (1)  Energie, 'Craiu_1_Grup_1' as Nume_Grup from Craiu_1_Grup_1 where Energie > 0 and Date_Time < '{DateTime.Now.Date.AddMinutes(1).ToString("yyyy-MM-dd HH:mm")}'  Order by Date_Time desc) As A3" +
                         $"\r\nUNION ALL\r\nSelect * From (Select top (1)  Energie, 'Craiu_1_Grup_2' as Nume_Grup from Craiu_1_Grup_2 where Energie > 0 and Date_Time < '{DateTime.Now.Date.AddMinutes(1).ToString("yyyy-MM-dd HH:mm")}'  Order by Date_Time desc) As A4" +
