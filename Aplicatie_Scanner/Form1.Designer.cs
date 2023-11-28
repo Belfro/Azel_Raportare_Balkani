@@ -140,7 +140,6 @@ namespace Azel_Raportare_Balkani
             button1.TabIndex = 11;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
-            button1.Visible = false;
             button1.Click += button1_Click;
             // 
             // Panel_Nav

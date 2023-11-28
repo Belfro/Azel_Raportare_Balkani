@@ -502,16 +502,16 @@ namespace Azel_Raportare_Balkani
             string rezultat = "";
             DataAccess db = new DataAccess();
 
-            var inceputul_lunii = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1);
-            var sfarsitul_lunii = inceputul_lunii.AddMonths(1).AddTicks(-1);
+            var inceputul_lunii = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.AddMonths(-1).Month , 1);
+            var sfarsitul_lunii = inceputul_lunii.AddMonths(2).AddTicks(-1);
             var date_luna = db.GetDateToataZiua(inceputul_lunii, sfarsitul_lunii.AddDays(1).AddTicks(-1), "", MHC);
             if (date_luna.Any())
             {
-                index_initial_energie = date_luna.Select(x => x.Energie).SkipWhile(x => x == 0).FirstOrDefault(0);
+                index_initial_energie = date_luna.Where(x=> x.Date_Time.Month < dateTimePicker1.Value.Month).Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_energie = date_luna.Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 energie_totala = Math.Round((index_final_energie - index_initial_energie), 2);
 
-                index_initial_debit = date_luna.Select(x => x.Debit_Turbinat_Total).SkipWhile(x => x == 0).FirstOrDefault(0);
+                index_initial_debit = date_luna.Where(x => x.Date_Time.Month < dateTimePicker1.Value.Month).Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_debit = date_luna.Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 debit_total = Math.Round((index_final_debit - index_initial_debit), 2);
             }

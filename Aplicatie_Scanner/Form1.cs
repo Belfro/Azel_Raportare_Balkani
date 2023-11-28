@@ -750,46 +750,46 @@ namespace Azel_Raportare_Balkani
             ///////////////////////////////
             ///////TRIMITERE MAIL//////////
             ///////////////////////////////
-            try
-            {
-                var smtpClient = new SmtpClient("mail.azel.ro")
-                {
-                    Port = 587,
-                    Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
-                    EnableSsl = false,
-                };
+                 try
+                 {
+                     var smtpClient = new SmtpClient("mail.azel.ro")
+                     {
+                         Port = 587,
+                         Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
+                         EnableSsl = false,
+                     };
 
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress("calin.rizoiu@azel.ro"),
-                    Subject = @$"Raport_Lunar_{DateTime.Now.AddMinutes(-1).ToString("yyyy_MMMM")}",
-                    Body = "Email Auto-Generat " +
-                    "\n \n Azel Design Group SRL ",
-
-
+                     var mailMessage = new MailMessage
+                     {
+                         From = new MailAddress("calin.rizoiu@azel.ro"),
+                         Subject = @$"Raport_Lunar_{DateTime.Now.AddMinutes(-1).ToString("yyyy_MMMM")}",
+                         Body = "Email Auto-Generat " +
+                         "\n \n Azel Design Group SRL ",
 
 
-                    // IsBodyHtml = true,
-                };
 
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{DateTime.Now.AddMinutes(-1).ToString("yyyy_MMMM")}.csv");
-                mailMessage.Attachments.Add(attachment);
-                mailMessage.To.Add("crizoiu@yahoo.com");
-                mailMessage.To.Add("stanfandrei@yahoo.com");
-                mailMessage.To.Add("jancaj68@gmail.com");
-                mailMessage.To.Add("lucian@constructim.ro");
-                mailMessage.To.Add("cristian_bogdan_tm@yahoo.com");
-                mailMessage.To.Add("radu@constructim.ro");
-                mailMessage.To.Add("office@azel.ro");
 
-                smtpClient.Send(mailMessage);
+                         // IsBodyHtml = true,
+                     };
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+                     System.Net.Mail.Attachment attachment;
+                     attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{DateTime.Now.AddMinutes(-1).ToString("yyyy_MMMM")}.csv");
+                     mailMessage.Attachments.Add(attachment);
+                     mailMessage.To.Add("crizoiu@yahoo.com");
+                     mailMessage.To.Add("stanfandrei@yahoo.com");
+                     mailMessage.To.Add("jancaj68@gmail.com");
+                     mailMessage.To.Add("lucian@constructim.ro");
+                     mailMessage.To.Add("cristian_bogdan_tm@yahoo.com");
+                     mailMessage.To.Add("radu@constructim.ro");
+                     mailMessage.To.Add("office@azel.ro");
+
+                     smtpClient.Send(mailMessage);
+
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show(ex.ToString());
+                 }
 
         }
         private string GetDateLuna(string MHC)
@@ -803,16 +803,16 @@ namespace Azel_Raportare_Balkani
             string rezultat = "";
             DataAccess db = new DataAccess();
 
-            var inceputul_lunii = new DateTime(DateTime.Now.AddMinutes(-1).Year, DateTime.Now.AddMinutes(-1).Month, 1);
-            var sfarsitul_lunii = inceputul_lunii.AddMonths(1).AddTicks(-1);
+            var inceputul_lunii = new DateTime(DateTime.Now.AddMinutes(-1).Year, DateTime.Now.AddMonths(-1).AddMinutes(-1).Month, 1);
+            var sfarsitul_lunii = inceputul_lunii.AddMonths(2).AddTicks(-1);
             var date_luna = db.GetDateToataZiua(inceputul_lunii, sfarsitul_lunii.AddDays(1).AddTicks(-1), "", MHC);
             if (date_luna.Any())
             {
-                index_initial_energie = date_luna.Select(x => x.Energie).SkipWhile(x => x == 0).FirstOrDefault(0);
+                index_initial_energie = date_luna.Where(x => x.Date_Time.Month < DateTime.Now.AddMinutes(-1).Month).Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_energie = date_luna.Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 energie_totala = Math.Round((index_final_energie - index_initial_energie), 2);
 
-                index_initial_debit = date_luna.Select(x => x.Debit_Turbinat_Total).SkipWhile(x => x == 0).FirstOrDefault(0);
+                index_initial_debit = date_luna.Where(x => x.Date_Time.Month < DateTime.Now.AddMinutes(-1).Month).Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_debit = date_luna.Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 debit_total = Math.Round((index_final_debit - index_initial_debit), 2);
             }
