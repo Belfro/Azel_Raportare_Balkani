@@ -1,4 +1,5 @@
 ﻿
+using System.Diagnostics;
 using System.Media;
 
 namespace Azel_Raportare_Balkani
@@ -289,7 +290,23 @@ namespace Azel_Raportare_Balkani
                 MessageBox.Show("Valoarea introdusa trebuie sa fie numerica!");
             }
         }
+        private void OpenFolder(string path)
+        {
+            try
+            {
+                if (Directory.Exists(path))
+                {
+                    ProcessStartInfo startinfo = new ProcessStartInfo
+                    {
+                        Arguments = path,
+                        FileName = "explorer.exe"
+                    };
+                    Process.Start(startinfo);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
 
+        }
         private void btn_Print_Prognoza_Click(object sender, EventArgs e)
         {
             string subPath = @$"C:\Azel\Raportari\Prognoze";
@@ -305,7 +322,9 @@ namespace Azel_Raportare_Balkani
                 {
                     file.WriteLine(string.Join(",", arr.FullString));
                 }
+
             }
+            OpenFolder(@$"C:\Azel\Raportari\Prognoze");
         }
     }
 }
