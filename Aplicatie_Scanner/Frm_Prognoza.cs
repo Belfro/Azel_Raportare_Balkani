@@ -55,8 +55,8 @@ namespace Azel_Raportare_Balkani
                 date_energie_ieri.Clear();
                 date_energie_alaltaieri.Clear();
 
-                date_energie_ieri = db.GetDateEnergie(DateTime.Now.Date.AddDays(-1), DateTime.Now.Date.AddDays(0).AddTicks(-1));
-                date_energie_alaltaieri = db.GetDateEnergie(DateTime.Now.Date.AddDays(-2), DateTime.Now.Date.AddDays(-1).AddTicks(-1));
+                date_energie_ieri = db.GetDateEnergie(newCalendar1.SelectionStart.Date.AddDays(-1), newCalendar1.SelectionStart.Date.AddDays(0).AddTicks(-1));
+                date_energie_alaltaieri = db.GetDateEnergie(newCalendar1.SelectionStart.Date.AddDays(-2), newCalendar1.SelectionStart.Date.AddDays(-1).AddTicks(-1));
 
                 double[] contor_ieri = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                 contor_ieri[0] = date_energie_ieri.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();

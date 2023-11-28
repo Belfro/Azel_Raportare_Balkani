@@ -33,20 +33,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pictureBox2 = new PictureBox();
             dataGridView1 = new DataGridView();
-            Data = new DataGridViewTextBoxColumn();
-            Timp = new DataGridViewTextBoxColumn();
-            Putere = new DataGridViewTextBoxColumn();
-            Energie = new DataGridViewTextBoxColumn();
-            Presiune_Aductiune = new DataGridViewTextBoxColumn();
-            Presiune_GUP = new DataGridViewTextBoxColumn();
-            Pozitie_Injector_1 = new DataGridViewTextBoxColumn();
-            Pozitie_Injector_2 = new DataGridViewTextBoxColumn();
-            Vibratii_Generator = new DataGridViewTextBoxColumn();
-            Debit_Instantaneu = new DataGridViewTextBoxColumn();
-            Debit_Turbinat_Total = new DataGridViewTextBoxColumn();
-            Meteo_Temperatura = new DataGridViewTextBoxColumn();
-            Meteo_Umiditate = new DataGridViewTextBoxColumn();
-            Meteo_Precipitatii = new DataGridViewTextBoxColumn();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             newCalendar1 = new NewCalendar();
             Search = new Button();
@@ -67,6 +53,20 @@
             Btn_Print_Raport_Lunar = new Button();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
+            Data = new DataGridViewTextBoxColumn();
+            Timp = new DataGridViewTextBoxColumn();
+            Putere = new DataGridViewTextBoxColumn();
+            Energie = new DataGridViewTextBoxColumn();
+            Presiune_Aductiune = new DataGridViewTextBoxColumn();
+            Presiune_GUP = new DataGridViewTextBoxColumn();
+            Pozitie_Injector_1 = new DataGridViewTextBoxColumn();
+            Pozitie_Injector_2 = new DataGridViewTextBoxColumn();
+            Vibratii_Generator = new DataGridViewTextBoxColumn();
+            Debit_Instantaneu = new DataGridViewTextBoxColumn();
+            Debit_Turbinat_Total = new DataGridViewTextBoxColumn();
+            Meteo_Temperatura = new DataGridViewTextBoxColumn();
+            Meteo_Umiditate = new DataGridViewTextBoxColumn();
+            Meteo_Precipitatii = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
@@ -115,78 +115,6 @@
             dataGridView1.Size = new Size(1269, 414);
             dataGridView1.TabIndex = 35;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // Data
-            // 
-            Data.FillWeight = 80F;
-            Data.HeaderText = "Data";
-            Data.Name = "Data";
-            // 
-            // Timp
-            // 
-            Timp.FillWeight = 80F;
-            Timp.HeaderText = "Timp";
-            Timp.Name = "Timp";
-            // 
-            // Putere
-            // 
-            Putere.HeaderText = "Putere";
-            Putere.Name = "Putere";
-            // 
-            // Energie
-            // 
-            Energie.HeaderText = "Energie";
-            Energie.Name = "Energie";
-            // 
-            // Presiune_Aductiune
-            // 
-            Presiune_Aductiune.HeaderText = "Presiune Aductiune";
-            Presiune_Aductiune.Name = "Presiune_Aductiune";
-            // 
-            // Presiune_GUP
-            // 
-            Presiune_GUP.HeaderText = "Presiune GUP";
-            Presiune_GUP.Name = "Presiune_GUP";
-            // 
-            // Pozitie_Injector_1
-            // 
-            Pozitie_Injector_1.HeaderText = "Pozitie Injector 1";
-            Pozitie_Injector_1.Name = "Pozitie_Injector_1";
-            // 
-            // Pozitie_Injector_2
-            // 
-            Pozitie_Injector_2.HeaderText = "Pozitie Injector 2";
-            Pozitie_Injector_2.Name = "Pozitie_Injector_2";
-            // 
-            // Vibratii_Generator
-            // 
-            Vibratii_Generator.HeaderText = "Vibratii Generator";
-            Vibratii_Generator.Name = "Vibratii_Generator";
-            // 
-            // Debit_Instantaneu
-            // 
-            Debit_Instantaneu.HeaderText = "Debit Instantaneu";
-            Debit_Instantaneu.Name = "Debit_Instantaneu";
-            // 
-            // Debit_Turbinat_Total
-            // 
-            Debit_Turbinat_Total.HeaderText = "Debit Turbinat Total";
-            Debit_Turbinat_Total.Name = "Debit_Turbinat_Total";
-            // 
-            // Meteo_Temperatura
-            // 
-            Meteo_Temperatura.HeaderText = "Temperatura Meteo";
-            Meteo_Temperatura.Name = "Meteo_Temperatura";
-            // 
-            // Meteo_Umiditate
-            // 
-            Meteo_Umiditate.HeaderText = "Umiditate Meteo";
-            Meteo_Umiditate.Name = "Meteo_Umiditate";
-            // 
-            // Meteo_Precipitatii
-            // 
-            Meteo_Precipitatii.HeaderText = "Precipitatii Meteo";
-            Meteo_Precipitatii.Name = "Meteo_Precipitatii";
             // 
             // backgroundWorker1
             // 
@@ -433,6 +361,78 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Raport Selectie";
             // 
+            // Data
+            // 
+            Data.FillWeight = 80F;
+            Data.HeaderText = "Data";
+            Data.Name = "Data";
+            // 
+            // Timp
+            // 
+            Timp.FillWeight = 80F;
+            Timp.HeaderText = "Timp";
+            Timp.Name = "Timp";
+            // 
+            // Putere
+            // 
+            Putere.HeaderText = "Putere [kW]";
+            Putere.Name = "Putere";
+            // 
+            // Energie
+            // 
+            Energie.HeaderText = "Energie [kWh]";
+            Energie.Name = "Energie";
+            // 
+            // Presiune_Aductiune
+            // 
+            Presiune_Aductiune.HeaderText = "Presiune Aductiune";
+            Presiune_Aductiune.Name = "Presiune_Aductiune";
+            // 
+            // Presiune_GUP
+            // 
+            Presiune_GUP.HeaderText = "Presiune GUP";
+            Presiune_GUP.Name = "Presiune_GUP";
+            // 
+            // Pozitie_Injector_1
+            // 
+            Pozitie_Injector_1.HeaderText = "Pozitie Injector 1 [%]";
+            Pozitie_Injector_1.Name = "Pozitie_Injector_1";
+            // 
+            // Pozitie_Injector_2
+            // 
+            Pozitie_Injector_2.HeaderText = "Pozitie Injector 2 [%]";
+            Pozitie_Injector_2.Name = "Pozitie_Injector_2";
+            // 
+            // Vibratii_Generator
+            // 
+            Vibratii_Generator.HeaderText = "Vibratii Generator";
+            Vibratii_Generator.Name = "Vibratii_Generator";
+            // 
+            // Debit_Instantaneu
+            // 
+            Debit_Instantaneu.HeaderText = "Debit Instantaneu";
+            Debit_Instantaneu.Name = "Debit_Instantaneu";
+            // 
+            // Debit_Turbinat_Total
+            // 
+            Debit_Turbinat_Total.HeaderText = "Debit Turbinat Total [1000 x m³]";
+            Debit_Turbinat_Total.Name = "Debit_Turbinat_Total";
+            // 
+            // Meteo_Temperatura
+            // 
+            Meteo_Temperatura.HeaderText = "Temperatura Meteo [°C]";
+            Meteo_Temperatura.Name = "Meteo_Temperatura";
+            // 
+            // Meteo_Umiditate
+            // 
+            Meteo_Umiditate.HeaderText = "Umiditate Meteo";
+            Meteo_Umiditate.Name = "Meteo_Umiditate";
+            // 
+            // Meteo_Precipitatii
+            // 
+            Meteo_Precipitatii.HeaderText = "Precipitatii Meteo";
+            Meteo_Precipitatii.Name = "Meteo_Precipitatii";
+            // 
             // Frm_Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -474,6 +474,11 @@
         private RadioButton rbPutere;
         private RadioButton rbEnergie;
         private RadioButton rbDefault;
+        private CheckBox cbEnergieOra;
+        private DateTimePicker dateTimePicker1;
+        private Button Btn_Print_Raport_Lunar;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
         private DataGridViewTextBoxColumn Data;
         private DataGridViewTextBoxColumn Timp;
         private DataGridViewTextBoxColumn Putere;
@@ -488,11 +493,6 @@
         private DataGridViewTextBoxColumn Meteo_Temperatura;
         private DataGridViewTextBoxColumn Meteo_Umiditate;
         private DataGridViewTextBoxColumn Meteo_Precipitatii;
-        private CheckBox cbEnergieOra;
-        private DateTimePicker dateTimePicker1;
-        private Button Btn_Print_Raport_Lunar;
-        private GroupBox groupBox1;
-        private GroupBox groupBox2;
     }
 
 }

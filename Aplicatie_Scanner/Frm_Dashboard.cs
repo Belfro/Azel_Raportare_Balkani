@@ -278,16 +278,16 @@ namespace Azel_Raportare_Balkani
                 Afisare_Productie(true);
 
 
-                dataGridView1.Columns[2].HeaderText = "Putere";
-                dataGridView1.Columns[3].HeaderText = "Energie";
+                dataGridView1.Columns[2].HeaderText = "Putere [kW]";
+                dataGridView1.Columns[3].HeaderText = "Energie [kWh]";
                 dataGridView1.Columns[4].HeaderText = "Presiune Aductiune";
                 dataGridView1.Columns[5].HeaderText = "Presiune GUP";
-                dataGridView1.Columns[6].HeaderText = "Pozitie Injector 1";
-                dataGridView1.Columns[7].HeaderText = "Pozitie Injector 2";
+                dataGridView1.Columns[6].HeaderText = "Pozitie Injector 1 [%]";
+                dataGridView1.Columns[7].HeaderText = "Pozitie Injector 2 [%]";
                 dataGridView1.Columns[8].HeaderText = "Vibratii Generator";
                 dataGridView1.Columns[9].HeaderText = "Debit Instantaneu";
-                dataGridView1.Columns[10].HeaderText = "Debit Turbinat Total";
-                dataGridView1.Columns[11].HeaderText = "Temperatura Meteo";
+                dataGridView1.Columns[10].HeaderText = "Debit Turbinat Total [1000 x m³]";
+                dataGridView1.Columns[11].HeaderText = "Temperatura Meteo [°C]";
                 dataGridView1.Columns[12].HeaderText = "Umiditate Meteo";
                 dataGridView1.Columns[13].HeaderText = "Precipitatii Meteo";
 
@@ -327,7 +327,7 @@ namespace Azel_Raportare_Balkani
                 dataGridView1.Columns[10].HeaderText = "Sebesel 2 Grup 1";
                 dataGridView1.Columns[11].HeaderText = "Sebesel 2 Grup 2";
                 dataGridView1.Columns[12].HeaderText = "Cornereva";
-                dataGridView1.Columns[13].HeaderText = "Total";
+                dataGridView1.Columns[13].HeaderText = "Total [kWh]";
 
                 dataGridView1.Columns[2].DataPropertyName = "Cuntu_Grup_1";
                 dataGridView1.Columns[3].DataPropertyName = "Cuntu_Grup_2";
@@ -340,7 +340,7 @@ namespace Azel_Raportare_Balkani
                 dataGridView1.Columns[10].DataPropertyName = "Sebesel_2_Grup_1";
                 dataGridView1.Columns[11].DataPropertyName = "Sebesel_2_Grup_2";
                 dataGridView1.Columns[12].DataPropertyName = "Cornereva";
-                dataGridView1.Columns[13].DataPropertyName = "Total";
+                dataGridView1.Columns[13].DataPropertyName = "Total [kWh]";
                 Cautare_Date();
             }
             else
@@ -366,7 +366,7 @@ namespace Azel_Raportare_Balkani
                 dataGridView1.Columns[10].HeaderText = "Sebesel 2 Grup 1";
                 dataGridView1.Columns[11].HeaderText = "Sebesel 2 Grup 2";
                 dataGridView1.Columns[12].HeaderText = "Cornereva";
-                dataGridView1.Columns[13].HeaderText = "Total";
+                dataGridView1.Columns[13].HeaderText = "Total [kW]";
 
                 dataGridView1.Columns[2].DataPropertyName = "Cuntu_Grup_1";
                 dataGridView1.Columns[3].DataPropertyName = "Cuntu_Grup_2";
@@ -379,7 +379,7 @@ namespace Azel_Raportare_Balkani
                 dataGridView1.Columns[10].DataPropertyName = "Sebesel_2_Grup_1";
                 dataGridView1.Columns[11].DataPropertyName = "Sebesel_2_Grup_2";
                 dataGridView1.Columns[12].DataPropertyName = "Cornereva";
-                dataGridView1.Columns[13].DataPropertyName = "Total";
+                dataGridView1.Columns[13].DataPropertyName = "Total [kW]";
                 Cautare_Date();
             }
         }
@@ -444,7 +444,7 @@ namespace Azel_Raportare_Balkani
         }
         public void Printare_Si_Trimitere_Raport_Lunar()
         {
-           Printare_Raport_Lunar();
+            Printare_Raport_Lunar();
 
             ///////////////////////////////
             ///////TRIMITERE MAIL//////////
@@ -468,7 +468,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-                   // IsBodyHtml = true,
+                    // IsBodyHtml = true,
                 };
 
                 System.Net.Mail.Attachment attachment;
@@ -509,11 +509,11 @@ namespace Azel_Raportare_Balkani
             {
                 index_initial_energie = date_luna.Select(x => x.Energie).SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_energie = date_luna.Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
-                energie_totala = Math.Round((index_final_energie - index_initial_energie),2);
+                energie_totala = Math.Round((index_final_energie - index_initial_energie), 2);
 
                 index_initial_debit = date_luna.Select(x => x.Debit_Turbinat_Total).SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_debit = date_luna.Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
-                debit_total = Math.Round((index_final_debit - index_initial_debit),2);
+                debit_total = Math.Round((index_final_debit - index_initial_debit), 2);
             }
             energie_raport_lunar = energie_raport_lunar + energie_totala;
             debit_raport_lunar = debit_raport_lunar + debit_total;
