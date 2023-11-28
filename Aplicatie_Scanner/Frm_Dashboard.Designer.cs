@@ -385,12 +385,12 @@
             // 
             // Presiune_Aductiune
             // 
-            Presiune_Aductiune.HeaderText = "Presiune Aductiune";
+            Presiune_Aductiune.HeaderText = "Presiune Aductiune [bar]";
             Presiune_Aductiune.Name = "Presiune_Aductiune";
             // 
             // Presiune_GUP
             // 
-            Presiune_GUP.HeaderText = "Presiune GUP";
+            Presiune_GUP.HeaderText = "Presiune GUP [bar]";
             Presiune_GUP.Name = "Presiune_GUP";
             // 
             // Pozitie_Injector_1
@@ -405,12 +405,12 @@
             // 
             // Vibratii_Generator
             // 
-            Vibratii_Generator.HeaderText = "Vibratii Generator";
+            Vibratii_Generator.HeaderText = "Vibratii Generator [Hz]";
             Vibratii_Generator.Name = "Vibratii_Generator";
             // 
             // Debit_Instantaneu
             // 
-            Debit_Instantaneu.HeaderText = "Debit Instantaneu";
+            Debit_Instantaneu.HeaderText = "Debit Instantaneu [l]";
             Debit_Instantaneu.Name = "Debit_Instantaneu";
             // 
             // Debit_Turbinat_Total
@@ -425,12 +425,12 @@
             // 
             // Meteo_Umiditate
             // 
-            Meteo_Umiditate.HeaderText = "Umiditate Meteo";
+            Meteo_Umiditate.HeaderText = "Umiditate Meteo [%]";
             Meteo_Umiditate.Name = "Meteo_Umiditate";
             // 
             // Meteo_Precipitatii
             // 
-            Meteo_Precipitatii.HeaderText = "Precipitatii Meteo";
+            Meteo_Precipitatii.HeaderText = "Precipitatii Meteo [mm]";
             Meteo_Precipitatii.Name = "Meteo_Precipitatii";
             // 
             // Frm_Dashboard

@@ -280,16 +280,16 @@ namespace Azel_Raportare_Balkani
 
                 dataGridView1.Columns[2].HeaderText = "Putere [kW]";
                 dataGridView1.Columns[3].HeaderText = "Energie [kWh]";
-                dataGridView1.Columns[4].HeaderText = "Presiune Aductiune";
-                dataGridView1.Columns[5].HeaderText = "Presiune GUP";
+                dataGridView1.Columns[4].HeaderText = "Presiune Aductiune [bar]";
+                dataGridView1.Columns[5].HeaderText = "Presiune GUP [bar]";
                 dataGridView1.Columns[6].HeaderText = "Pozitie Injector 1 [%]";
                 dataGridView1.Columns[7].HeaderText = "Pozitie Injector 2 [%]";
-                dataGridView1.Columns[8].HeaderText = "Vibratii Generator";
-                dataGridView1.Columns[9].HeaderText = "Debit Instantaneu";
+                dataGridView1.Columns[8].HeaderText = "Vibratii Generator [Hz]";
+                dataGridView1.Columns[9].HeaderText = "Debit Instantaneu [l]";
                 dataGridView1.Columns[10].HeaderText = "Debit Turbinat Total [1000 x m³]";
                 dataGridView1.Columns[11].HeaderText = "Temperatura Meteo [°C]";
-                dataGridView1.Columns[12].HeaderText = "Umiditate Meteo";
-                dataGridView1.Columns[13].HeaderText = "Precipitatii Meteo";
+                dataGridView1.Columns[12].HeaderText = "Umiditate Meteo [%]";
+                dataGridView1.Columns[13].HeaderText = "Precipitatii Meteo [mm]";
 
                 dataGridView1.Columns[2].DataPropertyName = "Putere";
                 dataGridView1.Columns[3].DataPropertyName = "Energie";
