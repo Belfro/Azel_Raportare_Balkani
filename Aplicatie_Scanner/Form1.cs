@@ -848,7 +848,7 @@ namespace Azel_Raportare_Balkani
 
             document.Add(new Paragraph(new Text("\n")));
 
-            Paragraph header = new Paragraph($"Raport Zilnic Productie Balkani {DateTime.Now.AddDays(-1).ToString("dd.MM.yyyy")}")
+            Paragraph header = new Paragraph($"Raport Zilnic Productie Balkan {DateTime.Now.AddDays(-1).ToString("dd.MM.yyyy")}")
                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
                .SetFontSize(20);
 
@@ -921,6 +921,7 @@ namespace Azel_Raportare_Balkani
                 iText.Layout.Element.Cell cellx3 = new iText.Layout.Element.Cell(1, 1)
                     .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
                     .Add(new Paragraph(date_raport[i].Energie_Rotunjita.ToString()));
+
                 iText.Layout.Element.Cell cellx4 = new iText.Layout.Element.Cell(1, 1)
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
                    .Add(new Paragraph((date_raport[i].Energie_Rotunjita - date_raport_ziua_trecuta[i].Energie_Rotunjita).ToString()));
@@ -1196,7 +1197,7 @@ namespace Azel_Raportare_Balkani
 
             try
             {
-                Printare_Si_Trimitere_Raport_Lunar();
+                Printare_Si_Trimitere_Raport_Zilnic();
                 OpenFolder(@$"C:\Azel\Raportari\Rapoarte_Zilnice");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
