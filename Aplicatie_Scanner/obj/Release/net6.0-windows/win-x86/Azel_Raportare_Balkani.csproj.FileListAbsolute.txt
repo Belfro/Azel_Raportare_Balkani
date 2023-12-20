@@ -152,3 +152,4 @@ C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\ob
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\refint\Azel_Raportare_Balkani.dll
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Azel_Raportare_Balkani.pdb
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\ref\Azel_Raportare_Balkani.dll
+C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\win-x86\Azel_Raportare_Balkani.sourcelink.json

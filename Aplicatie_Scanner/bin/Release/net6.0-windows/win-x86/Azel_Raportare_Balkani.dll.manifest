@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Azel_Raportare_Balkani.exe" version="1.0.1.67" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Azel_Raportare_Balkani.exe" version="1.0.1.71" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="b1zoci3k.nyc.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -60,16 +60,16 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>saBKvDSKlH0LMif+LjMljxLllnFo63bfvecG4F833jI=</dsig:DigestValue>
+      <dsig:DigestValue>eXHvJNPFcXukOGqHb3oUcxQSa6XYfP22303mrU76fJI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Azel_Raportare_Balkani.dll" size="886768">
+  <file name="Azel_Raportare_Balkani.dll" size="893424">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>HRctgPbT/YRGmVZIxmKf5QuSgrprcHjdLKIR2C/QLjI=</dsig:DigestValue>
+      <dsig:DigestValue>tLRh/2BCqqrOKXP3ZEy7dz7l3YeqJseaEDVsY+UKQVk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Azel_Raportare_Balkani.dll.config" size="414">
@@ -87,7 +87,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>773oxwN4qpFmoaucMJfUkZLHUW6yu7ZHh7SzVOySZ7w=</dsig:DigestValue>
+      <dsig:DigestValue>2pW96Ot3NVssEI4aygQWnelWuNjZFZmTgQbsmmQMUQs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Azel_Raportare_Balkani.runtimeconfig.json" size="372">
@@ -486,13 +486,13 @@
       <dsig:DigestValue>FEbWsm2kmlqfNmly+J9OI2+RaVXzHdw467liF8HKzpw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="System.Data.SqlClient.dll" size="1023872">
+  <file name="System.Data.SqlClient.dll" size="1025984">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>yZWTJGsP9SjC3ZbutMFgp+E0vA15mJ0HhGgqafEVaAM=</dsig:DigestValue>
+      <dsig:DigestValue>Kx2NZDLD21QCsqTPHrV+wKrFx6HjZNhifYrNFuOsZuo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Xamarin.Forms.Core.dll" size="562232">

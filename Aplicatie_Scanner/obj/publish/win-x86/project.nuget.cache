@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JcBMOl5K61Zsux9WhLbRINJuDlfBAhi7EP7DCoJdYsL4Us2CicAFIgbVGjtxlQFiJLTCzvvWwMTP0jWPYw/rXg==",
+  "dgSpecHash": "LBYf5c9UNgNepK8Q80bVaMYp8uuyIOVIzzs8X6iyh0nFl2EoPUfnF7D/5J9niW6lInrSn3sDT1RT4RfDxi5eBw==",
   "success": true,
   "projectFilePath": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Azel_Raportare_Balkani.csproj",
   "expectedPackageFiles": [
@@ -87,7 +87,7 @@
     "C:\\Users\\AndreiS\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\AndreiS\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\AndreiS\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
-    "C:\\Users\\AndreiS\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
+    "C:\\Users\\AndreiS\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
     "C:\\Users\\AndreiS\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\AndreiS\\.nuget\\packages\\system.diagnostics.process\\4.3.0\\system.diagnostics.process.4.3.0.nupkg.sha512",
     "C:\\Users\\AndreiS\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",

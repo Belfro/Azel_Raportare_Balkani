@@ -15,3 +15,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Azel_Raportare_Balkani
 build_property.ProjectDir = C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
