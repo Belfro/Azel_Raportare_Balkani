@@ -134,7 +134,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-            lblAppVersion.Text = Assembly.GetEntryAssembly().GetName().Version.ToString();
+            lblAppVersion.Text = "1.0.0.72";
         }
 
 
