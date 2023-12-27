@@ -134,7 +134,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-            lblAppVersion.Text = "1.0.0.72";
+            lblAppVersion.Text = "1.0.0.73";
         }
 
 
@@ -436,11 +436,15 @@ namespace Azel_Raportare_Balkani
             string Umiditate_Meteo = "0";
             string Temperatura_Meteo = "0";
             string Precipitatii_Meteo = "0";
+            Ping ping = new Ping();
+            PingReply pingReply = ping.Send(PLC.IP);
+            PLC.ReadTimeout = 50000;    
 
-            if (PLC.IsConnected)
+            if (PLC.IsConnected && pingReply.Status == IPStatus.Success)
             {
                 try
                 {
+
                     var Putere_PLC = await PLC.ReadAsync(DataType.DataBlock, 8000, 0, VarType.Real, 1);
                     var Presiune_Aductiune_PLC = await PLC.ReadAsync(DataType.DataBlock, 8000, 4, VarType.Real, 1);
                     var Presiune_GUP_PLC = await PLC.ReadAsync(DataType.DataBlock, 8000, 8, VarType.Real, 1);
@@ -471,7 +475,7 @@ namespace Azel_Raportare_Balkani
                 }
                 catch (Exception ex)
                 {
-                    // MessageBox.Show("Error: " + ex.ToString());
+                     //MessageBox.Show("Error: " + ex.ToString());
                 }
 
             }
@@ -1575,7 +1579,8 @@ namespace Azel_Raportare_Balkani
 
             try
             {
-                Printare_Raport_Lunar();
+               
+                Printare_Raport_Zilnic();
                 //Trimitere_Raport_Lunar();
                 OpenFolder(@$"C:\Azel\Raportari\Rapoarte_Zilnice");
             }
