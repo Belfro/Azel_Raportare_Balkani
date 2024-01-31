@@ -4,6 +4,10 @@ using System.Data;
 
 namespace Azel_Raportare_Balkani
 {
+    public class Debit_Calculat
+    {
+        public static bool[] Index = new bool[11];
+    }
     public class DataAccess
     {
         public List<DateDB> GetDateToataZiua(DateTime DataSetata1, DateTime DataSetata2, String Conditii_Where, String Zona_Selectie)

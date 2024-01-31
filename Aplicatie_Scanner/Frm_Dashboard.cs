@@ -1,7 +1,17 @@
-﻿using System.Diagnostics;
+﻿using iText.Kernel.Colors;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using System.Diagnostics;
+using System.Globalization;
 using System.Net;
 using System.Net.Mail;
+using static Azel_Raportare_Balkani.Aplicatie_Raportare_Balkani;
 using static QRCoder.PayloadGenerator;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Kernel.Colors;
 
 namespace Azel_Raportare_Balkani
 {
@@ -42,6 +52,10 @@ namespace Azel_Raportare_Balkani
             fisier_deschis = false;
             newCalendar1.SelectionEnd = DateTime.Now.AddDays(1).AddTicks(-1);
             cbZonaSelectie.SelectedIndex = 0;
+            for (int i = 0; i < Debit_Calculat.Index.Length; i++)
+            {
+                checkedListBox_Debit_Calculat.SetItemChecked(i, Debit_Calculat.Index[i]);
+            }
         }
 
 
@@ -398,9 +412,81 @@ namespace Azel_Raportare_Balkani
         {
             Cautare_Date();
         }
+        private Date_Luna GetDateLuna(DateTime Luna_Selectata, string MHC)
+        {
+            Date_Luna Date = new Date_Luna();
+
+            Date.Energie_Total = 0;
+            Date.Debit_Total = 0;
+            Date.Energie_Index_Initial = 0;
+            Date.Energie_Index_Final = 0;
+            Date.Debit_Index_Initial = 0;
+            Date.Debit_Index_Final = 0;
+            Date.String_Csv = "";
+            DataAccess db = new DataAccess();
+
+            var inceputul_lunii = new DateTime(Luna_Selectata.AddMonths(-1).Year, (Luna_Selectata.AddMonths(-1).Month), 1);
+            var sfarsitul_lunii = inceputul_lunii.AddMonths(2).AddMinutes(-1);
+            var date_luna = db.GetDateToataZiua(inceputul_lunii, sfarsitul_lunii, "", MHC);
+            if (date_luna.Any())
+            {
+                Date.Energie_Index_Initial = date_luna.Where(x => x.Date_Time < inceputul_lunii.AddMonths(1).AddMinutes(-1) ).Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
+                Date.Energie_Index_Final = date_luna.Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
+                Date.Energie_Total = Math.Round((Date.Energie_Index_Final - Date.Energie_Index_Initial), 2);
+
+                Date.Debit_Index_Initial = date_luna.Where(x => x.Date_Time < inceputul_lunii.AddMonths(1).AddMinutes(-1)).Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
+                Date.Debit_Index_Final = date_luna.Select(x => x.Debit_Turbinat_Total).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
+                Date.Debit_Total = Math.Round((Date.Debit_Index_Final - Date.Debit_Index_Initial), 2);
+            }
+            energie_raport_lunar = energie_raport_lunar + Date.Energie_Total;
+
+
+            Date.String_Csv = $"{MHC.Replace("_", " ")},{Date.Energie_Index_Initial},{Date.Energie_Index_Final},{Date.Energie_Total},{Date.Debit_Index_Initial},{Date.Debit_Index_Final},{Date.Debit_Total}";
+            return Date;
+
+        }
+        private void Verificare_Calcul_Debit(int index, Date_Luna Grup, double Coeficient)
+        {
+            var Total_Calculat = Grup.Energie_Total * Coeficient / 1000;
+            if ((Total_Calculat > Grup.Debit_Total * 1.25 || Total_Calculat < Grup.Debit_Total * 0.75) && (Grup.Debit_Total > 1 || Grup.Energie_Total > 100))
+            {
+                Debit_Calculat.Index[index] = true;
+            }
+        }
+
         private void Printare_Raport_Lunar()
         {
             string subPath = @$"C:\Azel\Raportari\Rapoarte_Lunare";
+
+            energie_raport_lunar = 0;
+            debit_raport_lunar = 0;
+
+
+
+            Date_Luna Cuntu_Grup_1 = GetDateLuna(dateTimePicker1.Value.Date, "Cuntu_Grup_1");
+            Date_Luna Cuntu_Grup_2 = GetDateLuna(dateTimePicker1.Value.Date, "Cuntu_Grup_2");
+            Date_Luna Craiu_1_Grup_1 = GetDateLuna(dateTimePicker1.Value.Date, "Craiu_1_Grup_1");
+            Date_Luna Craiu_1_Grup_2 = GetDateLuna(dateTimePicker1.Value.Date, "Craiu_1_Grup_2");
+            Date_Luna Craiu_2_Grup_1 = GetDateLuna(dateTimePicker1.Value.Date, "Craiu_2_Grup_1");
+            Date_Luna Craiu_2_Grup_2 = GetDateLuna(dateTimePicker1.Value.Date, "Craiu_2_Grup_2");
+            Date_Luna Sebesel_1_Grup_1 = GetDateLuna(dateTimePicker1.Value.Date, "Sebesel_1_Grup_1");
+            Date_Luna Sebesel_1_Grup_2 = GetDateLuna(dateTimePicker1.Value.Date, "Sebesel_1_Grup_2");
+            Date_Luna Sebesel_2_Grup_1 = GetDateLuna(dateTimePicker1.Value.Date, "Sebesel_2_Grup_1");
+            Date_Luna Sebesel_2_Grup_2 = GetDateLuna(dateTimePicker1.Value.Date, "Sebesel_2_Grup_2");
+            Date_Luna Cornereva = GetDateLuna(dateTimePicker1.Value.Date, "Cornereva");
+
+            Verificare_Calcul_Debit(0, Cuntu_Grup_1, 2.895);
+            Verificare_Calcul_Debit(1, Cuntu_Grup_2, 2.895);
+            Verificare_Calcul_Debit(2, Craiu_1_Grup_1, 5.815);
+            Verificare_Calcul_Debit(3, Craiu_1_Grup_2, 5.815);
+            Verificare_Calcul_Debit(4, Craiu_2_Grup_1, 2.701);
+            Verificare_Calcul_Debit(5, Craiu_2_Grup_2, 2.701);
+            Verificare_Calcul_Debit(6, Sebesel_1_Grup_1, 3.698);
+            Verificare_Calcul_Debit(7, Sebesel_1_Grup_2, 3.698);
+            Verificare_Calcul_Debit(8, Sebesel_2_Grup_1, 3.635);
+            Verificare_Calcul_Debit(9, Sebesel_2_Grup_2, 3.635);
+            Verificare_Calcul_Debit(10, Cornereva, 7.996);
+
 
             bool exists = System.IO.Directory.Exists(subPath);
 
@@ -408,26 +494,193 @@ namespace Azel_Raportare_Balkani
                 System.IO.Directory.CreateDirectory(subPath);
 
 
+          
+            PdfWriter writer = new PdfWriter(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_{dateTimePicker1.Value.ToString("yyyy_MMMM", CultureInfo.CreateSpecificCulture("ro"))}.pdf");
+            PdfDocument pdf = new PdfDocument(writer);
+            Document document = new Document(pdf);
 
-            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}.csv"))
+
+
+            document.Add(new Paragraph(new Text("Nr.____/______")));
+            //document.Add(new Paragraph(new Text("\n")));
+            Paragraph header1 = new Paragraph($"Catre" +
+                $"\n")
+               .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
+            document.Add(new Paragraph(new Text("\n")));
+            Paragraph header2 = new Paragraph($"ADMINISTRATIA DE APA BANAT" +
+                $"\n" +
+                $"SISTEMUL DE GOSPODARIE A APELOR CARAS")
+               .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+               .SetBold();
+
+            DateTime ultima_zi = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1).AddMonths(1).AddMinutes(-1);
+
+            Paragraph subheader = new Paragraph($" \t Prin prezenta va comunicam indexurile de la contoarele de apa " +
+                $"MHC Muntele Mic luna {dateTimePicker1.Value.Date.ToString("MMMM", CultureInfo.CreateSpecificCulture("ro"))}" +
+                $" la data de {ultima_zi.ToString("dd.MM.yyyy")}");
+
+            document.Add(header1);
+            document.Add(header2);
+            document.Add(subheader);
+            document.Add(new Paragraph(new Text("\n")));
+
+            // Table
+            Table table = new Table(6, false).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+
+            iText.Layout.Element.Cell cell11 = new iText.Layout.Element.Cell(3, 1)
+               //.SetBackgroundColor(ColorConstants.GRAY)
+               .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+               .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+               .Add(new Paragraph(" "));
+            iText.Layout.Element.Cell cell12 = new iText.Layout.Element.Cell(3, 1)
+               //.SetBackgroundColor(ColorConstants.GRAY)
+               .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+               .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+               .Add(new Paragraph("MHC"));
+
+            iText.Layout.Element.Cell cell13 = new iText.Layout.Element.Cell(3, 1)
+                //.SetBackgroundColor(ColorConstants.GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph($"Energie produsa \n la {ultima_zi.AddMinutes(-1).ToString("dd.MM.yyyy")} [kWh]"));
+            iText.Layout.Element.Cell cell14 = new iText.Layout.Element.Cell(1, 2)
+                //.SetBackgroundColor(ColorConstants.GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph($"Inregistrari dispozitive \n de masura la {ultima_zi.AddMinutes(-1).ToString("dd.MM.yyyy")}"));
+            iText.Layout.Element.Cell cell15 = new iText.Layout.Element.Cell(1, 1)
+                //.SetBackgroundColor(ColorConstants.GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph("Volum apa uzinat"));
+            iText.Layout.Element.Cell cell16 = new iText.Layout.Element.Cell(1, 1)
+               //.SetBackgroundColor(ColorConstants.GRAY)
+               .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+               .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+               .Add(new Paragraph("Index Vechi"));
+            iText.Layout.Element.Cell cell17 = new iText.Layout.Element.Cell(1, 1)
+                //.SetBackgroundColor(ColorConstants.GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph($"Index nou"));
+            iText.Layout.Element.Cell cell18 = new iText.Layout.Element.Cell(1, 1)
+                //.SetBackgroundColor(ColorConstants.GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph($"(mii mc)"));
+            iText.Layout.Element.Cell cell19 = new iText.Layout.Element.Cell(1, 1)
+                //.SetBackgroundColor(ColorConstants.GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph($"(mii mc)"));
+            iText.Layout.Element.Cell cell20 = new iText.Layout.Element.Cell(1, 1)
+                //.SetBackgroundColor(ColorConstants.GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph($"(mii mc)"));
+            iText.Layout.Element.Cell cell21 = new iText.Layout.Element.Cell(1, 1)
+                //.SetBackgroundColor(ColorConstants.GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph($" "));
+
+
+            table.AddCell(cell11);
+            table.AddCell(cell12);
+            table.AddCell(cell13);
+            table.AddCell(cell14);
+            table.AddCell(cell15);
+            table.AddCell(cell16);
+            table.AddCell(cell17);
+            table.AddCell(cell18);
+            table.AddCell(cell19);
+            table.AddCell(cell20);
+            table.AddCell(cell21);
+
+            Introducere_MHC_PDF(ref table, Cuntu_Grup_1, Cuntu_Grup_2, "Cuntu", 0, 2.895);
+            Introducere_MHC_PDF(ref table, Craiu_1_Grup_1, Craiu_1_Grup_2, "Craiu 1", 2, 5.815);
+            Introducere_MHC_PDF(ref table, Craiu_2_Grup_1, Craiu_2_Grup_2, "Craiu 2", 4, 2.701);
+            Introducere_MHC_PDF(ref table, Sebesel_1_Grup_1, Sebesel_1_Grup_2, "Sebesel 1", 6, 3.698);
+            Introducere_MHC_PDF(ref table, Sebesel_2_Grup_1, Sebesel_2_Grup_2, "Sebesel 2", 8, 3.635);
+            Introducere_MHC_Single_PDF(ref table, Cornereva, ColorConstants.WHITE, "Cornereva", 10, 7.996);
+
+            iText.Layout.Element.Cell cell22 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.WHITE)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .SetFontSize(10)
+                .Add(new Paragraph($"Total MHC-uri"));
+            iText.Layout.Element.Cell cell23 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.WHITE)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(""));
+            iText.Layout.Element.Cell cell24 = new iText.Layout.Element.Cell(1, 4)
+                .SetBackgroundColor(ColorConstants.WHITE)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Math.Round((debit_raport_lunar), 2).ToString()));
+
+
+
+            iText.Layout.Element.Cell cell25 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.WHITE)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .SetFontSize(10)
+                .Add(new Paragraph($"Total ENERGIE la {ultima_zi.AddMinutes(-1).ToString("dd.MM.yyyy")}"));
+            iText.Layout.Element.Cell cell26 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.WHITE)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(""));
+            iText.Layout.Element.Cell cell27 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.WHITE)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Math.Round((energie_raport_lunar), 2).ToString()));
+            iText.Layout.Element.Cell cell28 = new iText.Layout.Element.Cell(1, 3)
+                .SetBackgroundColor(ColorConstants.WHITE)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(""));
+
+            table.AddCell(cell22);
+            table.AddCell(cell23);
+            table.AddCell(cell24);
+            table.AddCell(cell25);
+            table.AddCell(cell26);
+            table.AddCell(cell27);
+            table.AddCell(cell28);
+
+
+
+            document.Add(table);
+            document.Close();
+
+
+            using (StreamWriter file = File.CreateText(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM", CultureInfo.CreateSpecificCulture("ro"))}.csv"))
             {
-                energie_raport_lunar = 0;
-                debit_raport_lunar = 0;
+
+
+
+
+
 
                 file.WriteLine("");
                 file.WriteLine("MHC,Index Vechi Energie,Index Nou Energie,Energie Produsa [kWh],Index Vechi Debit,Index Nou Debit, Volum Apa Turbinat [1000 x m3]");
 
-                file.WriteLine(GetDateLuna("Cuntu_Grup_1"));
-                file.WriteLine(GetDateLuna("Cuntu_Grup_2"));
-                file.WriteLine(GetDateLuna("Craiu_1_Grup_1"));
-                file.WriteLine(GetDateLuna("Craiu_1_Grup_2"));
-                file.WriteLine(GetDateLuna("Craiu_2_Grup_1"));
-                file.WriteLine(GetDateLuna("Craiu_2_Grup_2"));
-                file.WriteLine(GetDateLuna("Sebesel_1_Grup_1"));
-                file.WriteLine(GetDateLuna("Sebesel_1_Grup_2"));
-                file.WriteLine(GetDateLuna("Sebesel_2_Grup_1"));
-                file.WriteLine(GetDateLuna("Sebesel_2_Grup_2"));
-                file.WriteLine(GetDateLuna("Cornereva"));
+                file.WriteLine(Cuntu_Grup_1.String_Csv);
+                file.WriteLine(Cuntu_Grup_2.String_Csv);
+                file.WriteLine(Craiu_1_Grup_1.String_Csv);
+                file.WriteLine(Craiu_1_Grup_2.String_Csv);
+                file.WriteLine(Craiu_2_Grup_1.String_Csv);
+                file.WriteLine(Craiu_2_Grup_2.String_Csv);
+                file.WriteLine(Sebesel_1_Grup_1.String_Csv);
+                file.WriteLine(Sebesel_1_Grup_2.String_Csv);
+                file.WriteLine(Sebesel_2_Grup_1.String_Csv);
+                file.WriteLine(Sebesel_2_Grup_2.String_Csv);
+                file.WriteLine(Cornereva.String_Csv);
                 file.WriteLine("");
 
                 file.WriteLine($",,,{Math.Round(energie_raport_lunar, 2)},,,{Math.Round(debit_raport_lunar, 2)}");
@@ -435,61 +688,242 @@ namespace Azel_Raportare_Balkani
 
             }
 
-            if (fisier_deschis == false)
-            {
-                OpenFolder(@$"C:\Azel\Raportari\Rapoarte_Lunare");
-                fisier_deschis = true;
-            }
-            else { fisier_deschis = false; }
         }
-        public void Printare_Si_Trimitere_Raport_Lunar()
+
+        private void Introducere_MHC_PDF(ref Table table, Date_Luna Grup_1, Date_Luna Grup_2, string MHC, int Index_Debit, double Coeficient_Debit)
         {
-            Printare_Raport_Lunar();
+            #region Cells
+            iText.Layout.Element.Cell cell_1 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .SetFontSize(10)
+                .Add(new Paragraph($"Turbina 1 - Pr. {MHC}"));
+            iText.Layout.Element.Cell cell_2 = new iText.Layout.Element.Cell(2, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(MHC));
+            iText.Layout.Element.Cell cell_3 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph((Grup_1.Energie_Total).ToString()));
+            iText.Layout.Element.Cell cell_4 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Grup_1.Debit_Index_Initial.ToString()));
+            iText.Layout.Element.Cell cell_5 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Grup_1.Debit_Index_Final.ToString()));
 
-            ///////////////////////////////
-            ///////TRIMITERE MAIL//////////
-            ///////////////////////////////
-            try
+            iText.Layout.Element.Cell cell_6 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE);
+
+
+            iText.Layout.Element.Cell cell_7 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .SetFontSize(10)
+                .Add(new Paragraph($"Turbina 2 - Pr. {MHC}"));
+
+            iText.Layout.Element.Cell cell_8 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph((Grup_2.Energie_Total).ToString()));
+            iText.Layout.Element.Cell cell_9 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Grup_2.Debit_Index_Initial.ToString()));
+            iText.Layout.Element.Cell cell_10 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Grup_2.Debit_Index_Final.ToString()));
+
+            iText.Layout.Element.Cell cell_11 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.YELLOW)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE);
+
+            iText.Layout.Element.Cell cell_12 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.GREEN)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .SetFontSize(10)
+                .Add(new Paragraph($"Total MHC {MHC}"));
+            iText.Layout.Element.Cell cell_13 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.GREEN)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(""));
+            iText.Layout.Element.Cell cell_14 = new iText.Layout.Element.Cell(1, 4)
+                .SetBackgroundColor(ColorConstants.GREEN)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE);
+
+
+
+            if (Debit_Calculat.Index[Index_Debit])
             {
-                var smtpClient = new SmtpClient("mail.azel.ro")
-                {
-                    Port = 587,
-                    Credentials = new NetworkCredential("calin.rizoiu@azel.ro", "SHpQv5sMpx7k"),
-                    EnableSsl = false,
-                };
+                cell_4.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(" (defect)"));
+                cell_5.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(" (defect)"));
+                cell_6.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(Math.Round((Grup_1.Energie_Total * Coeficient_Debit / 1000), 2).ToString())).Add(new Paragraph(" (calculat)"));
+            }
+            else
+            {
+                cell_6.Add(new Paragraph(Math.Round((Grup_1.Debit_Total), 2).ToString()));
+            }
 
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress("calin.rizoiu@azel.ro"),
-                    Subject = @$"Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}",
-                    Body = "Email Auto-Generat " +
-                    "\n \n Azel Design Group SRL ",
+            if (Debit_Calculat.Index[Index_Debit + 1])
+            {
+                cell_9.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(" (defect)"));
+                cell_10.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(" (defect)"));
+                cell_11.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(Math.Round((Grup_2.Energie_Total * Coeficient_Debit / 1000), 2).ToString())).Add(new Paragraph(" (calculat)"));
+            }
+            else
+            {
 
+                cell_11.Add(new Paragraph(Math.Round((Grup_2.Debit_Total), 2).ToString()));
+            }
 
-
-
-                    // IsBodyHtml = true,
-                };
-
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{dateTimePicker1.Value.ToString("yyyy_MMMM")}.csv");
-                mailMessage.Attachments.Add(attachment);
-                mailMessage.To.Add("crizoiu@yahoo.com");
-                mailMessage.To.Add("stanfandrei@yahoo.com");
-                mailMessage.To.Add("office@azel.ro");
-
-                smtpClient.Send(mailMessage);
+            if (Debit_Calculat.Index[Index_Debit] && Debit_Calculat.Index[Index_Debit + 1])
+            {
+                cell_14.Add(new Paragraph(Math.Round((Grup_1.Energie_Total * Coeficient_Debit / 1000 + Grup_2.Energie_Total * Coeficient_Debit / 1000), 2).ToString() + " (calculat)"));
+                debit_raport_lunar = debit_raport_lunar + Grup_1.Energie_Total * Coeficient_Debit / 1000 + Grup_2.Energie_Total * Coeficient_Debit / 1000;
+            }
+            else if (Debit_Calculat.Index[Index_Debit])
+            {
+                cell_14.Add(new Paragraph(Math.Round((Grup_1.Energie_Total * Coeficient_Debit / 1000 + Grup_2.Debit_Total), 2).ToString()));
+                debit_raport_lunar = debit_raport_lunar + Grup_1.Energie_Total * Coeficient_Debit / 1000 + Grup_2.Debit_Total;
 
             }
-            catch (Exception ex)
+            else if (Debit_Calculat.Index[Index_Debit + 1])
             {
-                MessageBox.Show(ex.ToString());
+                cell_14.Add(new Paragraph(Math.Round((Grup_1.Debit_Total + Grup_2.Energie_Total * Coeficient_Debit / 1000), 2).ToString()));
+                debit_raport_lunar = debit_raport_lunar + (Grup_1.Debit_Total + Grup_2.Energie_Total * Coeficient_Debit / 1000);
+
             }
+            else
+            {
+                cell_14.Add(new Paragraph(Math.Round((Grup_1.Debit_Total + Grup_2.Debit_Total), 2).ToString()));
+                debit_raport_lunar = debit_raport_lunar + (Grup_1.Debit_Total + Grup_2.Debit_Total);
+
+            }
+
+
+
+
+            table.AddCell(cell_1);
+            table.AddCell(cell_2);
+            table.AddCell(cell_3);
+            table.AddCell(cell_4);
+            table.AddCell(cell_5);
+            table.AddCell(cell_6);
+            table.AddCell(cell_7);
+            table.AddCell(cell_8);
+            table.AddCell(cell_9);
+            table.AddCell(cell_10);
+            table.AddCell(cell_11);
+            table.AddCell(cell_12);
+            table.AddCell(cell_13);
+            table.AddCell(cell_14);
+            #endregion
         }
+
+        private void Introducere_MHC_Single_PDF(ref Table table, Date_Luna Grup, iText.Kernel.Colors.Color Culoare, string MHC, int Index_Debit, double Coeficient_Debit)
+        {
+            #region Cells
+            iText.Layout.Element.Cell cell_1 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(Culoare)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .SetFontSize(10)
+                .Add(new Paragraph($"Turbina 1 - Pr. {MHC}"));
+            iText.Layout.Element.Cell cell_2 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(Culoare)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(MHC));
+            iText.Layout.Element.Cell cell_3 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(Culoare)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph((Grup.Energie_Total).ToString()));
+            iText.Layout.Element.Cell cell_4 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(Culoare)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Grup.Debit_Index_Initial.ToString()));
+            iText.Layout.Element.Cell cell_5 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(Culoare)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Grup.Debit_Index_Final.ToString()));
+            iText.Layout.Element.Cell cell_6 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(Culoare)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(Math.Round((Grup.Debit_Total), 2).ToString()));
+
+            iText.Layout.Element.Cell cell_10 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.GREEN)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .SetFontSize(10)
+                .Add(new Paragraph($"Total MHC {MHC}"));
+            iText.Layout.Element.Cell cell_11 = new iText.Layout.Element.Cell(1, 1)
+                .SetBackgroundColor(ColorConstants.GREEN)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE)
+                .Add(new Paragraph(""));
+            iText.Layout.Element.Cell cell_12 = new iText.Layout.Element.Cell(1, 4)
+                .SetBackgroundColor(ColorConstants.GREEN)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetVerticalAlignment(iText.Layout.Properties.VerticalAlignment.MIDDLE);
+
+            if (Debit_Calculat.Index[Index_Debit])
+            {
+                cell_4.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(" (defect)"));
+                cell_5.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(" (defect)"));
+                cell_6.SetBackgroundColor(ColorConstants.RED).Add(new Paragraph(Math.Round((Grup.Energie_Total * Coeficient_Debit / 1000), 2).ToString())).Add(new Paragraph(" (calculat)"));
+                cell_12.Add(new Paragraph(Math.Round((Grup.Energie_Total * Coeficient_Debit / 1000), 2).ToString()));
+                debit_raport_lunar = debit_raport_lunar + (Grup.Energie_Total * Coeficient_Debit / 1000);
+
+            }
+            else
+            {
+                cell_12.Add(new Paragraph(Math.Round((Grup.Debit_Total), 2).ToString()));
+                debit_raport_lunar = debit_raport_lunar + (Grup.Debit_Total);
+            }
+
+
+            table.AddCell(cell_1);
+            table.AddCell(cell_2);
+            table.AddCell(cell_3);
+            table.AddCell(cell_4);
+            table.AddCell(cell_5);
+            table.AddCell(cell_6);
+            table.AddCell(cell_10);
+            table.AddCell(cell_11);
+            table.AddCell(cell_12);
+            #endregion
+        }
+
+
 
         private void Btn_Print_Raport_Lunar_Click(object sender, EventArgs e)
         {
             Printare_Raport_Lunar();
+            OpenFolder(@$"C:\Azel\Raportari\Rapoarte_Lunare");
         }
         private string GetDateLuna(string MHC)
         {
@@ -502,12 +936,12 @@ namespace Azel_Raportare_Balkani
             string rezultat = "";
             DataAccess db = new DataAccess();
 
-            var inceputul_lunii = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.AddMonths(-1).Month , 1);
+            var inceputul_lunii = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.AddMonths(-1).Month, 1);
             var sfarsitul_lunii = inceputul_lunii.AddMonths(2).AddTicks(-1);
             var date_luna = db.GetDateToataZiua(inceputul_lunii, sfarsitul_lunii.AddDays(1).AddTicks(-1), "", MHC);
             if (date_luna.Any())
             {
-                index_initial_energie = date_luna.Where(x=> x.Date_Time.Month < dateTimePicker1.Value.Month).Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
+                index_initial_energie = date_luna.Where(x => x.Date_Time.Month < dateTimePicker1.Value.Month).Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 index_final_energie = date_luna.Select(x => x.Energie).Reverse().SkipWhile(x => x == 0).FirstOrDefault(0);
                 energie_totala = Math.Round((index_final_energie - index_initial_energie), 2);
 
@@ -526,6 +960,19 @@ namespace Azel_Raportare_Balkani
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkedListBox_Debit_Calculat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Debit_Calculat.Index.Length; i++)
+            {
+                Debit_Calculat.Index[i] = checkedListBox_Debit_Calculat.GetItemCheckState(i) == CheckState.Checked;
+            }
+        }
+
+        private void checkedListBox_Debit_Calculat_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+           
         }
     }
 }

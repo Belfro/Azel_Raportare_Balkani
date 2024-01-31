@@ -9145,23 +9145,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AndreiS\\.nuget\\packages\\": {},
+    "C:\\Users\\andrei.stan\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Azel_Raportare_Balkani.csproj",
+      "projectUniqueName": "C:\\AS\\Work\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Azel_Raportare_Balkani.csproj",
       "projectName": "Azel_Raportare_Balkani",
-      "projectPath": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Azel_Raportare_Balkani.csproj",
-      "packagesPath": "C:\\Users\\AndreiS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AndreiS\\iCloudDrive\\AS\\Azel\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\obj\\publish\\win-x86\\",
+      "projectPath": "C:\\AS\\Work\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Azel_Raportare_Balkani.csproj",
+      "packagesPath": "C:\\Users\\andrei.stan\\.nuget\\packages\\",
+      "outputPath": "C:\\AS\\Work\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\obj\\publish\\win-x86\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\AndreiS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\andrei.stan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9171,7 +9171,6 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\AndreiS\\.nuget\\packages\\LivechartSkia": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9242,6 +9241,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x86",
+            "version": "[6.0.26, 6.0.26]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.26, 6.0.26]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -9250,7 +9267,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
@@ -9260,6 +9277,17 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Data.SqlClient' 4.8.5 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net6.0-windows7.0",
+        "net6.0-windows7.0/win-x86"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

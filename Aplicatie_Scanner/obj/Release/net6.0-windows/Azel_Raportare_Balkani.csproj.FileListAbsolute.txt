@@ -173,3 +173,111 @@ C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\ob
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.genruntimeconfig.cache
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\ref\Azel_Raportare_Balkani.dll
 C:\Users\AndreiS\iCloudDrive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.sourcelink.json
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.csproj.AssemblyReference.cache
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Aplicatie_Raportare_Balkani.resources
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Dashboard.resources
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Grafice.resources
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Prognoza.resources
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Settings.resources
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Properties.Resources.resources
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.csproj.GenerateResource.cache
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.GeneratedMSBuildEditorConfig.editorconfig
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.AssemblyInfoInputs.cache
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.AssemblyInfo.cs
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.csproj.CoreCompileInputs.cache
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.sourcelink.json
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.dll
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\refint\Azel_Raportare_Balkani.dll
+G:\Other computers\My Laptop\Drive\AS\Azel\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.pdb
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.exe
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.dll.config
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.deps.json
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.runtimeconfig.json
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.pdb
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\BarcodeStandard.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\BinaryKits.Zpl.Label.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\BinaryKits.Zpl.Viewer.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\BouncyCastle.Cryptography.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Dapper.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\HarfBuzzSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.barcodes.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.bouncy-castle-connector.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.forms.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.io.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.kernel.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.layout.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.pdfa.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.sign.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.styledxmlparser.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.svg.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.bouncy-castle-adapter.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\itext.commons.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\LiveChartsCore.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\LiveChartsCore.SkiaSharpView.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\LiveChartsCore.SkiaSharpView.WinForms.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Microsoft.DotNet.PlatformAbstractions.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Microsoft.Extensions.Logging.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Microsoft.Extensions.Options.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Newtonsoft.Json.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\OpenTK.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\OpenTK.GLControl.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\QRCoder.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\S7.Net.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\SixLabors.ImageSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\SkiaSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\SkiaSharp.HarfBuzz.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\SkiaSharp.Views.Desktop.Common.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\SkiaSharp.Views.WindowsForms.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\System.Data.SqlClient.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Xamarin.Forms.Core.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Xamarin.Forms.Platform.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Xamarin.Forms.Xaml.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\XamForms.Controls.Calendar.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\zxing.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\ZXing.Windows.Compatibility.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\osx\native\libHarfBuzzSharp.dylib
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-x64\native\libHarfBuzzSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\linux-arm\native\libSkiaSharp.so
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\linux-arm64\native\libSkiaSharp.so
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\linux-musl-x64\native\libSkiaSharp.so
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\linux-x64\native\libSkiaSharp.so
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\osx\native\libSkiaSharp.dylib
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-x64\native\libSkiaSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win-x86\native\libSkiaSharp.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.csproj.AssemblyReference.cache
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Dashboard.resources
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Grafice.resources
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Prognoza.resources
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Frm_Settings.resources
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Properties.Resources.resources
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.csproj.GenerateResource.cache
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.GeneratedMSBuildEditorConfig.editorconfig
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.AssemblyInfoInputs.cache
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.AssemblyInfo.cs
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.csproj.CoreCompileInputs.cache
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.sourcelink.json
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.csproj.CopyComplete
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\refint\Azel_Raportare_Balkani.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.pdb
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.genruntimeconfig.cache
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\ref\Azel_Raportare_Balkani.dll
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.Aplicatie_Raportare_Balkani.resources
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.dll.manifest
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\bin\Release\net6.0-windows\Azel_Raportare_Balkani.application
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.dll.manifest
+C:\AS\Work\Azel_Raportare_Balkani\Aplicatie_Scanner\obj\Release\net6.0-windows\Azel_Raportare_Balkani.application
