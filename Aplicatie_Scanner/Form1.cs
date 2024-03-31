@@ -1231,9 +1231,9 @@ namespace Azel_Raportare_Balkani
                 System.Net.Mail.Attachment attachment1;
                 System.Net.Mail.Attachment attachment2;
 
-                attachment1 = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{DateTime.Now.AddMonths(-1).ToString("yyyy_MMMM", CultureInfo.CreateSpecificCulture("ro"))}.csv");
+                //attachment1 = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_Lunar_{DateTime.Now.AddMonths(-1).ToString("yyyy_MMMM", CultureInfo.CreateSpecificCulture("ro"))}.csv");
                 attachment2 = new System.Net.Mail.Attachment(@$"C:\Azel\Raportari\Rapoarte_Lunare\Raport_{DateTime.Now.AddMonths(-1).ToString("yyyy_MMMM", CultureInfo.CreateSpecificCulture("ro"))}.pdf");
-                mailMessage.Attachments.Add(attachment1);
+                //mailMessage.Attachments.Add(attachment1);
                 mailMessage.Attachments.Add(attachment2);
 
                 mailMessage.To.Add("crizoiu@yahoo.com");

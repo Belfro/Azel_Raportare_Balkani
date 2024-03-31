@@ -263,7 +263,7 @@ namespace Azel_Raportare_Balkani
             label1.ForeColor = Color.FromArgb(4, 224, 190);
             label1.Location = new Point(21, 100);
             label1.Name = "label1";
-            label1.Size = new Size(147, 32);
+            label1.Size = new Size(144, 32);
             label1.TabIndex = 0;
             label1.Text = "AZEL Database \r\nManagement Studio";
             label1.TextAlign = ContentAlignment.MiddleCenter;

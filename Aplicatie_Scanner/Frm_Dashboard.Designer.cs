@@ -218,9 +218,9 @@
             Search.FlatStyle = FlatStyle.Flat;
             Search.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Search.ForeColor = Color.White;
-            Search.Location = new Point(13, 190);
+            Search.Location = new Point(13, 184);
             Search.Name = "Search";
-            Search.Size = new Size(213, 50);
+            Search.Size = new Size(213, 43);
             Search.TabIndex = 38;
             Search.Text = "Search";
             Search.UseVisualStyleBackColor = false;
@@ -401,9 +401,9 @@
             groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(Btn_Print_Raport_Lunar);
             groupBox1.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(735, 433);
+            groupBox1.Location = new Point(735, 428);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(436, 232);
+            groupBox1.Size = new Size(436, 234);
             groupBox1.TabIndex = 60;
             groupBox1.TabStop = false;
             groupBox1.Text = "Raport Lunar Energie/Debite";
@@ -416,9 +416,9 @@
             checkedListBox_Debit_Calculat.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             checkedListBox_Debit_Calculat.FormattingEnabled = true;
             checkedListBox_Debit_Calculat.Items.AddRange(new object[] { "Cuntu Grup 1", "Cuntu Grup 2", "Craiu 1 Grup 1", "Craiu 1 Grup 2", "Craiu 2 Grup 1", "Craiu 2 Grup 2", "Sebesel 1 Grup 1", "Sebesel 1 Grup 2", "Sebesel 2 Grup 1", "Sebesel 2 Grup 2", "Cornereva" });
-            checkedListBox_Debit_Calculat.Location = new Point(271, 8);
+            checkedListBox_Debit_Calculat.Location = new Point(251, 9);
             checkedListBox_Debit_Calculat.Name = "checkedListBox_Debit_Calculat";
-            checkedListBox_Debit_Calculat.Size = new Size(165, 224);
+            checkedListBox_Debit_Calculat.Size = new Size(185, 224);
             checkedListBox_Debit_Calculat.TabIndex = 60;
             checkedListBox_Debit_Calculat.ItemCheck += checkedListBox_Debit_Calculat_ItemCheck;
             checkedListBox_Debit_Calculat.SelectedIndexChanged += checkedListBox_Debit_Calculat_SelectedIndexChanged;
@@ -443,7 +443,7 @@
             groupBox2.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.Location = new Point(12, 429);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(700, 240);
+            groupBox2.Size = new Size(700, 233);
             groupBox2.TabIndex = 61;
             groupBox2.TabStop = false;
             groupBox2.Text = "Raport Selectie";
