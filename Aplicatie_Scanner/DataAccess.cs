@@ -63,7 +63,7 @@ namespace Azel_Raportare_Balkani
                         $" ORDER BY Date_Time ";*/
 
                     var output = connection.Query<DatePutere>($"" +
-                        $"SELECT Cuntu_Grup_2.[Date_Time] " +
+                        $"SELECT X.[Date_Time] " +
 
                         $",Cuntu_Grup_1.[Putere] as Cuntu_Grup_1 " +
                         $",Cuntu_Grup_2.[Putere] as Cuntu_Grup_2 " +
