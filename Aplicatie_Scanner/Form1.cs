@@ -484,9 +484,9 @@ namespace Azel_Raportare_Balkani
 
             string Data = $"{System.DateTime.Now.Day.ToString("D2")}-{System.DateTime.Now.Month.ToString("D2")}-{System.DateTime.Now.Date.ToString("yy")}";
 
-            string Timp = $"{System.DateTime.Now.Hour.ToString("D2")} : {System.DateTime.Now.Minute.ToString("D2")} : 00";
+            string Timp = $"{System.DateTime.Now.Hour.ToString("D2")} : {(System.DateTime.Now.Minute-(System.DateTime.Now.Minute%15)).ToString()} : 00";
 
-
+            
 
             AdaugaIntrari($"convert(datetime,'{Data} {Timp}',5)"
                 + ","
@@ -538,6 +538,7 @@ namespace Azel_Raportare_Balkani
             }
 
         }
+       
         private void Verificare_Conexiuni()
         {
             if (PLC_Cuntu_Grup_1.IsConnected)
@@ -1681,7 +1682,7 @@ namespace Azel_Raportare_Balkani
 
             try
             {
-                Printare_Raport_Lunar();
+                Printare_Raport_Zilnic();
                 //Printare_Raport_Zilnic();
                 //Trimitere_Raport_Lunar();
                 OpenFolder(@$"C:\Azel\Raportari\Rapoarte_Lunare");

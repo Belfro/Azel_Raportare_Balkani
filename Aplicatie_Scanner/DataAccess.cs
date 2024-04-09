@@ -77,40 +77,41 @@ namespace Azel_Raportare_Balkani
                         $",Sebesel_2_Grup_2.[Putere] as Sebesel_2_Grup_2 " +
                         $",Cornereva.[Putere] as Cornereva " +
 
-                        $" FROM Cuntu_Grup_2" +
-                        $" full outer join Cuntu_Grup_1" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Cuntu_Grup_1.Date_Time) ) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Cuntu_Grup_1.Date_Time)))" +
-                       
-                        $" full outer join Craiu_1_Grup_1" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Craiu_1_Grup_1.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Craiu_1_Grup_1.Date_Time)))" +
+ $"FROM " +
+$" (select distinct Date_Time from Cuntu_Grup_1 " +
+$" union " +
+$" select distinct Date_Time from Cuntu_Grup_2 " +
+$" union " +
+$" select distinct Date_Time from Craiu_1_Grup_1 " +
+$"  union" +
+$" select distinct Date_Time from Craiu_1_Grup_2 " +
+$"   union" +
+$" select distinct Date_Time from Craiu_2_Grup_2 " +
+$"   union" +
+$" select distinct Date_Time from Sebesel_1_Grup_1 " +
+$"  union" +
+$" select distinct Date_Time from Sebesel_1_Grup_2 " +
+$"   union" +
+$" select distinct Date_Time from Sebesel_2_Grup_1 " +
+$"   union" +
+$" select distinct Date_Time from Sebesel_2_Grup_2 " +
+$"    union" +
+$" select distinct Date_Time from Cornereva " +
 
-                        $" full outer join Craiu_1_Grup_2" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Craiu_1_Grup_2.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Craiu_1_Grup_2.Date_Time)))" +
+$" ) as X " +
+$" left outer join Cuntu_Grup_1 on Cuntu_Grup_1.Date_Time = X.Date_Time " +
+$" left outer join Cuntu_Grup_2 on Cuntu_Grup_2.Date_Time = X.Date_Time " +
+$" left outer join Craiu_1_Grup_1 on Craiu_1_Grup_1.Date_Time = X.Date_Time " +
+$" left outer join Craiu_1_Grup_2 on Craiu_1_Grup_2.Date_Time = X.Date_Time " +
+$" left outer join Craiu_2_Grup_1 on Craiu_2_Grup_1.Date_Time = X.Date_Time " +
+$" left outer join Craiu_2_Grup_2 on Craiu_2_Grup_2.Date_Time = X.Date_Time " +
+$" left outer join Sebesel_1_Grup_1 on Sebesel_1_Grup_1.Date_Time = X.Date_Time " +
+$" left outer join Sebesel_1_Grup_2 on Sebesel_1_Grup_2.Date_Time = X.Date_Time " +
+$" left outer join Sebesel_2_Grup_1 on Sebesel_2_Grup_1.Date_Time = X.Date_Time " +
+$" left outer join Sebesel_2_Grup_2 on Sebesel_2_Grup_2.Date_Time = X.Date_Time " +
+$" left outer join Cornereva on Cornereva.Date_Time = X.Date_Time " +
 
-                        $" full outer join Craiu_2_Grup_1" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Craiu_2_Grup_1.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Craiu_2_Grup_1.Date_Time)))" +
-
-                        $" full outer join Craiu_2_Grup_2" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Craiu_2_Grup_2.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Craiu_2_Grup_2.Date_Time)))" +
-                       
-                        $" full outer join Sebesel_1_Grup_1" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Sebesel_1_Grup_1.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Sebesel_1_Grup_1.Date_Time)))" +
-
-                        $" full outer join Sebesel_1_Grup_2" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Sebesel_1_Grup_2.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Sebesel_1_Grup_2.Date_Time)))" +
-
-                        $" full outer join Sebesel_2_Grup_1" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_1.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_1.Date_Time)))" +
-
-                        $" full outer join Sebesel_2_Grup_2" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Sebesel_2_Grup_2.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Sebesel_2_Grup_2.Date_Time)))" +
-                        
-                        $" full outer join Cornereva" +
-                        $" on ((Cuntu_Grup_2.Date_Time < DATEADD(ss,30,Cornereva.Date_Time)) and (Cuntu_Grup_2.Date_Time > DATEADD(ss,-30,Cornereva.Date_Time)))" +
-
-
-
-                        $" WHERE (Cuntu_Grup_2.Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND '{DataSetata2.ToString("yyyy-MM-dd HH:mm:ss.fff")}')" +
+$" WHERE(X.Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}' AND '{DataSetata2.ToString("yyyy-MM-dd HH:mm:ss.fff")}') " +
                         $" ORDER BY Date_Time ").ToList();
 
                     foreach ( var item in output)
