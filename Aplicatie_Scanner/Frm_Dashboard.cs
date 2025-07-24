@@ -1075,7 +1075,7 @@ namespace Azel_Raportare_Balkani
                 {
                     Port = 587,
                     Credentials = new NetworkCredential("raportari_balkan@azel.ro", "-h.on^gdq+N;"),
-                    EnableSsl = false,
+                    EnableSsl = true,
                 };
 
                 var mailMessage = new MailMessage
