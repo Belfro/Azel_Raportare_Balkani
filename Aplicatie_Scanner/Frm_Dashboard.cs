@@ -1071,9 +1071,12 @@ namespace Azel_Raportare_Balkani
             ///////////////////////////////
             try
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                                      | SecurityProtocolType.Tls11
+                                      | SecurityProtocolType.Tls12;
                 var smtpClient = new SmtpClient("mail.azel.ro")
                 {
-                    Port = 465,
+                    Port = 587,
                     Credentials = new NetworkCredential("raportari_balkan@azel.ro", "-h.on^gdq+N;"),
                     EnableSsl = false,
                 };
