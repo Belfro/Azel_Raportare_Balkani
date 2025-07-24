@@ -1075,7 +1075,7 @@ namespace Azel_Raportare_Balkani
                 var smtpClient = new SmtpClient("mail.azel.ro")
                 {
 
-                    Port = 587,
+                    Port = 26,
                     Credentials = new NetworkCredential("raportari_balkan@azel.ro", "-h.on^gdq+N;"),
                     EnableSsl = false,
                 };
