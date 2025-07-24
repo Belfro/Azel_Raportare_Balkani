@@ -66,6 +66,9 @@
             dateTimePicker1 = new DateTimePicker();
             Btn_Print_Raport_Lunar = new Button();
             groupBox1 = new GroupBox();
+            Btn_Trimite_Raport_Zilnic = new Button();
+            Btn_Print_Raport_Zilnic = new Button();
+            Btn_Trimitere_Raport_Lunar = new Button();
             checkedListBox_Debit_Calculat = new CheckedListBox();
             groupBox2 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -389,7 +392,7 @@
             Btn_Print_Raport_Lunar.ForeColor = Color.White;
             Btn_Print_Raport_Lunar.Location = new Point(21, 78);
             Btn_Print_Raport_Lunar.Name = "Btn_Print_Raport_Lunar";
-            Btn_Print_Raport_Lunar.Size = new Size(200, 50);
+            Btn_Print_Raport_Lunar.Size = new Size(101, 50);
             Btn_Print_Raport_Lunar.TabIndex = 59;
             Btn_Print_Raport_Lunar.Text = "Print\r\nRaport Lunar";
             Btn_Print_Raport_Lunar.UseVisualStyleBackColor = false;
@@ -397,6 +400,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(Btn_Trimite_Raport_Zilnic);
+            groupBox1.Controls.Add(Btn_Print_Raport_Zilnic);
+            groupBox1.Controls.Add(Btn_Trimitere_Raport_Lunar);
             groupBox1.Controls.Add(checkedListBox_Debit_Calculat);
             groupBox1.Controls.Add(dateTimePicker1);
             groupBox1.Controls.Add(Btn_Print_Raport_Lunar);
@@ -408,6 +414,51 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Raport Lunar Energie/Debite";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // Btn_Trimite_Raport_Zilnic
+            // 
+            Btn_Trimite_Raport_Zilnic.BackColor = Color.FromArgb(8, 35, 50);
+            Btn_Trimite_Raport_Zilnic.FlatAppearance.BorderColor = Color.White;
+            Btn_Trimite_Raport_Zilnic.FlatStyle = FlatStyle.Flat;
+            Btn_Trimite_Raport_Zilnic.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Trimite_Raport_Zilnic.ForeColor = Color.White;
+            Btn_Trimite_Raport_Zilnic.Location = new Point(128, 140);
+            Btn_Trimite_Raport_Zilnic.Name = "Btn_Trimite_Raport_Zilnic";
+            Btn_Trimite_Raport_Zilnic.Size = new Size(101, 50);
+            Btn_Trimite_Raport_Zilnic.TabIndex = 63;
+            Btn_Trimite_Raport_Zilnic.Text = "Trimite\r\nRaport Zilnic";
+            Btn_Trimite_Raport_Zilnic.UseVisualStyleBackColor = false;
+            Btn_Trimite_Raport_Zilnic.Click += Btn_Trimite_Raport_Zilnic_Click;
+            // 
+            // Btn_Print_Raport_Zilnic
+            // 
+            Btn_Print_Raport_Zilnic.BackColor = Color.FromArgb(8, 35, 50);
+            Btn_Print_Raport_Zilnic.FlatAppearance.BorderColor = Color.White;
+            Btn_Print_Raport_Zilnic.FlatStyle = FlatStyle.Flat;
+            Btn_Print_Raport_Zilnic.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Print_Raport_Zilnic.ForeColor = Color.White;
+            Btn_Print_Raport_Zilnic.Location = new Point(21, 140);
+            Btn_Print_Raport_Zilnic.Name = "Btn_Print_Raport_Zilnic";
+            Btn_Print_Raport_Zilnic.Size = new Size(101, 50);
+            Btn_Print_Raport_Zilnic.TabIndex = 62;
+            Btn_Print_Raport_Zilnic.Text = "Print\r\nRaport Zilnic";
+            Btn_Print_Raport_Zilnic.UseVisualStyleBackColor = false;
+            Btn_Print_Raport_Zilnic.Click += Btn_Print_Raport_Zilnic_Click;
+            // 
+            // Btn_Trimitere_Raport_Lunar
+            // 
+            Btn_Trimitere_Raport_Lunar.BackColor = Color.FromArgb(8, 35, 50);
+            Btn_Trimitere_Raport_Lunar.FlatAppearance.BorderColor = Color.White;
+            Btn_Trimitere_Raport_Lunar.FlatStyle = FlatStyle.Flat;
+            Btn_Trimitere_Raport_Lunar.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Btn_Trimitere_Raport_Lunar.ForeColor = Color.White;
+            Btn_Trimitere_Raport_Lunar.Location = new Point(128, 78);
+            Btn_Trimitere_Raport_Lunar.Name = "Btn_Trimitere_Raport_Lunar";
+            Btn_Trimitere_Raport_Lunar.Size = new Size(101, 50);
+            Btn_Trimitere_Raport_Lunar.TabIndex = 61;
+            Btn_Trimitere_Raport_Lunar.Text = "Trimite\r\nRaport Lunar";
+            Btn_Trimitere_Raport_Lunar.UseVisualStyleBackColor = false;
+            Btn_Trimitere_Raport_Lunar.Click += Btn_Trimitere_Raport_Lunar_Click;
             // 
             // checkedListBox_Debit_Calculat
             // 
@@ -509,6 +560,9 @@
         private DataGridViewTextBoxColumn Meteo_Umiditate;
         private DataGridViewTextBoxColumn Meteo_Precipitatii;
         private CheckedListBox checkedListBox_Debit_Calculat;
+        private Button Btn_Trimitere_Raport_Lunar;
+        private Button Btn_Trimite_Raport_Zilnic;
+        private Button Btn_Print_Raport_Zilnic;
     }
 
 }

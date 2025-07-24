@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Azel_Raportare_Balkani")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b65406c03fca8b76d6f12863a604a4deb1540d4a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a8f8db27c085b5e2798802ba8f99524fbaafba3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Azel_Raportare_Balkani")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Azel_Raportare_Balkani")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

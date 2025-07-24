@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9703F/4qsSMNGTy2RPqQ0PaP7PvYBG0rz2kkdz4SA92HpV+zQjPuCN8qUpcPcqc/o0kHrVizNI/4IBKZZ9BZmw==",
+  "dgSpecHash": "zo39huXGL3Q=",
   "success": true,
   "projectFilePath": "C:\\AS\\Work\\Azel_Raportare_Balkani\\Aplicatie_Scanner\\Azel_Raportare_Balkani.csproj",
   "expectedPackageFiles": [
@@ -122,10 +122,10 @@
     "C:\\Users\\andrei.stan\\.nuget\\packages\\xamforms.controls.calendar\\1.1.1\\xamforms.controls.calendar.1.1.1.nupkg.sha512",
     "C:\\Users\\andrei.stan\\.nuget\\packages\\zxing.net\\0.16.8\\zxing.net.0.16.8.nupkg.sha512",
     "C:\\Users\\andrei.stan\\.nuget\\packages\\zxing.net.bindings.windows.compatibility\\0.16.10\\zxing.net.bindings.windows.compatibility.0.16.10.nupkg.sha512",
-    "C:\\Users\\andrei.stan\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\andrei.stan\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\andrei.stan\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512",
-    "C:\\Users\\andrei.stan\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.26\\microsoft.netcore.app.host.win-x64.6.0.26.nupkg.sha512"
+    "C:\\Users\\andrei.stan\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\andrei.stan\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\andrei.stan\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\andrei.stan\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
   ],
   "logs": [
     {
