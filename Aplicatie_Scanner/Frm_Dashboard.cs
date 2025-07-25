@@ -1072,7 +1072,7 @@ namespace Azel_Raportare_Balkani
             try
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                var smtpClient = new SmtpClient("mail.azel.ro")
+                var smtpClient = new SmtpClient("azel.ro")
                 {
 
                     Port = 587,
