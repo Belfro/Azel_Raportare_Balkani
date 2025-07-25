@@ -701,7 +701,7 @@ namespace Azel_Raportare_Balkani
             ///////////////////////////////
             try
             {
-                var smtpClient = new SmtpClient("mail.azel.ro")
+                var smtpClient = new SmtpClient("rhea.hostx.eu")
                 {
                     Port = 587,
                     Credentials = new NetworkCredential("raportari_Balkan@azel.ro", "-h.on^gdq+N;"),
