@@ -136,7 +136,7 @@ namespace Azel_Raportare_Balkani
 
 
 
-            lblAppVersion.Text = "1.0.0.73";
+            lblAppVersion.Text = "1.0.2.1";
         }
 
 
@@ -513,6 +513,8 @@ namespace Azel_Raportare_Balkani
                 + "Round(" + Umiditate_Meteo + ",2)"
                 + ","
                 + "Round(" + Precipitatii_Meteo + ",2)"
+                + ","
+                + "Round(" + 0.0 + ",2)"
                 + ""
                 ,
                 Nume_PLC
