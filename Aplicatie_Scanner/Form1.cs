@@ -133,7 +133,7 @@ namespace Azel_Raportare_Balkani
             Btn_Dashboard.BackColor = System.Drawing.Color.FromArgb(35, 65, 82);
             timer_timp.Start();
             timer_connect.Start();
-
+            
 
 
             lblAppVersion.Text = "1.0.2.1";
@@ -438,6 +438,7 @@ namespace Azel_Raportare_Balkani
             string Umiditate_Meteo = "0";
             string Temperatura_Meteo = "0";
             string Precipitatii_Meteo = "0";
+            string Debit_Scara_Pesti = "0";
             Ping ping = new Ping();
             PingReply pingReply = ping.Send(PLC.IP);
             PLC.ReadTimeout = 50000;    
@@ -459,6 +460,7 @@ namespace Azel_Raportare_Balkani
                     var Umiditate_Meteo_PLC = await PLC.ReadAsync(DataType.DataBlock, 8000, 60, VarType.Real, 1);
                     var Temperatura_Meteo_PLC = await PLC.ReadAsync(DataType.DataBlock, 8000, 72, VarType.Real, 1);
                     var Precipitatii_Meteo_PLC = await PLC.ReadAsync(DataType.DataBlock, 8000, 86, VarType.Real, 1);
+                    var Debit_Scara_Pesti_PLC = await PLC.ReadAsync(DataType.DataBlock, 8000, 110, VarType.Real, 1);
 
                     Putere = Putere_PLC.ToString();
                     Energie = Energie_PLC.ToString();
@@ -472,6 +474,7 @@ namespace Azel_Raportare_Balkani
                     Umiditate_Meteo = Umiditate_Meteo_PLC.ToString();
                     Temperatura_Meteo = Temperatura_Meteo_PLC.ToString();
                     Precipitatii_Meteo = Precipitatii_Meteo_PLC.ToString();
+                    Debit_Scara_Pesti = Debit_Scara_Pesti_PLC.ToString();
 
 
                 }
@@ -514,7 +517,7 @@ namespace Azel_Raportare_Balkani
                 + ","
                 + "Round(" + Precipitatii_Meteo + ",2)"
                 + ","
-                + "Round(" + "0.0" + ",2)"
+                + "Round(" + Debit_Scara_Pesti + ",2)"
                 + ""
                 ,
                 Nume_PLC
@@ -724,7 +727,7 @@ namespace Azel_Raportare_Balkani
         {
 
         }
-        private void Verificare_Calcul_Debit(int index, Date_Luna Grup, double Coeficient )
+        private void Verificare_Calcul_Debit(int index, Date_Luna_Raport_Principal Grup, double Coeficient )
         {
             var Total_Calculat = Grup.Energie_Total* Coeficient /1000;
             if ((Total_Calculat>Grup.Debit_Total*1.25 || Total_Calculat<Grup.Debit_Total*0.75)&& (Grup.Debit_Total>1 || Grup.Energie_Total>100))
@@ -742,17 +745,17 @@ namespace Azel_Raportare_Balkani
 
 
 
-            Date_Luna Cuntu_Grup_1 = GetDateLuna(DateTime.Now.AddMonths(-1), "Cuntu_Grup_1");
-            Date_Luna Cuntu_Grup_2 = GetDateLuna(DateTime.Now.AddMonths(-1), "Cuntu_Grup_2");
-            Date_Luna Craiu_1_Grup_1 = GetDateLuna(DateTime.Now.AddMonths(-1), "Craiu_1_Grup_1");
-            Date_Luna Craiu_1_Grup_2 = GetDateLuna(DateTime.Now.AddMonths(-1), "Craiu_1_Grup_2");
-            Date_Luna Craiu_2_Grup_1 = GetDateLuna(DateTime.Now.AddMonths(-1), "Craiu_2_Grup_1");
-            Date_Luna Craiu_2_Grup_2 = GetDateLuna(DateTime.Now.AddMonths(-1), "Craiu_2_Grup_2");
-            Date_Luna Sebesel_1_Grup_1 = GetDateLuna(DateTime.Now.AddMonths(-1), "Sebesel_1_Grup_1");
-            Date_Luna Sebesel_1_Grup_2 = GetDateLuna(DateTime.Now.AddMonths(-1), "Sebesel_1_Grup_2");
-            Date_Luna Sebesel_2_Grup_1 = GetDateLuna(DateTime.Now.AddMonths(-1), "Sebesel_2_Grup_1");
-            Date_Luna Sebesel_2_Grup_2 = GetDateLuna(DateTime.Now.AddMonths(-1), "Sebesel_2_Grup_2");
-            Date_Luna Cornereva = GetDateLuna(DateTime.Now.AddMonths(-1), "Cornereva");
+            Date_Luna_Raport_Principal Cuntu_Grup_1 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Cuntu_Grup_1");
+            Date_Luna_Raport_Principal Cuntu_Grup_2 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Cuntu_Grup_2");
+            Date_Luna_Raport_Principal Craiu_1_Grup_1 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Craiu_1_Grup_1");
+            Date_Luna_Raport_Principal Craiu_1_Grup_2 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Craiu_1_Grup_2");
+            Date_Luna_Raport_Principal Craiu_2_Grup_1 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Craiu_2_Grup_1");
+            Date_Luna_Raport_Principal Craiu_2_Grup_2 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Craiu_2_Grup_2");
+            Date_Luna_Raport_Principal Sebesel_1_Grup_1 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Sebesel_1_Grup_1");
+            Date_Luna_Raport_Principal Sebesel_1_Grup_2 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Sebesel_1_Grup_2");
+            Date_Luna_Raport_Principal Sebesel_2_Grup_1 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Sebesel_2_Grup_1");
+            Date_Luna_Raport_Principal Sebesel_2_Grup_2 = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Sebesel_2_Grup_2");
+            Date_Luna_Raport_Principal Cornereva = GetDateLuna_Raport_Principal(DateTime.Now.AddMonths(-1), "Cornereva");
 
             Verificare_Calcul_Debit(0, Cuntu_Grup_1, 2.895);
             Verificare_Calcul_Debit(1, Cuntu_Grup_2, 2.895);
@@ -966,7 +969,7 @@ namespace Azel_Raportare_Balkani
             document.Close();
         }
 
-        private void Introducere_MHC_PDF(ref Table table, Date_Luna Grup_1, Date_Luna Grup_2, string MHC, int Index_Debit, double Coeficient_Debit)
+        private void Introducere_MHC_PDF(ref Table table, Date_Luna_Raport_Principal Grup_1, Date_Luna_Raport_Principal Grup_2, string MHC, int Index_Debit, double Coeficient_Debit)
         {
             #region Cells
             iText.Layout.Element.Cell cell_1 = new iText.Layout.Element.Cell(1, 1)
@@ -1115,7 +1118,7 @@ namespace Azel_Raportare_Balkani
             #endregion
         }
 
-        private void Introducere_MHC_Single_PDF(ref Table table, Date_Luna Grup, iText.Kernel.Colors.Color Culoare, string MHC, int Index_Debit,double Coeficient_Debit)
+        private void Introducere_MHC_Single_PDF(ref Table table, Date_Luna_Raport_Principal Grup, iText.Kernel.Colors.Color Culoare, string MHC, int Index_Debit,double Coeficient_Debit)
         {
             #region Cells
             iText.Layout.Element.Cell cell_1 = new iText.Layout.Element.Cell(1, 1)
@@ -1260,21 +1263,11 @@ namespace Azel_Raportare_Balkani
             }
         }
 
-        public class Date_Luna
-        {
-            public double Energie_Index_Initial { get; set; }
-            public double Energie_Index_Final { get; set; }
-            public double Energie_Total { get; set; }
-            public double Debit_Index_Initial { get; set; }
-            public double Debit_Index_Final { get; set; }
-            public double Debit_Total { get; set; }
 
-
-            public string String_Csv { get; set; }
-        }
-        private Date_Luna GetDateLuna(DateTime Luna_Selectata, string MHC)
+      
+        private Date_Luna_Raport_Principal GetDateLuna_Raport_Principal(DateTime Luna_Selectata, string MHC)
         {
-            Date_Luna Date = new Date_Luna();
+            Date_Luna_Raport_Principal Date = new Date_Luna_Raport_Principal();
 
             Date.Energie_Total = 0;
             Date.Debit_Total = 0;
@@ -1679,6 +1672,9 @@ namespace Azel_Raportare_Balkani
                 return null;
             }
         }
+
+      
+
         private void button1_Click(object sender, EventArgs e)
         {
 

@@ -17,7 +17,7 @@
         public double Meteo_Temperatura { get; set; }
         public double Meteo_Umiditate { get; set; }
         public double Meteo_Precipitatii { get; set; }
-
+        public double Debit_Scara_Pesti { get; set; }
         public string Doardata
         {
             get
@@ -39,7 +39,7 @@
             get
             {
                 // Stringul afisat 
-                return $"{Doardata},{DoarTimp},{Putere},{Energie},{Presiune_Aductiune},{Presiune_GUP},{Pozitie_Injector_1},{Pozitie_Injector_2},{Vibratii_Generator},{Debit_Turbinat_Instantaneu},{Debit_Turbinat_Total},{Meteo_Temperatura},{Meteo_Umiditate},{Meteo_Precipitatii}";
+                return $"{Doardata},{DoarTimp},{Putere},{Energie},{Presiune_Aductiune},{Presiune_GUP},{Pozitie_Injector_1},{Pozitie_Injector_2},{Vibratii_Generator},{Debit_Turbinat_Instantaneu},{Debit_Turbinat_Total},{Meteo_Temperatura},{Meteo_Umiditate},{Meteo_Precipitatii},{Debit_Scara_Pesti}";
                 return null;
             }
         }
@@ -119,4 +119,25 @@
           
     }
 
+    public class Date_Luna_Scara_Pesti
+    {
+        public DateTime Date_Time { get; set; }
+        public double Debit_Scara_Pesti { get; set; }
+
+        public string String_Csv { get; set; }
+    }
+
+
+    public class Date_Luna_Raport_Principal
+    {
+        public double Energie_Index_Initial { get; set; }
+        public double Energie_Index_Final { get; set; }
+        public double Energie_Total { get; set; }
+        public double Debit_Index_Initial { get; set; }
+        public double Debit_Index_Final { get; set; }
+        public double Debit_Total { get; set; }
+
+
+        public string String_Csv { get; set; }
+    }
 }

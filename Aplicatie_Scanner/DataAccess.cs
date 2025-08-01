@@ -397,6 +397,8 @@ $" WHERE(X.Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}'
             }
         }
 
+
+
         /*     public List<DateDB> GetDateOra(DateTime DataSetata1, DateTime DataSetata2, DateTime timpselectat)
              {
 

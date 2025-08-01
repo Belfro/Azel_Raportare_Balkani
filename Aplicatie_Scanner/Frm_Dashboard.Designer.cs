@@ -47,6 +47,7 @@
             Meteo_Temperatura = new DataGridViewTextBoxColumn();
             Meteo_Umiditate = new DataGridViewTextBoxColumn();
             Meteo_Precipitatii = new DataGridViewTextBoxColumn();
+            Debit_Scara_Pesti = new DataGridViewTextBoxColumn();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             newCalendar1 = new NewCalendar();
             Search = new Button();
@@ -66,6 +67,8 @@
             dateTimePicker1 = new DateTimePicker();
             Btn_Print_Raport_Lunar = new Button();
             groupBox1 = new GroupBox();
+            cb_Locatie_Debit_Pesti = new ComboBox();
+            btn_Print_Raport_Lunar_Debit = new Button();
             Btn_Trimite_Raport_Zilnic = new Button();
             Btn_Print_Raport_Zilnic = new Button();
             Btn_Trimitere_Raport_Lunar = new Button();
@@ -102,7 +105,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Data, Timp, Putere, Energie, Presiune_Aductiune, Presiune_GUP, Pozitie_Injector_1, Pozitie_Injector_2, Vibratii_Generator, Debit_Instantaneu, Debit_Turbinat_Total, Meteo_Temperatura, Meteo_Umiditate, Meteo_Precipitatii });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Data, Timp, Putere, Energie, Presiune_Aductiune, Presiune_GUP, Pozitie_Injector_1, Pozitie_Injector_2, Vibratii_Generator, Debit_Instantaneu, Debit_Turbinat_Total, Meteo_Temperatura, Meteo_Umiditate, Meteo_Precipitatii, Debit_Scara_Pesti });
             dataGridView1.GridColor = SystemColors.ControlLight;
             dataGridView1.Location = new Point(9, 12);
             dataGridView1.Margin = new Padding(0);
@@ -122,75 +125,93 @@
             // 
             // Data
             // 
-            Data.FillWeight = 80F;
+            Data.FillWeight = 46.64676F;
             Data.HeaderText = "Data";
             Data.Name = "Data";
             // 
             // Timp
             // 
-            Timp.FillWeight = 80F;
+            Timp.FillWeight = 46.64676F;
             Timp.HeaderText = "Timp";
             Timp.Name = "Timp";
             // 
             // Putere
             // 
+            Putere.FillWeight = 58.30845F;
             Putere.HeaderText = "Putere [kW]";
             Putere.Name = "Putere";
             // 
             // Energie
             // 
+            Energie.FillWeight = 58.30845F;
             Energie.HeaderText = "Energie [kWh]";
             Energie.Name = "Energie";
             // 
             // Presiune_Aductiune
             // 
+            Presiune_Aductiune.FillWeight = 58.30845F;
             Presiune_Aductiune.HeaderText = "Presiune Aductiune [bar]";
             Presiune_Aductiune.Name = "Presiune_Aductiune";
             // 
             // Presiune_GUP
             // 
+            Presiune_GUP.FillWeight = 58.30845F;
             Presiune_GUP.HeaderText = "Presiune GUP [bar]";
             Presiune_GUP.Name = "Presiune_GUP";
             // 
             // Pozitie_Injector_1
             // 
+            Pozitie_Injector_1.FillWeight = 58.30845F;
             Pozitie_Injector_1.HeaderText = "Pozitie Injector 1 [%]";
             Pozitie_Injector_1.Name = "Pozitie_Injector_1";
             // 
             // Pozitie_Injector_2
             // 
+            Pozitie_Injector_2.FillWeight = 58.30845F;
             Pozitie_Injector_2.HeaderText = "Pozitie Injector 2 [%]";
             Pozitie_Injector_2.Name = "Pozitie_Injector_2";
             // 
             // Vibratii_Generator
             // 
+            Vibratii_Generator.FillWeight = 58.30845F;
             Vibratii_Generator.HeaderText = "Vibratii Generator [Hz]";
             Vibratii_Generator.Name = "Vibratii_Generator";
             // 
             // Debit_Instantaneu
             // 
+            Debit_Instantaneu.FillWeight = 58.30845F;
             Debit_Instantaneu.HeaderText = "Debit Instantaneu [l]";
             Debit_Instantaneu.Name = "Debit_Instantaneu";
             // 
             // Debit_Turbinat_Total
             // 
+            Debit_Turbinat_Total.FillWeight = 58.30845F;
             Debit_Turbinat_Total.HeaderText = "Debit Turbinat Total [1000 x m³]";
             Debit_Turbinat_Total.Name = "Debit_Turbinat_Total";
             // 
             // Meteo_Temperatura
             // 
+            Meteo_Temperatura.FillWeight = 58.30845F;
             Meteo_Temperatura.HeaderText = "Temperatura Meteo [°C]";
             Meteo_Temperatura.Name = "Meteo_Temperatura";
             // 
             // Meteo_Umiditate
             // 
+            Meteo_Umiditate.FillWeight = 58.30845F;
             Meteo_Umiditate.HeaderText = "Umiditate Meteo [%]";
             Meteo_Umiditate.Name = "Meteo_Umiditate";
             // 
             // Meteo_Precipitatii
             // 
+            Meteo_Precipitatii.FillWeight = 58.30845F;
             Meteo_Precipitatii.HeaderText = "Precipitatii Meteo [mm]";
             Meteo_Precipitatii.Name = "Meteo_Precipitatii";
+            // 
+            // Debit_Scara_Pesti
+            // 
+            Debit_Scara_Pesti.FillWeight = 58.30845F;
+            Debit_Scara_Pesti.HeaderText = "Debit Scara";
+            Debit_Scara_Pesti.Name = "Debit_Scara_Pesti";
             // 
             // backgroundWorker1
             // 
@@ -390,16 +411,18 @@
             Btn_Print_Raport_Lunar.FlatStyle = FlatStyle.Flat;
             Btn_Print_Raport_Lunar.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Btn_Print_Raport_Lunar.ForeColor = Color.White;
-            Btn_Print_Raport_Lunar.Location = new Point(21, 78);
+            Btn_Print_Raport_Lunar.Location = new Point(6, 66);
             Btn_Print_Raport_Lunar.Name = "Btn_Print_Raport_Lunar";
-            Btn_Print_Raport_Lunar.Size = new Size(101, 50);
+            Btn_Print_Raport_Lunar.Size = new Size(116, 45);
             Btn_Print_Raport_Lunar.TabIndex = 59;
-            Btn_Print_Raport_Lunar.Text = "Print\r\nRaport Lunar";
+            Btn_Print_Raport_Lunar.Text = "Print Raport \r\nLunar Energie";
             Btn_Print_Raport_Lunar.UseVisualStyleBackColor = false;
             Btn_Print_Raport_Lunar.Click += Btn_Print_Raport_Lunar_Click;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cb_Locatie_Debit_Pesti);
+            groupBox1.Controls.Add(btn_Print_Raport_Lunar_Debit);
             groupBox1.Controls.Add(Btn_Trimite_Raport_Zilnic);
             groupBox1.Controls.Add(Btn_Print_Raport_Zilnic);
             groupBox1.Controls.Add(Btn_Trimitere_Raport_Lunar);
@@ -415,6 +438,31 @@
             groupBox1.Text = "Raport Lunar Energie/Debite";
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // cb_Locatie_Debit_Pesti
+            // 
+            cb_Locatie_Debit_Pesti.FormattingEnabled = true;
+            cb_Locatie_Debit_Pesti.Items.AddRange(new object[] { "Craiu 1", "Cornereva" });
+            cb_Locatie_Debit_Pesti.Location = new Point(6, 195);
+            cb_Locatie_Debit_Pesti.Name = "cb_Locatie_Debit_Pesti";
+            cb_Locatie_Debit_Pesti.Size = new Size(116, 25);
+            cb_Locatie_Debit_Pesti.TabIndex = 58;
+            cb_Locatie_Debit_Pesti.SelectedIndexChanged += cb_Locatie_Debit_Pesti_SelectedIndexChanged;
+            // 
+            // btn_Print_Raport_Lunar_Debit
+            // 
+            btn_Print_Raport_Lunar_Debit.BackColor = Color.FromArgb(8, 35, 50);
+            btn_Print_Raport_Lunar_Debit.FlatAppearance.BorderColor = Color.White;
+            btn_Print_Raport_Lunar_Debit.FlatStyle = FlatStyle.Flat;
+            btn_Print_Raport_Lunar_Debit.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Print_Raport_Lunar_Debit.ForeColor = Color.White;
+            btn_Print_Raport_Lunar_Debit.Location = new Point(129, 182);
+            btn_Print_Raport_Lunar_Debit.Name = "btn_Print_Raport_Lunar_Debit";
+            btn_Print_Raport_Lunar_Debit.Size = new Size(116, 45);
+            btn_Print_Raport_Lunar_Debit.TabIndex = 64;
+            btn_Print_Raport_Lunar_Debit.Text = "Print Raport \r\nLunar Debit";
+            btn_Print_Raport_Lunar_Debit.UseVisualStyleBackColor = false;
+            btn_Print_Raport_Lunar_Debit.Click += btn_Print_Raport_Lunar_Debit_Click;
+            // 
             // Btn_Trimite_Raport_Zilnic
             // 
             Btn_Trimite_Raport_Zilnic.BackColor = Color.FromArgb(8, 35, 50);
@@ -422,11 +470,11 @@
             Btn_Trimite_Raport_Zilnic.FlatStyle = FlatStyle.Flat;
             Btn_Trimite_Raport_Zilnic.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Btn_Trimite_Raport_Zilnic.ForeColor = Color.White;
-            Btn_Trimite_Raport_Zilnic.Location = new Point(128, 140);
+            Btn_Trimite_Raport_Zilnic.Location = new Point(127, 116);
             Btn_Trimite_Raport_Zilnic.Name = "Btn_Trimite_Raport_Zilnic";
-            Btn_Trimite_Raport_Zilnic.Size = new Size(101, 50);
+            Btn_Trimite_Raport_Zilnic.Size = new Size(116, 45);
             Btn_Trimite_Raport_Zilnic.TabIndex = 63;
-            Btn_Trimite_Raport_Zilnic.Text = "Trimite\r\nRaport Zilnic";
+            Btn_Trimite_Raport_Zilnic.Text = "Trimite Raport\r\nZilnic Energie";
             Btn_Trimite_Raport_Zilnic.UseVisualStyleBackColor = false;
             Btn_Trimite_Raport_Zilnic.Click += Btn_Trimite_Raport_Zilnic_Click;
             // 
@@ -437,11 +485,11 @@
             Btn_Print_Raport_Zilnic.FlatStyle = FlatStyle.Flat;
             Btn_Print_Raport_Zilnic.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Btn_Print_Raport_Zilnic.ForeColor = Color.White;
-            Btn_Print_Raport_Zilnic.Location = new Point(21, 140);
+            Btn_Print_Raport_Zilnic.Location = new Point(6, 116);
             Btn_Print_Raport_Zilnic.Name = "Btn_Print_Raport_Zilnic";
-            Btn_Print_Raport_Zilnic.Size = new Size(101, 50);
+            Btn_Print_Raport_Zilnic.Size = new Size(116, 45);
             Btn_Print_Raport_Zilnic.TabIndex = 62;
-            Btn_Print_Raport_Zilnic.Text = "Print\r\nRaport Zilnic";
+            Btn_Print_Raport_Zilnic.Text = "Print Raport\r\nZilnic Energie";
             Btn_Print_Raport_Zilnic.UseVisualStyleBackColor = false;
             Btn_Print_Raport_Zilnic.Click += Btn_Print_Raport_Zilnic_Click;
             // 
@@ -452,11 +500,11 @@
             Btn_Trimitere_Raport_Lunar.FlatStyle = FlatStyle.Flat;
             Btn_Trimitere_Raport_Lunar.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             Btn_Trimitere_Raport_Lunar.ForeColor = Color.White;
-            Btn_Trimitere_Raport_Lunar.Location = new Point(128, 78);
+            Btn_Trimitere_Raport_Lunar.Location = new Point(127, 66);
             Btn_Trimitere_Raport_Lunar.Name = "Btn_Trimitere_Raport_Lunar";
-            Btn_Trimitere_Raport_Lunar.Size = new Size(101, 50);
+            Btn_Trimitere_Raport_Lunar.Size = new Size(116, 45);
             Btn_Trimitere_Raport_Lunar.TabIndex = 61;
-            Btn_Trimitere_Raport_Lunar.Text = "Trimite\r\nRaport Lunar";
+            Btn_Trimitere_Raport_Lunar.Text = "Trimite Raport \r\nLunar Energie";
             Btn_Trimitere_Raport_Lunar.UseVisualStyleBackColor = false;
             Btn_Trimitere_Raport_Lunar.Click += Btn_Trimitere_Raport_Lunar_Click;
             // 
@@ -545,6 +593,10 @@
         private Button Btn_Print_Raport_Lunar;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+        private CheckedListBox checkedListBox_Debit_Calculat;
+        private Button Btn_Trimitere_Raport_Lunar;
+        private Button Btn_Trimite_Raport_Zilnic;
+        private Button Btn_Print_Raport_Zilnic;
         private DataGridViewTextBoxColumn Data;
         private DataGridViewTextBoxColumn Timp;
         private DataGridViewTextBoxColumn Putere;
@@ -559,10 +611,9 @@
         private DataGridViewTextBoxColumn Meteo_Temperatura;
         private DataGridViewTextBoxColumn Meteo_Umiditate;
         private DataGridViewTextBoxColumn Meteo_Precipitatii;
-        private CheckedListBox checkedListBox_Debit_Calculat;
-        private Button Btn_Trimitere_Raport_Lunar;
-        private Button Btn_Trimite_Raport_Zilnic;
-        private Button Btn_Print_Raport_Zilnic;
+        private DataGridViewTextBoxColumn Debit_Scara_Pesti;
+        private Button btn_Print_Raport_Lunar_Debit;
+        private ComboBox cb_Locatie_Debit_Pesti;
     }
 
 }
