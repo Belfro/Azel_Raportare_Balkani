@@ -336,7 +336,7 @@ namespace Azel_Raportare_Balkani
 
             try
             {
-
+                /// Verificare Conexiuni la PLC-uri
 
                 Verificare_Conexiuni();
 
