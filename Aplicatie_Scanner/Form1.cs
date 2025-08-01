@@ -514,7 +514,7 @@ namespace Azel_Raportare_Balkani
                 + ","
                 + "Round(" + Precipitatii_Meteo + ",2)"
                 + ","
-                + "Round(" + 0.0 + ",2)"
+                + "Round(" + "0.0" + ",2)"
                 + ""
                 ,
                 Nume_PLC
