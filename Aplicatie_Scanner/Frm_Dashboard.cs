@@ -1496,7 +1496,7 @@ namespace Azel_Raportare_Balkani
             {
 
                 List<Date_Luna_Scara_Pesti> Lista = new List<Date_Luna_Scara_Pesti>();
-                if (cb_Locatie_Debit_Pesti.Text == "Craiu 1")
+                if (cb_Locatie_Debit_Pesti.Text == "Craiu 2")
                 {
                     Lista = GetDateLuna_Raport_Scara_Pesti(dateTimePicker1.Value.Date, "Craiu_2_Grup_2");
                     printare_raport_debit_scara(Lista);
@@ -1526,8 +1526,10 @@ namespace Azel_Raportare_Balkani
 
             PdfWriter writer = new PdfWriter(@$"C:\Azel\Raportari\Rapoarte_Debit_Scara_Pesti\Raport_{cb_Locatie_Debit_Pesti.Text.Replace(" ", "_")}_{DateTime.Now.ToString("dd_MM_yy")}.pdf");
             PdfDocument pdf = new PdfDocument(writer);
+            pdf.SetDefaultPageSize(iText.Kernel.Geom.PageSize.A4.Rotate());
             Document document = new Document(pdf);
 
+            
             ImageData data = ImageDataFactory.Create(ImageToByte(Azel_Raportare_Balkani.Properties.Resources.LogoBalkan));
             iText.Layout.Element.Image image = new iText.Layout.Element.Image(data);
             image.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
@@ -1704,7 +1706,7 @@ namespace Azel_Raportare_Balkani
 
                 iText.Layout.Element.Cell cellx1 = new iText.Layout.Element.Cell(1, 1)
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
-                   .Add(new Paragraph(Lista[i].Debit_Scara_Pesti.ToString()));
+                   .Add(new Paragraph(((int)Lista[i].Debit_Scara_Pesti).ToString()));
 
 
                 table.AddCell(cellx1);

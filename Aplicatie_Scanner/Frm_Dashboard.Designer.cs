@@ -441,7 +441,7 @@
             // cb_Locatie_Debit_Pesti
             // 
             cb_Locatie_Debit_Pesti.FormattingEnabled = true;
-            cb_Locatie_Debit_Pesti.Items.AddRange(new object[] { "Craiu 1", "Cornereva" });
+            cb_Locatie_Debit_Pesti.Items.AddRange(new object[] { "Craiu 2", "Cornereva" });
             cb_Locatie_Debit_Pesti.Location = new Point(6, 195);
             cb_Locatie_Debit_Pesti.Name = "cb_Locatie_Debit_Pesti";
             cb_Locatie_Debit_Pesti.Size = new Size(116, 25);
