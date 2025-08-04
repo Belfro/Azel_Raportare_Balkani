@@ -1471,7 +1471,7 @@ namespace Azel_Raportare_Balkani
                                     Debit_Scara_Pesti = grouped[key].Debit_Scara_Pesti
                                 });
                             }
-                            else
+                            else if (!(Luna_Selectata.Month == DateTime.Today.Month && day == DateTime.Today.Day))
                             {
                                 Date.Add(new Date_Luna_Scara_Pesti
                                 {
@@ -1484,8 +1484,15 @@ namespace Azel_Raportare_Balkani
 
                     }
                 }
+                for (int i = 1; i < Date.Count; i++)
+                {
+                    if (Date[i].Debit_Scara_Pesti <= 0 && Date[i - 1].Debit_Scara_Pesti > 0)
+                    {
+                        Date[i].Debit_Scara_Pesti = Date[i - 1].Debit_Scara_Pesti;
+                        Date[i].Estimare = true;
+                    }
 
-
+                }
             }
             return Date;
 
@@ -1700,16 +1707,12 @@ namespace Azel_Raportare_Balkani
                     table.AddCell(cell_zi_noua);
                     table.AddCell(cell_empty);
                 }
-
-
-
-
-                iText.Layout.Element.Cell cellx1 = new iText.Layout.Element.Cell(1, 1)
+               
+                    iText.Layout.Element.Cell cellx1 = new iText.Layout.Element.Cell(1, 1)
                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
                    .Add(new Paragraph(((int)Lista[i].Debit_Scara_Pesti).ToString()));
+                    table.AddCell(cellx1);
 
-
-                table.AddCell(cellx1);
 
             }
             document.Add(table);

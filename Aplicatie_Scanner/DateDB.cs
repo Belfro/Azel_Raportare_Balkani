@@ -124,6 +124,7 @@
         public DateTime Date_Time { get; set; }
         public double Debit_Scara_Pesti { get; set; }
 
+        public bool Estimare { get; set; } = false;
         public string String_Csv { get; set; }
     }
 
