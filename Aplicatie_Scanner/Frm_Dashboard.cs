@@ -1498,7 +1498,7 @@ namespace Azel_Raportare_Balkani
                 List<Date_Luna_Scara_Pesti> Lista = new List<Date_Luna_Scara_Pesti>();
                 if (cb_Locatie_Debit_Pesti.Text == "Craiu 1")
                 {
-                    Lista = GetDateLuna_Raport_Scara_Pesti(dateTimePicker1.Value.Date, "Craiu_1_Grup_2");
+                    Lista = GetDateLuna_Raport_Scara_Pesti(dateTimePicker1.Value.Date, "Craiu_2_Grup_2");
                     printare_raport_debit_scara(Lista);
                 }
                 else if (cb_Locatie_Debit_Pesti.Text == "Cornereva")
