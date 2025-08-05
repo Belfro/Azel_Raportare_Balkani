@@ -51,6 +51,7 @@ namespace Azel_Raportare_Balkani
             dataGridView1.Columns[11].DataPropertyName = "Meteo_Temperatura";
             dataGridView1.Columns[12].DataPropertyName = "Meteo_Umiditate";
             dataGridView1.Columns[13].DataPropertyName = "Meteo_Precipitatii";
+            dataGridView1.Columns[14].DataPropertyName = "Debit_Scara_Pesti";
             #endregion
             rbDefault.Checked = true;
             cbEnergieOra.Visible = false;
@@ -312,6 +313,7 @@ namespace Azel_Raportare_Balkani
                 dataGridView1.Columns[11].HeaderText = "Temperatura Meteo [°C]";
                 dataGridView1.Columns[12].HeaderText = "Umiditate Meteo [%]";
                 dataGridView1.Columns[13].HeaderText = "Precipitatii Meteo [mm]";
+                
 
                 dataGridView1.Columns[2].DataPropertyName = "Putere";
                 dataGridView1.Columns[3].DataPropertyName = "Energie";
@@ -325,6 +327,7 @@ namespace Azel_Raportare_Balkani
                 dataGridView1.Columns[11].DataPropertyName = "Meteo_Temperatura";
                 dataGridView1.Columns[12].DataPropertyName = "Meteo_Umiditate";
                 dataGridView1.Columns[13].DataPropertyName = "Meteo_Precipitatii";
+                dataGridView1.Columns[14].DataPropertyName = "Debit_Scara_Pesti";
                 Cautare_Date();
             }
 
