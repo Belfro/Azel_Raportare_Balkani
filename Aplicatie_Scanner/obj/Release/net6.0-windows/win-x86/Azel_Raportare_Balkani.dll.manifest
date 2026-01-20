@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Azel_Raportare_Balkani.exe" version="1.0.2.14" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Azel_Raportare_Balkani.exe" version="1.0.2.15" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="b1zoci3k.nyc.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -63,13 +63,13 @@
       <dsig:DigestValue>eXHvJNPFcXukOGqHb3oUcxQSa6XYfP22303mrU76fJI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Azel_Raportare_Balkani.dll" size="927744">
+  <file name="Azel_Raportare_Balkani.dll" size="928768">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>QQLxsJEbaS4eXyXduB9E6FT7Aa0hspU38DE7ucH0TTk=</dsig:DigestValue>
+      <dsig:DigestValue>mWZ5u5PMBTkO6veuiX012sqIJFAj0cSLSe3w5wsfbrM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Azel_Raportare_Balkani.dll.config" size="414">
@@ -87,7 +87,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rXAZOQAyGTTKsY/RtkpHtO6fSZ4cTsYxJe8827up2as=</dsig:DigestValue>
+      <dsig:DigestValue>KUGoz4R9MZitE3wIvU5caTsD2vtbBejyInAJ8x+YO+k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Azel_Raportare_Balkani.runtimeconfig.json" size="372">

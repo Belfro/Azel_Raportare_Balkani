@@ -976,6 +976,12 @@ namespace Azel_Raportare_Balkani
                 date_energie_ieri = db.GetDateEnergie(DateTime.Now.Date.AddDays(-1), DateTime.Now.Date.AddDays(0).AddTicks(-1));
                 date_energie_alaltaieri = db.GetDateEnergie(DateTime.Now.Date.AddDays(-2), DateTime.Now.Date.AddDays(-1).AddTicks(-1));
 
+                if (date_energie_ieri == null || date_energie_alaltaieri == null)
+                {
+                    goto Intrerupere_Prognoza;
+
+                }
+               
                 double[] contor_ieri = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                 contor_ieri[0] = date_energie_ieri.Where(x => x.Cuntu_Grup_1 > 2 || x.Cuntu_Grup_2 > 2).Count();
                 contor_ieri[1] = date_energie_ieri.Where(x => x.Craiu_1_Grup_1 > 2 || x.Craiu_1_Grup_2 > 2).Count();
@@ -1043,25 +1049,30 @@ namespace Azel_Raportare_Balkani
                 if (factor_corectie_cornereva < 0.8 || Double.IsNaN(factor_corectie_cornereva)) factor_corectie_cornereva = 0.8;
                 if (factor_corectie_cornereva > 1.05) factor_corectie_cornereva = 1.05;
 
+                
 
 
+                    prognoza.Add(new DateRaportZilnic { Nume_Grup = "Cuntu", Energie = Math.Round(suma_cuntu * factor_corectie_cuntu, 2) });
+                    prognoza.Add(new DateRaportZilnic { Nume_Grup = "Craiu_1", Energie = Math.Round(suma_craiu_1 * factor_corectie_craiu_1, 2) });
+                    prognoza.Add(new DateRaportZilnic { Nume_Grup = "Craiu_2", Energie = Math.Round(suma_craiu_2 * factor_corectie_craiu_2, 2) });
+                    prognoza.Add(new DateRaportZilnic { Nume_Grup = "Sebesel_1", Energie = Math.Round(suma_sebesel_1 * factor_corectie_sebesel_1, 2) });
+                    prognoza.Add(new DateRaportZilnic { Nume_Grup = "Sebesel_2", Energie = Math.Round(suma_sebesel_2 * factor_corectie_sebesel_2, 2) });
+                    prognoza.Add(new DateRaportZilnic { Nume_Grup = "Cornereva", Energie = Math.Round(suma_cornereva * factor_corectie_cornereva, 2) });
 
-
-
-
-                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Cuntu", Energie = Math.Round(suma_cuntu * factor_corectie_cuntu, 2) });
-                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Craiu_1", Energie = Math.Round(suma_craiu_1 * factor_corectie_craiu_1, 2) });
-                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Craiu_2", Energie = Math.Round(suma_craiu_2 * factor_corectie_craiu_2, 2) });
-                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Sebesel_1", Energie = Math.Round(suma_sebesel_1 * factor_corectie_sebesel_1, 2) });
-                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Sebesel_2", Energie = Math.Round(suma_sebesel_2 * factor_corectie_sebesel_2, 2) });
-                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Cornereva", Energie = Math.Round(suma_cornereva * factor_corectie_cornereva, 2) });
 
                 return prognoza;
 
 
+            Intrerupere_Prognoza:
 
+                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Cuntu", Energie = Math.Round(0.0, 2) });
+                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Craiu_1", Energie = Math.Round(0.0, 2) });
+                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Craiu_2", Energie = Math.Round(0.0, 2) });
+                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Sebesel_1", Energie = Math.Round(0.0, 2) });
+                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Sebesel_2", Energie = Math.Round(0.0, 2) });
+                prognoza.Add(new DateRaportZilnic { Nume_Grup = "Cornereva", Energie = Math.Round(0.0, 2) });
 
-
+                return prognoza;
 
             }
             catch (Exception ex)

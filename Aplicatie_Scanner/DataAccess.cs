@@ -220,8 +220,13 @@ $" WHERE(X.Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}'
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Database Error: " + ex.Message);
+                var thread = new Thread(
+  () =>
+  {
+      MessageBox.Show("Database Error: " + ex.Message);
+  });
+                thread.Start();
+                //MessageBox.Show("Database Error: " + ex.Message);
                 return null;
             }
         }
@@ -348,8 +353,12 @@ $" WHERE(X.Date_Time BETWEEN '{DataSetata1.ToString("yyyy-MM-dd HH:mm:ss.fff")}'
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Database Error: " + ex.Message);
+                var thread = new Thread(
+  () =>
+  {
+      MessageBox.Show("Database Error: " + ex.Message);
+  });
+                thread.Start();
                 return null;
             }
         }
